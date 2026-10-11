@@ -1,0 +1,31 @@
+name: LifeLine
+options:
+  bundleIdPrefix: com.lifeline
+  deploymentTarget:
+    iOS: "15.0"
+targets:
+  LifeLine:
+    type: application
+    platform: iOS
+    sources:
+      - path: LifeLine
+    settings:
+      base:
+        PRODUCT_NAME: LifeLine
+        PRODUCT_BUNDLE_IDENTIFIER: com.lifeline.game
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        SWIFT_VERSION: "5.0"
+    info:
+      path: LifeLine/Info.plist
+      properties:
+        CFBundleDisplayName: LifeLine
+        CFBundleName: LifeLine
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UIStatusBarStyle: UIStatusBarStyleLightContent
+        UIViewControllerBasedStatusBarAppearance: true
+        ITSAppUsesNonExemptEncryption: false

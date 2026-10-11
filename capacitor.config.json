@@ -1,0 +1,7 @@
+{
+  "appId": "com.seninadin.lifeline",
+  "appName": "Lifeline",
+  "webDir": "www",
+  "backgroundColor": "#0f0a1a",
+  "android": { "allowMixedContent": false }
+}

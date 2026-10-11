@@ -1,0 +1,13 @@
+LifeLine - GitHub ile IPA
+=========================
+1) github.com'da yeni bir repo aç (Private olabilir).
+2) Bu zip'i çıkar, İÇİNDEKİ her şeyi (.github klasörü dahil) repoya yükle
+   (Add file > Upload files, klasörleri sürükle-bırak).
+   Not: .github görünmüyorsa Mac'te Cmd+Shift+. ile gizli dosyaları göster.
+3) Repo > Actions sekmesi > "Build IPA" > Run workflow  (ya da main'e her push'ta otomatik çalışır)
+4) 3-5 dk sonra bitince çalışmanın sayfasında Artifacts > LifeLine-ipa indir (zip içinde LifeLine.ipa).
+5) IPA imzasızdır: Sideloadly veya AltStore ile kendi Apple ID'nle imzalayıp telefona yükle.
+   (App Store/TestFlight için ücretli Apple Developer hesabı ve imzalama sertifikası gerekir.)
+
+Oyunu güncellemek: LifeLine/Resources/index.html dosyasını repoda yenisiyle değiştir -> Actions yeniden IPA üretir.
+Bundle ID: com.lifeline.game (project.yml içinde)
