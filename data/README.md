@@ -137,3 +137,14 @@ Türkiye futboluna Süper Lig eklendi (`05-futbol-ligleri.js`, `super`). Eski ka
 - `gameplay/11-social-surprises.js`: İçerik paylaşınca %30 ihtimalle ek sosyal olay, yılda en fazla 1; takipçi etkileri küçük ve parasal ödül yok.
 
 - `gameplay/12-club-applications.js`: Futbol ve basketbol oyuncuları ülke/lig/kulüp seçerek başvurabilir. Yılda 3, aynı kulübe 1 başvuru; o ülkede bulunma şartı vardır. Kabul şansı performans, son sezon puanı ve kulüp gücüne bağlıdır. Teklif kabul edilene kadar mevcut takım korunur; aynı branşta transfer için istifa gerekmez.
+
+- `gameplay/13-fame-growth.js`: Şöhret sosyal medyadaki toplam takipçi/aboneler ve işletmenin şube, çalışan, ciro, itibar ve kârlı faaliyet süresine göre hesaplanır. İki kaynak birlikte katkı verir; işletme sahiplerinde de ana ekrandaki bar görünür. Takipçi hedefleri `FAME_BALANCE.socialMilestones` üzerinden değiştirilebilir.
+
+## Birbirine bağlı hayat sistemleri
+- `gameplay/14-life-choices.js`: Yıl/hayat/hedef denetimli karar kuyruğu.
+- `15-fame-events.js`: Röportaj, reklam, hayran karşılaşması ve ufak skandal. Tanınırlık etkisi zamanla azalır, etkinlikler en fazla yılda bir.
+- `16-relationship-invitations.js`: Arkadaş daveti, partner konuşması ve aile yardım/buluşma isteği; hedef ölmüş veya değişmişse eski seçim uygulanmaz.
+- `17-business-management.js`: Kalite, müşteri yorumları, çalışan eğitimi ve rakipler. Kalite/rekabet gelecek yılın gelirini etkiler; yatırımlar yıllık sınırlıdır.
+- `18-athlete-lifecycle.js`: Sakatlık ve yedeklik maç sayısını azaltır; sözleşme, yenileme, emeklilik ve antrenörlük.
+- `19-league-movement.js`: Tüm futbol/basketbol/voleybol liglerinde yükselme/düşme, yavaş kulüp gelişimi. Yeni kadrolar gelecek sezon uygulanır; takım sayıları korunur. Ülkeler arasında takım geçişi yoktur.
+- `20-connected-year.js`: Yeni sistemlerin yıllık akışı. Sözleşmesi yenilenmeyen oyuncu sonraki yıl ücret almadan takımından ayrılır.

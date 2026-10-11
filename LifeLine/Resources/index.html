@@ -516,15 +516,21 @@ button:focus-visible{outline-color:#baa0ee}
 <style>
 .sports-stats-totals{gap:0;padding:4px 0;border:1px solid rgba(167,139,250,.17);border-radius:12px;background:rgba(167,139,250,.07)}.sports-stats-totals>div{padding:10px 4px;border-radius:0;background:transparent}.sports-stats-totals>div:not(:nth-child(3n+1)){border-left:1px solid rgba(167,139,250,.16)}.sports-stats-totals>div:nth-child(n+4){border-top:1px solid rgba(167,139,250,.16)}
 </style>
+<style>
+.top-actions{display:flex;align-items:center;gap:6px;min-width:0}.top-actions #tm{position:static;left:auto;top:auto;bottom:auto;flex:0 0 30px;width:30px;height:30px;margin:0;border:1px solid #68578d;border-radius:10px;font-size:15px;background:linear-gradient(145deg,#45365f,#2c2844);box-shadow:none}.top-actions #tm:focus-visible{outline:2px solid #c4a7f5;outline-offset:2px}
+</style>
+<style>
+#pg .row.business-compact-row{padding:8px 10px;margin-bottom:6px;border-radius:12px;gap:9px;min-height:0}#pg .row.business-compact-row .ic{width:31px;height:31px;flex:0 0 31px;font-size:17px;border-radius:9px}#pg .row.business-compact-row .tx b{font-size:13px;line-height:1.3}#pg .row.business-compact-row .tx small{font-size:10px;line-height:1.4;margin-top:2px}#pg .row.business-compact-row .ch{font-size:18px}
+</style>
 </head>
 <body>
 <div id="app">
-<div class="top"><button class="menu" id="menuBtn" aria-label="Menü"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="6.5" height="6.5" rx="2.2" fill="#fff"/><rect x="10.5" y="1" width="6.5" height="6.5" rx="2.2" fill="#d8b4fe"/><rect x="1" y="10.5" width="6.5" height="6.5" rx="2.2" fill="#d8b4fe"/><rect x="10.5" y="10.5" width="6.5" height="6.5" rx="2.2" fill="#fff"/></svg></button><div class="brand"><svg width="48" height="25" viewBox="0 0 120 56" aria-hidden="true"><path class="bp" d="M2 30 H34 L42 30 L48 8 L58 50 L66 20 L72 30 H118"/></svg></div><div class="loc" id="locChip"></div></div>
+<div class="top"><div class="top-actions"><button class="menu" id="menuBtn" aria-label="Menü"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="6.5" height="6.5" rx="2.2" fill="#fff"/><rect x="10.5" y="1" width="6.5" height="6.5" rx="2.2" fill="#d8b4fe"/><rect x="1" y="10.5" width="6.5" height="6.5" rx="2.2" fill="#d8b4fe"/><rect x="10.5" y="10.5" width="6.5" height="6.5" rx="2.2" fill="#fff"/></svg></button><button id="tm" aria-label="Zaman makinesi">🕰️</button></div><div class="brand"><svg width="48" height="25" viewBox="0 0 120 56" aria-hidden="true"><path class="bp" d="M2 30 H34 L42 30 L48 8 L58 50 L66 20 L72 30 H118"/></svg></div><div class="loc" id="locChip"></div></div>
 <div class="who"><div class="wi"><div id="name"></div><div id="meta"></div></div><div class="mn"><div id="money"></div><small>Banka Bakiyesi</small></div></div>
 <div id="log"></div>
 <nav>
 <button id="jobb"><i>🧳</i>İş</button><button id="ast"><i>🏡</i>Varlıklar</button>
-<button id="tm" aria-label="Zaman makinesi">🕰️</button><button id="next" aria-label="Bir yıl ilerle"><span>+</span>Yaş</button>
+<button id="next" aria-label="Bir yıl ilerle"><span>+</span>Yaş</button>
 <button id="rel"><i>🫂</i>İlişkiler</button><button id="act"><i>🎯</i>Aktiviteler</button>
 </nav>
 <div class="stats"><div class="av" id="av">👨</div><div id="bars"></div></div>
@@ -2660,12 +2666,7 @@ bizPage=function(){pgOpen(()=>{
    ro8("🏷️",L8("Fiyat stratejisi","Pricing strategy"),PRC[price],pick(L8("Fiyat stratejisi","Pricing strategy"),L8("Düşük fiyat daha çok müşteri getirir; premium fiyat yüksek marj sağlar ama itibar 60+ gerekir.","Low prices bring volume; premium prices bring margin but need reputation 60+."),PRC,[L8("Daha çok müşteri · düşük marj","More customers · thin margin"),L8("Dengeli","Balanced"),L8("Yüksek marj · itibar 60+ gerekir","High margin · needs reputation 60+")],price,i=>{b.price=i})),
    ro8("📣",L8("Reklam yap","Run an ad campaign"),b.ad?L8("Bu yıl aktif","Active this year"):TL(Math.round(b.inv*.03))+L8(" · Gelir %25 artar, gider yıl sonunda"," · Revenue +25%, paid at year end"),rp(()=>{if(b.ad){bad(L8("Reklam kampanyası zaten aktif.","The ad campaign is already running."));return}b.ad=1;line(L8("Reklam kampanyası başlattın.","You started an ad campaign."),"good");render()})));
   if(br<4)rows.push(ro8("🏬",L8("Yeni şube aç","Open a new branch"),TL(bc)+L8(" · Gelir ve sabit gider artar"," · Raises revenue and fixed costs"),conf(L8("Yeni şube aç","Open a new branch"),L8("Şube maliyeti: ","Branch cost: ")+TL(bc),()=>{if(S.p<bc)return poor();S.p-=bc;b.br=br+1;line(L8("Yeni bir şube açtın. (-","You opened a new branch. (-")+TL(bc)+")","good");render()})));
-  rows.push(ro8("🏦",L8("Kredi çek","Take a loan"),maxL>0?L8("En fazla ","Up to ")+TL(maxL)+L8(" · Faiz %18"," · 18% interest"):L8("Kredi limiti doldu","Loan limit reached"),()=>{
-    if(maxL<=0)return modal(L8("Kredi çek","Take a loan"),L8("Kredi limiti doldu.","Loan limit reached."),OK);
-    modal(L8("Kredi çek","Take a loan"),L8("Kredi sermayeyi büyütür; her yıl %18 faiz ve borcun %10'u ödenir. Zarar edersen iflas riski artar.","A loan grows capital; each year you pay 18% interest plus 10% of the principal. Losses raise bankruptcy risk."),
-      [.25,.5,1].map(f=>{const a=Math.round(maxL*f);return{t:TL(a),sub:L8("Sermayeye eklenir","Added to capital"),f:rp(()=>{b.inv+=a;b.loan=(b.loan||0)+a;line(L8("Kredi çektin: +","You took a loan: +")+TL(a),"good");render()})}}).concat(OK))}));
   if(loan>0)rows.push(ro8("💳",L8("Krediyi öde","Repay the loan"),TL(loan),()=>modal(L8("Krediyi öde","Repay the loan"),L8("Kalan borç: ","Remaining debt: ")+TL(loan),[1,.5].map(f=>{const a=Math.round(loan*f);return{t:f===1?L8("Tamamını öde","Pay in full"):L8("Yarısını öde","Pay half"),sub:TL(a),f:rp(()=>{if(S.p<a)return poor();S.p-=a;b.loan-=a;line(L8("Kredi ödemesi yaptın. (-","You made a loan payment. (-")+TL(a)+")","good");render()})}}).concat(OK))));
-  rows.push(ro8("🛡️",L8("İşyeri sigortası","Business insurance"),b.ins?L8("Aktif · yıllık ","Active · yearly ")+TL(Math.round(b.inv*.015)):TL(Math.round(b.inv*.015))+L8(" / yıl · Hasar masrafını azaltır"," / year · Cuts damage costs"),rp(()=>{b.ins=!b.ins;line(b.ins?L8("Sigorta yaptırdın.","You took out insurance."):L8("Sigortayı iptal ettin.","You cancelled the insurance."),b.ins?"good":"bad");render()})));
   if(b.share){const bb=Math.round((b.pPaid||b.inv*.3)*1.5);rows.push(ro8("🤝",L8("Ortağın payını al","Buy out your partner"),TL(bb)+" · %"+Math.round(b.share*100),conf(L8("Ortağın payını al","Buy out your partner"),L8("Bedel: ","Price: ")+TL(bb),()=>{if(S.p<bb)return poor();S.p-=bb;b.share=0;line(L8("Ortağın payını satın aldın. (-","You bought out your partner. (-")+TL(bb)+")","good");render()})))}
   rows.push(
    ro8("📊",L8("Finansal tablo","Financial statement"),L8("Gelir, gider ve kâr geçmişi","Revenue, expense and profit history"),bizFin),
@@ -2931,7 +2932,7 @@ pgOpen=function(builder){return pgOpenBeforeJobCards(()=>{
   if(!S||!S.job||(!["İŞİM","MY JOB","FUTBOL KARİYERİ"].includes(page.title)&&!page.jobDetails))return page;
   const j=S.job,sport=j.football||j.teamSport,icon=j.football?"⚽":j.teamSport?(j.teamSport.sport==="basketball"?"🏀":"🏐"):jobEmoji(j.b0||j.n);
   const name=sport?sport.team:j.n,net=salaryBreakdown(j.s).net;
-  page.intro='<div class="job-hero"><div class="job-hero-head"><div class="job-hero-icon">'+icon+'</div><div><div class="job-hero-label">'+(sport?esc(sport.position||"SPOR KARİYERİ"):"MEVCUT MESLEĞİN")+'</div><h3>'+esc(name)+'</h3></div></div><div class="job-hero-facts"><div><small>Yıllık brüt maaş</small><strong>'+TL(j.s)+'</strong></div><div><small>Aylık net maaş</small><strong>'+TL(Math.round(net/12))+'</strong></div></div><div class="job-performance"><span>Performans</span><b>'+S.perf+'%</b></div><div class="pf"><i style="width:'+cl(S.perf)+'%"></i></div></div>'+(page.sportsStatisticsIntro||'');
+  page.intro='<div class="job-hero"><div class="job-hero-head"><div class="job-hero-icon">'+icon+'</div><div><div class="job-hero-label">'+(sport?esc(sport.position||"SPOR KARİYERİ"):"MEVCUT MESLEĞİN")+'</div><h3>'+esc(name)+'</h3></div></div><div class="job-hero-facts"><div><small>Yıllık brüt maaş</small><strong>'+TL(j.s)+'</strong></div><div><small>Aylık net maaş</small><strong>'+TL(Math.round(net/12))+'</strong></div></div><div class="job-performance"><span>Performans</span><b>'+S.perf+'%</b></div><div class="pf"><i style="width:'+cl(S.perf)+'%"></i></div></div>'+(page.sportsStatisticsIntro||'')+(page.extraJobIntro||'');
   return page;
 })};
 // Persistent career seniority and separate military promotion paths.
@@ -3221,8 +3222,9 @@ function socialFame(){
 const renderBeforeFameBar=render;
 render=function(){
   const result=renderBeforeFameBar();
-  if(!S||!S.socialMedia||!Object.keys(S.socialMedia).length)return result;
-  const fame=socialFame();S.fame=fame;
+  if(!S)return result;
+  const fame=overallFame();S.fame=fame;
+  if(fame<=0&&!S.biz&&(!S.socialMedia||!Object.keys(S.socialMedia).length))return result;
   const row=document.createElement("div");row.className="sr fame";
   row.innerHTML='<em>Şöhret</em><u>⭐</u><div class="sb"><b style="width:'+fame+'%"></b><span>'+fame+'%</span></div>';
   $("bars").appendChild(row);return result;
@@ -3325,6 +3327,14 @@ $("next").onclick=nextYear;
 <script src="data/events/15-mizah-ve-sosyal-medya.js"></script>
 <script src="data/gameplay/11-social-surprises.js"></script>
 <script src="data/gameplay/12-club-applications.js"></script>
+<script src="data/gameplay/13-fame-growth.js"></script>
+<script src="data/gameplay/14-life-choices.js"></script>
+<script src="data/gameplay/15-fame-events.js"></script>
+<script src="data/gameplay/16-relationship-invitations.js"></script>
+<script src="data/gameplay/17-business-management.js"></script>
+<script src="data/gameplay/18-athlete-lifecycle.js"></script>
+<script src="data/gameplay/19-league-movement.js"></script>
+<script src="data/gameplay/20-connected-year.js"></script>
 <script>
 // Automatically resume the latest life independently of manual save slots.
 const AUTO_KEY="hs_autosave";

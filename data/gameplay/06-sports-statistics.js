@@ -14,7 +14,7 @@ function recordSportsSeason(showNotice=true){
   // Eski kayıttaki son oynanmış sezon da yalnızca bir kez içeri alınır.
   career.statisticsAge=S.age;career.statisticsSeason=career.season;
   const performance=Math.max(0,Math.min(100,Number(S.perf)||0)),quality=.25+performance/100*.75;
-  const matches=Math.min(team.o,Math.max(1,Math.round(team.o*(.55+quality*.4))));
+  const matches=Math.min(team.o,Math.max(0,Math.round(team.o*(.55+quality*.4)*Math.max(0,Math.min(1,career.availability??1)))));
   const count=(rate)=>Math.max(0,Math.round(matches*rate*quality*(.75+Math.random()*.5)));
   const values={},position=career.position||"";
   if(sport==="football"){

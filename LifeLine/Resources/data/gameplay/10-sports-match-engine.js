@@ -2,7 +2,8 @@
 function clubStrength(sport,team){return CLUB_STRENGTHS[sport]&&CLUB_STRENGTHS[sport][team]||70}
 function sportsMatchStrength(sport,team,player){
  let hash=0;for(const c of team+":"+S.age)hash=(hash*31+c.charCodeAt(0))>>>0;
- return clubStrength(sport,team)+(hash%7-3)+(player&&player.team===team?Math.max(-3,Math.min(3,((Number(player.performance)||50)-50)*.06)):0);
+ const career=S&&S.job&&(S.job.football||S.job.teamSport);const availability=career&&career.team===team?career.availability??1:1;
+ return clubStrength(sport,team)+(hash%7-3)+(player&&player.team===team?Math.max(-3,Math.min(3,((Number(player.performance)||50)-50)*.06*availability)):0);
 }
 function sportsPoisson(mean,random){let n=0,p=1;const limit=Math.exp(-mean);do{n++;p*=Math.max(.000001,Math.min(.999999,random()))}while(p>limit&&n<12);return Math.min(8,n-1)}
 function sportsFootballScore(a,b,random=Math.random,player){
