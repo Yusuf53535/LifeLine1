@@ -259,6 +259,35 @@ nav button i{background:linear-gradient(145deg,rgba(255,255,255,.45),rgba(167,13
 .hr::before,.hr::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.18);margin:0 6px}
 </style>
 
+<style>
+#occ,#rls,#mnu,#pg{display:flex!important;transform:translateX(100%);visibility:hidden;pointer-events:none;animation:none!important;transition:transform .3s cubic-bezier(.2,.8,.2,1),visibility 0s linear .3s}
+#occ.on,#rls.on,#mnu.on,#pg.on{transform:none;visibility:visible;pointer-events:auto;transition:transform .3s cubic-bezier(.2,.8,.2,1),visibility 0s}
+#modal{display:flex!important;opacity:0;visibility:hidden;pointer-events:none;animation:none!important;transition:opacity .2s ease,visibility 0s linear .2s}
+#modal.on{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .2s ease,visibility 0s}
+</style>
+<style>
+/* v8: üst bar */
+.top{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px;margin:8px 10px 0;padding:8px 10px;border-radius:22px;border:1px solid rgba(255,255,255,.24);
+ background:radial-gradient(120% 170% at 0% 0%,rgba(167,139,250,.38),transparent 60%),radial-gradient(110% 160% at 100% 100%,rgba(240,171,252,.22),transparent 60%),linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,.05));
+ -webkit-backdrop-filter:blur(20px) saturate(170%);backdrop-filter:blur(20px) saturate(170%);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -1px 0 rgba(255,255,255,.06),0 8px 24px rgba(20,0,50,.35);overflow:hidden}
+.top::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.16) 50%,transparent 65%);transform:translateX(-120%);animation:shine 7s ease-in-out infinite}
+@keyframes shine{0%,65%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.top .menu{justify-self:start;position:relative;z-index:1}
+.brand{display:flex;align-items:center;justify-content:center;justify-self:center;position:relative;z-index:1}
+.brand b{font:800 21px/1 "Bricolage Grotesque",system-ui,sans-serif;letter-spacing:.6px;background:linear-gradient(90deg,#fff,#d8b4fe 60%,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bp{fill:none;stroke:#d8b4fe;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:48 24;stroke-dashoffset:0;animation:ekgFlow 1.2s linear infinite;filter:drop-shadow(0 0 4px #a78bfa)}
+@keyframes ekgFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-72}}
+.loc{justify-self:end;position:relative;z-index:1;max-width:100%;padding:6px 11px;border-radius:14px;font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#efe3ff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);box-shadow:inset 0 1px 0 rgba(255,255,255,.3)}
+@media (prefers-reduced-motion:reduce){.bp{animation:none;stroke-dasharray:none;stroke-dashoffset:0}}
+/* v8: sayfa kapanış animasyonu (iç içe backdrop-filter titremesini bitirir) */
+#occ,#rls,#mnu,#pg{background:linear-gradient(160deg,#1f1338 0%,#140b27 55%,#0d0719 100%);-webkit-backdrop-filter:none;backdrop-filter:none;will-change:transform;backface-visibility:hidden;
+ box-shadow:-18px 0 40px rgba(0,0,0,.45);transition:transform .34s cubic-bezier(.32,.72,0,1),visibility 0s linear .34s}
+#occ.on,#rls.on,#mnu.on,#pg.on{transition:transform .34s cubic-bezier(.32,.72,0,1),visibility 0s}
+/* v8: pencere kapanış animasyonu */
+.sheet{transition:transform .2s ease,opacity .2s ease}
+#modal:not(.on) .sheet{transform:scale(.92) translateY(10px);opacity:0}
+</style>
 <style id="reference-palette">
 /* Midnight navy and violet palette from the supplied reference. */
 :root{--bg:#0d0e20;--card:#201a42;--ink:#ded8f4;--mut:#aaa0cb;--ac:#bb91f1;--gold:#00df92;--red:#ff426f;--line:#3e3069}
@@ -453,10 +482,44 @@ button:focus-visible{outline-color:#baa0ee}
 <style>.portfolio-pie{display:block;width:min(220px,100%);height:auto;overflow:visible}.portfolio-slice path,.portfolio-slice circle{stroke:#24283b;stroke-width:1.5;stroke-linejoin:round;transition:filter .15s}.portfolio-slice:hover path,.portfolio-slice:hover circle,.portfolio-slice:focus path,.portfolio-slice:focus circle{filter:brightness(1.15);stroke:#eee6ff;stroke-width:2}.portfolio-slice:focus{outline:none}.portfolio-pie-total{text-align:center;margin:-9px 0 16px}.portfolio-pie-total small{display:block;color:#b6accb;font-size:11px}.portfolio-pie-total b{display:block;color:#eee5fa;font-size:19px;margin-top:4px}</style>
 <style>.portfolio-pie{width:min(330px,100%)}.portfolio-slice-label{paint-order:stroke;stroke:#ffffff44;stroke-width:.3px}</style>
 <style>.finance-mini>div:last-child:nth-child(odd){grid-column:1 / -1;border-top:1px solid #ffffff0a}</style>
+<style>.relationship-profile{display:flex;gap:14px;align-items:center;padding:18px 15px;margin-bottom:14px;background:linear-gradient(135deg,#302b46,#21283b);border:1px solid #5a4a73;border-radius:17px}.relationship-avatar{display:grid;place-items:center;width:65px;height:65px;flex-shrink:0;border-radius:50%;border:2px solid #a784df;background:#3f335b;font-size:37px}.relationship-profile>div{flex:1;min-width:0}.relationship-profile strong{display:block;color:#ede5fa;font-size:19px;overflow-wrap:anywhere}.relationship-profile small{display:block;color:#b1a7c6;font-size:11px;margin-top:4px}.relationship-bond{display:flex;justify-content:space-between;font-size:11px;color:#b9acce;margin-top:12px}.relationship-bond b{color:#cfb5f4}.relationship-bond-track{height:6px;background:#3b3454;border-radius:8px;overflow:hidden;margin-top:5px}.relationship-bond-track i{display:block;height:100%;background:#ae87e7;border-radius:inherit}</style>
+<style>
+#pg[data-page-title="KİŞİ"] .ol{gap:5px;padding-top:8px}#pg[data-page-title="KİŞİ"] .row{padding:8px 11px;min-height:0;margin:0 0 3px;gap:9px;border-radius:11px}#pg[data-page-title="KİŞİ"] .row .ic{width:31px;height:31px;min-width:31px;font-size:18px;border-radius:9px}#pg[data-page-title="KİŞİ"] .row .tx b{font-size:13px;line-height:1.25}#pg[data-page-title="KİŞİ"] .row .tx small{font-size:10px;line-height:1.4;margin-top:3px}#pg[data-page-title="KİŞİ"] .row .ch{font-size:18px}#pg[data-page-title="KİŞİ"] .oh h2{font-size:24px;letter-spacing:1px}#pg[data-page-title="KİŞİ"] .oh{margin-top:10px}
+.relationship-profile{gap:15px;padding:18px 15px;border-radius:19px;border-color:#79618f;background:linear-gradient(130deg,#392e51,#202637);align-items:center}.relationship-avatar{width:82px;height:82px;border:3px solid #b289ec;background:linear-gradient(135deg,#554273,#322d47);font-size:48px;box-shadow:0 0 0 3px #ad88dc13}.relationship-profile .relationship-profile-info{border-left:1px solid #a887d433;padding-left:15px;min-width:0}.relationship-profile strong{font-size:22px;font-weight:800;margin-bottom:9px}.relationship-detail{display:flex;align-items:center;gap:8px;color:#c1b6d1;font-size:12px;padding:7px 0;line-height:1.4}.relationship-detail>span:first-child{color:#b99bd9;font-size:17px;flex-shrink:0}.relationship-detail-job{border-top:1px solid #a887d433}.relationship-bond-box{display:flex;align-items:center;gap:9px;margin-top:5px;padding:9px 10px;border:1px solid #a887d433;border-radius:10px;background:#171c2922;color:#c7bad8;font-size:11px}.relationship-bond-box .relationship-bond-track{flex:1;min-width:20px;margin:0;height:8px;background:#4a3c64}.relationship-bond-box b{color:#d3b5f2;font-size:13px;flex-shrink:0}@media(max-width:360px){.relationship-profile{gap:10px;padding:14px 11px}.relationship-avatar{width:65px;height:65px;font-size:39px}.relationship-profile .relationship-profile-info{padding-left:11px}.relationship-profile strong{font-size:19px}.relationship-detail{font-size:11px}.relationship-bond-box{gap:6px;padding:8px 7px}}
+</style>
+<style>.list-relationship{display:flex;align-items:center;gap:9px;margin-top:7px;width:100%}.list-relationship-track{display:block;flex:1;min-width:25px;height:6px;border-radius:7px;background:#3c3453;overflow:hidden}.list-relationship-track i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#976bdb,#bda0ef);transition:width .2s}.list-relationship-value{font-size:10px;line-height:1;color:#c9b2ec;min-width:29px;text-align:right}.row .tx:has(.list-relationship){min-width:0;flex:1}</style>
+<style>
+.family-tree-vertical{padding:5px 1px 25px;--family-line:#8e68c3;--family-border:#45405f;--family-muted:#afa2c6;color:#e8def6}.family-grandparents{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.family-side{display:flex;flex-direction:column;gap:9px;min-width:0}.family-side h3,.family-siblings h3,.family-children h3{display:flex;align-items:center;gap:7px;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#b594dd;margin:4px 0 5px;text-align:center;justify-content:center}.family-side h3:before,.family-side h3:after{content:"";height:1px;background:#8e68c366;flex:1;min-width:6px}.family-person{display:flex;align-items:center;gap:9px;padding:11px 9px;border:1px solid var(--family-border);border-radius:11px;background:linear-gradient(135deg,#29273d,#1d2638);min-width:0}.family-person-face{display:grid;place-items:center;width:43px;height:43px;border:1px solid #9974c5;border-radius:50%;background:#403354;font-size:28px;flex-shrink:0}.family-person-info{display:block;min-width:0}.family-person-info b{display:block;font-size:12px;line-height:1.35;overflow-wrap:anywhere}.family-person-info small{display:block;color:var(--family-muted);font-size:10px;line-height:1.35;margin-top:4px}.family-person-info small>span{color:#b295d4;margin-right:3px}.family-person-self{border-color:#a77bde;box-shadow:0 0 0 1px #9c70d32b,0 0 14px #9c70d316;background:linear-gradient(135deg,#332a48,#20273c)}.family-person-self .family-person-face{border-color:#bc91f2;box-shadow:0 0 9px #a77bde25}.family-person-dead .family-person-face{filter:saturate(.5)}.family-person-dead .family-person-info small:last-child{color:#a99caf}.family-tree-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.family-tree-pair>.family-person:only-child{grid-column:1/-1;justify-self:center;width:calc(50% - 5px)}.family-tree-center{display:flex;justify-content:center}.family-tree-center>.family-person{width:min(245px,78%)}.family-connector{position:relative;height:27px;display:flex;justify-content:center}.family-connector i{display:block;width:1px;height:100%;background:var(--family-line)}.family-connector span{position:absolute;bottom:0;width:5px;height:5px;border-radius:50%;background:#a980df}.family-connector-fork{height:32px;background:linear-gradient(var(--family-line),var(--family-line)) center 18px/1px 14px no-repeat}.family-connector-fork i{position:absolute;left:25%;right:25%;top:0;width:50%;height:18px;border:1px solid var(--family-line);border-top:0;border-radius:0 0 10px 10px;background:none}.family-siblings{margin-bottom:15px}.family-children h3{margin-bottom:9px}#pg[data-page-title="SOY AĞACI"] .oh h2{font-size:20px;letter-spacing:2px}#pg[data-page-title="SOY AĞACI"] .ol{padding:10px 12px;gap:0}@media(max-width:360px){.family-grandparents{gap:8px}.family-person{padding:9px 7px;gap:6px}.family-person-face{width:35px;height:35px;font-size:24px}.family-person-info b{font-size:11px}.family-person-info small{font-size:9px}.family-side h3{letter-spacing:.5px;font-size:9px}}
+</style>
+<style>
+.sports-stats{margin:10px 0;padding:12px;border:1px solid rgba(167,139,250,.22);border-radius:15px;background:linear-gradient(130deg,rgba(167,139,250,.10),rgba(30,36,55,.7))}
+.sports-stats-heading{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}.sports-stats b{font-size:14px;color:var(--txt,#eee)}
+.sports-stats small,.sports-stats p{color:var(--mut,#aaa);font-size:11px}.sports-stats-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.sports-stats-grid>div{padding:9px 5px;text-align:center;border-radius:10px;background:rgba(167,139,250,.07)}.sports-stats-grid strong{display:block;color:#c4a7f5;font-size:18px}.sports-stats-grid small{display:block;margin-top:3px}
+</style>
+<style>
+.season-summary{margin:14px 0 16px;color:#eeebfa}.season-summary-team{display:flex;align-items:center;gap:11px;padding:13px;border:1px solid rgba(167,139,250,.20);border-radius:14px;background:rgba(167,139,250,.08)}
+.season-summary-icon{display:grid;place-items:center;flex:0 0 42px;height:42px;border-radius:12px;background:rgba(167,139,250,.16);font-size:23px}.season-summary-team strong{display:block;font-size:16px;overflow-wrap:anywhere}.season-summary-team small{display:block;margin-top:4px;color:#b9b3cf;font-size:11px;line-height:1.5}
+.season-summary-tags{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 14px}.season-summary-tags span{padding:5px 9px;border-radius:8px;background:rgba(167,139,250,.10);color:#c9bbec;font-size:11px}
+.season-summary-rating{margin-bottom:14px}.season-summary-rating-label{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;font-size:12px;color:#b9b3cf}.season-summary-rating-label strong{color:#d5bbff;font-size:18px}.season-summary-track{height:8px;background:rgba(167,139,250,.14);border-radius:20px;overflow:hidden}.season-summary-track i{display:block;height:100%;background:linear-gradient(90deg,#8863bd,#ba98ee);border-radius:inherit}
+.season-summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.season-summary-stat{padding:12px 8px;border-radius:12px;border:1px solid rgba(167,139,250,.14);background:rgba(167,139,250,.06);text-align:center}.season-summary-stat strong{display:block;font-size:24px;color:#e3d2ff;line-height:1.2}.season-summary-stat small{display:block;color:#b9b3cf;font-size:11px;margin-top:5px}
+</style>
+<style>
+.football-league-scroll{overflow-x:auto;border:1px solid rgba(167,139,250,.17);border-radius:13px}.football-league-table{width:100%;border-collapse:collapse;font-size:11px;text-align:center}.football-league-table th{padding:10px 4px;color:#c9b6eb;background:rgba(167,139,250,.09)}.football-league-table td{padding:10px 4px;border-bottom:1px solid rgba(167,139,250,.09)}.football-league-table td:nth-child(2){text-align:left;min-width:120px}.football-league-table tbody tr:nth-child(even){background:rgba(167,139,250,.035)}.football-league-table tbody tr.football-league-own{background:rgba(167,139,250,.19);color:#e4d2ff;font-weight:700}
+</style>
+<style>
+.europe-match{display:grid;grid-template-columns:minmax(0,1fr) 52px minmax(0,1fr);gap:7px;align-items:center;padding:11px 7px;margin-top:7px;border-radius:9px;background:rgba(167,139,250,.06);font-size:11px}.europe-match span{overflow-wrap:anywhere}.europe-match span:last-child{text-align:right}.europe-match strong{text-align:center;color:#d6b6ff;font-size:14px}.europe-match-own{background:rgba(167,139,250,.18);border:1px solid rgba(167,139,250,.25)}
+</style>
+<style>
+.season-summary-combined{display:flex;gap:0;padding:12px 0;border:1px solid rgba(167,139,250,.18);border-radius:12px;background:rgba(167,139,250,.07)}.season-summary-combined .season-summary-stat{flex:1;min-width:0;padding:2px 6px;border:0;border-radius:0;background:transparent}.season-summary-combined .season-summary-stat+.season-summary-stat{border-left:1px solid rgba(167,139,250,.20)}
+</style>
+<style>
+.sports-stats-totals{gap:0;padding:4px 0;border:1px solid rgba(167,139,250,.17);border-radius:12px;background:rgba(167,139,250,.07)}.sports-stats-totals>div{padding:10px 4px;border-radius:0;background:transparent}.sports-stats-totals>div:not(:nth-child(3n+1)){border-left:1px solid rgba(167,139,250,.16)}.sports-stats-totals>div:nth-child(n+4){border-top:1px solid rgba(167,139,250,.16)}
+</style>
 </head>
 <body>
 <div id="app">
-<div class="top"><button class="menu" id="menuBtn" aria-label="Menü"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="6.5" height="6.5" rx="2.2" fill="#fff"/><rect x="10.5" y="1" width="6.5" height="6.5" rx="2.2" fill="#d8b4fe"/><rect x="1" y="10.5" width="6.5" height="6.5" rx="2.2" fill="#d8b4fe"/><rect x="10.5" y="10.5" width="6.5" height="6.5" rx="2.2" fill="#fff"/></svg></button></div>
+<div class="top"><button class="menu" id="menuBtn" aria-label="Menü"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="6.5" height="6.5" rx="2.2" fill="#fff"/><rect x="10.5" y="1" width="6.5" height="6.5" rx="2.2" fill="#d8b4fe"/><rect x="1" y="10.5" width="6.5" height="6.5" rx="2.2" fill="#d8b4fe"/><rect x="10.5" y="10.5" width="6.5" height="6.5" rx="2.2" fill="#fff"/></svg></button><div class="brand"><svg width="48" height="25" viewBox="0 0 120 56" aria-hidden="true"><path class="bp" d="M2 30 H34 L42 30 L48 8 L58 50 L66 20 L72 30 H118"/></svg></div><div class="loc" id="locChip"></div></div>
 <div class="who"><div class="wi"><div id="name"></div><div id="meta"></div></div><div class="mn"><div id="money"></div><small>Banka Bakiyesi</small></div></div>
 <div id="log"></div>
 <nav>
@@ -473,6 +536,10 @@ button:focus-visible{outline-color:#baa0ee}
 <div id="modal"><div class="sheet" id="sheet"></div></div>
 <div id="ld"><div class="ldb"><svg width="150" height="70" viewBox="0 0 120 56" aria-hidden="true"><path class="ldp" d="M2 30 H34 L42 30 L48 8 L58 50 L66 20 L72 30 H118"/></svg><div class="ldbar"><i></i></div><small>Hayat yükleniyor…</small></div></div>
 <script>
+window.addEventListener("error",function(e){try{var l=document.getElementById("ld");if(l)l.style.display="none";var d=document.createElement("div");d.style.cssText="position:fixed;left:8px;right:8px;top:8px;z-index:99;background:#7f1d1d;color:#fff;padding:10px;border-radius:10px;font:12px/1.4 monospace;word-break:break-all";d.textContent="HATA: "+e.message+" (satır "+e.lineno+":"+e.colno+")";document.body.appendChild(d)}catch(x){}});
+setTimeout(function(){var l=document.getElementById("ld");if(l)l.style.display="none"},6000);
+</script>
+<script>
 const $=id=>document.getElementById(id);
 const R=a=>a[Math.floor(Math.random()*a.length)];
 const rnd=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
@@ -484,25 +551,10 @@ const ST=[["h","Sağlık","#d1495b"],["m","Mutluluk","#edae49"],["z","Zeka","#0f
 const MALE=["Ahmet","Mehmet","Mustafa","Ali","Hüseyin","Hasan","İbrahim","İsmail","Yusuf","Murat","Emre","Can","Burak","Kerem","Deniz","Oğuz","Eren","Furkan","Berk","Arda","Kaan","Mert","Onur","Serkan","Tolga","Volkan","Barış","Cem","Ege","Emir","Enes","Efe","Hakan","Halil","Kadir","Metin","Ozan","Selim","Semih","Tuna","Uğur","Umut","Yiğit","Alperen","Bora","Çağan","Doruk","Gökhan","Koray","Levent","Okan","Orhan","Rüzgar","Sinan","Taner","Utku","Yasin","Zafer","Batuhan","Mete","Caner","Erdem"],FEM=["Ayşe","Fatma","Hatice","Elif","Zeynep","Defne","Merve","Ece","Selin","Deniz","Esra","Büşra","Gamze","Gizem","Pınar","Seda","Sibel","Tuğba","Yağmur","Zehra","Aslı","Aylin","Bengü","Burcu","Cansu","Derya","Dilara","Duygu","Ebru","Ezgi","Fidan","Gül","Hande","İpek","Kübra","Melis","Melek","Nazlı","Naz","Nehir","Özge","Pelin","Rabia","Sena","Sude","Şule","Tuana","Yaren","Yasemin","Beren","Ceren","Damla","Eylül","Irmak","İrem","Lale","Nisa","Ada","Asya","Azra"];
 const SUR=["Yılmaz","Kaya","Demir","Çelik","Şahin","Aydın","Öztürk","Arslan","Yıldız","Yıldırım","Özdemir","Aksoy","Aslan","Doğan","Kılıç","Çetin","Kara","Koç","Kurt","Özkan","Şimşek","Polat","Erdoğan","Güneş","Aktaş","Korkmaz","Çakır","Bulut","Tekin","Taş","Ünal","Güler","Acar","Avcı","Bozkurt","Özer","Kaplan","Karaca","Yavuz","Turan","Duman","Erdem","Coşkun","Sönmez","Uçar","Bayrak","Tunç","Akın","Yalçın","Başaran","Eren","Işık","Keskin","Sarı","Toprak","Altun","Gündüz","Bayram","Karahan","Yaman"];
 const CITY=["İstanbul","Ankara","İzmir","Bursa","Trabzon","Gaziantep","Konya","Antalya","Mardin"];
-const JOBS=[
- {n:"Kasiyer",z:0,s:354000},{n:"Garson",z:0,s:360000},{n:"Güvenlik görevlisi",z:0,s:474000},{n:"Aşçı",z:20,s:504000},{n:"Kurye",z:10,s:720000},
- {n:"Şoför",z:15,s:456000},{n:"Satış danışmanı",z:35,s:456000},{n:"Elektrikçi",z:30,s:540000},
- {n:"Hemşire",z:50,s:804000,u:1,d:["hemsirelik","ebelik"]},{n:"Gazeteci",z:50,s:600000,u:1,d:["iletisim"]},{n:"Öğretmen",z:50,s:792000,u:1,d:["egitim","matematik","edebiyat","tarih","fizik","kimya","biyoloji"]},
- {n:"Muhasebeci",z:50,s:600000,u:1,d:["isletme","iktisat"]},{n:"Psikolog",z:60,s:660000,u:1,d:["psikoloji"]},{n:"Bankacı",z:55,s:780000,u:1,d:["isletme","iktisat"]},
- {n:"Mimar",z:65,s:720000,u:1,d:["mimarlik","insaat"]},{n:"Mühendis",z:62,s:780000,u:1,d:["bilgisayar","elektrik","makine","insaat","endustri"]},
- {n:"Avukat",z:68,s:840000,u:1,d:["hukuk"]},{n:"Veri analisti",z:65,s:840000,u:1,d:["bilgisayar","matematik"]},{n:"Eczacı",z:68,s:960000,u:1,d:["eczacilik"]},
- {n:"Yazılımcı",z:62,s:828000,u:1,d:["bilgisayar","elektrik"]},{n:"Diş hekimi",z:72,s:1320000,u:1,d:["dis"]},{n:"Doktor",z:75,s:960000,u:1,d:["tip"]},
- {n:"Veteriner",z:70,s:660000,u:1,d:["veteriner"]},{n:"Uçak mühendisi",z:70,s:1080000,u:1,d:["ucak"]},{n:"Kimyager",z:55,s:600000,u:1,d:["kimya"]},
- {n:"Akademisyen",z:70,s:840000,u:1,d:["fizik","matematik","kimya","tarih","edebiyat","sosyoloji","biyoloji","iktisat"]},{n:"Biyolog",z:55,s:540000,u:1,d:["biyoloji"]},
- {n:"Ziraat mühendisi",z:50,s:576000,u:1,d:["ziraat"]},{n:"Fizyoterapist",z:58,s:600000,u:1,d:["fizyoterapi"]},{n:"Diyetisyen",z:52,s:504000,u:1,d:["beslenme"]},
- {n:"Antrenör",z:45,s:540000,u:1,d:["spor"]},{n:"Otel müdürü",z:45,s:840000,u:1,d:["turizm"]},{n:"Grafik tasarımcı",z:40,s:540000,u:1,d:["grafik","sinema","moda"]},
- {n:"Orkestra sanatçısı",z:35,s:600000,u:1,d:["muzik"]},{n:"Film yönetmeni",z:50,s:960000,u:1,d:["sinema"]},{n:"Moda tasarımcısı",z:40,s:600000,u:1,d:["moda"]},
- {n:"Diplomat",z:68,s:1200000,u:1,d:["uluslararasi"]},{n:"Ekonomist",z:58,s:780000,u:1,d:["iktisat"]},{n:"Müze uzmanı",z:45,s:540000,u:1,d:["tarih"]},
- {n:"Editör",z:45,s:540000,u:1,d:["edebiyat","iletisim"]},{n:"Sosyolog",z:45,s:540000,u:1,d:["sosyoloji"]},{n:"Polis",z:40,s:780000,u:1,d:["polis"]},
- {n:"Subay",z:55,s:1080000,u:1,d:["harp"]},{n:"Ebe",z:45,s:744000,u:1,d:["ebelik"]},
- {n:"Tesisatçı",z:20,s:540000},{n:"Marangoz",z:20,s:504000},{n:"Berber",z:10,s:480000},{n:"Terzi",z:10,s:396000},{n:"Çiftçi",z:0,s:360000},
- {n:"Balıkçı",z:0,s:384000},{n:"Tır şoförü",z:20,s:720000},{n:"Teknik servis uzmanı",z:30,s:540000},
- {n:"Pilot",z:70,s:2400000,u:1,d:["havacilik"]}];
+</script>
+<script src="data/careers/01-tam-zamanli.js"></script>
+<script>
+
 let S;
 const MK="hs_meta";
 let META={gems:100,owned:[],gift:""};
@@ -569,85 +621,14 @@ function choose(ev){
     if(c.run)c.run();
     render();check();}})));
 }
-const EV=[
- {a:[6,17],t:"Okulda kavga",d:"Teneffüste biri seninle dalga geçiyor.",c:[
-  {t:"Karşılık ver",m:"Kavga çıktı, müdür odasına gittin.",fx:{m:-8,h:-6}},
-  {t:"Görmezden gel",m:"Gülüp geçtin, olay kapandı.",fx:{m:3}},
-  {t:"Öğretmene söyle",m:"Öğretmen konuyu çözdü.",fx:{m:5,z:2}}]},
- {a:[7,17],t:"Sınav haftası",d:"Yarın büyük bir sınav var.",c:[
-  {t:"Sabaha kadar çalış",m:"Sınavdan yüksek not aldın.",fx:{z:6,h:-4,m:-2}},
-  {t:"Kopya çek",m:"Yakalandın, sıfır aldın.",fx:{m:-8,z:-2}},
-  {t:"Maça git",m:"Sınav kötü geçti ama maç harikaydı.",fx:{m:7,z:-3}}]},
- {a:[8,18],t:"Yeni arkadaş",d:"Sınıfa yeni bir çocuk geldi, yanına oturmak istiyor.",c:[
-  {t:"Yanına otur",m:"İyi arkadaş oldunuz.",fx:{m:8}},
-  {t:"Hayır de",m:"Sırada tek kaldın.",fx:{m:-3}}]},
- {a:[12,17],t:"Sivilce krizi",d:"Aynaya baktın, yüzünde koca bir sivilce var.",c:[
-  {t:"Krem sür",m:"Biraz düzeldi.",fx:{g:3,p:-1500}},
-  {t:"Sıkıştır",m:"İz kaldı.",fx:{g:-5,m:-3}}]},
- {a:[14,40],t:"Aşk",d:"Biri sana mesaj attı: 'Kahve içelim mi?'",c:[
-  {t:"Tamam de",m:"Güzel bir akşam geçirdin, kalbin hızlandı.",fx:{m:10}},
-  {t:"Reddet",m:"Mesajı görmezden geldin.",fx:{m:-2}}]},
- {a:[16,60],t:"Sokakta bir cüzdan",d:"Yerde içi dolu bir cüzdan buldun.",c:[
-  {t:"Sahibine ver",m:"Sahibi çok sevindi, sana teşekkür etti.",fx:{m:8}},
-  {t:"Parayı al",m:"Vicdan azabı çektin ama paran arttı.",fx:{p:20000,m:-6}}]},
- {a:[18,18],t:"Üniversite zamanı",d:"Üniversite sınavı zamanı geldi. Sınava girip üniversiteye yerleşmek ister misin? (4 yıl, para kazanamazsın)",c:[
-  {t:"Sınava gir",m:"Sınava girmeye karar verdin.",fx:{},run:()=>yksExam()},
-  {t:"Çalışmaya başla",m:"Okumamaya karar verdin.",fx:{}}]},
- {a:[18,50],t:"Arkadaşlar tatile çağırıyor",d:"Ege'de bir hafta. Paraya ihtiyacın var.",c:[
-  {t:"Git",m:"Muhteşem bir tatil oldu.",fx:{m:14,p:-150000,h:3}},
-  {t:"Evde kal",m:"Para biriktirdin ama canın sıkıldı.",fx:{m:-4}}]},
- {a:[20,65],t:"Arabada sorun",d:"Aracın yolda kaldı.",c:[
-  {t:"Tamir ettir",m:"Usta işi hallettin.",fx:{p:-25000}},
-  {t:"Kendin yap",m:"Videodan izleyip hallettin.",fx:{z:3,h:-2}}]},
- {a:[22,60],t:"Kripto fırsatı",d:"Bir arkadaş 'kesin kazandırır' diyor.",c:[
-  {t:"50.000 ₺ yatır",m:"Piyasa çöktü, paran gitti.",fx:{p:-50000,m:-6}},
-  {t:"Yatırma",m:"Aklın başında davrandın.",fx:{z:1}}]},
- {a:[30,70],t:"Boğaz'da yürüyüş",d:"Hava çok güzel, çayın yanında simit var.",c:[
-  {t:"Keyfini çıkar",m:"Gününü güzelleştirdi.",fx:{m:6,h:2}}]},
- {a:[35,80],t:"Göğsünde ağrı",d:"Merdiven çıkarken nefesin kesildi.",c:[
-  {t:"Doktora git",m:"Erken fark ettin, tedavi başladı.",fx:{h:4,p:-15000}},
-  {t:"Önemseme",m:"Durumun kötüleşti.",fx:{h:-15}}]},
- {a:[45,80],t:"Aile yemeği",d:"Bayramda tüm akrabalar toplandı.",c:[
-  {t:"Hepsiyle ilgilen",m:"Ailenle güzel vakit geçirdin.",fx:{m:9}},
-  {t:"Erken ayrıl",m:"Yorgunluktan eve döndün.",fx:{m:-2,h:2}}]}
-];
-const bd=d=>()=>{if(S.partner)S.partner.b=cl(S.partner.b+d)};
-EV.push(
-{a:[4,10],t:"Parkta düştün",d:"Kaydıraktan düştün, dizin yandı.",c:[{t:"Ağla",m:"Annen koşup geldi, sarıldı.",fx:{m:-2,h:-2}},{t:"Kalk, oynamaya devam et",m:"Yarayı umursamadın.",fx:{m:3,h:-2}}]},
-{a:[5,12],t:"Yeni bisiklet",d:"Doğum gününde sana bisiklet aldılar.",c:[{t:"Hızlı sür",m:"Hızlıydın ama düştün.",w:[.5,"Mahallede kimse seni yakalayamadı!",{m:8,h:2}],fx:{h:-8,m:-2}},{t:"Dikkatli sür",m:"Güvenle tur attın.",fx:{m:4,h:2}}]},
-{a:[7,17],t:"Karne günü",d:"Karneni almaya gidiyorsun.",c:[{t:"Gururla göster",m:"Notlar kötüydü, ailen üzüldü.",w:[()=>S.z/110,"Pekiyi aldın, ailen çok mutlu!",{m:10,z:2}],fx:{m:-6}},{t:"Çantanın dibine sakla",m:"Karneyi sakladın.",fx:{m:-2}}]},
-{a:[5,16],t:"Doğum günü partisi",d:"Bu yıl doğum gününü nasıl kutlayacaksın?",c:[{t:"Arkadaşlarını çağır",m:"Evde çok eğlendiniz.",fx:{m:9}},{t:"Sadece ailenle",m:"Sakin bir pasta kestiniz.",fx:{m:4}}]},
-{a:[8,17],t:"Harçlık",d:"Bu hafta harçlığın biraz fazla çıktı.",c:[{t:"Biriktir",m:"Kumbarana attın.",fx:{p:800,m:-1}},{t:"Hemen harca",m:"Büfeden bir sürü şey aldın.",fx:{m:5}}]},
-{a:[10,24],t:"Oyun gecesi",d:"Arkadaşlar online, yeni bölüm çıktı.",c:[{t:"Sabaha kadar oyna",m:"Sabaha kadar oynadın, gözün şişti.",fx:{m:7,h:-3,z:-1}},{t:"Uyu",m:"Erkenden yattın.",fx:{h:3}}]},
-{a:[13,40],t:"Video çektin",d:"Komik bir video çektin, paylaşmak istiyorsun.",c:[{t:"Paylaş",m:"Kimse izlemedi, bir iki kişi dalga geçti.",w:[.3,"Video viral oldu, herkes seni tanıyor!",{m:12,g:2,p:15000}],fx:{m:-6}},{t:"Paylaşma",m:"Telefonda saklı kaldı.",fx:{}}]},
-{a:[14,26],t:"Sigara teklifi",d:"Bir arkadaşın sana sigara uzatıyor.",c:[{t:"İç",m:"Öksürerek içtin, hiç hoş değildi.",fx:{h:-8,m:2}},{t:"Hayır de",m:"Hayır dedin, kimse bir şey demedi.",fx:{m:2,h:1}}]},
-{a:[16,35],t:"Ev partisi",d:"Hafta sonu için bir arkadaşın ev partisi veriyor.",c:[{t:"Sabaha kadar kal",m:"Çok eğlendin ama sabah yorgundun.",fx:{m:9,h:-5,p:-4000}},{t:"Erken ayrıl",m:"Biraz takılıp eve döndün.",fx:{m:2}}]},
-{a:[18,30],t:"Ehliyet sınavı",d:"Direksiyon sınavı için randevun var.",once:1,c:[{t:"Sınava gir",m:"Kaldın, bir daha deneyeceksin.",w:[()=>.4+S.z/200,"Ehliyeti ilk seferde aldın!",{m:10,p:-15000}],fx:{m:-5,p:-15000}},{t:"Sonra bakarım",m:"Sınavı erteledin.",fx:{}}]},
-{a:[20,28],t:"Askerlik çağrısı",d:"Askerlik zamanın geldi.",once:1,f:()=>!S.f&&(!S.home||S.home==="Türkiye"),c:[{t:"Askere git",m:"Bedelli ödemeden vatani görevini yaptın.",fx:{h:4,m:-6,z:2,g:2}},{t:"Bedelli öde",m:"Bedelli ödedin.",fx:{p:-450000,m:2}}]},
-{a:[18,80],t:"Piyango bileti",d:"Büfede bilet satıyorlar.",c:[{t:"Bilet al",m:"Bilet tutmadı.",w:[.04,"Büyük ikramiye çıktı!!!",{p:12000000,m:20}],fx:{p:-300}},{t:"Almaktan vazgeç",m:"Geçtin gittin.",fx:{}}]},
-{a:[8,80],t:"Sokak kedisi",d:"Bir yavru kedi seni eve kadar takip etti.",c:[{t:"Sahiplen",m:"Kedin artık evinin bir parçası.",fx:{m:9,p:-1500}},{t:"Mama ver, yoluna devam et",m:"Mama verdin, kedi gitti.",fx:{m:2}}]},
-{a:[20,64],t:"Patronla tartışma",d:"Patron toplantıda seni herkesin önünde eleştirdi.",f:()=>S.job,c:[{t:"Sus",m:"Sessiz kaldın, canın sıkıldı.",fx:{m:-4}},{t:"Karşı çık",m:"Patron sinirlendi, ortam gerildi.",w:[.5,"Patron haklı olduğunu kabul etti.",{m:6}],fx:{m:-6}}]},
-{a:[22,60],t:"Terfi teklifi",d:"Müdür sana yeni bir pozisyon öneriyor.",f:()=>S.job,c:[{t:"Kabul et",m:"Terfi aldın, maaşın %20 arttı.",fx:{m:4,h:-2},run:()=>{S.job={...S.job,s:Math.round(S.job.s*1.2)}}},{t:"Reddet",m:"Şimdilik kalmak istedin.",fx:{m:-2}}]},
-{a:[25,60],t:"Şirket küçülüyor",d:"Şirkette işten çıkarmalar konuşuluyor.",f:()=>S.job,c:[{t:"Kal",m:"Endişeyle çalışmaya devam ettin.",fx:{m:-3},run:()=>{if(Math.random()<.3){S.job=null;line("İşten çıkarıldın.","bad")}}},{t:"Kendin ayrıl",m:"Tazminat alıp ayrıldın.",fx:{p:30000,m:-2},run:()=>{S.job=null}}]},
-{a:[18,70],t:"Sevgiliyle tatil",d:"Sevgilin bir tatile çıkmayı teklif ediyor.",f:()=>S.partner,c:[{t:"Git",m:"Harika bir tatil oldu.",fx:{m:10,p:-90000},run:bd(12)},{t:"Gitme",m:"Tatil teklifini geri çevirdin.",fx:{m:-2},run:bd(-6)}]},
-{a:[16,60],t:"Sevgiliyle kavga",d:"Sevgilinle ufak bir konu yüzünden tartıştınız.",f:()=>S.partner,c:[{t:"Özür dile",m:"Barıştınız.",fx:{m:-1},run:bd(5)},{t:"Israr et",m:"Tartışma büyüdü.",fx:{m:-4},run:bd(-15)}]},
-{a:[22,85],t:"Evlilik yıldönümü",d:"Bugün evlilik yıldönümünüz.",f:()=>S.married,c:[{t:"Sürpriz yap",m:"Eşin çok mutlu oldu.",fx:{m:8,p:-25000},run:bd(10)},{t:"Unut gitsin",m:"Eşin bozuldu.",fx:{m:-4},run:bd(-10)}]},
-{a:[16,80],t:"Telefon çalındı",d:"Otobüste telefonun yok oldu.",c:[{t:"Polise bildir",m:"Şikayet ettin, telefon bulunamadı.",fx:{m:-3}},{t:"Yenisini al",m:"Yeni bir telefon aldın.",fx:{p:-45000,m:-2}}]},
-{a:[12,60],t:"Maç bileti",d:"Takımın derbiye çıkıyor.",c:[{t:"Tribüne git",m:"Tribünde tüm gece bağırdın.",fx:{m:9,p:-3500,h:-1}},{t:"Evde izle",m:"Koltukta sakin sakin izledin.",fx:{m:4}}]},
-{a:[14,60],t:"Dedikodu",d:"Bir arkadaşın hakkında dedikodu duydun.",c:[{t:"Dedikoduya katıl",m:"Birkaç kişiyle konuştun, içini rahat bırakmadı.",fx:{m:-3}},{t:"Karışma",m:"Ortamdan uzak durdun.",fx:{z:1,m:1}}]},
-{a:[3,80],t:"Grip oldun",d:"Boğazın yanıyor, ateşin çıkmış.",c:[{t:"Yat dinlen",m:"İki gün dinlendin, iyileştin.",fx:{h:4,m:-1}},{t:"Aldırma",m:"İşe gittin, hastalığın uzadı.",fx:{h:-6,m:-1}}]},
-{a:[20,55],t:"Girişim fikri",d:"Aklında harika bir iş fikri var.",c:[{t:"Dene",m:"Fikir tutmadı, para kaybettin.",w:[.25,"İşin tuttu, kazanç sağladın!",{p:800000,m:12,z:3}],fx:{p:-150000,m:-6}},{t:"Vazgeç",m:"Riske girmedin.",fx:{}}]},
-{a:[30,80],t:"Miras",d:"Uzak bir akrabadan sana miras kaldı.",c:[{t:"Kabul et",m:"Beklemediğin bir para geldi.",fx:{p:1500000,m:4}}]},
-{a:[20,60],t:"Trafik",d:"Yolda bir saattir hiç ilerlemiyorsun.",c:[{t:"Sakin kal",m:"Radyoyu açıp şarkı söyledin.",fx:{z:1}},{t:"Korna çal",m:"Sinirlendin, kimseyi umursatmadın.",fx:{m:-3,h:-1}}]},
-{a:[18,45],t:"Kafede tanışma",d:"Kafede yanındaki masadan biri sana gülümsüyor.",f:()=>!S.partner,c:[{t:"Merhaba de",m:"Sohbet ettiniz, numaraları aldınız.",fx:{m:7},run:()=>{const pf=pickG(),n=FN(pf).split(" ")[0];S.partner={n,b:50,f:pf};line(n+" ile çıkmaya başladınız.","gold")}},{t:"Gülümse, geç",m:"Kafenden çıkıp yoluna gittin.",fx:{}}]},
-{a:[16,60],t:"Spor salonu üyeliği",d:"Yeni bir spor salonu açıldı.",c:[{t:"Üye ol",m:"Düzenli gitmeye başladın.",fx:{h:5,g:3,p:-18000}},{t:"Hayır",m:"Şimdilik geçtin.",fx:{}}]},
-{a:[20,50],t:"Eski sevgili",d:"Eski sevgilin sana mesaj attı.",c:[{t:"Cevapla",m:"Biraz konuştunuz, kafan karıştı.",fx:{m:-2}},{t:"Engelle",m:"Mesajı sildin, rahatladın.",fx:{m:2}}]},
-{a:[5,80],t:"Köye gidiş",d:"Hafta sonu köye gitmek ister misin?",c:[{t:"Git",m:"Temiz hava, taze ekmek ve sofra.",fx:{m:6,h:3}},{t:"Şehirde kal",m:"Şehirde kaldın.",fx:{}}]},
-{a:[60,85],t:"Kahvehane",d:"Mahalledeki arkadaşların tavla oynamaya çağırıyor.",c:[{t:"Git",m:"Çaylar eşliğinde tavla oynadın.",fx:{m:6}},{t:"Evde dinlen",m:"Evde sakin bir gün geçirdin.",fx:{h:1}}]},
-{a:[50,85],t:"Doktor kontrolü",d:"Yıllık kontrol zamanı geldi.",c:[{t:"Kontrole git",m:"Her şey yolunda gitti.",fx:{h:5,p:-4000}},{t:"Ertele",m:"Kontrolü erteledin.",fx:{h:-4}}]},
-{a:[6,80],t:"Sürpriz hediye",d:"Kapıda senin adına bir paket var.",c:[{t:"Aç",m:"Çok güzel bir hediyeymiş.",fx:{m:6}}]},
-{a:[20,70],t:"Komşu şikayet etti",d:"Üst kat gece gürültüden şikayet ediyor.",c:[{t:"Özür dile",m:"Konuyu tatlıya bağladın.",fx:{m:-1,z:1}},{t:"Aldırma",m:"Umursamadın ama gerginlik arttı.",fx:{m:-2}}]}
-);
+</script>
+<script src="data/events/01-temel-olaylar.js"></script>
+<script>
+
+</script>
+<script src="data/events/02-gundelik-olaylar.js"></script>
+<script>
+
 function nextYear(){
   if(!S)return;
   if(S.dead)return;
@@ -840,13 +821,14 @@ function recr(){
     render()}},...OK]);
 }
 function jobsGate(){jobs()}
-function milit(){
-  if(S.age<18||S.age>40||S.uni)return modal("Askerlik","18-40 yaş arası ve öğrenci olmayan kişiler katılabilir.",OK);
-  modal("Askerlik","Orduya katıl, düzenli maaş al.",[{t:"Orduya katıl",sub:"Yıllık "+TL(400000*wm())+" · Sağlık ve görünüm artar",f:()=>{
-    if(!canStartCareer())return;
-    S.job={n:"Asker",s:Math.round(400000*wm()),mil:1};S.perf=50;apply({h:4,g:2,m:-3});line("Orduya katıldın.","gold");render()}},...OK]);
-}
-const PART=[{n:"Bakkal çırağı",s:150000},{n:"Kafe garsonu",s:170000},{n:"Paket dağıtımı",s:200000}];
+</script>
+<script src="data/careers/04-askerlik.js"></script>
+<script>
+
+</script>
+<script src="data/careers/02-yari-zamanli.js"></script>
+<script>
+
 function part(){
   const icons=["🛒","☕","🛵"];
   pgOpen(()=>({title:"YARI ZAMANLI İŞLER",intro:'<div class="row cur"><span class="ic">🕐</span><span class="tx"><b>Yarı zamanlı işler</b><small>'+esc(S.age<16?"16 yaşından sonra çalışabilirsin.":"Okulla birlikte yapabileceğin işler.")+'</small></span></div>',rows:S.age<16?[]:PART.map((x,i)=>({ic:icons[i]||"🕐",t:x.n,d:"Brüt aylık "+TL(Math.round(x.s*wm()/12))+" · Net aylık "+TL(Math.round(salaryBreakdown(x.s*wm(),S.home||"Türkiye").net/12)),f:()=>{
@@ -856,7 +838,10 @@ function part(){
     render();drawOcc();pgDraw();modal("Başvuru sonucu",accepted?x.n+" olarak işe alındın! Aylık net maaş: "+TL(Math.round(salaryBreakdown(S.job.s).net/12)):x.n+" başvurun reddedildi.",[{t:"Kapat",p:1}]);
   }}))}));
 }
-const SPEC=[];
+</script>
+<script src="data/careers/03-ozel-kariyerler.js"></script>
+<script>
+
 function spec(){
   pgOpen(()=>({title:"ÖZEL KARİYERLER",intro:'<div class="row cur"><span class="ic">🔒</span><span class="tx"><b>Şimdilik yok</b><small>Özel kariyerler şimdilik kapalı.</small></span></div>',rows:[]}));
 }
@@ -864,54 +849,31 @@ function spec(){
 // https://www.tff.org/default.aspx?pageID=142
 // https://www.tff.org/Default.aspx?grupID=3541&pageID=976
 // https://www.tff.org/Default.aspx?grupID=3542&pageID=976
-const FOOTBALL_LEAGUES={
- first:{name:"1. Lig",teams:["Sivaskent Spor","Pendik Yıldızları","Bodrum Birlik","Keçiören Gücü FK","Ümraniye Birlik","Sarıyer Sahilspor","Van Gölü FK","Bandırma Birlik","Bolu Dağspor","Antalya Akdeniz","Iğdır Aras FK","Batman Petrol FK","Kayseri Anadolu","Manisa Birlik FK","İstanbul Şehirspor","Esenler Erok FK","Fatih Gümrükspor","Muğla Egespor","Bursa Yeşilspor","Mardin 1970"]},
- white:{name:"2. Lig · Beyaz Grup",teams:["Muş Ovaspor","Aliağa Körfez FK","Elazığ Harputspor","Çorlu 1948","İnegöl Kafkas FK","Isparta 33 FK","Gebze Birlik","Şanlıurfa Harranspor","Menemen Ege FK","Erbaa Vadispor","Soma Maden FK","Aksaray 69","Ankara Başkent FK","Kastamonu Birlik","Sebat Karadeniz","Arnavutköy Birlik","Hatay Akdeniz","Adana Çelikspor"]},
- red:{name:"2. Lig · Kırmızı Grup",teams:["Sakarya Nehirspor","Beyoğlu Yeni Meydan","Ankara Çelikspor","Adana 02 FK","Ordu 53 FK","Erzincan Birlik","Bingöl 13","Maraş İstikbalspor","Ankara Gücü FK","Trabzon 1462","Karacabey Birlik","Serik Akdeniz FK","Kırklareli Trakyaspor","Fethiye Körfezspor","Kütahya Çinispor","İnegöl Birlik","İskenderun Körfez"]}
-};
+</script>
+<script src="data/careers/05-futbol-ligleri.js"></script>
+<script>
+
 // Game league pools use recognizable fictional names; membership is a game snapshot.
 // Sources: premierleague.com/en/clubs, efl.com/clubs, bundesliga.com/en/bundesliga/clubs,
 // bundesliga.com/de/2bundesliga/clubs, laliga.com/*/clubs, legaseriea.it/team,
 // legab.it/seriebkt, ligue1.com, eredivisie.nl/competitie/clubs,
 // keukenkampioendivisie.nl/teams, jleague.jp/en/j1/club, jleague.jp/en/j2/club,
 // mlssoccer.com, uslchampionship.com/league-teams, uaeproleague.ae/ar/clubs, uaefa.ae/en/clubs.
-const FOREIGN_FOOTBALL=[
-["İngiltere","en","Premier League","Championship",
-"Arsenel London|Aston Villia|Bournemouth Coast|Brighton Albion FC|Brentford Bees|Chelsey London|Crystal Palaces|Everton Mersey|Fulham Riverside|Leeds Union|Liverpool Reds|Manchester Blue|Manchester Union|Newcastle Union|Nottingham Woods|Sunderland Blackcats|Tottenham Spurs FC|Coventry Sky|Ipswich Town FC|Hull Tigers",
-"Birmingham Blues|Blackburn Wanderers|Bolton Rovers|Bristol Reds|Burnley Clarets|Cardiff Bluebirds|Charlton Athletics|Derby Rams|Lincoln Imps|Middlesborough FC|Millwall Lions|Norwich Canaries|Portsmouth Harbour|Preston Northside|Queens Park Rovers|Sheffield Union|Southampton Saints FC|Stoke Potters|Swansea Swans|Watford Hornets|West Brom Albion FC|West Ham Irons|Wolverhampton Wolves|Wrexham Dragons"],
-["Almanya","de","Bundesliga","2. Bundesliga",
-"Bayern München FC|Borussia Dortheim|Leipzig Bulls|Stuttgart Schwaben|Hoffenheim Blue|Leverkusen Werkself|Freiburg Breisgau|Frankfurt Adler|Augsburg Bavaria|Mainz 06|Berlin Union FC|Mönchengladbach Fohlen|Hamburg Hanse|Köln Rhein|Bremen Werder FC|Schalke 05|Elversberg Saar|Paderborn 08",
-"Bielefeld Arminia FC|Bochum 1849|Braunschweig Eintracht FC|Cottbus Energie FC|Darmstadt 99|Dresden Dynamo FC|Fürth Greuther FC|Hannover 97|Heidenheim 1847|Berlin Hertha FC|Kaiserslautern Rot|Karlsruhe SC|Kiel Holstein FC|Magdeburg Elbe|Nürnberg Franken|Osnabrück Lila|St. Pauli Hafen|Wolfsburg Wolves"],
-["Fransa","fr","Ligue 1","Ligue 2",
-"Angers Loire|Auxerre Bourgogne|Brest 30|Le Havre Port|Lens Sang Or|Lille Nord|Lorient Merlus|Lyon Olympique FC|Le Mans Racing|Marseille Olympique FC|Monaco Riviera|Nice Aiglons|Paris City FC|Paris Saint-Germains|Rennes Bretagne|Strasbourg Alsace FC|Toulouse Violet|Troyes Champagne",
-"Annecy Alpes|Boulogne Côte|Clermont Auvergne|Dijon Bourgogne|Dunkerque Maritime|Grenoble Alpes|Guingamp Bretagne|Laval Mayenne|Metz Lorraine|Montpellier Hérault FC|Nancy Lorraine FC|Nantes Canaris|Pau Béarn|Paris Red Stars|Reims Champagne|Rodez Aveyron FC|Saint-Étienne Verts|Sochaux Lion"],
-["İtalya","it","Serie A","Serie B",
-"Atalantia Bergamo|Bologna Rosso|Cagliari Isola|Como Lago|Fiorentina Viola FC|Frosinone Leone|Genoa Grifone FC|Inter Milano FC|Juventia Torino|Lazio Aquile|Lecce Salento|Milano Rossoneri|Monza Brianza|Napoli Azzurri FC|Parma Ducale|Roma Giallorossa|Sassuolo Verde|Torino Granata FC|Udine Bianconera|Venezia Laguna",
-"Arezzo Amaranto|Ascoli Piceno FC|Avellino Lupi|Benevento Streghe|Carrara Marmo|Catanzaro Aquile|Cesena Romagna|Cremona Grigio|Empoli Azzurro|Verona Hellas FC|Stabia Vespe|Mantova Virgiliana|Modena Canarini|Padova Bianco|Palermo Rosa|Pisa Torre|Sampdoria Genova FC|Sudtirol Alto|Vicenza Lanerossi FC|Entella Virtus FC"],
-["İspanya","es","La Liga","Segunda División",
-"Bilbao Athletic FC|Atlético Madrileño|Osasuna Navarra|Celta Vigo FC|Alavés Vitoria|Elche Palmeras|Barcelonia FC|Getafe Azul|Levante Valencia FC|Málaga Costa|Santander Racing FC|Rayo Vallecas|Deportivo Coruña FC|Espanyol Catalán|Betis Sevilla FC|Real Madria|Sociedad Donostia|Sevilla Andaluz|Valencia Mestalla|Villarreal Amarillo",
-"Ceuta Estrecho|Albacete Manchego|Burgos Castilla|Cádiz Bahía|Castellón Albinegro|Eldense Elda FC|Leganés Pepino|Tenerife Islas|Sabadell Arlequín|Celta Fortuna FC|Córdoba Andaluz|Andorra Pirineos|Girona Catalán|Granada Nazarí|Sociedad Reserva|Mallorca Balear|Oviedo Azul|Gijón Sporting FC|Valladolid Pucela|Eibar Armero|Almería Costa|Las Palmas Islas"],
-["Hollanda","nl","Eredivisie","Eerste Divisie",
-"Den Haag ADO FC|Ajaks Amsterdam|Alkmaar AZ FC|Excelsior Rotterdam FC|Groningen Noord|Twente Enschede FC|Utrecht Domstad|Feyenoort Rotterdam|Sittard Fortuna FC|Deventer Eagles|Nijmegen NEC FC|Zwolle PEC FC|Eindhoven PSV FC|Cambuur Leeuwarden FC|Heerenveen Friesland|Sparta Rotterd am".replace("Rotterd am","Rotterdam FC")+"|Telstar Velsen FC|Willem III Tilburg",
-"Almere City FC2|Graafschap Doetinchem|Den Bosch Brabant|Dordrecht Groen|Eindhoven City FC|Emmen Drenthe|Volendam Oranje|Helmond Sport FC|Almelo Heracles FC|Jong Ajaks|Jong Alkmaar|Jong Utrecht FC|Jong Eindhoven PSV|Maastricht MVV FC|Breda NAC FC|Waalwijk RKC FC|Kerkrade Roda FC|Oss TOP FC|Arnhem Vitesse FC|Venlo VVV FC"],
-["Japonya","jp","J1 League","J2 League",
-"Kashima Antler FC|Mito Holly FC|Urawa Red Stars|Chiba JEF FC|Kashiwa Sun FC|Tokyo Capital FC|Tokyo Verdys|Machida Zelvia FC|Kawasaki Front FC|Yokohama Mariner FC|Shimizu Pulse FC|Nagoya Grampus FC|Kyoto Sanga FC2|Osaka Gamba FC|Osaka Cerezo FC|Kobe Vissel FC|Okayama Fagiano FC|Hiroshima Sanfrecce FC|Fukuoka Avispa FC|Nagasaki Varen FC",
-"Niigata Albirex FC|Akita Blueblitz|Imabari Island FC|Fujieda MY FC2|Sapporo Consadole FC|Iwaki United FC|Iwata Jubilo FC|Toyama Kataller FC|Yamagata Montedio FC|Oita Trinita FC|Omiya Ardija FC|Tosu Sagan FC|Shonan Bell FC|Miyazaki Tegevajaro FC|Tochigi City FC2|Tokushima Vortis FC|Hachinohe Vanraure FC|Sendai Vegalta FC|Kofu Ventforet FC|Yokohama City FC"],
-["ABD","us","MLS","USL Championship",
-"Atlanta Union|Charlotte Crown FC|Chicago Flames|Cincinnati Orange FC|Columbus Crews|DC Union|Miami Interna|Montréal Bleu FC|Nashville Music SC|New England Rebels|New York Citizens|Orlando Lions|Philadelphia United|New York Red Bulls FC|Toronto Reds|Austin Verde FC|Colorado Rapids FC|Dallas Lone Star|Houston Dynamo FC2|Los Angeles Black Gold|Los Angeles Galaxies|Minnesota Union|Portland Timber FC|Salt Lake Royals|San Diego Wave FC|San Jose Quakes|Seattle Sound FC|Kansas City Sporting FC|St. Louis City FC2|Vancouver Whitecap FC",
-"Birmingham Legion FC2|Brooklyn Borough FC|Charleston Batteries|Colorado Springs Switch FC|Detroit Citizens|El Paso Locomotives|Tulsa Athletic FC|Hartford Athletics|Indy Twelve|Las Vegas Light FC|Lexington Bluegrass|Loudoun Union|Louisville Citizens|Miami Coast FC|Monterey Bay FC2|New Mexico Union|Oakland Root FC|Orange County FC|Phoenix Rising FC2|Pittsburgh Riverdogs|Rhode Island FC2|Sacramento Republic FC2|San Antonio Alamo FC|Jacksonville Sporting FC|Tampa Bay Rowdy FC"],
-["BAE","ae","Pro League","First Division",
-"Al Jazira Island|Sharjah Kings|Al Dhafra Desert|Al Ain Oasis|Al Nasr Dubai FC|Al Wahda Capital|Al Wasl Dubai FC|Bani Yas Sky|Hatta Mountains|Khor Fakkan Coast|Shabab Ahli Dubai FC|Ajman Orange|Kalba Tigers|Dubai United FC",
-"Al Arabi Quwain|Al Dhaid Desert|Al Hamriya Coast|Al Ittifaq Dubai FC|Jazira Hamra FC|Al Orooba Green|Dibba Hisn FC|Dubai City Stars|Emirates Falcons|Fujairah Coast FC|Gulf Union|Majd Sweihan|Masfout Mountain"]
-];
+</script>
+<script src="data/careers/05-futbol-ligleri-2.js"></script>
+<script>
+
 Object.assign(FOOTBALL_LEAGUES.first,{country:"Türkiye",tier:1});
 Object.assign(FOOTBALL_LEAGUES.white,{country:"Türkiye",tier:2});
 Object.assign(FOOTBALL_LEAGUES.red,{country:"Türkiye",tier:2});
-FOREIGN_FOOTBALL.forEach(([country,id,first,second,top,lower])=>{
-  FOOTBALL_LEAGUES[id+"1"]={country,tier:1,name:first,teams:top.split("|")};
-  FOOTBALL_LEAGUES[id+"2"]={country,tier:2,name:second,teams:lower.split("|")};
-});
-const FOOTBALL_POSITIONS=["Kaleci","Stoper","Sağ bek","Sol bek","Ön libero","Merkez orta saha","Ofansif orta saha","Sağ kanat","Sol kanat","Forvet"];
+</script>
+<script src="data/careers/05-futbol-ligleri-3.js"></script>
+<script>
+
+</script>
+<script src="data/careers/05-futbol-pozisyonlari.js"></script>
+<script>
+
 function footballCountry(){return LOC().ctry}
 function footballEligibility(){
   if(!canStartCareer())return false;
@@ -938,8 +900,8 @@ function runFootballTrial(position){
   const leagues=Object.keys(FOOTBALL_LEAGUES).filter(k=>FOOTBALL_LEAGUES[k].country===country);
   if(!leagues.length)return modal("Futbol seçmeleri","Bu ülkede futbol seçmeleri bulunamadı.",[{t:"Tamam",p:1}]);
   if(Math.random()>=Math.min(.9,.65+(S.h-70)/100)){line("Futbol seçmelerinden bu kez geçemedin.","bad");render();return modal("Seçme sonucu","Bu kez bir takımdan teklif gelmedi. Sağlığını geliştirip tekrar deneyebilirsin.",[{t:"Tamam",p:1}])}
-  const tier=Math.random()<.9?2:1,league=R(leagues.filter(k=>FOOTBALL_LEAGUES[k].tier===tier));
-  const team=R(FOOTBALL_LEAGUES[league].teams),salary=Math.round((tier===1?rnd(1800000,4800000):rnd(480000,1200000))*(CD[country]||CD["Türkiye"]).w*countryEconomy(country).wages);
+  const roll=Math.random(),hasSuper=leagues.some(k=>FOOTBALL_LEAGUES[k].tier===0),tier=roll<.9?2:hasSuper&&roll>=.98?0:1,league=R(leagues.filter(k=>FOOTBALL_LEAGUES[k].tier===tier));
+  const team=R(FOOTBALL_LEAGUES[league].teams),salary=Math.round((tier===0?rnd(3600000,7200000):tier===1?rnd(1800000,4800000):rnd(480000,1200000))*(CD[country]||CD["Türkiye"]).w*countryEconomy(country).wages);
   modal("Takım teklifi",team+" seni "+position+" olarak kadrosuna istiyor! "+country+" · "+FOOTBALL_LEAGUES[league].name+" · Yıllık maaş: "+TL(salary),[{t:"Takıma katıl",p:1,f:()=>{
     if(S!==life||!footballEligibility())return;
     if(footballCountry()!==country)return modal("Takım teklifi","Seçmelere katıldığın ülkeye geri dönmelisin.",[{t:"Tamam",p:1}]);
@@ -952,9 +914,9 @@ function runFootballTrial(position){
 function simulateFootballSeason(){
   const f=S.job&&S.job.football;if(!f)return;
   if(f.completed){f.season++;f.table=freshFootballTable(f.league)}
-  const goal=team=>{const boost=team===f.team?Math.max(0,(S.perf-50)/100):0;return Math.min(6,Math.floor(Math.random()*4+boost))};
+  
   for(let i=0;i<f.table.length;i++)for(let j=i+1;j<f.table.length;j++)for(let leg=0;leg<2;leg++){
-    const a=f.table[i],b=f.table[j],ga=goal(a.team),gb=goal(b.team);a.o++;b.o++;a.a+=ga;a.y+=gb;b.a+=gb;b.y+=ga;
+    const a=f.table[i],b=f.table[j],score=sportsFootballScore(a.team,b.team,Math.random,{team:f.team,performance:S.perf,home:leg?b.team:a.team}),ga=score.ga,gb=score.gb;a.o++;b.o++;a.a+=ga;a.y+=gb;b.a+=gb;b.y+=ga;
     if(ga>gb){a.g++;a.p+=3;b.m++}else if(gb>ga){b.g++;b.p+=3;a.m++}else{a.b++;b.b++;a.p++;b.p++}
   }
   f.completed=true;const ranked=rankFootballTable(f),place=ranked.findIndex(t=>t.team===f.team)+1;
@@ -983,23 +945,14 @@ function canStartCareer(){
 // Fictional game pools inspired by NBA, European clubs and SV.LEAGUE.
 // https://www.nba.com/teams https://www.cev.eu/club/ https://www.svleague.jp/en/
 // Two game tiers per country; these pools are not official league memberships.
-const TEAM_SPORT_POOLS=[
-["Türkiye","Fener Bahçe Basket|Anadolu Efesli|Galata Saray Basket|Beşiktaş Kartalları|Karşıyaka Körfez|Tofaş Bursa|Türk Telekom Başkent|Darüşşafaka Yeşil","Balıkesir Karesi|Ankara Kolejliler|Gaziantep Antep|Konya Selçuk|Mersin Akdeniz|İstanbul Sigorta|Bursa Finalspor|Sakarya Ada Basket","Halk Bank Başkent|Ziraat Başkent|Fener Bahçe Voley|Galata Saray Voley|Arkas İzmir|Bursa Büyükşehir Voley|Spor Toto Başkent|Alanya Sahil Voley","İstanbul Belediye Voley|Konya Büyükşehir Voley|İzmir Saint Joseph|Ankara Maliye Voley|Bursa İnegöl Voley|Kayseri Melikgazi|Hatay Payas Voley|Ordu Akkuş Voley"],
-["ABD","Boston Celts|Los Angeles Lakerside|Chicago Bulls Eye|Golden State Warriors Bay|Miami Flames|New York Knickers|Dallas Mavericks West|Denver Gold","Maine Celts|South Bay Lakerside|Austin Spurside|Santa Cruz Warriors Bay|Rio Grande Viperside|Iowa Wolves North|Long Island Netside|Grand Rapids Gold Rush","Atlanta Vibe City|Omaha Supernovas Sky|Orlando Valkyrie|Columbus Fury City|San Diego Mojo Coast|Vegas Thrill City|Grand Rapids Rise Up|Indy Ignite City","Austin Volley Stars|Houston Volley Stars|Madison Volley Stars|Salt Lake Volley Stars|San Francisco Volley Stars|Los Angeles Volley Stars|Dallas Volley Stars|Chicago Volley Stars"],
-["İngiltere","London Lionhearts|Leicester Riders City|Newcastle Eagle Wings|Sheffield Shark Bay|Manchester Giant Hoops|Bristol Flyers City|Cheshire Phoenix Rise|Surrey Scorchers Heat","Reading Rockets City|Derby Trailblazers Path|Hemel Storm City|Worthing Thunder Coast|Nottingham Hoods City|Bradford Dragons Fire|Essex Rebels City|Solent Kestrels Wing","London Polonias|Durham Palatine|Sheffield Hallam Voley|Newcastle Staffs Voley|Richmond Dock Voley|Leeds Gorse Voley|Essex Rebel Voley|Malory Eagle Voley","Birmingham Volley City|Bristol Volley City|Manchester Volley City|Cambridge Volley City|Oxford Volley City|Southampton Volley City|Nottingham Volley City|Liverpool Volley City"],
-["Almanya","Bayern Munich Hoops|Alba Berlin Blue|Bonn Telekom Hoops|Ulm Orange Hoops|Oldenburg Basket Bay|Ludwigsburg Giants City|Bamberg Basket City|Würzburg Basket City","Jena Science Hoops|Trier Gladiator City|Karlsruhe Lions City|Frankfurt Skyliner City|Tübingen Tiger Hoops|Hagen Phoenix City|Bremerhaven Polar Hoops|Giessen 47 Hoops","Berlin Recycling Volley|Friedrichshafen Lake Volley|Düren Power Volley|Lüneburg Salt Volley|Giesen Grizzly Volley|Herrsching Bay Volley|Bühl Bisons Volley|Karlsruhe Baden Volley","Dresden Volley City|Schüttorf Volley City|Kiel Eagle Volley|Bocholt Volley City|Essen Human Volley|Mainz Gonsenheim Volley|Grafing Volley City|Mühldorf Volley City"],
-["Fransa","Monaco Royal Basket|Lyon Villeurbanne Basket|Paris Capital Basket|Bourg Bresse Basket|Strasbourg Alsace Basket|Limoges Green Basket|Cholet City Basket|Le Mans Sarthe Basket","Blois Loire Basket|Orléans Loiret Basket|Roanne Choir Basket|Nantes Atlantic Basket|Poitiers City Basket|Rouen Métropole Basket|Vichy Thermal Basket|Antibes Shark Basket","Tours Loire Volley|Chaumont Haute Volley|Montpellier Coast Volley|Poitiers Stade Volley|Paris Capital Volley|Saint Nazaire Atlantic|Tourcoing Lille Volley|Toulouse Spacer Volley","Cannes Dragon Volley|Ajaccio Island Volley|Martigues Coast Volley|Nancy Grand Volley|Rennes Breton Volley|Fréjus Coast Volley|Saint Quentin City Volley|Cambrai City Volley"],
-["İtalya","Milano Olimpia City|Bologna Virtus City|Bologna Fortitudo City|Venezia Reyer City|Sassari Dynamo City|Trento Aquila City|Brescia Lion Basket|Reggio Emilia Basket","Cantù Lake Basket|Rimini Riviera Basket|Udine Apu Basket|Verona Scaligera Basket|Forlì Unieuro City|Pesaro Victoria Basket|Torino Royal Basket|Livorno Liberty Basket","Perugia Sir Volley|Trentino Mountain Volley|Civitanova Lube Volley|Modena Yellow Volley|Piacenza Gas Volley|Milano Allianz Volley|Monza Vero Volley|Padova Pallavolo City","Brescia Atlantis Volley|Ravenna Porto Volley|Siena Emma Volley|Cuneo Piemonte Volley|Prata Pordenone Volley|Porto Viro Delta Volley|Aversa Normanna Volley|Cantù Libertas Volley"],
-["İspanya","Madrid Real Basket|Barcelona Blau Basket|Baskonia Vitoria City|Valencia Orange Basket|Málaga Unicaja City|Tenerife Island Basket|Gran Canaria Island|Badalona Joventut City","Estudiantes Madrid City|Burgos San Pablo City|Palencia Purple Basket|Obradoiro Santiago City|Valladolid Purple City|Alicante Lucentum City|Ourense River Basket|Castellón Amics City","Almería Unicaja Volley|Teruel Orange Volley|Las Palmas Guagua Volley|Soria Río Volley|Manacor Island Volley|Melilla Coast Volley|Lugo Emevé Volley|Valencia City Volley","Barcelona Blau Volley|Tarragona Sant Pere Volley|Leganés Madrid Volley|Alcorcón Madrid Volley|Almendralejo Extremadura|Cáceres City Volley|Vigo Atlantic Volley|Gijón Coast Volley"],
-["Hollanda","Leiden Zorg Basket|Den Bosch Hero Basket|Groningen Donar City|Rotterdam City Hoops|Zwolle Landstede City|Leeuwarden Aris City|Den Helder Sailors|Weert Limburg Basket","Amsterdam Apollo Hoops|Utrecht Cangaroo Hoops|Haarlem Triple Hoops|Almere Pioneers City|Nijmegen Matrix City|Leiden Binnentown|Groningen Martini Hoops|Den Haag Royal Hoops","Apeldoorn Dynamo Volley|Doetinchem Orion Star|Groningen Lycurgus City|Barneveld SSS Volley|Sliedrecht Blue Volley|Huizen City Volley|Rotterdam VCN Volley|Zevenhuizen ZVH Volley","Wormer Compaen Volley|Meijel Peel Volley|Utrecht USV Volley|Amsterdam US Volley|Eindhoven PSV Volley|Capelle City Volley|Zwolle City Volley|Nijmegen City Volley"],
-["Japonya","Chiba Jet Wings|Alvark Tokyo City|Ryukyu Golden Crown|Utsunomiya Brex City|Kawasaki Brave Storm|Osaka Evessa City|Nagoya Diamond Dolphin|Hiroshima Dragon Fly","Altiri Chiba City|Toyama Grouse Wings|Fukushima Fire Bond|Aomori Wat Blue|Yamagata Wyvern City|Ehime Orange Viking|Kumamoto Volter City|Kobe Stork Wings","Osaka Bluteon Blue|Suntory Sun Wings|JTEKT Sting Wing|Nagoya Wolf Dog|Tokyo Great Bear|Hiroshima Thunder Volley|Toray Arrow Volley|Sakai Blaze Volley","Hokkaido Yellow Star|Nagano Trident Volley|Tsukuba United Sun|Toyota Sun Hawk|Chiba Zelva City|Saitama Azalea City|Fukuoka Winning Spirit|Nara Dream Volley"],
-["BAE","Dubai Ahli Basket|Sharjah King Basket|Abu Dhabi Wahda Basket|Al Nasr Blue Basket|Al Wasl Yellow Basket|Ajman Orange Basket|Bani Yas Sky Basket|Al Bataeh Green Basket","Al Ain Oasis Basket|Fujairah Coast Basket|Ras Al Khaimah Basket|Khor Fakkan Coast Basket|Dibba Coast Basket|Dubai Hatta Basket|Kalba Coast Basket|Masafi Mountain Basket","Dubai Ahli Volley|Al Nasr Blue Volley|Al Wasl Yellow Volley|Al Ain Oasis Volley|Bani Yas Sky Volley|Sharjah King Volley|Ajman Orange Volley|Hatta Mountain Volley","Fujairah Coast Volley|Dibba Coast Volley|Kalba Coast Volley|Khor Fakkan Coast Volley|Ras Al Khaimah Volley|Masafi Mountain Volley|Abu Dhabi City Volley|Dubai Coast Volley"]
-];
-const TEAM_SPORT_LEAGUES={};
-TEAM_SPORT_POOLS.forEach(([country,b1,b2,v1,v2],i)=>{
-  [b1,b2,v1,v2].forEach((pool,j)=>{const sport=j<2?"basketball":"volleyball",tier=j%2+1,id=sport+"_"+i+"_"+tier;TEAM_SPORT_LEAGUES[id]={country,sport,tier,name:(sport==="basketball"?"Basketbol":"Voleybol")+" · "+tier+". Lig",teams:pool.split("|")}});
-});
-const TEAM_SPORTS={basketball:{name:"Profesyonel basketbolcu",health:75,salary:4800000,positions:["Oyun kurucu","Şutör gard","Kısa forvet","Uzun forvet","Pivot"]},volleyball:{name:"Profesyonel voleybolcu",health:70,salary:3600000,positions:["Pasör","Pasör çaprazı","Smaçör","Orta oyuncu","Libero"]}};
+</script>
+<script src="data/careers/06-basketbol-voleybol-ligleri.js"></script>
+<script>
+
+</script>
+<script src="data/careers/06-basketbol-voleybol-branslari.js"></script>
+<script>
+
 function teamSportTrial(sport){
   if(!canStartCareer()||S.dead)return;
   const cfg=TEAM_SPORTS[sport];if(!cfg)return;
@@ -1028,8 +981,7 @@ function simulateTeamSportSeason(){
   if(f.completed){f.season++;f.table=TEAM_SPORT_LEAGUES[f.league].teams.map(team=>({team,o:0,g:0,m:0,a:0,y:0,p:0}))}
   for(let i=0;i<f.table.length;i++)for(let j=i+1;j<f.table.length;j++)for(let leg=0;leg<2;leg++){
     const a=f.table[i],b=f.table[j];let ga,gb;
-    if(f.sport==="basketball"){ga=rnd(65,120);gb=rnd(65,120);if(ga===gb)ga++;}
-    else{const lose=rnd(0,2);if(Math.random()<.5){ga=3;gb=lose}else{ga=lose;gb=3}}
+    const score=sportsTeamScore(f.sport,a.team,b.team,Math.random,{team:f.team,performance:S.perf});ga=score.ga;gb=score.gb;
     a.o++;b.o++;a.a+=ga;a.y+=gb;b.a+=gb;b.y+=ga;
     const win=ga>gb?a:b,loss=ga>gb?b:a;win.g++;loss.m++;
     if(f.sport==="basketball"){win.p+=2;loss.p++}else{win.p+=Math.min(ga,gb)===2?2:3;loss.p+=Math.min(ga,gb)===2?1:0}
@@ -1048,7 +1000,10 @@ function teamSportJobPage(){
     {ic:"🚪",t:"Takımdan ayrıl",d:f.team,f:()=>modal("Takımdan ayrıl","Sözleşmeni bitirmek istediğine emin misin?",[{t:"Ayrıl",f:()=>{line(f.team+" takımından ayrıldın.");S.job=null;PG=[];$("pg").classList.remove("on");render();drawOcc()}},{t:"Vazgeç",p:1}])}
   ]}});
 }
-const SPORTS=[{ic:"⚽",n:"Profesyonel futbolcu",s:6000000,h:70},{ic:"🏀",n:"Profesyonel basketbolcu",s:4800000,h:75},{ic:"🏐",n:"Profesyonel voleybolcu",s:3600000,h:70}];
+</script>
+<script src="data/careers/07-spor-meslekleri.js"></script>
+<script>
+
 function sportsCareer(){
   pgOpen(()=>({title:"SPOR KARİYERİ",intro:`<div class="row cur"><span class="ic">🏅</span><span class="tx"><b>Spor kariyeri</b><small>${S.age<18?"Profesyonel kariyer için 18 yaşında olmalısın.":S.uni?"Profesyonel kariyer için öğrenci olmamalısın.":"Bir branş seç ve takım seçmelerine katıl."}</small></span></div>`,
     rows:S.age<18||S.uni?[]:SPORTS.map(x=>({ic:x.ic,t:x.n,d:"Takım ve ligine göre sözleşme · Sağlık "+x.h+"+",f:()=>{
@@ -1167,14 +1122,10 @@ const PACKS=[
 {id:"sporcu",ic:"🏅",n:"Sporcu Paketi",d:"Sağlık 95+, görünüm +10 ile başlarsın.",c:120},
 {id:"macera",ic:"🧭",n:"Macera Eventleri",d:"6 yeni event: dağ, ada, hazine haritası ve daha fazlası.",c:200}];
 const mc=()=>META.owned.includes("macera");
-EV.push(
-{a:[16,55],t:"Dağ tırmanışı",d:"Arkadaşların hafta sonu zirveye tırmanmayı öneriyor.",f:mc,c:[{t:"Katıl",m:"Yorucu bir tırmanıştı.",w:[.7,"Zirveye çıktın, manzara harikaydı!",{m:10,h:3}],fx:{h:-8,m:-2}},{t:"Evde kal",m:"Kanepede kaldın.",fx:{}}]},
-{a:[18,60],t:"Ada tatili",d:"Yelkenliyle Ege adalarını gezme fırsatı çıktı.",f:mc,c:[{t:"Git",m:"Denizde unutulmaz bir hafta geçirdin.",fx:{m:12,g:2,p:-120000}},{t:"Vazgeç",m:"Tatili iptal ettin.",fx:{m:-2}}]},
-{a:[10,70],t:"Hazine haritası",d:"Eski bir kitabın arasından yıpranmış bir harita çıktı.",f:mc,c:[{t:"Hazineyi ara",m:"Hiçbir şey bulamadın, ayakkabıların çamur oldu.",w:[.2,"Eski bir sandık buldun, içinden altınlar çıktı!",{p:1000000,m:15}],fx:{m:-3}},{t:"Müzeye ver",m:"Müze seni ödüllendirdi.",fx:{m:5,z:2}}]},
-{a:[14,50],t:"Mağara keşfi",d:"Köyün yakınında yeni bir mağara bulundu.",f:mc,c:[{t:"İçeri gir",m:"Karanlıkta düştün.",w:[.6,"Mağarada gizli bir göl buldun!",{m:9,z:2}],fx:{h:-9}},{t:"Dışarıdan bak",m:"Fotoğraf çekip döndün.",fx:{m:2}}]},
-{a:[16,65],t:"Kamp macerası",d:"Orman kenarında kamp kurmak ister misin?",f:mc,c:[{t:"Kamp kur",m:"Yıldızların altında uyudun.",fx:{m:9,h:3}},{t:"Otelde kal",m:"Konforlu bir hafta sonu geçirdin.",fx:{m:3,p:-8000}}]},
-{a:[18,55],t:"Dalış kursu",d:"Sahilde bir dalış kursu açıldı.",f:mc,c:[{t:"Kursa yazıl",m:"Sualtı dünyası seni büyüledi.",fx:{m:8,h:2,p:-30000}},{t:"Geç",m:"Dalışı atladın.",fx:{}}]}
-);
+</script>
+<script src="data/events/03-macera.js"></script>
+<script>
+
 const slotKey=i=>"hs_slot"+i;
 function readSlot(i){try{return JSON.parse(localStorage.getItem(slotKey(i)))}catch(e){return null}}
 function writeSlot(i){try{localStorage.setItem(slotKey(i),JSON.stringify({S,log:$("log").innerHTML,t:Date.now()}));return true}catch(e){modal("Kayıt başarısız","Tarayıcı depolaması kullanılamıyor.",[{t:"Kapat",p:1}]);return false}}
@@ -1199,9 +1150,9 @@ let mv="main";
 function drawMenu(){
   const row=(k,ic,a,b)=>`<button class="row" data-k="${k}"><span class="ic">${ic}</span><span class="tx"><b>${a}</b><small>${b}</small></span><span class="ch">›</span></button>`;
   let t="MENÜ",body="";
-  if(mv==="main")body=row("save","💾","Kaydet / Yükle","3 kayıt yuvası")+row("new","🧑","Yeni Karakter","Yeni bir hayata başla")+row("store","🛍️","Mağaza","Yakında")+row("settings","⚙️","Ayarlar","Dil");
+  if(mv==="main")body=row("save","💾","Kaydet / Yükle","3 kayıt yuvası")+row("new","🧑","Yeni Karakter","Yeni bir hayata başla")+row("store","🛍️","Mağaza","Yakında")+row("settings","⚙️","Ayarlar","Dil ve oyun sesleri");
   else if(mv==="save"){t="KAYDET / YÜKLE";body=[0,1,2].map(i=>{const d=readSlot(i);return row("s"+i,"💾","Yuva "+(i+1),d?esc(d.S.name)+" · "+d.S.age+" yaş · "+new Date(d.t).toLocaleDateString("tr-TR"):"Boş")}).join("")}
-  else if(mv==="settings"){t="AYARLAR";body=row("langpg","🌐","Dil",LANG==="en"?"English":"Türkçe")}
+  else if(mv==="settings"){t="AYARLAR";body=row("langpg","🌐","Dil",LANG==="en"?"English":"Türkçe")+row("sound",GAME_AUDIO.enabled?"🔊":"🔇",LANG==="en"?"Game sounds":"Oyun sesleri",LANG==="en"?(GAME_AUDIO.enabled?"On · Tap to mute":"Off · Tap to enable"):(GAME_AUDIO.enabled?"Açık · Kapatmak için dokun":"Kapalı · Açmak için dokun"))}
   else if(mv==="lang"){t="DİL";body=row("lang-tr","🇹🇷","Türkçe",LANG==="tr"?"Seçili ✓":"")+row("lang-en","🇬🇧","English",LANG==="en"?"Seçili ✓":"")}
   else if(mv==="new"){t="YENİ KARAKTER";body=`<div class="fm"><label for="nn">Ad Soyad</label><input id="nn" maxlength="24" placeholder="Boş bırakırsan rastgele"><label>Cinsiyet</label>${chips("ng",[["","Rastgele"],["m","Erkek"],["f","Kadın"]],NS.g)}<label>Ülke</label>${ddHtml("ndd",[["","Rastgele","🎲"]].concat(Object.keys(CD).map(k=>[k,k,CD[k].flag])),NS.co)}<label>Şehir</label>${ddHtml("ncd",[["","Rastgele","🎲"]].concat(NS.co?CD[NS.co].cities.map(c=>[c,c,"📍"]):[]),NS.c)}<button class="go" id="ngo">Hayata başla</button></div>`}
   else{t="MAĞAZA";body=`<div class="fm" style="text-align:center;padding-top:40px"><div style="font-size:54px">🛍️</div><div style="font-size:24px;font-weight:800;margin:10px 0 6px">Yakında gelecek</div><small style="color:var(--mut);font-size:14px">Şimdilik DLC yok.</small></div>`}
@@ -1210,6 +1161,7 @@ function drawMenu(){
   $("mnu").querySelectorAll("[data-k]").forEach(b=>{const k=b.dataset.k;b.onclick=()=>{
     if(k==="save"||k==="new"||k==="store"||k==="settings"){if(k==="new")NS={g:"",co:"",c:"",n:""};mv=k;drawMenu()}
     else if(k==="langpg"){mv="lang";drawMenu()}
+    else if(k==="sound"){setGameAudioEnabled(!GAME_AUDIO.enabled);const resumed=unlockGameAudio();if(resumed&&resumed.then)resumed.then(()=>playGameSound("click")).catch(()=>{});else playGameSound("click");drawMenu()}
     else if(k.startsWith("lang-"))setLang(k.slice(5))
     else if(k[0]==="s")slotModal(+k[1]);
     else buy(k.slice(1))}});
@@ -1227,12 +1179,17 @@ function drawMenu(){
 $("menuBtn").onclick=()=>{mv="main";drawMenu();$("mnu").classList.add("on")};
 let PG=[];
 function pgOpen(b){PG.push(b);pgDraw()}
+function relationshipListBar(value){
+  const bond=cl(Number(value)||0);
+  return '<span class="list-relationship"><span class="list-relationship-track" role="progressbar" aria-label="İlişki" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+bond+'"><i style="width:'+bond+'%"></i></span><span class="list-relationship-value">'+bond+'%</span></span>';
+}
 function pgDraw(){
   const b=PG[PG.length-1],o=$("pg");
   if(!b){o.classList.remove("on");return}
   const {title,intro,rows}=b();
+  o.dataset.pageTitle=title;
   if(title==="VARLIKLAR")rows.sort((a,b)=>(b.t==="Finans"?1:0)-(a.t==="Finans"?1:0));
-  o.innerHTML=whoHtml()+`<div class="oh"><button class="x" id="pgx" aria-label="Geri">${PG.length>1?"‹":"✕"}</button><h2>${title}</h2></div><div class="ol">${intro||""}${rows.map((r,i)=>`<button class="row ${r.cardClass||""}" data-k="${i}" ${r.disabled?'disabled aria-disabled="true"':''}>${r.html||`<span class="ic">${r.ic}</span><span class="tx"><b>${r.t}</b><small>${r.d}</small></span><span class="ch">${r.ch===undefined?"›":r.ch}</span>`}</button>${r.after||""}`).join("")}</div>`;
+  o.innerHTML=(title==="KİŞİ"?"":whoHtml())+`<div class="oh"><button class="x" id="pgx" aria-label="Geri">${PG.length>1?"‹":"✕"}</button><h2>${title}</h2></div><div class="ol">${intro||""}${rows.map((r,i)=>`<button class="row ${r.cardClass||""}" data-k="${i}" ${r.disabled?'disabled aria-disabled="true"':''}>${r.html||`<span class="ic">${r.ic}</span><span class="tx"><b>${r.t}</b><small>${r.d}</small>${r.bond!==undefined?relationshipListBar(r.bond):""}</span><span class="ch">${r.ch===undefined?"›":r.ch}</span>`}</button>${r.after||""}`).join("")}</div>`;
   $("pgx").onclick=()=>{PG.pop();pgDraw()};
   o.querySelectorAll("[data-k]").forEach(e=>e.onclick=()=>{const r=rows[+e.dataset.k];if(!r.disabled)r.f()});
   o.querySelectorAll("[data-school-club]").forEach(e=>e.onclick=()=>schoolClubRows()[+e.dataset.schoolClub].f());
@@ -1252,7 +1209,7 @@ function openAssets(){
     return {title:"VARLIKLAR",
       intro:`<div class="row cur"><span class="ic">🏦</span><span class="tx"><b>Toplam değer: ${TL(tot)}</b><small>${S.assets.length?esc(S.assets.join(", ")):"Henüz hiçbir şeyin yok"}</small></span></div>`,
       rows:ASSETS.filter(c=>c.t!=="Tekneler"&&c.t!=="Lüks Eşyalar").map(c=>({ic:c.ic,t:c.t,d:c.d,f:()=>c.social?openSocialMedia():c.fin?openFinance():pgOpen(()=>({title:c.t.toUpperCase(),rows:c.items.map(x=>S.assets.includes(x.n)
-        ?{ic:"✅",t:x.n,d:"Sahipsin · satış değeri "+TL(x.c*.85),ch:"",f:()=>modal(x.n,"Satış değeri "+TL(x.c*.85),[{t:"Sat",p:1,f:()=>{S.p+=Math.round(x.c*.85);removeOneAsset(x.n);line(x.n+" satıldı. (+"+TL(x.c*.85)+")","gold");render()}},{t:"Vazgeç"}])}
+        ?{ic:"✅",t:x.n,d:"Sahipsin · satış değeri "+TL(sellVal(x))+" · "+LX("durum %","condition %")+cond(x.n),ch:"",f:()=>modal(x.n,"Satış değeri "+TL(x.c*.85),[{t:"Sat",p:1,f:()=>{S.p+=Math.round(x.c*.85);removeOneAsset(x.n);line(x.n+" satıldı. (+"+TL(x.c*.85)+")","gold");render()}},{t:"Vazgeç"}])}
         :{ic:c.ic,t:x.n,d:TL(x.c)+" · "+fxTxt(x.fx),f:()=>modal(x.n,"Fiyat: "+TL(x.c),[{t:"Satın al",p:1,f:()=>{
           if(S.p<x.c){line("Yeterli paran yok: "+x.n,"bad");return}
           S.p-=x.c;S.assets.push(x.n);apply(x.fx);line(x.n+" satın aldın. (-"+TL(x.c)+", "+fxTxt(x.fx)+")","good");render()}},{t:"Vazgeç"}])})}))}))};
@@ -1444,7 +1401,7 @@ function openUni(){
 function openClass(){
   pgOpen(()=>({title:"SINIFIM",
     intro:`<div class="row cur"><span class="ic">🏫</span><span class="tx"><b>${S.uni?S.deptN:stage()}</b><small>${gradeStr()} · ${S.cls.length} sınıf arkadaşı</small></span></div>`,
-    rows:S.cls.filter(q=>!q.dead).map(q=>({ic:pface(q),t:q.n,d:(S.partner&&S.partner.from===q.id?"Sevgilin":q.friend?"Arkadaşın":"Sınıf arkadaşın")+" · "+q.pa+" yaşında · bağ "+q.b+"%",f:()=>classmate(q)}))}));
+    rows:S.cls.filter(q=>!q.dead).map(q=>({ic:pface(q),t:q.n,bond:q.b,d:(S.partner&&S.partner.from===q.id?"Sevgilin":q.friend?"Arkadaşın":"Sınıf arkadaşın")+" · "+q.pa+" yaşında",f:()=>classmate(q)}))}));
 }
 function classmate(q){
   const isP=S.partner&&S.partner.from===q.id,b=[],a=S.age;
@@ -1455,7 +1412,7 @@ function classmate(q){
   if(!isP&&a>=14)b.push({t:"Sevgili ol",sub:S.partner?"Zaten bir ilişkin var":!okG(q.f)?"Yönelimine uygun değil":"Şansın görünüm ve bağa göre",f:()=>{
     if(S.partner)return modal(q.n,"Zaten bir ilişkin var. Önce ilişkiyi bitirmelisin.",OK);
     if(!okG(q.f))return modal(q.n,"Bu kişi cinsel yönelimine uygun değil. Yönelimini Aktiviteler > Kimlik bölümünden değiştirebilirsin.",OK);
-    if(Math.random()<.25+S.g/250+q.b/250+(q.friend?.15:0)){S.partner={n:q.n,b:cl(Math.max(50,q.b)),f:q.f,from:q.id};apply({m:8});line(q.n+" ile çıkmaya başladınız. (+8 mutluluk)","gold")}
+    if(Math.random()<.25+S.g/250+q.b/250+(q.friend?.15:0)){S.partner={n:q.n,b:cl(Math.max(50,q.b)),f:q.f,pa:q.pa,from:q.id};apply({m:8});line(q.n+" ile çıkmaya başladınız. (+8 mutluluk)","gold")}
     else{q.b=cl(q.b-6);apply({m:-2});line(q.n+" teklifini reddetti. (-2 mutluluk)","bad")}render()}});
   b.push({t:"Birlikte çalış",sub:"+3 not · bağ artar",f:()=>{q.b=cl(q.b+8);S.gpa=cl(S.gpa+3);apply({m:-1});line(q.n+" ile birlikte ders çalıştın. (+3% not, -1 mutluluk)","good");render()}});
   if(a>=8)b.push({t:"Kopya iste",sub:"Yakalanma riski var",f:()=>{
@@ -1601,7 +1558,7 @@ function yearlyCost(nn){
   const a=S.age,L={ctry:(S.home||"Türkiye"),city:S.city},cf=CF(),ps=[],add=(n,v,nc)=>{if(v>0)ps.push([n,nc?v:v*cf])};
   if(S.street)add("yemek",36000);
   else{
-    const own=S.assets.some(n=>HOMES.includes(n));
+    const own=S.assets.some(n=>HOMES.includes(n)&&!(S.rent&&S.rent[n]));
     const par=(S.people||[]).some(x=>!x.dead&&(x.role==="Anne"||x.role==="Baba"));
     if(a<25&&!S.married&&par&&parAvg()>=40&&!own)add("kişisel harcamalar (ailenle yaşıyorsun)",84000);
     else{
@@ -1645,15 +1602,15 @@ function haveKid(P,opp){
   render();nameKid(kq,opp);
 }
 const kidsU=()=>(S.people||[]).filter(x=>!x.dead&&(x.role==="Oğul"||x.role==="Kız")&&x.pa<18);
-EV.push(
-{a:[20,60],t:"Çocuğunun doğum günü",d:"Çocuğunun doğum günü yaklaşıyor.",f:()=>kidsU().length>0,c:[{t:"Büyük parti ver",m:"Çocuklar çok eğlendi.",fx:{m:8,p:-25000},run:()=>kidsU().forEach(k=>k.b=cl(k.b+10))},{t:"Evde pasta kes",m:"Sakin ve sıcak bir kutlama oldu.",fx:{m:4},run:()=>kidsU().forEach(k=>k.b=cl(k.b+5))}]},
-{a:[20,60],t:"Çocuğun hastalandı",d:"Çocuğun ateşlendi, halsiz.",f:()=>kidsU().length>0,c:[{t:"Hastaneye götür",m:"Doktor kontrol etti, geçti.",fx:{p:-12000,m:1},run:()=>kidsU().forEach(k=>k.b=cl(k.b+6))},{t:"Evde bak",m:"Bir iki gün uykusuz kaldın.",fx:{h:-2,m:-1}}]}
-);
+</script>
+<script src="data/events/04-aile.js"></script>
+<script>
+
 function askOut(q){
   if(S.partner)return modal(q.n,"Zaten bir ilişkin var. Önce ilişkiyi bitirmelisin.",OK);
   if(!okG(q.f))return modal(q.n,"Bu kişi cinsel yönelimine uygun değil. Yönelimini Aktiviteler > Kimlik bölümünden değiştirebilirsin.",OK);
   if(q.b<40){q.b=cl(q.b-3);apply({m:-2});line(q.n+" ile aranız iyi olmadığı için teklifini kabul etmedi. Önce ilişkinizi geliştir. (-2 mutluluk)","bad")}else if(Math.random()<.25+S.g/250+q.b/200){
-    S.partner={n:q.n,b:cl(Math.max(55,q.b)),f:q.f,from:q.id};
+    S.partner={n:q.n,b:cl(Math.max(55,q.b)),f:q.f,pa:q.pa,from:q.id};
     S.people=S.people.filter(x=>x!==q);
     apply({m:8});line(q.n+" teklifini kabul etti, çıkmaya başladınız! (+8 mutluluk)","gold");
   }else{
@@ -1917,7 +1874,10 @@ const NMAP={"ABD":"en","İngiltere":"en","Almanya":"de","Fransa":"fr","İtalya":
 const cult=()=>S?(S.home||"Türkiye"):HOME;
 const FN=f=>{const k=NMAP[cult()];return k?R(NMS[k][f?"f":"m"]):R(f?FEM:MALE)};
 const SN=()=>{const k=NMAP[cult()];return k?R(NMS[k].s):R(SUR)};
-const TRO=["Boğaz'da yürüyüş","Köye gidiş","Kahvehane","Askerlik çağrısı","Aile yemeği","Arkadaşlar tatile çağırıyor","Ada tatili"];
+</script>
+<script src="data/events/05-ulke-kosullari.js"></script>
+<script>
+
 const TRAITS=["Sadık","Esprili","Sinirli","Cömert","Cimri","Tembel","Çalışkan","Maceracı","Utangaç","Kıskanç","Flörtöz"];
 const pfOf=P=>P.f===undefined?!S.f:P.f;
 
@@ -2023,30 +1983,10 @@ function treeHtml(){
 function openTree(){PG=[];pgOpen(()=>({title:"SOY AĞACI",intro:treeHtml(),rows:[]}))}
 
 /* ===== olaylar: teklifler, aldatma ===== */
-const mkAsk=()=>{const pf=pickG(),n=FN(pf).split(" ")[0];S.ask={n,f:pf};return n};
-const askEv={a:[14,60],t:"Çıkma teklifi",f:()=>!S.partner,d:()=>mkAsk()+" sana çıkma teklif etti.",c:[
- {t:"Kabul et",m:"Teklifi kabul ettin, çıkmaya başladınız.",fx:{m:8},run:()=>{S.partner={n:S.ask.n,b:rnd(45,65),f:S.ask.f}}},
- {t:"Reddet",m:"Nazikçe reddettin.",fx:{m:-1}}]};
-const propEv={a:[20,70],t:"Evlenme teklifi",f:()=>S.partner&&!S.married&&S.partner.b>=65,d:()=>S.partner.n+" diz çöküp sana evlenme teklif etti!",c:[
- {t:"Evet de",m:"Evet dedin! Evlendiniz.",fx:{m:14,p:-150000},run:()=>{S.married=true;S.partner.b=cl(S.partner.b+15)}},
- {t:"Hayır de",m:"Teklifi reddettin, ilişkiniz zedelendi.",fx:{m:-6},run:()=>{S.partner.b=cl(S.partner.b-25)}},
- {t:"Biraz zaman iste",m:"Cevap vermek için zaman istedin.",fx:{m:-1},run:()=>{S.partner.b=cl(S.partner.b-5)}}]};
-EV.push(askEv,askEv,propEv,propEv,propEv);
-function cheatP(){
-  const P=S.partner;if(!P||S.age<18)return 0;
-  P.tr=P.tr||R(TRAITS);
-  const k=P.tr==="Sadık"?.2:P.tr==="Flörtöz"?2.2:P.tr==="Maceracı"?1.5:P.tr==="Kıskanç"?.8:1;
-  return (S.married?.05:.06)*k*(1.5-P.b/100);
-}
-function cheatEv(){
-  const P=S.partner;
-  const end=()=>{const was=S.married;S.partner=null;S.married=false;
-    if(was&&S.p>0){const loss=Math.round(S.p*.25);S.p-=loss;line("Boşanma sürecinde mal varlığının bir kısmını kaybettin. (-"+TL(loss)+")","bad")}};
-  return{t:"Aldatıldın",d:P.n+" seni aldatıyormuş. Mesajlarını buldun.",c:[
-   {t:"Yüzleş",m:"Yüzleştin, büyük bir kavga çıktı.",fx:{m:-6},run:()=>{P.b=cl(P.b-18);if(P.b<=10){line(P.n+" ilişkiyi bitirdi.","bad");end()}}},
-   {t:"Affet",m:"Affetmeyi seçtin ama içinde bir şey kırıldı.",fx:{m:-4},run:()=>{P.b=cl(P.b-8)}},
-   {t:S.married?"Boşan":"İlişkiyi bitir",m:"İlişkiyi bitirdin.",fx:{m:-8},run:end}]};
-}
+</script>
+<script src="data/events/06-iliskiler.js"></script>
+<script>
+
 
 /* ===== yurtdışı: eğitim, seyahat, göç ===== */
 const _yE=yksExam;yksExam=function(){return ABR()?entryExam():_yE()};
@@ -2190,70 +2130,587 @@ new MutationObserver(ms=>{
 (()=>{PH.push([", giriş sınavına çalış",", study for the entrance exam"]);PH.sort((a,b)=>b[0].length-a[0].length);WR=null})();
 /* ===== komik / esprili yetişkin eventler (hafif, 18+) ===== */
 const newP=()=>{const pf=pickG(),n=FN(pf).split(" ")[0];S.partner={n,b:rnd(45,60),f:pf};line(n+" ile çıkmaya başladınız.","gold")};
-EV.push(
-{a:[18,45],t:"Yanlış kişiye mesaj",d:"Sevgiline yazdığın o fazla samimi mesajı yanlışlıkla iş grubuna attın.",c:[
- {t:"Hemen sil",m:"Silmeden önce yirmi kişi görmüştü. Ertesi gün herkes sana gülümsüyor.",fx:{m:-6,g:1}},
- {t:"Şaka olduğunu söyle",m:"Kimse inanmadı ama cesaretine hayran kaldılar.",w:[.4,"Ofiste efsane oldun, herkes seni sevdi.",{m:7}],fx:{m:-4}},
- {t:"Telefonu denize at",m:"Yeni telefon aldın ama utancın geçmedi.",fx:{p:-45000,m:-2}}]},
-{a:[18,60],t:"Eczanede utanç",d:"Eczanede korunma malzemesi alırken sıra sana geldi, arkandaki kişi annenin komşusu.",c:[
- {t:"Sakin davran",m:"Kendinden emin şekilde aldın, komşu bile selam verdi.",fx:{m:3,p:-400}},
- {t:"Çikolata da al, kaç",m:"Garip bir kombinasyon oldu, eczacı gülmemek için kendini zor tuttu.",fx:{m:-2,p:-600}},
- {t:"Başka eczaneye git",m:"Yarım saat yürüdün ama rahatladın.",fx:{h:1,p:-400}}]},
-{a:[18,40],t:"İlk buluşta pantolon",d:"Restoranda kalkarken pantolonun arkadan sonuna kadar yırtıldı.",c:[
- {t:"Montu belinde bağla",m:"Montla çıktın, karşındakinin kahkahası bütün restoranı güldürdü.",w:[.45,"Karşındaki bu halini çok sevdi, ikinci buluşma garanti!",{m:8}],fx:{m:-5}},
- {t:"Gülüp geç",m:"Özgüvenin herkesi etkiledi.",fx:{m:4,g:1}}]},
-{a:[18,60],t:"Duvardan gelen sesler",d:"Alt komşunun gece yarısı sesleri duvardan net şekilde geliyor.",c:[
- {t:"Tavanı vur",m:"Sustular, sonra sabaha kadar fısıldaştılar.",fx:{m:-2}},
- {t:"Kulaklık tak",m:"Playlist'in hiç bu kadar işe yaramamıştı.",fx:{m:1,z:1}},
- {t:"Sabah kahve ısmarla",m:"Komşuyla göz göze gelince ikiniz de kızardınız.",fx:{m:3,p:-300}}]},
-{a:[18,50],t:"Mayo kazası",d:"Dalgalı denizde atlarken mayon aşağı kaydı.",c:[
- {t:"Suya gömül",m:"Bir saat sudan çıkmadın, parmakların kuruyup buruştu.",fx:{m:-4,h:-1}},
- {t:"Gülüp çık",m:"Plaj alkışladı, kimse seni unutmadı.",w:[.5,"Plajdaki biri senden numara istedi!",{m:7,g:1}],fx:{m:-3}}]},
-{a:[22,55],t:"Eski sevgilinin düğünü",d:"Eski sevgilin düğün davetiyesi gönderdi, 'artı bir' yazıyor.",c:[
- {t:"Yalnız git",m:"Bütün akrabalar sana acıyarak baktı, sofraya iki kez gittin.",fx:{m:-3}},
- {t:"Yakışıklı/güzel birini bul",m:"Bir arkadaşını ikna ettin, düğünün konuşulan çifti siz oldunuz.",w:[.5,"Gecenin sonunda arkadaşınla gerçekten tanışmış gibi oldunuz.",{m:9,g:1}],fx:{m:2,p:-5000}},
- {t:"Gitme",m:"Gül bahçesinde kedi yavrusu gibi sakin kaldın.",fx:{m:1}}]},
-{a:[20,55],t:"Ofis aşkı",d:"Yan masadaki iş arkadaşı sana göz kırptı, kahve molası teklif etti.",f:()=>S.job&&!S.partner,c:[
- {t:"Kahveye git",m:"Kahve uzadı, herkes ne olduğunu anladı.",w:[.5,"Gerçekten çok iyi vakit geçirdiniz, çıkmaya başladınız.",{m:9}],fx:{m:2},run:()=>{if(Math.random()<.4)newP()}},
- {t:"Profesyonel kal",m:"Mesafeli davrandın, ofiste her şey normal.",fx:{z:1}},
- {t:"İK'ya söyle",m:"İK dosyayı açtı, ortam gerildi.",fx:{m:-4}}]},
-{a:[22,50],t:"Bekarlığa veda",d:"En yakın arkadaşının bekarlığa veda partisi Bodrum'da.",c:[
- {t:"Sonuna kadar eğlen",m:"Sabaha kadar eğlendin, telefonda anlamadığın fotoğraflar var.",fx:{m:10,h:-5,p:-30000},run:()=>{if(S.partner&&Math.random()<.5){S.partner.b=cl(S.partner.b-12);line(S.partner.n+" bir fotoğrafı fark etti, ilişkiniz sarsıldı.","bad")}}},
- {t:"Makul davran",m:"Erken yattın, sabah herkesten önce kalkıp kahvaltı hazırladın.",fx:{m:4,h:1}}]},
-{a:[18,50],t:"Spor salonunda flört",d:"Spor salonunda biri sana ekipmanı gösterme bahanesiyle çok yaklaşıyor.",c:[
- {t:"Flört et",m:"İkiniz de aynı aleti dakikalarca kullanmaya çalıştınız.",w:[()=>.25+S.g/220,"Telefon numaranı verdi, şimdi mesajlaşıyorsunuz.",{m:8,g:1}],fx:{m:-2}},
- {t:"Kulaklıkla kaç",m:"Müzik sesini açıp antrenmanına döndün.",fx:{h:3}}]},
-{a:[20,60],t:"Sunumda yanlış dosya",d:"Toplantıda ekranı yansıtırken bilgisayardaki gündelik fotoğrafların açıldı.",f:()=>S.job,c:[
- {t:"Çabuk kapat",m:"Üç saniye sürdü ama herkes gördü.",fx:{m:-6},run:()=>{S.perf=cl(S.perf-6)}},
- {t:"Mizah yap",m:"Salon kahkahaya boğuldu, ortamı kurtardın.",w:[.5,"Müdür bile güldü, ekibin gözdesi oldun.",{m:8},],fx:{m:-3},run:()=>{S.perf=cl(S.perf+3)}}]},
-{a:[18,45],t:"Gece kulübü",d:"Kulüpte DJ seni sahneye çağırdı, herkes seni izliyor.",c:[
- {t:"Çık ve dans et",m:"Dans ettin ama ayağın takılıp düştün.",w:[.45,"Salon seni alkışladı, bir sürü kişi seninle fotoğraf çektirdi.",{m:11,g:1}],fx:{m:-5,h:-2}},
- {t:"Hayır de",m:"Barda içeceğini yudumlayıp izledin.",fx:{m:1,p:-1500}}]},
-{a:[22,80],t:"Romantik akşam",d:"Evde mum ışığında akşam yemeği hazırladın.",f:()=>S.partner,c:[
- {t:"Her şeyi ayarla",m:"Mumlar, müzik ve şarap... Gece uzun sürdü, sabah ikiniz de gülümsüyordunuz.",fx:{m:10,p:-6000},run:bd(10)},
- {t:"Sipariş ver",m:"Paket servisle de olur dediniz, film izlediniz.",fx:{m:4,p:-1500},run:bd(3)}]},
-{a:[22,70],t:"Banyoda şarkı",d:"Banyoda bağıra bağıra şarkı söylerken kapı açıldı.",f:()=>S.partner||S.married,c:[
- {t:"Perdeyi çek",m:"Perdenin arkasından hâlâ şarkı söylemeye devam ettin.",fx:{m:2}},
- {t:"Birlikte söyle",m:"İkiniz de düet yaptınız, komşular alkışladı.",fx:{m:6},run:bd(6)}]},
-{a:[18,50],t:"Kamp çadırı",d:"Arkadaşlarla kampa gittiniz, çadır duvarı kağıt gibi ince.",c:[
- {t:"Kulaklık tak",m:"Gece boyu yan çadırdan duyduklarınla uyumaya çalıştın.",fx:{m:-2,h:-2}},
- {t:"Sabah dalga geç",m:"Sabah herkes birbirine kıskıs güldü.",fx:{m:5}}]},
-{a:[20,45],t:"Randevuda eski öğretmen",d:"Tanıştığın kişi, çocukken sana ders veren öğretmenin çıktı.",f:()=>!S.partner,c:[
- {t:"Muhabbet et",m:"Bir saat eski günlerden konuştunuz, çok eğlendiniz.",w:[.25,"Sohbet çok güzeldi, çıkmaya başladınız.",{m:8}],fx:{m:3},run:()=>{if(Math.random()<.25)newP()}},
- {t:"Çekil, kaç",m:"Mazeret uydurdun, ertesi gün utançla mesajlarına cevap vermedin.",fx:{m:-3}}]},
-{a:[18,40],t:"Saç boyası kazası",d:"Evde saçını boyadın, çıkan renk beklediğinden çok farklı.",c:[
- {t:"Kuaföre koş",m:"Kuaför şaşkınlıkla baktı, düzeltmek için epey para harcadın.",fx:{p:-4000,g:2,m:-2}},
- {t:"Tarzın bu de",m:"Herkes sana sordu, bir sürü iltifat aldın.",w:[.5,"Yeni tarzın sevildi, görünüşün parladı.",{g:4,m:6}],fx:{g:-4,m:-3}}]},
-{a:[22,70],t:"Gizli mesajlar",d:"Sevgilin banyodayken telefonuna bir bildirim geldi.",f:()=>S.partner,c:[
- {t:"Bak",m:"Meğer sana sürpriz parti hazırlıyormuş, hiç iyi hissetmedin.",w:[.3,"Başka birine yazdığı flört mesajlarını buldun!",{m:-9}],fx:{m:-3},run:bd(-8)},
- {t:"Dokunma",m:"Merakını bastırdın, güven duygusu arttı.",fx:{m:2},run:bd(4)}]},
-{a:[20,60],t:"Kör randevu",d:"Arkadaşların seni kör randevuya ayarladı, buluşma yerinde sadece iki tabak var.",f:()=>!S.partner,c:[
- {t:"Git",m:"Karşındaki 40 dakika boyunca eski sevgilisinden bahsetti.",w:[()=>.3+S.g/250,"Karşındaki muhteşemdi, çıkmaya başladınız.",{m:10}],fx:{m:-3,p:-3000},run:()=>{if(Math.random()<.3)newP()}},
- {t:"Bahane uydur",m:"Arkadaşların seni uzun süre sorguladı.",fx:{m:-1}}]},
-{a:[25,60],t:"Sihirli blender",d:"Reklamda gördüğün 'her şeyi çözer' diyen blenderi aldın, kullanma kılavuzu çok garip.",c:[
- {t:"Kılavuzu oku",m:"Kılavuzdaki cümleler yüzünden güldün, en azından smoothie güzel çıktı.",fx:{m:3,h:1,p:-8000}},
- {t:"Kullanmadan kaldır",m:"Dolabın dibinde yerini aldı.",fx:{p:-8000,m:-1}}]}
-);
+</script>
+<script src="data/events/07-sosyal-olaylar.js"></script>
+<script>
+
+/* ===== v4: hastalık, mahkeme, işletme, dünya olayları, terfi, özet ===== */
+let TXREADY=false;function reg(k,v){if(/^\s|[\s(+:%-]$/.test(k)){for(let i=PH.length-1;i>=0;i--)if(PH[i][0]===k)PH.splice(i,1);PH.push([k,v]);if(TXREADY)PH.sort((a,b)=>b[0].length-a[0].length)}else EX[k]=v;WR=null}
+const TX={},LX=(a,b)=>{if(TX[a]!==b){TX[a]=b;reg(a,b)}return a};
+const H=()=>S.hx=S.hx||{peak:0,jobs:[],crimes:0,jailY:0,promo:0,biz:[],wev:[],dis:[]};
+const mkt=f=>{S.eco=Math.max(.5,Math.min(1.5,(S.eco||1)*(f<1?f:1+(f-1)*.5)));if(S.px)Object.keys(S.px).forEach(k=>S.px[k]*=f)};
+const wlth=()=>S.p+S.assets.reduce((t,n)=>t+((ALLA.find(x=>x.n===n)||{c:0}).c),0);
+const nn=()=>LX("Yok","None");
+/* --- hastalıklar --- */
+</script>
+<script src="data/events/08-saglik.js"></script>
+<script>
+
+const dget=id=>DIS.find(x=>x.id===id);
+const dpick=()=>{const L1=DIS.filter(d=>S.age>=d.a&&!(S.dis||[]).some(x=>x.id===d.id));return L1.length?R(L1):null};
+function onset(treat){
+  const d=S.dp,c=Math.round(d.c*CF());S.dis=S.dis||[];H().dis.push(d.n);
+  if(treat&&S.p>=c){S.p-=c;
+    if(Math.random()<(d.ac?1:d.id==="kan"?.35:.1)){line(LX("Tedavi işe yaradı, tamamen iyileştin. (-","Treatment worked and you fully recovered. (-")+TL(c)+")","good");return}
+    S.dis.push({id:d.id,t:1});line(LX("Tedaviye başladın, hastalık kontrol altında. (-","You started treatment and the illness is under control. (-")+TL(c)+")","good")}
+  else{if(treat)line(LX("Tedavi için yeterli paran yok.","You can't afford the treatment."),"bad");S.dis.push({id:d.id,t:0});line(LX("Tedavi olmadın, hastalık ilerleyebilir.","You skipped treatment; the illness may get worse."),"bad")}
+}
+</script>
+<script src="data/events/08-saglik-2.js"></script>
+<script>
+
+function dTreat(){
+  const L1=(S.dis||[]).filter(x=>!x.t&&!dget(x.id).ac);
+  if(!L1.length)return modal(LX("Hastane","Hospital"),LX("Tedavi gereken kronik bir hastalığın yok.","You have no chronic illness that needs treatment."),OK);
+  modal(LX("Hastane","Hospital"),LX("Hangi hastalık için tedavi olacaksın?","Which illness will you get treated for?"),L1.map(x=>{const d=dget(x.id),c=Math.round(d.c*CF());
+    return{t:d.n,sub:TL(c),f:()=>{if(S.p<c){line(LX("Tedavi için yeterli paran yok.","You can't afford the treatment."),"bad");return}S.p-=c;x.t=1;apply({h:3});line(d.n+LX(" için tedaviye başladın."," – you started treatment.")+" (-"+TL(c)+")","good");render()}}}).concat(OK));
+}
+ACTS.find(c=>c.t==="Doktor").items.push({t:LX("Hastalık tedavisi","Treat an illness"),a:5,fx:{},special:"dtreat"});
+const _da=doAct;doAct=function(it){return it.special==="dtreat"?dTreat():_da(it)};
+const _die=die;die=function(c){
+  if(S.dis&&S.dis.length&&/^(Sağlığın tükendi|Ani bir sağlık|Yaşlılıktan)/.test(c)){const z=S.dis.filter(x=>!dget(x.id).ac);if(z.length)c=dget(R(z).id).n+LX(" yüzünden hayatını kaybettin."," took your life.")}
+  return _die(c)};
+/* --- polis ve mahkeme --- */
+const _jt=jailTerm;
+jailTerm=function(y,why){
+  const h=H(),lc=Math.round(300000*wm());h.crimes++;
+  const fin=(yy,msg)=>{if(yy<=0){line(msg||LX("Beraat ettin!","You were acquitted!"),"gold");render();return}h.jailY+=yy;_jt(yy,why);render()};
+  const out=(a,b,yy)=>{const r=Math.random();if(r<a)fin(0);else fin(r<b?Math.max(1,Math.round(yy/2)):yy)};
+  const pub=()=>out(.05,.25,y);
+  modal(LX("Mahkeme","Court"),LX("Polis seni yakaladı ve mahkemeye çıkarıldın. Beklenen ceza: ","The police caught you and you face trial. Expected sentence: ")+y+LX(" yıl."," years."),[
+    {t:LX("Avukat tut","Hire a lawyer"),sub:TL(lc)+LX(" · Beraat ya da ceza indirimi"," · Acquittal or reduced sentence"),f:()=>{if(S.p<lc){line(LX("Avukata paran yetmedi, kamu avukatı atandı.","You couldn't afford a lawyer; a public defender was assigned."),"bad");return pub()}S.p-=lc;out(.3,.8,y)}},
+    {t:LX("Kamu avukatı","Public defender"),sub:LX("Ücretsiz · düşük şans","Free · low odds"),f:pub},
+    {t:LX("Kendini savun","Defend yourself"),sub:LX("Zekana bağlı","Depends on your smarts"),f:()=>out(S.z/500,S.z/250+.2,y)},
+    {t:LX("Hâkime rüşvet ver","Bribe the judge"),sub:TL(lc*2)+LX(" · Riskli"," · Risky"),f:()=>{if(S.p<lc*2){line(LX("Rüşvet için yeterli paran yok.","You can't afford the bribe."),"bad");return pub()}S.p-=lc*2;if(Math.random()<.35)fin(0,LX("Rüşvet işe yaradı, dava düştü.","The bribe worked and the case was dropped."));else fin(y+3)}},
+    {t:LX("Kaçmayı dene","Try to escape"),sub:LX("Başarısız olursa +3 yıl","+3 years if it fails"),f:()=>{if(Math.random()<.25){apply({m:-6});line(LX("Kaçmayı başardın ama hayat kolay değil.","You escaped, but life is not easy.")+" ("+fxTxt({m:-6})+")","bad");render()}else fin(y+3)}}]);
+};
+</script>
+<script src="data/events/09-hukuk.js"></script>
+<script>
+
+/* --- kendi işini kur --- */
+</script>
+<script src="data/careers/08-isletmeler-eski.js"></script>
+<script>
+
+function bizMenu(){
+  const T=LX("Kendi İşin","Your Business"),b=S.biz;
+  if(S.age<18||S.uni)return modal(T,LX("İş kurmak için 18 yaşında olmalı ve öğrenci olmamalısın.","You must be 18 and not a student to start a business."),OK);
+  if(!b)return modal(T,LX("Ne tür bir iş kuracaksın? Sermaye yükseldikçe getiri büyür ama risk de artar.","What kind of business will you start? More capital means bigger returns, but also more risk."),BIZ.map(([n,c,r])=>({t:n,sub:LX("Sermaye: ","Capital: ")+TL(c*wm()),f:()=>{if(!canStartCareer())return;const cc=Math.round(c*wm());if(S.p<cc){line(LX("Yeterli sermayen yok.","You don't have enough capital."),"bad");return}S.p-=cc;S.biz={n,inv:cc,r,yrs:0,neg:0};H().biz.push(n);apply({m:6});line(n+LX(" işletmesi kurdun! (-"," business founded! (-")+TL(cc)+")","gold");render()}})).concat(OK));
+  const v=Math.round(b.inv*(.6+Math.min(b.yrs,10)*.05)),ci=Math.round(b.inv*.3);
+  modal(b.n,LX("Sermaye: ","Capital: ")+TL(b.inv)+"\n"+LX("Faaliyet yılı: ","Years running: ")+b.yrs,[
+    {t:LX("Yatırım yap","Invest more"),sub:TL(ci),f:()=>{if(S.p<ci){line(LX("Yeterli paran yok.","Not enough money."),"bad");return}S.p-=ci;b.inv+=ci;line(b.n+LX(" işletmene yatırım yaptın. (-"," – you invested in your business. (-")+TL(ci)+")","good");render()}},
+    {t:LX("İşletmeyi sat","Sell the business"),sub:TL(v),f:()=>{S.p+=v;S.biz=null;line(LX("İşletmeni sattın. (+","You sold your business. (+")+TL(v)+")","gold");render()}},
+    {t:LX("İşletmeyi kapat","Close the business"),f:()=>{S.biz=null;apply({m:-4});line(LX("İşletmeni kapattın.","You closed your business.")+" ("+fxTxt({m:-4})+")","bad");render()}},...OK]);
+}
+ROWS.push(["🏢",LX("Kendi İşini Kur","Start a Business"),LX("Girişimci ol, kendi şirketini yönet","Become an entrepreneur and run your own company"),bizMenu]);
+const _st=stage;stage=function(){const r=_st();return S.biz&&r==="İşsiz"?S.biz.n+LX(" sahibi"," owner"):r};
+/* --- terfi basamakları --- */
+</script>
+<script src="data/careers/09-terfi-unvanlari.js"></script>
+<script>
+
+const rk=j=>{if(!j)return j;j.b0=j.b0||j.n;j.rk=j.rk||0;j.ry=j.ry||0;return j};
+function promote(auto){
+  const j=rk(S.job),need=55+j.rk*7,T=LX("Terfi","Promotion");
+  if(j.rk>=5)return modal(T,LX("Zaten kariyerin zirvesindesin.","You are already at the top of your career."),OK);
+  if(!auto){
+    if(j.ry<2)return modal(T,LX("Terfi için bu basamakta en az 2 yıl çalışmalısın.","You must work at least 2 years at this level to be promoted."),OK);
+    if(S.perf<need)return modal(T,LX("Terfi için performansın en az şu kadar olmalı: %","Your performance must be at least: %")+need,OK);
+    if(Math.random()>.35+S.perf/250+(S.grad?.1:0)){apply({m:-3});j.ry=1;line(LX("Terfi talebin reddedildi.","Your promotion request was rejected.")+" ("+fxTxt({m:-3})+")","bad");render();return}
+  }
+  j.rk++;j.ry=0;j.n=RK[j.rk]+j.b0;j.s=Math.round(j.s*1.25);H().promo++;apply({m:6});
+  line(LX("Terfi ettin! Yeni unvanın: ","You were promoted! Your new title: ")+j.n+" · "+TL(j.s)+" ("+fxTxt({m:6})+")","gold");render();
+}
+const _jw=jobWork;
+jobWork=function(){
+  const j=rk(S.job);if(!j)return;
+  if(j.part||j.mil)return _jw();
+  modal(j.n,LX("Basamak ","Level ")+(j.rk+1)+"/6 · "+(j.rk<5?LX("Sonraki: ","Next: ")+RK[j.rk+1]+j.b0:LX("Zirvedesin","You're at the top"))+"\n"+LX("Basamakta geçen yıl: ","Years at this level: ")+j.ry+" · "+LX("Performans: ","Performance: ")+S.perf+"%",[
+    {t:LX("Terfi iste","Ask for a promotion"),sub:LX("Performans ve kıdeme bağlı","Depends on performance and seniority"),f:()=>promote(false)},
+    {t:LX("Diğer işlemler","Other actions"),f:_jw},...OK]);
+};
+/* --- dünya olayları --- */
+</script>
+<script src="data/events/10-dunya-olaylari.js"></script>
+<script>
+
+/* --- hayat özeti --- */
+function openSummary(){
+  PG=[];pgOpen(()=>{
+    const h=H(),kids=(S.people||[]).filter(x=>x.role==="Oğul"||x.role==="Kız").length,wl=wlth();
+    const sc=Math.max(0,Math.min(100,Math.round(Math.min(35,S.age/2.5)+(S.m+S.h+S.z+S.g)/16+Math.min(20,wl/(3000000*wm()))+kids*2+h.promo*2+(S.grad?5:0)-h.crimes*4)));
+    const vd=sc>=75?LX("Efsanevi bir hayat","A legendary life"):sc>=50?LX("Güzel bir hayat","A good life"):sc>=30?LX("Sıradan bir hayat","An ordinary life"):LX("Zor bir hayat","A hard life");
+    const r=(ic,t,d)=>({ic,t,d,ch:"",f:()=>{}});
+    const rows=[r("⭐",LX("Hayat puanı: ","Life score: ")+sc+"/100",vd),
+      r("⚰️",S.dead?LX("Ölüm nedeni","Cause of death"):LX("Durum","Status"),S.dead?S.cause:LX("Hâlâ yaşıyorsun","You are still alive")),
+      r("💰",LX("Para","Money"),TL(S.p)+" · "+LX("En yüksek: ","Peak: ")+TL(h.peak)+" · "+LX("Varlıklar: ","Assets: ")+TL(wl-S.p)),
+      r("💼",LX("Kariyer","Career"),(h.jobs.join(", ")||nn())+" · "+LX("Terfi: ","Promotions: ")+h.promo),
+      r("🏢",LX("Girişimler","Ventures"),h.biz.join(", ")||nn()),
+      r("🎓",LX("Eğitim","Education"),S.deptN||nn()),
+      r("💞",LX("İlişkiler","Relationships"),(S.partner?S.partner.n+" ("+(S.married?LX("Eş","Spouse"):LX("Sevgili","Partner"))+")":nn())+" · "+LX("Çocuk: ","Children: ")+kids),
+      r("🩺",LX("Hastalıklar","Illnesses"),h.dis.join(", ")||nn()),
+      r("⚖️",LX("Suç kaydı","Criminal record"),LX("Yakalanma: ","Arrests: ")+h.crimes+" · "+LX("Hapis: ","Prison: ")+h.jailY+LX(" yıl"," years")),
+      r("🌍",LX("Tanık olunan dünya olayları","World events witnessed"),h.wev.join(", ")||nn())];
+    if(S.dead)rows.push({ic:"↩️",t:LX("Geri dön","Go back"),d:LX("Yeni hayata başla veya devam et","Start a new life or continue"),f:()=>{PG=[];$("pg").classList.remove("on");dm()}});
+    return{title:LX("HAYAT ÖZETİ","LIFE SUMMARY"),rows}});
+}
+const _db=deathBtns;deathBtns=function(){const b=_db();b.splice(b.length-1,0,{t:LX("📜 Hayat özeti","📜 Life summary"),sub:LX("Hayatının özeti","Review your life"),f:openSummary});return b};
+const _dmn=drawMenu;drawMenu=function(){_dmn();if(mv==="main"){const ol=$("mnu").querySelector(".ol"),b=document.createElement("button");b.className="row";b.innerHTML='<span class="ic">📜</span><span class="tx"><b>'+LX("Hayat Özeti","Life Summary")+'</b><small>'+LX("Hayatının şu ana kadarki özeti","Your life so far")+'</small></span><span class="ch">›</span>';b.onclick=()=>{$("mnu").classList.remove("on");openSummary()};ol.insertBefore(b,ol.firstChild)}};
+/* --- yıllık döngü --- */
+</script>
+<script src="data/events/08-saglik-yillik.js"></script>
+<script>
+
+const _ny4=nextYear;nextYear=function(){const r=_ny4();yearly();return r};
+/* --- komik eventlerin İngilizcesi --- */
+</script>
+<script src="data/events/11-olay-cevirileri.js"></script>
+<script>
+
+LX(" bir fotoğrafı fark etti, ilişkiniz sarsıldı."," noticed a photo and your relationship was shaken.");
+/* --- çevirileri kaydet --- */
+Object.entries(TX).forEach(([k,v])=>{if(/^\s|\s$/.test(k)){for(let i=PH.length-1;i>=0;i--)if(PH[i][0]===k)PH.splice(i,1);PH.push([k,v])}else EX[k]=v});
+PH.sort((a,b)=>b[0].length-a[0].length);WR=null;
+
+/* ===== v5: devam eden çocuğun eğitimi/mesleği, eş soyadı, çocuk soyadı seçimi ===== */
+const TX5=TX,L5=LX;
+const fixP=()=>{if(S&&S.partner&&S.partner.n&&S.partner.n.indexOf(" ")<0)S.partner.n+=" "+SN()};
+const _r5=render;render=function(){fixP();_r5()};
+const _ca=contAs;
+contAs=function(kid){
+  _ca(kid);
+  const a=S.age,st=S.fam;
+  if(a>=6&&a<18){S.gpa=rnd(50,80)}
+  if(a>=14&&a<18){S.tyt=rnd(10,40);S.ayt=rnd(10,40)}
+  if(a>=18&&a<65){
+    S.gpa=rnd(55,85);
+    const pd=()=>{const ds=DEPTS.filter(d=>d.y<=Math.min(95,S.z+15)&&d.id!=="sanat");return R(ds.length?ds:[DEPTS[DEPTS.length-1]])};
+    if(a<=21&&Math.random()<.4+st*.15){
+      const d=pd();S.uni=true;S.dept=d.id;S.deptN=d.n;S.uniEnd=a+(4-(a-18));S.yksScore=rnd(d.y,Math.min(100,d.y+15));S.yksYear=18;mkClass();
+    }else{
+      if(a>=22&&Math.random()<.3+st*.2+S.z/300){const d=pd();S.grad=true;S.dept=d.id;S.deptN=d.n}
+      const el=JOBS.filter(j=>ju(j)&&S.z>=j.z-10),pool=S.grad&&el.some(j=>j.u)?el.filter(j=>j.u):el,j0=R(pool.length?pool:[JOBS[0]]);
+      S.job={...j0,s:Math.round(j0.s*wm())};S.perf=rnd(40,70);
+    }
+    const t=S.uni?L5("Okuduğun bölüm: ","Your department: ")+S.deptN:(S.grad?L5("Mezun olduğun bölüm: ","Your degree: ")+S.deptN+" · ":"")+L5("Mesleğin: ","Your job: ")+S.job.n;
+    line(L5("Hayat hikâyen devam ediyor. ","Your story continues. ")+t,"gold");
+  }
+  render();
+};
+const _nk=nameKid;
+nameKid=function(q,opp){
+  fixP();const P=S.partner;if(!P)return _nk(q,opp);
+  const sp=n=>n.split(" ").slice(1).join(" "),mine=sp(S.name),theirs=sp(P.n);
+  if(!theirs||theirs===mine)return _nk(q,opp);
+  NOPOP=true;
+  const set=sn=>()=>{q.n=q.n.split(" ")[0]+" "+sn;_nk(q,opp)};
+  modal(L5("Soyadı seç","Choose a surname"),L5("Çocuğun hangi soyadını taşıyacak?","Which surname will your child carry?"),[
+    {t:mine,sub:L5("Senin soyadın","Your surname"),f:set(mine)},
+    {t:theirs,sub:S.married?L5("Eşinin soyadı","Your spouse's surname"):L5("Sevgilinin soyadı","Your partner's surname"),f:set(theirs)}]);
+};
+Object.entries(TX5).forEach(([k,v])=>{if(/^\s|\s$/.test(k)){for(let i=PH.length-1;i>=0;i--)if(PH[i][0]===k)PH.splice(i,1);PH.push([k,v])}else EX[k]=v});
+PH.sort((a,b)=>b[0].length-a[0].length);WR=null;
+
+/* ===== v6: işletme sayfası, iş arkadaşları, meslekler, sonuç popup'ları ===== */
+const TX6=TX,L6=LX;
+let WM=false;
+const _mo=modal;
+modal=function(t,x,b){if(WM&&b)b.forEach(z=>{if(z.f&&!z.w6){const f=z.f;z.w6=1;z.f=()=>{WM=true;try{rp(f)()}finally{WM=false}}}});return _mo(t,x,b)};
+ROWS.forEach(r=>{const f=r[3];r[3]=()=>{WM=true;try{f()}finally{WM=false}}});
+const _jw3=jobWork;jobWork=function(){WM=true;try{_jw3()}finally{WM=false}};
+/* kişilerin meslekleri */
+const pjob=q=>{if(q.dead)return"";const a=q.pa!=null?q.pa:S.age;
+  if(a<5)return"Bebek";if(a<6)return"Anaokulu";if(a<10)return"İlkokul";if(a<14)return"Ortaokul";if(a<18)return"Lise";if(a>=65)return"Emekli";
+  if(a<23){if(q.stu===undefined)q.stu=Math.random()<.4;if(q.stu)return"Üniversite öğrencisi"}
+  if(!q.jb)q.jb=R(JOBS.filter(j=>!j.u||Math.random()<.35)).n;
+  return q.jb};
+const addJob=q=>{const p=$("sheet").querySelector("p");if(p&&q)p.textContent+=" · "+L6("Meslek: ","Job: ")+pjob(q)};
+const _pe=person;person=function(q){_pe(q);if(q)addJob(q)};
+const _pm2=partnerMenu;partnerMenu=function(){_pm2();if(S.partner)addJob(S.partner)};
+const _cm=classmate;classmate=function(q){_cm(q);if(q)addJob(q)};
+const _dr=drawRel;drawRel=function(){_dr();$("rls").querySelectorAll("[data-k]").forEach(e=>{const k=e.dataset.k,q=k==="partner"?S.partner:k[0]==="p"?S.people.find(x=>"p"+x.id===k):null;if(!q||q.dead)return;const s=e.querySelector("small");if(s)s.insertAdjacentText("afterbegin",pjob(q)+" · ")})};
+/* iş arkadaşları */
+const newCw=(role,job)=>{const f=Math.random()<.5,q=Pn(role,FN(f)+" "+SN(),f?1:0,role==="Patron"?rnd(35,62):rnd(22,58),rnd(10,40));q.jb=job;return q};
+function ensureCw(){
+  if(!S.job){S.cw=[];S.cwJob=null;return}
+  const j=rk(S.job);if(S.cwJob===j.b0&&S.cw&&S.cw.length)return;
+  S.cwJob=j.b0;S.cw=[newCw("Patron",L6("Müdür","Manager"))];
+  for(let i=rnd(4,7);i>0;i--)S.cw.push(newCw("İş arkadaşı",j.b0));
+}
+const _ny6=nextYear;nextYear=function(){const r=_ny6();
+  if(S&&!S.dead){S.cw=S.cw||[];
+    S.cw.forEach(q=>{if(!(S.people||[]).includes(q)){q.pa++;q.b=cl(q.b-rnd(0,3))}});
+    S.cw=S.cw.filter(q=>q.role==="Patron"||(S.people||[]).includes(q)||Math.random()>.07);
+    ensureCw();if(S.job&&S.cw.length<5)S.cw.push(newCw("İş arkadaşı",S.job.b0))}
+  return r};
+function cwModal(q){
+  const a=S.age,b=[],d=(t,sub,f)=>b.push({t,sub,f});
+  const ln=(m,fx,c)=>{apply(fx);line(m+" ("+fxTxt(fx)+")",c);render()};
+  d("Sohbet et",L6("Bağ artar","Bond grows"),()=>{q.b=cl(q.b+6);ln(q.n+L6(" ile iş yerinde sohbet ettin."," – you chatted at work."),{m:1},"good")});
+  d(L6("Öğle yemeğine çık","Go to lunch together"),TL(1500),()=>{if(S.p<1500){line(L6("Yeterli paran yok.","Not enough money."),"bad");render();return}q.b=cl(q.b+9);ln(q.n+L6(" ile öğle yemeğine çıktın."," – you went out for lunch."),{m:3,p:-1500},"good")});
+  d(L6("İşte yardım iste","Ask for help at work"),L6("Bağa göre kabul eder","Accepts depending on the bond"),()=>{
+    if(Math.random()<.3+q.b/150){S.perf=cl(S.perf+6);q.b=cl(q.b+3);line(q.n+L6(" sana işte yardım etti. (+6% performans)"," helped you at work. (+6% performance)"),"good");render()}
+    else{q.b=cl(q.b-5);ln(q.n+L6(" yardım etmeyi reddetti."," refused to help."),{m:-1},"bad")}});
+  d(L6("Dedikodu yap","Gossip"),L6("Riskli","Risky"),()=>{q.b=cl(q.b+6);ln(q.n+L6(" ile dedikodu yaptın."," – you gossiped together."),{m:2},"good");
+    if(Math.random()<.25){S.perf=cl(S.perf-4);line(L6("Patron dedikoduyu duydu. (-4% performans)","The boss heard the gossip. (-4% performance)"),"bad");render()}});
+  if(a>=18&&q.pa>=18&&q.role==="İş arkadaşı")d("Çıkma teklif et","Şans bağa ve görünüme göre",()=>{askOut(q);if(S.partner&&S.partner.from===q.id)S.cw=S.cw.filter(x=>x!==q)});
+  if(!q.friend)d("Arkadaş ol","Şansın bağa göre",()=>{
+    if(Math.random()<.4+q.b/200){q.friend=true;q.b=cl(q.b+15);if(!S.people.includes(q))S.people.push(q);line(q.n+" ile arkadaş oldun.","gold")}
+    else{q.b=cl(q.b-3);line(q.n+" arkadaşlık teklifini kabul etmedi.","bad")}render()});
+  if(q.role==="Patron")d("Zam iste","Performansına bağlı",()=>{
+    if(!canAskRaise())return;if(Math.random()<S.perf/130+q.b/500){const pc=rnd(2,4);S.job.s=Math.round(S.job.s*(1+pc/100));line(L6("Patron zam isteğini kabul etti: ","The boss approved your raise: ")+"%"+pc+" · "+TL(S.job.s),"gold")}
+    else{apply({m:-3});line(L6("Patron zam isteğini reddetti.","The boss rejected your raise.")+" ("+fxTxt({m:-3})+")","bad")}render()});
+  d("Kavga et",L6("Bağ düşer, performans düşer","Bond and performance drop"),()=>{q.b=cl(q.b-25);S.perf=cl(S.perf-5);ln(q.n+L6(" ile kavga ettin."," – you got into a fight."),{m:-3,h:-1},"bad")});
+  relWrap(b);b.push(...OK);
+  modal(q.n+" ("+q.role+")","İlişki: "+q.b+"/100 · "+q.pa+" yaşında · "+L6("Meslek: ","Job: ")+pjob(q)+" · "+(q.tr=q.tr||R(TRAITS)),b);
+}
+function openCw(){
+  ensureCw();
+  pgOpen(()=>({title:L6("İŞ ARKADAŞLARI","COWORKERS"),
+    intro:'<div class="row cur"><span class="ic">💼</span><span class="tx"><b>'+esc(S.job?S.job.n:"")+'</b><small>'+L6("Performans: ","Performance: ")+S.perf+'%</small></span></div>',
+    rows:(S.cw||[]).filter(q=>!q.dead).map(q=>({ic:pface(q),t:q.n,bond:q.b,d:q.role+" · "+pjob(q)+" · "+q.pa+" yaşında",f:()=>cwModal(q)}))}));
+}
+/* kendi işletmem: sayfa */
+function bizPage(){pgOpen(()=>{
+  const b=S.biz,ci=Math.round(b.inv*.3),ce=Math.round(b.inv*.06),v=Math.round(b.inv*(.6+Math.min(b.yrs,10)*.05)),nd=L6("Vazgeç","Cancel");
+  const bye=(t,txt,fn)=>()=>modal(t,txt,[{t:t,f:rp(fn)},{t:nd}]);
+  return{title:b.n,
+   intro:`<div class="row cur"><span class="ic">🏢</span><span class="tx"><b>${esc(b.n)}</b><small>${L6("Sermaye: ","Capital: ")}${TL(b.inv)} · ${L6("Faaliyet yılı: ","Years running: ")}${b.yrs} · ${L6("Çalışan: ","Employees: ")}${b.emp||0}</small>${b.last==null?"":"<small>"+L6("Son yıl: ","Last year: ")+(b.last>=0?"+":"")+TL(b.last)+"</small>"}</span></div>`,
+   rows:[
+    {ic:"💵",t:L6("Yatırım yap","Invest more"),d:TL(ci),f:rp(()=>{if(S.p<ci){line(L6("Yeterli paran yok.","Not enough money."),"bad");return}S.p-=ci;b.inv+=ci;line(b.n+L6(" işletmene yatırım yaptın. (-"," – you invested in your business. (-")+TL(ci)+")","good");render()})},
+    {ic:"👷",t:L6("Eleman al","Hire staff"),d:TL(ce)+L6(" · Getiriyi artırır"," · Boosts returns"),f:rp(()=>{if((b.emp||0)>=10){line(L6("Daha fazla eleman alamazsın.","You can't hire more staff."),"bad");return}if(S.p<ce){line(L6("Yeterli paran yok.","Not enough money."),"bad");return}S.p-=ce;b.emp=(b.emp||0)+1;b.r=+(b.r*1.04).toFixed(4);line(L6("Yeni bir eleman aldın. (-","You hired a new employee. (-")+TL(ce)+")","good");render()})},
+    {ic:"🏷️",t:L6("İşletmeyi sat","Sell the business"),d:TL(v),f:bye(L6("Sat","Sell"),L6("Satış bedeli: ","Sale price: ")+TL(v),()=>{S.p+=v;S.biz=null;PG=[];$("pg").classList.remove("on");line(L6("İşletmeni sattın. (+","You sold your business. (+")+TL(v)+")","gold");render()})},
+    {ic:"🚪",t:L6("İşletmeyi kapat","Close the business"),d:"",f:bye(L6("Kapat","Close"),L6("İşletme kapatılırsa sermaye geri gelmez.","If you close the business the capital is lost."),()=>{S.biz=null;PG=[];$("pg").classList.remove("on");apply({m:-4});line(L6("İşletmeni kapattın.","You closed your business.")+" ("+fxTxt({m:-4})+")","bad");render()})}]}})}
+function bizOpen(){
+  if(S.age<18||S.uni)return modal(L6("Kendi İşin","Your Business"),L6("İş kurmak için 18 yaşında olmalı ve öğrenci olmamalısın.","You must be 18 and not a student to start a business."),OK);
+  PG=[];if(S.biz)return bizPage();
+  pgOpen(()=>({title:L6("KENDİ İŞİN","YOUR BUSINESS"),
+   intro:'<div class="row cur"><span class="ic">💡</span><span class="tx"><b>'+L6("Girişimci ol","Become an entrepreneur")+'</b><small>'+L6("Sermaye yükseldikçe getiri ve risk artar.","More capital means bigger returns and more risk.")+'</small></span></div>',
+   rows:BIZ.map(([n,c,r])=>({ic:"🏢",t:n,d:L6("Sermaye: ","Capital: ")+TL(c*wm()),f:rp(()=>{if(!canStartCareer())return;const cc=Math.round(c*wm());if(S.p<cc){line(L6("Yeterli sermayen yok.","You don't have enough capital."),"bad");return}S.p-=cc;S.biz={n,inv:cc,r,yrs:0,neg:0};H().biz.push(n);apply({m:6});line(n+L6(" işletmesi kurdun! (-"," business founded! (-")+TL(cc)+")","gold");PG=[];bizPage();render()})}))}));
+}
+ROWS.find(r=>r[1]==="Kendi İşini Kur")[3]=bizOpen;
+/* İş sekmesinde işletme ve iş arkadaşları satırları */
+const _do=drawOcc;drawOcc=function(){_do();const ol=$("occ").querySelector(".ol");if(!ol)return;
+  const nx=[...ol.children].find(e=>!e.classList.contains("cur")),
+  mk=(ic,t,d,f)=>{const b=document.createElement("button");b.className="row cur";b.innerHTML='<span class="ic">'+ic+'</span><span class="tx"><b>'+esc(t)+'</b><small>'+esc(d)+'</small></span><span class="ch">›</span>';b.onclick=f;ol.insertBefore(b,nx)};
+    if(S.biz)mk("🏢",S.biz.n+L6(" işletmem"," – my business"),L6("Sermaye: ","Capital: ")+TL(S.biz.inv)+(S.biz.last!=null?" · "+L6("Son yıl: ","Last year: ")+(S.biz.last>=0?"+":"")+TL(S.biz.last):""),()=>{PG=[];bizPage()})};
+L6("İş arkadaşı","Coworker");L6("Patron","Boss");L6("Sonuç","Result");
+Object.entries(TX6).forEach(([k,v])=>{if(/^\s|\s$/.test(k)){for(let i=PH.length-1;i>=0;i--)if(PH[i][0]===k)PH.splice(i,1);PH.push([k,v])}else EX[k]=v});
+PH.sort((a,b)=>b[0].length-a[0].length);WR=null;
+
+/* ===== v7: işletme yönetimi, portföy, ev kiralama/satış, iş sayfası, devam eden hayat ilişkileri ===== */
+const L7=LX;
+const barSvg=vals=>{const W=300,Hh=100,n=vals.length,mx=Math.max(1,...vals.map(Math.abs)),st=(W-10)/n,bw=Math.min(28,st-3),z=Hh/2+5;
+  let s='<svg viewBox="0 0 '+W+' '+(Hh+10)+'" width="100%" role="img"><line x1="0" x2="'+W+'" y1="'+z+'" y2="'+z+'" stroke="rgba(255,255,255,.35)"/>';
+  vals.forEach((v,i)=>{const h=Math.max(1,Math.abs(v)/mx*(Hh/2-4)),x=5+i*st+(st-bw)/2;s+='<rect x="'+x+'" y="'+(v>=0?z-h:z)+'" width="'+bw+'" height="'+h+'" rx="3" fill="'+(v>=0?"#27a844":"#d1495b")+'"/>'});
+  return s+"</svg>"};
+const chartCard=(t,vals,note)=>(vals.length&&(typeof vals[0]!=="object"||vals[0].v.length))?'<div class="tg" style="margin:0 0 8px"><h3>'+t+'</h3>'+lineChart(vals)+(note?'<small style="color:var(--mut)">'+note+'</small>':"")+'</div>':"";
+/* işletme: gelir, gider, vergi */
+function bizYear(b){
+  b.yrs++;b.emp=b.emp||0;b.rep=b.rep==null?50:b.rep;b.hist=b.hist||[];b.total=b.total||0;
+  let rev=Math.round(b.inv*b.r*(.55+Math.random())*(1+.25*b.emp)*(.6+b.rep/125)*(1+S.z/400)*(b.ad?1.25:1));
+  let exp=Math.round(rev*.4+b.inv*.12+b.emp*(354000*wm())+(b.ad?b.inv*.03:0));
+  const r=Math.random();
+  if(r<.07){const c=Math.round(b.inv*.05);exp+=c;line(L7("Vergi denetiminde ceza yedin. (-","You were fined in a tax audit. (-")+TL(c)+")","bad")}
+  else if(r<.12){const c=Math.round(b.inv*.06);exp+=c;line(L7("İşyerinde hasar oldu, tamirat gerekti. (-","There was damage and repairs were needed. (-")+TL(c)+")","bad")}
+  else if(r<.2){const g=Math.round(rev*.15);rev+=g;line(L7("Büyük bir sipariş aldın! (+","You landed a big order! (+")+TL(g)+")","gold")}
+  const gross=rev-exp,tax=gross>0?Math.round(gross*.15):0,net=gross-tax;exp+=tax;
+  S.p+=net;b.last=net;b.total+=net;b.ad=0;b.hist.push({y:S.age,rev,exp,net});if(b.hist.length>30)b.hist.shift();
+  b.rep=cl(b.rep+(net>=0?rnd(0,3):-rnd(2,6)));
+  line(b.n+L7(" işletmesi bu yıl "," business this year: ")+(net>=0?"+":"")+TL(net)+(net>=0?L7(" kâr"," profit"):L7(" zarar"," loss"))+L7(" (gelir "," (revenue ")+TL(rev)+L7(", gider ",", expenses ")+TL(exp)+")",net>=0?"gold":"bad");
+  b.neg=net<0?b.neg+1:0;
+  if(b.neg>=3){S.biz=null;apply({m:-8});line(L7("İşletmen üst üste zarar edip iflas etti. (","Your business lost money repeatedly and went bankrupt. (")+fxTxt({m:-8})+")","bad")}
+}
+function bizFin(){pgOpen(()=>{const h=(S.biz&&S.biz.hist)||[];
+  return{title:L7("FİNANSAL TABLO","FINANCIAL STATEMENT"),intro:chartCard(L7("Yıllık net kâr / zarar","Yearly net profit / loss"),h.map(x=>x.net)),
+   rows:h.slice().reverse().map(x=>({ic:x.net>=0?"🟢":"🔴",t:L7("Yaş: ","Age: ")+x.y,d:L7("Gelir: ","Revenue: ")+TL(x.rev)+" · "+L7("Gider: ","Expenses: ")+TL(x.exp)+" · "+L7("Kâr/zarar: ","Profit/loss: ")+(x.net>=0?"+":"")+TL(x.net),ch:"",f:()=>{}}))}})}
+function bizPage(){pgOpen(()=>{
+  const b=S.biz,ci=Math.round(b.inv*.3),ce=Math.round(30000*wm()),v=Math.round(b.inv*(.6+Math.min(b.yrs,10)*.05)),nd=L7("Vazgeç","Cancel"),emp=b.emp||0,rep=b.rep==null?50:b.rep,hist=b.hist||[];
+  const bye=(t,txt,fn)=>()=>modal(t,txt,[{t:t,f:rp(fn)},{t:nd}]);
+  const rows=[
+   {ic:"💵",t:L7("Yatırım yap","Invest more"),d:TL(ci)+L7(" · Sermayeyi büyütür"," · Grows capital"),f:rp(()=>{if(S.p<ci){line(L7("Yeterli paran yok.","Not enough money."),"bad");return}S.p-=ci;b.inv+=ci;line(b.n+L7(" işletmene yatırım yaptın. (-"," – you invested in your business. (-")+TL(ci)+")","good");render()})},
+   {ic:"👷",t:L7("Eleman al","Hire staff"),d:TL(ce)+L7(" · Gelir ve maaş gideri artar"," · Raises revenue and payroll"),f:rp(()=>{if(emp>=10){line(L7("Daha fazla eleman alamazsın.","You can't hire more staff."),"bad");return}if(S.p<ce){line(L7("Yeterli paran yok.","Not enough money."),"bad");return}S.p-=ce;b.emp=emp+1;line(L7("Yeni bir eleman aldın. (-","You hired a new employee. (-")+TL(ce)+")","good");render()})}];
+  if(emp>0)rows.push({ic:"🧾",t:L7("Eleman çıkar","Lay off staff"),d:L7("Maaş gideri düşer, itibar azalır","Lower payroll, lower reputation"),f:rp(()=>{b.emp=emp-1;b.rep=cl(rep-3);line(L7("Bir çalışanı işten çıkardın.","You laid off an employee."),"bad");render()})});
+  rows.push({ic:"📣",t:L7("Reklam yap","Run an ad campaign"),d:b.ad?L7("Bu yıl aktif","Active this year"):TL(Math.round(b.inv*.03))+L7(" · Gelir %25 artar, gider yıl sonunda"," · Revenue +25%, paid at year end"),f:rp(()=>{if(b.ad){line(L7("Reklam kampanyası zaten aktif.","The ad campaign is already running."),"bad");return}b.ad=1;line(L7("Reklam kampanyası başlattın.","You started an ad campaign."),"good");render()})},
+   {ic:"📊",t:L7("Finansal tablo","Financial statement"),d:L7("Gelir, gider ve kâr geçmişi","Revenue, expense and profit history"),f:bizFin},
+   {ic:"🏷️",t:L7("İşletmeyi sat","Sell the business"),d:TL(v),f:bye(L7("Sat","Sell"),L7("Satış bedeli: ","Sale price: ")+TL(v),()=>{S.p+=v;S.biz=null;PG=[];$("pg").classList.remove("on");line(L7("İşletmeni sattın. (+","You sold your business. (+")+TL(v)+")","gold");render()})},
+   {ic:"🚪",t:L7("İşletmeyi kapat","Close the business"),d:"",f:bye(L7("Kapat","Close"),L7("İşletme kapatılırsa sermaye geri gelmez.","If you close the business the capital is lost."),()=>{S.biz=null;PG=[];$("pg").classList.remove("on");apply({m:-4});line(L7("İşletmeni kapattın.","You closed your business.")+" ("+fxTxt({m:-4})+")","bad");render()})});
+  return{title:b.n,
+   intro:'<div class="row cur"><span class="ic">🏢</span><span class="tx"><b>'+esc(b.n)+'</b><small>'+L7("Sermaye: ","Capital: ")+TL(b.inv)+' · '+L7("Faaliyet yılı: ","Years running: ")+b.yrs+' · '+L7("Çalışan: ","Employees: ")+emp+' · '+L7("İtibar: ","Reputation: ")+rep+'%</small>'+(hist.length?'<small>'+L7("Son yıl net: ","Last year net: ")+(b.last>=0?"+":"")+TL(b.last)+' · '+L7("Toplam: ","Total: ")+(b.total>=0?"+":"")+TL(b.total)+'</small>':"")+'</span></div>'
+    +chartCard(L7("Yıllık net kâr / zarar","Yearly net profit / loss"),hist.map(x=>x.net)),rows}})}
+/* portföy ve evler */
+function sellAll(){initMkt();const pv=portVal(),c=portCost();
+  if(pv<=0)return modal(L7("Portföy","Portfolio"),L7("Satacak yatırımın yok.","You have no investments to sell."),OK);
+  modal(L7("Tüm portföyü sat","Sell entire portfolio"),L7("Satış tutarı: ","Proceeds: ")+TL(pv)+"\n"+L7("Kâr/zarar: ","Profit/loss: ")+(pv-c>=0?"+":"")+TL(pv-c),[
+   {t:L7("Hepsini sat","Sell all"),p:1,f:rp(()=>{let t=0;MK_ALL.forEach(m=>{const u=S.inv[m.id]||0;if(u>0){t+=Math.round(u*S.px[m.id]);S.inv[m.id]=0;S.cost[m.id]=0}});S.p+=t;const pl=t-c;
+     line(L7("Tüm portföyü sattın. (+","You sold your entire portfolio. (+")+TL(t)+", "+(pl>=0?L7("kâr: ","profit: ")+"+":L7("zarar: ","loss: ")+"-")+TL(Math.abs(pl))+")",pl>=0?"gold":"bad");render()})},
+   {t:L7("Vazgeç","Cancel")}])}
+function openOwned(name){
+  const x=ALLA.find(z=>z.n===name);if(!x)return;const home=HOMES.includes(name);
+  pgOpen(()=>{S.rent=S.rent||{};const rented=!!S.rent[name],inc=Math.round(x.c*.05),sv=Math.round(x.c*.85),rows=[];
+    if(home)rows.push({ic:"🔑",t:rented?L7("Kiracıyı çıkar","Evict tenant"):L7("Kiraya ver","Rent it out"),d:rented?L7("Şu an kirada · yıllık ","Currently rented · yearly ")+TL(inc):L7("Yıllık kira geliri: ","Yearly rent income: ")+TL(inc),
+      f:rp(()=>{if(rented){delete S.rent[name];line(name+L7(" için kiracı çıkarıldı."," – tenant removed."),"bad")}else{S.rent[name]=1;line(name+L7(" kiraya verildi. Yıllık gelir: "," rented out. Yearly income: ")+TL(inc),"gold")}render()})});
+    rows.push({ic:"🏷️",t:L7("Sat","Sell"),d:L7("Satış değeri ","Sell value ")+TL(sv),f:()=>modal(name,L7("Satış değeri ","Sell value ")+TL(sv),[{t:L7("Sat","Sell"),p:1,f:rp(()=>{S.p+=sv;removeOneAsset(name);if(!assetCount(name))delete S.rent[name];PG.pop();line(name+L7(" satıldı. (+"," sold. (+")+TL(sv)+")","gold");render()})},{t:L7("Vazgeç","Cancel")}])});
+    return{title:name,intro:'<div class="row cur"><span class="ic">'+(home?"🏠":"💎")+'</span><span class="tx"><b>'+esc(name)+'</b><small>'+L7("Değer: ","Value: ")+TL(x.c)+(home?' · '+L7("Kira: ","Rent: ")+(rented?L7("Kirada","Rented"):L7("Boş","Empty")):"")+'</small></span></div>',rows}})}
+const _po=pgOpen;pgOpen=function(b){return _po(()=>{const r=b();
+
+  if(r.rows&&r.rows.some(x=>x.ic==="✅"))r.rows.forEach(x=>{if(x.ic==="✅")x.f=()=>openOwned(x.t)});
+  return r})};
+const _ny7=nextYear;nextYear=function(){const r=_ny7();
+  if(S&&!S.dead){
+    if(S.rent){let t=0;t=collectPropertyRent();if(t>0){S.p+=t;line(L7("Kira geliri: ","Rental income: ")+"+"+TL(t),"gold")}}
+    if(S.px){S.pfh=S.pfh||[];const pv=Math.round(portVal()),c=Math.round(portCost());if(pv>0||c>0||S.pfh.length){S.pfh.push({y:S.age,v:pv,c});if(S.pfh.length>30)S.pfh.shift()}}
+    render()}
+  return r};
+/* iş sayfası */
+jobWork=function(){
+  if(!S.job)return;PG=[];
+  pgOpen(()=>{ensureCw();const j=rk(S.job),lad=!(j.part||j.mil),nd=L7("Vazgeç","Cancel");
+    const rows=[{ic:"👥",t:L7("İş Arkadaşları","Coworkers"),d:(S.cw||[]).length+L7(" kişi"," people"),f:openCw}];
+    if(lad)rows.push({ic:"📈",t:L7("Terfi iste","Ask for a promotion"),d:j.rk<5?L7("Sonraki: ","Next: ")+RK[j.rk+1]+j.b0:L7("Zirvedesin","You're at the top"),f:rp(()=>promote(false))});
+    rows.push(
+     {ic:"💪",t:"Çok çalış",d:"Performans artar · -3 mutluluk, -2 sağlık",f:rp(()=>{if(S.worked){line("Bu yıl zaten çok çalıştın.","bad");return}S.worked=true;const g=rnd(6,12);S.perf=cl(S.perf+g);apply({m:-3,h:-2});line("Çok çalıştın, performansın arttı. (+"+g+"% performans, -3 mutluluk, -2 sağlık)","good");render();check()})},
+     {ic:"⏱️",t:"Fazla mesai yap",d:"+"+TL(overtimeNet(j.s))+" · -4 mutluluk, -2 sağlık",f:rp(()=>{S.p+=Math.round(j.s/10);apply({m:-4,h:-2});line("Fazla mesai yaptın. (+"+TL(overtimeNet(j.s))+", -4 mutluluk, -2 sağlık)","bad");render();check()})},
+     {ic:"💰",t:"Zam iste",d:"Performansına bağlı",f:rp(()=>{if(!canAskRaise())return;if(Math.random()<S.perf/130){const pc=rnd(2,4);S.job.s=Math.round(S.job.s*(1+pc/100));line("Zam isteğin kabul edildi: %"+pc+". Yeni maaş "+TL(S.job.s),"gold")}else{apply({m:-3});line("Zam isteğin reddedildi. (-3 mutluluk)","bad")}render()})},
+     {ic:"🚪",t:"İstifa et",d:j.n,f:()=>modal("İstifa et",L7("İşinden ayrılmak istediğine emin misin?","Are you sure you want to quit your job?"),[{t:"İstifa et",f:rp(()=>{line(j.n+" işinden ayrıldın.");S.job=null;PG=[];$("pg").classList.remove("on");render()})},{t:nd,p:1}])});
+    return{title:L7("İŞİM","MY JOB"),
+     intro:'<div class="row cur"><span class="ic">💼</span><span class="tx"><b>'+esc(j.n)+'</b><small>Performans: '+S.perf+'% · '+TL(j.s)+'/yıl'+(lad?' · '+L7("Basamak ","Level ")+(j.rk+1)+'/6':'')+'</small><div class="pf"><i style="width:'+S.perf+'%"></i></div></span></div>',rows}})};
+const _do7=drawOcc;drawOcc=function(){_do7();if((S.biz||inSch())&&!S.job){const ol=$("occ").querySelector(".ol");[...ol.children].forEach(e=>{if(e.tagName==="DIV"&&/Şu an işsizsin/.test(e.textContent))e.remove()})}};
+/* devam eden hayatta arkadaş ve ilişkiler */
+const _ca2=contAs;
+contAs=function(kid){_ca2(kid);
+  const a=S.age,mkF=(role,age)=>{const f=Math.random()<.5;return Pn(role,FN(f)+" "+SN(),f?1:0,Math.max(0,age),rnd(30,75))};
+  if(a>=5)proposeFriend(mkF("Arkadaş",a+rnd(-2,2)));
+  if(a>=18&&!S.partner&&Math.random()<.55){const pf=pickG();S.partner={n:FN(pf)+" "+SN(),b:rnd(50,85),f:pf};if(a>=24&&Math.random()<.5)S.married=true}
+  if(a>=5)line(L7("Yeni hayatında insanlarla tanışmaya başlayabilirsin.","You can begin meeting people in your new life.")+(S.partner?" "+S.partner.n+(S.married?L7(" eşin."," is your spouse."):L7(" sevgilin."," is your partner.")):""),"gold");
+  render()};
+PH.sort((a,b)=>b[0].length-a[0].length);WR=null;
+
+/* ===== v8: çizgi grafik, derin işletme, mülk yönetimi, iş derinliği ===== */
+const L8=LX;
+/* --- araba yokken araba eventleri çıkmasın --- */
+const CARS=["Araba","Sedan","Spor araba","Lüks araba"],BOATS=["Sürat teknesi","Yelkenli","Yat"];
+const hasCar=()=>S.assets.some(n=>CARS.includes(n));
+</script>
+<script src="data/events/14-arac-kosullari.js"></script>
+<script>
+
+/* --- üst bar: konum rozeti --- */
+const _r8=render;render=function(){_r8();if(S){const l=LOC(),e=$("locChip");if(e){const t=(FLAG[l.ctry]||"🌍")+" "+l.city;if(e.textContent!==t)e.textContent=t}}};
+/* --- çizgi grafik --- */
+let _lc=0;
+function lineChart(vals){
+  const sr=(typeof vals[0]==="object"?vals:[{n:"",c:"#c4b5fd",v:vals}]).map(s=>({...s,v:s.v.slice(-20)}));
+  const WW=320,HH=130,pl=10,pr=10,pt=10,pb=12,id="lg"+(++_lc);
+  const all=sr.flatMap(s=>s.v),mx0=Math.max(0,...all),mn0=Math.min(0,...all),pad=(mx0-mn0||1)*.08,mx=mx0+pad,mn=mn0-(mn0<0?pad:0);
+  const n=Math.max(...sr.map(s=>s.v.length));
+  const X=i=>n<2?WW/2:pl+(WW-pl-pr)*i/(n-1),Y=v=>pt+(HH-pt-pb)*(mx-v)/(mx-mn);
+  const f1=v=>v.toFixed(1);
+  const path=s=>{let d="";s.v.forEach((v,i)=>{const x=X(i),y=Y(v);if(!i)d+="M"+f1(x)+" "+f1(y);else{const px=X(i-1),py=Y(s.v[i-1]),cx=(px+x)/2;d+="C"+f1(cx)+" "+f1(py)+","+f1(cx)+" "+f1(y)+","+f1(x)+" "+f1(y)}});return d};
+  let o='<svg viewBox="0 0 '+WW+' '+HH+'" width="100%" role="img" style="display:block;overflow:visible"><defs>';
+  sr.forEach((s,i)=>{o+='<linearGradient id="'+id+i+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+s.c+'" stop-opacity=".38"/><stop offset="1" stop-color="'+s.c+'" stop-opacity="0"/></linearGradient>'});
+  o+='</defs>';
+  for(let g=0;g<4;g++){const y=pt+(HH-pt-pb)*g/3;o+='<line x1="'+pl+'" x2="'+(WW-pr)+'" y1="'+f1(y)+'" y2="'+f1(y)+'" stroke="rgba(255,255,255,.08)"/>'}
+  o+='<line x1="'+pl+'" x2="'+(WW-pr)+'" y1="'+f1(Y(0))+'" y2="'+f1(Y(0))+'" stroke="rgba(255,255,255,.4)" stroke-dasharray="3 3"/>';
+  sr.forEach((s,i)=>{
+    if(!s.v.length)return;const last=s.v.length-1;
+    if(last>0&&(sr.length===1||s.area))o+='<path d="'+path(s)+" L"+f1(X(last))+" "+f1(Y(0))+" L"+f1(X(0))+" "+f1(Y(0))+' Z" fill="url(#'+id+i+')"/>';
+    if(last>0)o+='<path d="'+path(s)+'" fill="none" stroke="'+s.c+'" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>';
+    s.v.forEach((v,j)=>{o+='<circle cx="'+f1(X(j))+'" cy="'+f1(Y(v))+'" r="'+(j===last?4:2)+'" fill="'+s.c+'"'+(j===last?' stroke="#fff" stroke-width="1.5"':"")+'/>'});
+  });
+  o+="</svg>";
+  if(sr.length>1||sr[0].n)o+='<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:6px;font-size:12px;color:var(--mut)">'+sr.map(s=>'<span><i style="display:inline-block;width:8px;height:8px;border-radius:50%;background:'+s.c+';margin-right:5px"></i>'+s.n+'</span>').join("")+'</div>';
+  return o;
+}
+const ro8=(ic,t,d,f,ch)=>({ic,t,d,f,ch});
+/* --- mülkler: durum, restore, kiralama, satış --- */
+const ICO={home:"🏠",car:"🚗",boat:"⛵",lux:"💎"};
+const getA=n=>ALLA.find(z=>z.n===n);
+const kindOf=n=>HOMES.includes(n)?"home":CARS.includes(n)?"car":BOATS.includes(n)?"boat":"lux";
+const cond=n=>{S.cond=S.cond||{};return S.cond[n]==null?100:S.cond[n]};
+const sellVal=x=>Math.round(x.c*(.55+.45*cond(x.n)/100)*.85);
+const restCost=x=>Math.max(500,Math.round(x.c*.12*(100-cond(x.n))/100*assetCount(x.n)));
+const rentInc=x=>Math.round(x.c*.05*(.5+cond(x.n)/200));
+function rentIncomeYear(n,x){
+  S.cond=S.cond||{};
+  if(Math.random()<.06){line(n+L8(" kiracısı bu yıl kirayı ödemedi."," – the tenant didn't pay rent this year."),"bad");return 0}
+  if(Math.random()<.1){const d=rnd(8,18);S.cond[n]=Math.max(5,cond(n)-d);line(n+L8(" kiracısı eve zarar verdi. (durum -%"," – the tenant damaged the property. (condition -%")+d+")","bad")}
+  return rentInc(x);
+}
+function openMyAssets(){
+  pgOpen(()=>{
+    S.rent=S.rent||{};
+    const own=S.assets.filter(n=>getA(n)),tot=own.reduce((t,n)=>t+sellVal(getA(n)),0),ri=own.filter(n=>S.rent[n]).reduce((t,n)=>t+rentInc(getA(n)),0);
+    return{title:L8("MÜLKLERİM","MY PROPERTIES"),
+     intro:'<div class="row cur"><span class="ic">🗝️</span><span class="tx"><b>'+L8("Toplam satış değeri: ","Total sale value: ")+TL(tot)+'</b><small>'+(own.length?L8("Yıllık kira geliri: ","Yearly rent income: ")+TL(ri):L8("Henüz mülkün yok","You own no properties yet"))+'</small></span></div>',
+     rows:[...new Set(own)].map(n=>{const x=getA(n);return ro8(ICO[kindOf(n)],n,assetCount(n)+" adet · "+L8("Durum %","Condition %")+cond(n)+" · "+L8("Değer: ","Value: ")+TL(sellVal(x))+(S.rent[n]?" · "+L8("Kirada","Rented"):""),()=>openOwned(n))})}});
+}
+openOwned=function(name){
+  const x=getA(name);if(!x)return;
+  pgOpen(()=>{
+    if(!S.assets.includes(name))return{title:name,rows:[]};
+    S.rent=S.rent||{};S.cond=S.cond||{};
+    const k=kindOf(name),home=k==="home",rented=!!S.rent[name],c=cond(name),sv=sellVal(x),rc=restCost(x),inc=rentInc(x),rows=[],nd=L8("Vazgeç","Cancel");
+    if(home)rows.push(ro8("🔑",rented?L8("Kiracıyı çıkar","Evict tenant"):L8("Kiraya ver","Rent it out"),
+      rented?L8("Şu an kirada · yıllık ","Currently rented · yearly ")+TL(inc):L8("Yıllık kira geliri: ","Yearly rent income: ")+TL(inc)+(c<30?L8(" · durum çok kötü"," · condition too poor"):""),
+      rp(()=>{
+        if(rented){delete S.rent[name];line(name+L8(" için kiracı çıkarıldı."," – tenant removed."),"bad")}
+        else{
+          if(c<30){line(L8("Durumu çok kötü, kiracı bulunamadı. Önce restore et.","Condition is too poor; no tenant found. Restore it first."),"bad");return}
+          S.rent[name]=1;line(name+L8(" kiraya verildi. Yıllık gelir: "," rented out. Yearly income: ")+TL(inc),"gold");
+        }
+        render()})));
+    rows.push(ro8("🛠️",L8("Restore et","Restore"),c>=100?L8("Mükemmel durumda","In perfect condition"):TL(rc)+" · "+L8("durum %","condition %")+c+" → %100",
+      c>=100?()=>{}:()=>modal(name,L8("Restore maliyeti: ","Restoration cost: ")+TL(rc)+"\n"+L8("Durum %","Condition %")+c+" → %100",[
+        {t:L8("Restore et","Restore"),p:1,f:rp(()=>{
+          if(S.p<rc){line(L8("Restore için yeterli paran yok.","You can't afford the restoration."),"bad");return}
+          S.p-=rc;S.cond[name]=100;apply({m:2});line(name+L8(" restore edildi. (-"," restored. (-")+TL(rc)+", "+fxTxt({m:2})+")","good");render()})},
+        {t:nd}]),
+      c>=100?"":undefined));
+    rows.push(ro8("🏷️",L8("Sat","Sell"),L8("Satış değeri ","Sell value ")+TL(sv),()=>modal(name,L8("Satış değeri ","Sell value ")+TL(sv)+(c<100?"\n"+L8("Durum %","Condition %")+c+L8(" · önce restore edersen daha çok kazanırsın"," · restoring first would raise the price"):""),[
+      {t:L8("Sat","Sell"),p:1,f:rp(()=>{S.p+=sv;removeOneAsset(name);if(!assetCount(name)){delete S.rent[name];delete S.cond[name];}PG.pop();line(name+L8(" satıldı. (+"," sold. (+")+TL(sv)+")","gold");render()})},
+      {t:nd}])));
+    return{title:name,
+     intro:'<div class="row cur"><span class="ic">'+ICO[k]+'</span><span class="tx"><b>'+esc(name)+'</b><small>'+L8("Yeni fiyat: ","List price: ")+TL(x.c)+' · '+L8("Değer: ","Value: ")+TL(sv)+'</small><small>'+L8("Durum %","Condition %")+c+(home?' · '+L8("Kira: ","Rent: ")+(rented?L8("Kirada","Rented"):L8("Boş","Empty")):'')+'</small><div class="pf"><i style="width:'+c+'%;background:'+(c>=60?"#27a844":c>=30?"#e8943a":"#d1495b")+'"></i></div></span></div>'
+      +(home&&!rented&&S.assets.filter(n=>HOMES.includes(n)&&!S.rent[n]).length===1?'<div class="row cur"><span class="ic">ℹ️</span><span class="tx"><small>'+L8("Tek evini kiraya verirsen kendi kiranı ödersin.","If you rent out your only home, you will pay rent yourself.")+'</small></span></div>':''),rows};
+  });
+};
+/* --- iş (çalışan) derinliği --- */
+function jobExtra(r){
+  const j=S.job;if(!j)return;const i=r.rows.findIndex(x=>x.ic==="🚪"),cc=Math.round(j.s*.04);
+  r.rows.splice(i<0?r.rows.length:i,0,
+   ro8("🎓",L8("Kurs / sertifika","Course / certificate"),TL(cc)+L8(" · Performans ve zeka artar"," · Boosts performance and smarts"),rp(()=>{
+     if(S.courseY===S.age){line(L8("Bu yıl zaten bir kursa katıldın.","You already took a course this year."),"bad");return}
+     if(S.p<cc){line(L8("Yeterli paran yok.","Not enough money."),"bad");return}
+     S.courseY=S.age;S.p-=cc;const g=rnd(5,9);S.perf=cl(S.perf+g);apply({z:2,m:-1});S.certs=(S.certs||0)+1;
+     line(L8("Kursa katıldın. (-","You took a course. (-")+TL(cc)+", +"+g+"% "+L8("performans","performance")+", "+fxTxt({z:2,m:-1})+")","good");render()})),
+   ro8("🤝",L8("Mülakata katıl","Interview elsewhere"),L8("Daha yüksek maaşlı teklif alabilirsin","You may land a better-paid offer"),rp(()=>{
+     if(S.intvY===S.age){line(L8("Bu yıl zaten mülakatlara girdin.","You already interviewed this year."),"bad");return}
+     S.intvY=S.age;const ch=Math.min(.75,.15+S.perf/250+S.z/400+(S.grad?.08:0)+Math.min(.15,(S.certs||0)*.03));
+     if(Math.random()<ch){const up=rnd(5,10);S.job.s=Math.round(S.job.s*(1+up/100));S.perf=50;S.cw=[];S.cwJob=null;apply({m:6});
+       line(L8("Başka bir şirketten daha iyi bir teklif aldın! Maaşın arttı: %","You got a better offer from another company! Your salary rose: %")+up+" · "+TL(S.job.s)+" ("+fxTxt({m:6})+")","gold")}
+     else{apply({m:-2});line(L8("Mülakattan olumlu dönüş alamadın.","The interview didn't lead to an offer.")+" ("+fxTxt({m:-2})+")","bad")}
+     render()})));
+}
+</script>
+<script src="data/events/12-is-olaylari.js"></script>
+<script>
+
+/* --- işletme: derin sistem --- */
+</script>
+<script src="data/careers/08-isletmeler.js"></script>
+<script>
+
+L8("Spor salonu","Gym");L8("Butik otel","Boutique hotel");
+const PRC=[L8("Düşük fiyat","Low price"),L8("Normal fiyat","Normal price"),L8("Premium fiyat","Premium price")];
+const WG=[L8("Düşük maaş","Low wages"),L8("Normal maaş","Normal wages"),L8("Yüksek maaş","High wages")];
+const ecoTxt=()=>{const e=S.eco||1;return e>=1.12?L8("Canlı","Booming"):e>=.92?L8("Dengeli","Stable"):e>=.75?L8("Durgun","Sluggish"):L8("Kriz","Recession")};
+const riskTxt=v=>v<.45?L8("Düşük","Low"):v<.7?L8("Orta","Medium"):L8("Yüksek","High");
+const btOf=b=>BT[b.k]||BT.find(t=>t[0]===b.n)||BT[0];
+const bizVal=b=>{const h=(b.hist||[]).slice(-3),avg=h.length?h.reduce((t,x)=>t+x.net,0)/h.length:0;
+  return Math.max(Math.round(b.inv*.35),Math.round(b.inv*(.6+Math.min(b.yrs,10)*.04)*(1+.4*((b.br||1)-1))+Math.max(0,avg)*3))};
+const bizSeries=h=>[{n:L8("Gelir","Revenue"),c:"#4ade80",v:h.map(x=>x.rev)},{n:L8("Gider","Expenses"),c:"#f87171",v:h.map(x=>x.exp)},{n:L8("Net","Net"),c:"#c4b5fd",area:1,v:h.map(x=>x.net)}];
+bizYear=function(b){
+  b.yrs++;b.emp=b.emp||0;b.rep=b.rep==null?50:b.rep;b.hist=b.hist||[];b.total=b.total||0;b.br=b.br||1;
+  b.price=b.price==null?1:b.price;b.wage=b.wage==null?1:b.wage;b.mor=b.mor==null?60:b.mor;b.loan=b.loan||0;b.share=b.share||0;
+  const bt=btOf(b),md=b.mod||{rev:0,exp:0};b.mod=null;
+  const eco=Math.pow(S.eco||1,bt[4]),revF=[1.1,1,b.rep>=60?1.08:.8][b.price],cg=[.5,.4,.3][b.price],wg=[.8,1,1.3][b.wage];
+  let rev=Math.round(b.inv*b.r*(1-bt[3]/2+Math.random()*bt[3])*(1+.25*b.emp)*(1+.8*(b.br-1))*(.6+b.rep/125)*(.8+b.mor/250)*eco*revF*(1+S.z/400)*(b.ad?1.25:1)*(1+(md.rev||0)));
+  const cogs=Math.round(rev*cg*(1+(md.exp||0))),fixed=Math.round(b.inv*(.1+.05*(b.br-1))),pay=Math.round(b.emp*(354000*wm())*wg),
+    adc=b.ad?Math.round(b.inv*.03):0,ins=b.ins?Math.round(b.inv*.015):0,intr=Math.round(b.loan*countryEconomy(S.home||"Türkiye").loanRate);
+  let extra=0;const r=Math.random();
+  if(r<.07){extra=Math.round(b.inv*.05);line(L8("Vergi denetiminde ceza yedin. (-","You were fined in a tax audit. (-")+TL(extra)+")","bad")}
+  else if(r<.12){extra=Math.round(b.inv*.06*(b.ins?.2:1));line((b.ins?L8("İşyerinde hasar oldu, sigorta büyük kısmını karşıladı. (-","There was damage; insurance covered most of it. (-"):L8("İşyerinde hasar oldu, tamirat gerekti. (-","There was damage and repairs were needed. (-"))+TL(extra)+")",b.ins?"":"bad")}
+  else if(r<.2){const g=Math.round(rev*.15);rev+=g;line(L8("Büyük bir sipariş aldın! (+","You landed a big order! (+")+TL(g)+")","gold")}
+  const exp0=cogs+fixed+pay+adc+ins+intr+extra,gross=rev-exp0,tax=gross>0?Math.round(gross*.15):0,exp=exp0+tax,net=gross-tax,sh=net>0?Math.round(net*b.share):0,pn=net-sh;
+  S.p+=pn;b.last=pn;b.total+=pn;b.ad=0;
+  b.hist.push({y:S.age,rev,exp,net:pn,tax,sh,intr});if(b.hist.length>30)b.hist.shift();
+  line(b.n+L8(" işletmesi bu yıl "," business this year: ")+(pn>=0?"+":"")+TL(pn)+(pn>=0?L8(" kâr"," profit"):L8(" zarar"," loss"))+L8(" (gelir "," (revenue ")+TL(rev)+L8(", gider ",", expenses ")+TL(exp)+")",pn>=0?"gold":"bad");
+  if(sh>0)line(L8("Ortağın payı: -","Partner's share: -")+TL(sh));
+  const rp0=Math.min(b.loan,Math.round(b.loan*.1));
+  if(b.loan>0){if(rp0>0){b.loan-=rp0;S.p-=rp0}line(L8("Kredi taksiti: -","Loan instalment: -")+TL(rp0)+L8(" · faiz: "," · interest: ")+TL(intr))}
+  b.mor=cl(b.mor+([28,60,88][b.wage]-b.mor)*.35+rnd(-4,4));
+  if(b.mor<25&&b.emp>0&&Math.random()<.5){b.emp--;line(L8("Düşük moral yüzünden bir çalışanın istifa etti.","Low morale made an employee quit."),"bad")}
+  b.rep=cl(b.rep+(pn>=0?rnd(0,3):-rnd(2,6))+(b.mor>=75?1:0)+(b.price===2&&b.rep<60?-2:0));
+  b.neg=pn<0?b.neg+1:0;
+  if(b.neg>=3){S.biz=null;apply({m:-8});line(L8("İşletmen üst üste zarar edip iflas etti. (","Your business lost money repeatedly and went bankrupt. (")+fxTxt({m:-8})+")","bad");
+    if(b.loan>0){const lost=Math.round(b.loan*.5);S.p-=lost;line(L8("Banka kredi borcunun bir kısmını senden tahsil etti. (-","The bank collected part of the loan from you. (-")+TL(lost)+")","bad")}return}
+  if(S.biz&&!$("modal").classList.contains("on")&&Math.random()<.4)bizEvent();
+};
+</script>
+<script src="data/events/13-isletme-olaylari.js"></script>
+<script>
+
+bizFin=function(){pgOpen(()=>{const h=(S.biz&&S.biz.hist)||[];
+  return{title:L8("FİNANSAL TABLO","FINANCIAL STATEMENT"),intro:chartCard(L8("Gelir, gider ve net kâr","Revenue, expenses and net profit"),bizSeries(h)),
+   rows:h.slice().reverse().map(x=>ro8(x.net>=0?"🟢":"🔴",L8("Yaş: ","Age: ")+x.y,L8("Gelir: ","Revenue: ")+TL(x.rev)+" · "+L8("Gider: ","Expenses: ")+TL(x.exp)+(x.tax?" · "+L8("Vergi: ","Tax: ")+TL(x.tax):"")+" · "+L8("Kâr/zarar: ","Profit/loss: ")+(x.net>=0?"+":"")+TL(x.net),()=>{},""))}})};
+bizPage=function(){pgOpen(()=>{
+  const b=S.biz;if(!b)return{title:"",rows:[]};
+  const emp=b.emp||0,br=b.br||1,rep=b.rep==null?50:b.rep,mor=b.mor==null?60:b.mor,loan=b.loan||0,price=b.price==null?1:b.price,wage=b.wage==null?1:b.wage,hist=b.hist||[];
+  const ci=Math.round(b.inv*.3),ce=Math.round(30000*wm()),bc=Math.round(b.inv*.6),maxL=Math.max(0,Math.round(b.inv*.8-loan)),v=bizVal(b),sale=Math.round(v*(1-(b.share||0)))-loan;
+  const nd=L8("Vazgeç","Cancel"),bad=m=>line(m,"bad"),poor=()=>bad(L8("Yeterli paran yok.","Not enough money.")),conf=(t,txt,fn)=>()=>modal(t,txt,[{t,p:1,f:rp(fn)},{t:nd}]);
+  const pick=(title,txt,names,subs,cur,set)=>()=>modal(title,txt,names.map((n,i)=>({t:n,sub:i===cur?L8("Şu an seçili","Currently selected"):subs[i],f:rp(()=>{set(i);line(title+": "+n,"good");render()})})).concat(OK));
+  const rows=[
+   ro8("💵",L8("Yatırım yap","Invest more"),TL(ci)+L8(" · Sermayeyi büyütür"," · Grows capital"),rp(()=>{if(S.p<ci)return poor();S.p-=ci;b.inv+=ci;line(b.n+L8(" işletmene yatırım yaptın. (-"," – you invested in your business. (-")+TL(ci)+")","good");render()})),
+   ro8("👷",L8("Eleman al","Hire staff"),TL(ce)+L8(" · Gelir ve maaş gideri artar"," · Raises revenue and payroll"),rp(()=>{if(emp>=10){bad(L8("Daha fazla eleman alamazsın.","You can't hire more staff."));return}if(S.p<ce)return poor();S.p-=ce;b.emp=emp+1;line(L8("Yeni bir eleman aldın. (-","You hired a new employee. (-")+TL(ce)+")","good");render()}))];
+  if(emp>0)rows.push(ro8("🧾",L8("Eleman çıkar","Lay off staff"),L8("Maaş gideri düşer, moral ve itibar azalır","Lower payroll, lower morale and reputation"),rp(()=>{b.emp=emp-1;b.rep=cl(rep-3);b.mor=cl(mor-8);line(L8("Bir çalışanı işten çıkardın.","You laid off an employee."),"bad");render()})));
+  rows.push(
+   ro8("🧑‍💼",L8("Maaş politikası","Wage policy"),WG[wage]+" · "+L8("Moral: ","Morale: ")+mor+"%",pick(L8("Maaş politikası","Wage policy"),L8("Yüksek maaş morali ve verimi artırır ama gideri büyütür.","High wages lift morale and output but raise costs."),WG,[L8("Düşük gider · moral düşer","Low cost · morale drops"),L8("Dengeli","Balanced"),L8("Yüksek moral · yüksek gider","High morale · high cost")],wage,i=>{b.wage=i})),
+   ro8("🏷️",L8("Fiyat stratejisi","Pricing strategy"),PRC[price],pick(L8("Fiyat stratejisi","Pricing strategy"),L8("Düşük fiyat daha çok müşteri getirir; premium fiyat yüksek marj sağlar ama itibar 60+ gerekir.","Low prices bring volume; premium prices bring margin but need reputation 60+."),PRC,[L8("Daha çok müşteri · düşük marj","More customers · thin margin"),L8("Dengeli","Balanced"),L8("Yüksek marj · itibar 60+ gerekir","High margin · needs reputation 60+")],price,i=>{b.price=i})),
+   ro8("📣",L8("Reklam yap","Run an ad campaign"),b.ad?L8("Bu yıl aktif","Active this year"):TL(Math.round(b.inv*.03))+L8(" · Gelir %25 artar, gider yıl sonunda"," · Revenue +25%, paid at year end"),rp(()=>{if(b.ad){bad(L8("Reklam kampanyası zaten aktif.","The ad campaign is already running."));return}b.ad=1;line(L8("Reklam kampanyası başlattın.","You started an ad campaign."),"good");render()})));
+  if(br<4)rows.push(ro8("🏬",L8("Yeni şube aç","Open a new branch"),TL(bc)+L8(" · Gelir ve sabit gider artar"," · Raises revenue and fixed costs"),conf(L8("Yeni şube aç","Open a new branch"),L8("Şube maliyeti: ","Branch cost: ")+TL(bc),()=>{if(S.p<bc)return poor();S.p-=bc;b.br=br+1;line(L8("Yeni bir şube açtın. (-","You opened a new branch. (-")+TL(bc)+")","good");render()})));
+  rows.push(ro8("🏦",L8("Kredi çek","Take a loan"),maxL>0?L8("En fazla ","Up to ")+TL(maxL)+L8(" · Faiz %18"," · 18% interest"):L8("Kredi limiti doldu","Loan limit reached"),()=>{
+    if(maxL<=0)return modal(L8("Kredi çek","Take a loan"),L8("Kredi limiti doldu.","Loan limit reached."),OK);
+    modal(L8("Kredi çek","Take a loan"),L8("Kredi sermayeyi büyütür; her yıl %18 faiz ve borcun %10'u ödenir. Zarar edersen iflas riski artar.","A loan grows capital; each year you pay 18% interest plus 10% of the principal. Losses raise bankruptcy risk."),
+      [.25,.5,1].map(f=>{const a=Math.round(maxL*f);return{t:TL(a),sub:L8("Sermayeye eklenir","Added to capital"),f:rp(()=>{b.inv+=a;b.loan=(b.loan||0)+a;line(L8("Kredi çektin: +","You took a loan: +")+TL(a),"good");render()})}}).concat(OK))}));
+  if(loan>0)rows.push(ro8("💳",L8("Krediyi öde","Repay the loan"),TL(loan),()=>modal(L8("Krediyi öde","Repay the loan"),L8("Kalan borç: ","Remaining debt: ")+TL(loan),[1,.5].map(f=>{const a=Math.round(loan*f);return{t:f===1?L8("Tamamını öde","Pay in full"):L8("Yarısını öde","Pay half"),sub:TL(a),f:rp(()=>{if(S.p<a)return poor();S.p-=a;b.loan-=a;line(L8("Kredi ödemesi yaptın. (-","You made a loan payment. (-")+TL(a)+")","good");render()})}}).concat(OK))));
+  rows.push(ro8("🛡️",L8("İşyeri sigortası","Business insurance"),b.ins?L8("Aktif · yıllık ","Active · yearly ")+TL(Math.round(b.inv*.015)):TL(Math.round(b.inv*.015))+L8(" / yıl · Hasar masrafını azaltır"," / year · Cuts damage costs"),rp(()=>{b.ins=!b.ins;line(b.ins?L8("Sigorta yaptırdın.","You took out insurance."):L8("Sigortayı iptal ettin.","You cancelled the insurance."),b.ins?"good":"bad");render()})));
+  if(b.share){const bb=Math.round((b.pPaid||b.inv*.3)*1.5);rows.push(ro8("🤝",L8("Ortağın payını al","Buy out your partner"),TL(bb)+" · %"+Math.round(b.share*100),conf(L8("Ortağın payını al","Buy out your partner"),L8("Bedel: ","Price: ")+TL(bb),()=>{if(S.p<bb)return poor();S.p-=bb;b.share=0;line(L8("Ortağın payını satın aldın. (-","You bought out your partner. (-")+TL(bb)+")","good");render()})))}
+  rows.push(
+   ro8("📊",L8("Finansal tablo","Financial statement"),L8("Gelir, gider ve kâr geçmişi","Revenue, expense and profit history"),bizFin),
+   ro8("🏷️",L8("İşletmeyi sat","Sell the business"),TL(sale),conf(L8("Sat","Sell"),L8("İşletme değeri: ","Business value: ")+TL(v)+(b.share?"\n"+L8("Ortak payı düşülür: ","Partner's cut: ")+"%"+Math.round(b.share*100):"")+(loan>0?"\n"+L8("Kredi borcu düşülür: ","Loan deducted: ")+TL(loan):"")+"\n"+L8("Eline geçecek: ","You receive: ")+TL(sale),()=>{S.p+=sale;S.biz=null;PG=[];$("pg").classList.remove("on");line(L8("İşletmeni sattın. (+","You sold your business. (+")+TL(sale)+")",sale>=0?"gold":"bad");render()})),
+   ro8("🚪",L8("İşletmeyi kapat","Close the business"),"",conf(L8("Kapat","Close"),L8("İşletme kapatılırsa sermaye geri gelmez.","If you close the business the capital is lost.")+(loan>0?"\n"+L8("Kredi borcunun yarısı sana kalır.","Half the loan debt falls on you."):""),()=>{if(loan>0){const lost=Math.round(loan*.5);S.p-=lost;line(L8("Kredi borcunun bir kısmı sana kaldı. (-","Part of the loan debt fell on you. (-")+TL(lost)+")","bad")}S.biz=null;PG=[];$("pg").classList.remove("on");apply({m:-4});line(L8("İşletmeni kapattın.","You closed your business.")+" ("+fxTxt({m:-4})+")","bad");render()})));
+  return{title:b.n,
+   intro:'<div class="row cur"><span class="ic">🏢</span><span class="tx"><b>'+esc(b.n)+'</b>'
+    +'<small>'+L8("Sermaye: ","Capital: ")+TL(b.inv)+' · '+L8("Faaliyet yılı: ","Years running: ")+b.yrs+' · '+L8("Şube: ","Branches: ")+br+'</small>'
+    +'<small>'+L8("Çalışan: ","Employees: ")+emp+' · '+L8("İtibar: ","Reputation: ")+rep+'% · '+L8("Moral: ","Morale: ")+mor+'%</small>'
+    +'<small>'+L8("Ekonomi: ","Economy: ")+ecoTxt()+' · '+PRC[price]+' · '+WG[wage]+'</small>'
+    +(loan>0?'<small>'+L8("Kredi borcu: ","Loan debt: ")+TL(loan)+'</small>':'')
+    +(b.share?'<small>'+L8("Ortak payı: ","Partner share: ")+'%'+Math.round(b.share*100)+'</small>':'')
+    +(hist.length?'<small>'+L8("Son yıl net: ","Last year net: ")+(b.last>=0?'+':'')+TL(b.last)+' · '+L8("Toplam: ","Total: ")+(b.total>=0?'+':'')+TL(b.total)+'</small>':'')
+    +'<small>'+L8("İşletme değeri: ","Business value: ")+TL(v)+'</small></span></div>'
+    +chartCard(L8("Gelir, gider ve net kâr","Revenue, expenses and net profit"),bizSeries(hist)),rows}})};
+bizOpen=function(){
+  if(S.age<18||S.uni)return modal(L8("Kendi İşin","Your Business"),L8("İş kurmak için 18 yaşında olmalı ve öğrenci olmamalısın.","You must be 18 and not a student to start a business."),OK);
+  PG=[];if(S.biz)return bizPage();
+  pgOpen(()=>({title:L8("KENDİ İŞİN","YOUR BUSINESS"),
+   intro:'<div class="row cur"><span class="ic">💡</span><span class="tx"><b>'+L8("Girişimci ol","Become an entrepreneur")+'</b><small>'+L8("Sermaye, personel, fiyat ve ekonomi getiriyi belirler.","Capital, staff, pricing and the economy decide your returns.")+'</small></span></div>',
+   rows:BT.map(([n,c,r,v],i)=>ro8("🏢",n,L8("Sermaye: ","Capital: ")+TL(c*wm())+" · "+L8("Risk: ","Risk: ")+riskTxt(v),rp(()=>{
+     if(!canStartCareer())return;const cc=Math.round(c*wm());if(S.p<cc){line(L8("Yeterli sermayen yok.","You don't have enough capital."),"bad");return}
+     S.p-=cc;S.biz={n,k:i,inv:cc,r,yrs:0,neg:0,emp:0,rep:50,mor:60,br:1,price:1,wage:1,loan:0,share:0,hist:[],total:0};H().biz.push(n);apply({m:6});
+     line(n+L8(" işletmesi kurdun! (-"," business founded! (-")+TL(cc)+")","gold");PG=[];bizPage();render()})))}));
+};
+ROWS.find(r=>r[1]==="Kendi İşini Kur")[3]=bizOpen;
+/* --- sayfa eklemeleri (Mülklerim, iş) --- */
+const _po8=pgOpen;pgOpen=function(b){return _po8(()=>{const r=b();
+  if(r.title==="VARLIKLAR"&&r.rows)r.rows.unshift(ro8("🗝️",L8("Mülklerim","My Properties"),S.assets.length+L8(" mülk · sat, restore et, kiraya ver"," items · sell, restore, rent out"),openMyAssets));
+  if(r.title==="İŞİM"&&r.rows)jobExtra(r);
+  return r})};
+/* --- yıllık döngü: ekonomi, mülk yıpranması, prim --- */
+const _ny8=nextYear;nextYear=function(){const r=_ny8();
+  if(S&&!S.dead){
+    S.eco=Math.max(.5,Math.min(1.5,(S.eco||1)+((1-(S.eco||1))*.25)+rnd(-7,7)/100));
+    S.cond=S.cond||{};
+    S.assets.forEach(n=>{const k=kindOf(n),d=k==="home"?rnd(1,4):k==="lux"?rnd(1,3):rnd(3,7);S.cond[n]=Math.max(5,cond(n)-d-(S.rent&&S.rent[n]?rnd(0,2):0))});
+    const worn=S.assets.filter(n=>cond(n)<35);
+    if(worn.length)line(L8("Bakımsız kalan mülkler: ","Neglected properties: ")+worn.join(", ")+L8(" · restore etmeyi düşün"," · consider restoring them"),"bad");
+    if(S.job&&!S.job.mil&&S.perf>=75&&Math.random()<.4){const bn=Math.round(S.job.s*rnd(5,12)/100);S.p+=bn;line(L8("Yıl sonu primi aldın: +","You received a year-end bonus: +")+TL(bn),"gold")}
+    render()}
+  return r};
+PH.sort((a,b)=>b[0].length-a[0].length);WR=null;
+
+TXREADY=true;
 function setLang(l){LANG=l;META.lang=l;saveMeta();applyLang();drawMenu()}
 applyLang();
 document.querySelector("#app>.who").onclick=openTree;
@@ -2289,10 +2746,10 @@ function showNextResultNotice(){
     resultNoticeScheduled=false;
     if(!S||S.dead){resultNotices=[];return}
     if($("modal").classList.contains("on"))return;
-    while(resultNotices.length){const notice=resultNotices.shift();if(notice.life!==S)continue;modal(notice.title,notice.text,notice.buttons||[{t:"Kapat",p:1}]);break}
+    while(resultNotices.length){const notice=resultNotices.shift();if(notice.life!==S)continue;modal(notice.title,notice.text,notice.buttons||[{t:"Kapat",p:1}]);if(notice.contentHtml){const body=$("sheet").querySelector("p");if(body)body.outerHTML=notice.contentHtml}break}
   });
 }
-function queueResultNotice(title,text,buttons){resultNotices.push({life:S,title,text,buttons});showNextResultNotice()}
+function queueResultNotice(title,text,buttons,contentHtml){resultNotices.push({life:S,title,text,buttons,contentHtml});showNextResultNotice()}
 const modalBeforeResults=modal;
 modal=function(title,text,buttons){
   resultModalVersion++;
@@ -2324,7 +2781,7 @@ nextYear=function(){
     const familyRoles=/Anne|Baba|kardeş|Çocuk|Oğul|Kız|Yeğen|Torun|Eş/i;
     const lost=alive.filter(p=>familyRoles.test(p.role)&&(S.people||[]).some(q=>q.id===p.id&&q.dead));
     if(lost.length)queueResultNotice("Ailenden birini kaybettin",lost.map(p=>p.name+" ("+p.role+") vefat etti.").join("\n"));
-    if(age<14&&S.age>=14)queueResultNotice("Liseye başladın","Lise hayatın başladı! Eğitim bölümünden okulunu, sınıf arkadaşlarını ve okul aktivitelerini görebilirsin.");
+    [[6,"İlkokula başladın"],[10,"Ortaokula başladın"],[14,"Liseye başladın"]].forEach(([schoolAge,title])=>{if(age<schoolAge&&S.age>=schoolAge)queueResultNotice(title,"Yeni okul hayatın başladı! Eğitim bölümünden okulunu, sınıf arkadaşlarını ve aktivitelerini görebilirsin.")});
     if(wasUniversity&&!S.uni&&S.grad)queueResultNotice("Üniversiteden mezun oldun",(department?department+" bölümünden mezun oldun! ":"Üniversiteden mezun oldun! ")+"Artık diplomanla yeni işlere başvurabilirsin.",[{t:"Kapat",p:1}]);
   }
   return result;
@@ -2435,11 +2892,11 @@ function yearlyCost(nn){
   const parents=(S.people||[]).some(q=>!q.dead&&(q.role==="Anne"||q.role==="Baba"));
   if(S.street)add("temel yaşam",Math.min(budget*.16,36000*scale));
   else if(S.uni&&S.famPays)add("kişisel harcamalar",Math.min(budget*.10,12000*scale));
-  else if(S.age<25&&!S.married&&parents&&parAvg()>=40&&!owned){add("aile bütçesine katkı",budget*.12);add("kişisel harcamalar",budget*.08)}
-  else if(S.uni){add("öğrenci yurdu",budget*.14);add("yemek ve ulaşım",budget*.14)}
+  else if(S.age<25&&!S.married&&parents&&parAvg()>=40&&!owned){add("aile bütçesine katkı",budget*GAME_BALANCE.living.family);add("kişisel harcamalar",budget*GAME_BALANCE.living.personal)}
+  else if(S.uni){add("öğrenci yurdu",budget*.18);add("yemek ve ulaşım",budget*.17)}
   else{
-    if(!owned)add("barınma",budget*(S.married?.20:.16));
-    add("yemek",budget*(S.married?.15:.11));add("faturalar ve ulaşım",budget*(S.married?.10:.08));
+    if(!owned)add("barınma",budget*(S.married?GAME_BALANCE.living.marriedRent:GAME_BALANCE.living.rent));
+    add("yemek",budget*(S.married?GAME_BALANCE.living.marriedFood:GAME_BALANCE.living.food));add("faturalar ve ulaşım",budget*(S.married?GAME_BALANCE.living.marriedBills:GAME_BALANCE.living.bills));
   }
   const children=(S.people||[]).filter(q=>!q.dead&&(q.role==="Oğul"||q.role==="Kız")&&q.pa<18).length;
   add("çocuk giderleri",children*Math.min(budget*.05,36000*scale));
@@ -2474,16 +2931,14 @@ pgOpen=function(builder){return pgOpenBeforeJobCards(()=>{
   if(!S||!S.job||(!["İŞİM","MY JOB","FUTBOL KARİYERİ"].includes(page.title)&&!page.jobDetails))return page;
   const j=S.job,sport=j.football||j.teamSport,icon=j.football?"⚽":j.teamSport?(j.teamSport.sport==="basketball"?"🏀":"🏐"):jobEmoji(j.b0||j.n);
   const name=sport?sport.team:j.n,net=salaryBreakdown(j.s).net;
-  page.intro='<div class="job-hero"><div class="job-hero-head"><div class="job-hero-icon">'+icon+'</div><div><div class="job-hero-label">'+(sport?esc(sport.position||"SPOR KARİYERİ"):"MEVCUT MESLEĞİN")+'</div><h3>'+esc(name)+'</h3></div></div><div class="job-hero-facts"><div><small>Yıllık brüt maaş</small><strong>'+TL(j.s)+'</strong></div><div><small>Aylık net maaş</small><strong>'+TL(Math.round(net/12))+'</strong></div></div><div class="job-performance"><span>Performans</span><b>'+S.perf+'%</b></div><div class="pf"><i style="width:'+cl(S.perf)+'%"></i></div></div>';
+  page.intro='<div class="job-hero"><div class="job-hero-head"><div class="job-hero-icon">'+icon+'</div><div><div class="job-hero-label">'+(sport?esc(sport.position||"SPOR KARİYERİ"):"MEVCUT MESLEĞİN")+'</div><h3>'+esc(name)+'</h3></div></div><div class="job-hero-facts"><div><small>Yıllık brüt maaş</small><strong>'+TL(j.s)+'</strong></div><div><small>Aylık net maaş</small><strong>'+TL(Math.round(net/12))+'</strong></div></div><div class="job-performance"><span>Performans</span><b>'+S.perf+'%</b></div><div class="pf"><i style="width:'+cl(S.perf)+'%"></i></div></div>'+(page.sportsStatisticsIntro||'');
   return page;
 })};
 // Persistent career seniority and separate military promotion paths.
-function careerLadder(job){
-  const base=job.career?job.career.base:job.b0||job.n;
-  if(job.mil||base==="Subay")return base==="Subay"?["Teğmen","Üsteğmen","Yüzbaşı","Binbaşı","Yarbay","Albay","Tuğgeneral","Tümgeneral","Korgeneral","Orgeneral"]:["Er","Onbaşı","Çavuş","Uzman Çavuş","Astsubay Çavuş","Astsubay Kıdemli Çavuş","Astsubay Başçavuş"];
-  if(base==="Bankacı")return["Bankacı","Kıdemli Bankacı","Bankacılık Uzmanı","Şube Müdür Yardımcısı","Şube Müdürü","Bölge Müdürü"];
-  return[base,"Kıdemli "+base,"Uzman "+base,"Takım Lideri · "+base,"Birim Yöneticisi · "+base,"Bölüm Yöneticisi · "+base];
-}
+</script>
+<script src="data/careers/09-kariyer-rutbeleri.js"></script>
+<script>
+
 function ensureCareerProgress(){
   const job=S&&S.job;if(!job||job.sport||job.football||job.teamSport)return null;
   if(!job.career){
@@ -2810,7 +3265,7 @@ function publishSocialPost(id,typeId){
   const before=account.followers,negative=Math.random()<type.risk,viral=!negative&&Math.random()<.08;
   let delta=negative?-Math.max(1,Math.round(before*(.02+Math.random()*.06))):Math.round((rnd(30,180)*(1+(S.g+S.z)/200)+before*(.02+Math.random()*.06))*type.boost*(viral?4:1));
   if(privatePost&&delta>0)delta=Math.round(delta*.35);
-  if(id==="lifefans"&&delta>0)delta=Math.round(delta/(1+lifeFansMonthlyFee(account)/250));
+  if(id==="lifefans"&&delta>0)delta=Math.round(delta*(lifeFansMonthlyFee(account)>0?GAME_BALANCE.paidFanAcquisition:1)/(1+lifeFansMonthlyFee(account)/100));
   account.followers=Math.max(0,before+delta);delta=account.followers-before;
   apply({m:delta<0?-2:1});
   const text=platform.name+" · "+type.name+"\n"+(viral?"Gönderin viral oldu! ":negative?"Paylaşımın beklediğin tepkiyi almadı. ":"Paylaşımın beğenildi. ")+(delta>0?delta.toLocaleString("tr-TR")+" "+platform.followersLabel.toLocaleLowerCase("tr-TR")+" kazandın.":delta<0?(-delta).toLocaleString("tr-TR")+" "+platform.followersLabel.toLocaleLowerCase("tr-TR")+" kaybettin.":platform.followersLabel+" sayın değişmedi.")+"\nToplam: "+account.followers.toLocaleString("tr-TR")+" "+platform.followersLabel.toLocaleLowerCase("tr-TR")+".";
@@ -2840,10 +3295,10 @@ function advanceSocialMedia(){
   Object.entries(S.socialMedia).forEach(([id,account])=>{
     const active=account.year===S.age-1?(account.yearPosts||0):0;
     const before=account.followers;
-    let gain=Math.round(rnd(5,25)+active*rnd(15,60)+account.followers*(active?.04+Math.random()*.08:.01+Math.random()*.03));
-    if(id==="lifefans")gain=Math.round(gain/(1+lifeFansMonthlyFee(account)/250));
-    account.followers+=gain;account.year=S.age;account.yearPosts=0;
-    const platform=SOCIAL_PLATFORMS.find(p=>p.id===id);messages.push((platform?platform.name:id)+": +"+gain.toLocaleString("tr-TR")+" "+(platform?platform.followersLabel.toLocaleLowerCase("tr-TR"):"takipçi")+" · Toplam "+account.followers.toLocaleString("tr-TR"));
+    let gain=Math.round(rnd(2,10)+active*rnd(5,20)+account.followers*(active?.01+Math.random()*.03:.002+Math.random()*.008));
+    if(id==="lifefans"){const fee=lifeFansMonthlyFee(account);gain=Math.round(gain*(fee>0?GAME_BALANCE.paidFanAcquisition:1)/(1+fee/100));if(fee>0)gain-=Math.round(account.followers*(GAME_BALANCE.fanChurn+Math.min(.20,fee/2500)))}
+    account.followers=Math.max(0,account.followers+gain);gain=account.followers-before;account.year=S.age;account.yearPosts=0;
+    const platform=SOCIAL_PLATFORMS.find(p=>p.id===id);messages.push((platform?platform.name:id)+": "+(gain>=0?"+":"")+gain.toLocaleString("tr-TR")+" "+(platform?platform.followersLabel.toLocaleLowerCase("tr-TR"):"takipçi")+" · Toplam "+account.followers.toLocaleString("tr-TR"));
     if(id==="lifefans"&&lifeFansMonthlyFee(account)>0&&S.age>=18){const income=Math.round((before+account.followers)/2*lifeFansMonthlyFee(account)*12*.8);S.p+=income;account.subscriptionIncome=income;messages.push("LifeFans abonelik geliri: +"+TL(income)+" (%20 komisyon sonrası)")}
   });
   if(messages.length){line("Sosyal medya: "+messages.join(" · "),"good");render()}
@@ -2855,6 +3310,22 @@ $("next").onclick=nextYear;
 const nextYearBeforePortfolioHistory=nextYear;
 nextYear=function(){recordPortfolioPoint();const life=S,age=S&&S.age,result=nextYearBeforePortfolioHistory();if(S&&S===life&&S.age>age)recordPortfolioPoint();return result};
 $("next").onclick=nextYear;
+</script>
+<script src="data/careers/10-club-strengths.js"></script>
+<script src="data/gameplay/10-sports-match-engine.js"></script>
+<script src="data/gameplay/01-limits-and-balance.js"></script>
+<script src="data/gameplay/02-relationship-pages.js"></script>
+<script src="data/gameplay/03-friend-approval.js"></script>
+<script src="data/gameplay/04-family-tree.js"></script>
+<script src="data/gameplay/05-sports-contracts.js"></script>
+<script src="data/gameplay/06-sports-statistics.js"></script>
+<script src="data/gameplay/07-football-league-browser.js"></script>
+<script src="data/gameplay/08-european-cups.js"></script>
+<script src="data/gameplay/09-game-audio.js"></script>
+<script src="data/events/15-mizah-ve-sosyal-medya.js"></script>
+<script src="data/gameplay/11-social-surprises.js"></script>
+<script src="data/gameplay/12-club-applications.js"></script>
+<script>
 // Automatically resume the latest life independently of manual save slots.
 const AUTO_KEY="hs_autosave";
 let autoSaveQueued=false;

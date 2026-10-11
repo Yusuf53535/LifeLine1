@@ -9,6 +9,11 @@ targets:
     platform: iOS
     sources:
       - path: LifeLine
+        excludes:
+          - Resources/data
+      - path: LifeLine/Resources/data
+        type: folder
+        buildPhase: resources
     settings:
       base:
         PRODUCT_NAME: LifeLine

@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "sync": "npx cap sync android",
-    "open": "npx cap open android"
+    "open": "npx cap open android",
+    "sync:game": "node scripts/sync-game-data.cjs",
+    "check:game": "node scripts/check-game-data.cjs"
   },
   "dependencies": {
     "@capacitor/android": "latest",
