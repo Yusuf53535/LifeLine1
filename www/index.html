@@ -288,6 +288,200 @@ nav button i{background:linear-gradient(145deg,rgba(255,255,255,.45),rgba(167,13
 .sheet{transition:transform .2s ease,opacity .2s ease}
 #modal:not(.on) .sheet{transform:scale(.92) translateY(10px);opacity:0}
 </style>
+<style id="reference-palette">
+/* Midnight navy and violet palette from the supplied reference. */
+:root{--bg:#0d0e20;--card:#201a42;--ink:#ded8f4;--mut:#aaa0cb;--ac:#bb91f1;--gold:#00df92;--red:#ff426f;--line:#3e3069}
+body{background:#0d0e20}
+body::before{background:radial-gradient(ellipse at 12% 0%,rgba(92,42,157,.22),transparent 48%),radial-gradient(ellipse at 90% 100%,rgba(47,50,126,.18),transparent 48%)}
+#app{background:linear-gradient(180deg,rgba(15,14,33,.65),rgba(12,15,32,.9))}
+.top{background:linear-gradient(115deg,#292050,#1d1b40 62%,#2a2055);border-color:#7850bd;box-shadow:inset 0 1px 0 rgba(192,147,255,.2),0 0 12px rgba(111,54,199,.18)}
+.top::after{background:linear-gradient(105deg,transparent 35%,rgba(190,143,255,.07) 50%,transparent 65%)}
+.menu{background:linear-gradient(145deg,#6c3caf,#382566);border-color:#8e5ad0;box-shadow:inset 0 1px 0 rgba(218,177,255,.3),0 0 12px rgba(139,66,220,.25)}
+.loc{background:linear-gradient(145deg,#4b307d,#322657);border-color:#7650ae;color:#e6d7ff;box-shadow:inset 0 1px 0 rgba(206,163,255,.18),0 0 9px rgba(133,62,220,.18)}
+.bp{stroke:#c69aff;filter:drop-shadow(0 0 5px #9b57e2)}
+.who,#occ .who,#rls .who,#pg .who{background:linear-gradient(110deg,#492764,#30234c 60%,#242043);border-color:#a352d7;box-shadow:inset 0 1px 0 rgba(221,155,255,.2),0 0 10px rgba(161,60,213,.18)}
+#name,#name2{color:#cf9df4!important}
+#meta,.mn small{color:#bda1d6}
+#log{background:rgba(12,15,32,.56);scrollbar-color:#ab70e2 #302345;scrollbar-width:thin}
+#log::-webkit-scrollbar{width:8px}
+#log::-webkit-scrollbar-track{background:#302345;border-radius:8px}
+#log::-webkit-scrollbar-thumb{background:#ab70e2;border-radius:8px;border:2px solid #302345}
+.yr{display:table;padding:3px 11px;border-radius:16px;background:#493073;color:#e3ccff;font-size:16px}
+nav{background:linear-gradient(115deg,#191e40,#242045 60%,#172243);border-color:#5060b7;box-shadow:inset 0 1px 0 rgba(177,151,255,.18),0 0 12px rgba(61,82,174,.2)}
+nav button{color:#dac9f3}
+nav button i,#jobb i{background:radial-gradient(circle at 35% 25%,#624291,#292852 75%);border-color:#7860b9;box-shadow:inset 0 1px 0 rgba(214,172,255,.24),0 0 11px rgba(124,70,214,.28)}
+#next{background:radial-gradient(circle at 40% 28%,#c460f7,#9225d5 65%,#6518ad);border-color:#d698ff;box-shadow:inset 0 2px 3px rgba(248,219,255,.5),0 0 10px #a443e7,0 0 25px rgba(177,58,233,.45)}
+.stats{background:linear-gradient(115deg,#252044,#1c1b36 70%,#211c3f);border-color:#7860b8;box-shadow:inset 0 1px 0 rgba(192,160,255,.2),0 0 10px rgba(112,66,184,.18)}
+.stats .av{background:radial-gradient(circle at 35% 25%,#6c43ae,#37256a);border-color:#c18cff;box-shadow:0 0 16px rgba(162,91,241,.38)}
+.sr em{color:#bea0e4}
+.sb,.pf,.rb{background:#35305e;box-shadow:inset 0 1px 2px rgba(0,0,0,.2)}
+#bars .sr:nth-child(1) .sb b{background:linear-gradient(90deg,#9639df,#bd3de9)!important}
+#bars .sr:nth-child(2) .sb b{background:linear-gradient(90deg,#ff3766,#ff5486)!important}
+#bars .sr:nth-child(3) .sb b{background:linear-gradient(90deg,#048ccf,#1fb7eb)!important}
+#bars .sr:nth-child(4) .sb b{background:linear-gradient(90deg,#dca900,#e9c320)!important}
+#occ,#rls,#mnu,#pg{background:linear-gradient(160deg,#19162f,#101225 60%,#0d1020)}
+.row,.fc,.tg{background:linear-gradient(120deg,#29213e,#1d1c35);border-color:#59416e;box-shadow:inset 0 1px 0 rgba(185,144,221,.12),0 4px 12px rgba(0,0,0,.18)}
+.row.cur{background:linear-gradient(110deg,#492764,#30234c 60%,#242043);border-color:#a352d7}
+.row .ic{background:linear-gradient(145deg,#553184,#30254f);border-color:#765397;box-shadow:inset 0 1px 0 rgba(204,158,242,.18)}
+.row .tx b,.row .ch{color:#cfacf3}
+.row small,.rl{color:#bfb0d5}
+.row:active{background:#3c2955}
+.oh{background:linear-gradient(110deg,#34244f,#211e3e);border-color:#674583}
+.sec{background:#28203d;color:#c9b4e0}
+#modal{background:rgba(6,8,20,.7)}
+.sheet{background:linear-gradient(135deg,#302044,#1b1b35);border-color:#8855b9;box-shadow:inset 0 1px 0 rgba(208,163,249,.2),0 18px 45px rgba(0,0,0,.5)}
+.sheet button,.chip,.ddb,.fm input,.fm select{background:#302447;border-color:#63467f;box-shadow:inset 0 1px 0 rgba(205,164,239,.12)}
+.sheet button.p,.chip.on,.fm .go{background:linear-gradient(145deg,#a64de0,#7424b7);border-color:#bf7cef}
+#ld{background:radial-gradient(circle at 50% 35%,#302052,#111326 65%,#0d0e20)}
+</style>
+<style id="interface-cards">
+:root{--bg:#111726;--card:#1b2236;--ink:#e1e3f2;--mut:#9ca3c6;--ac:#ae93ee;--gold:#48e2c2;--red:#f06a88;--line:#303956}
+body{background:#0b1020}
+body::before{background:radial-gradient(ellipse at 50% 0%,rgba(102,87,164,.12),transparent 60%);animation:none}
+#app{background:linear-gradient(160deg,#151d2e,#111726 70%);padding:12px 8px 4px}
+.top{margin:0 10px;padding:7px 10px;border-radius:16px;background:linear-gradient(110deg,#222b41,#1c2238);border-color:#2b3450;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.top::after{display:none}
+.menu{width:34px;height:32px;border-radius:9px;background:#343454;border-color:#3e3d62;box-shadow:none}
+.loc{font-size:11px;background:#292b49;border-color:#3a3c61;padding:5px 10px;border-radius:13px;box-shadow:none}
+.bp{stroke:#b69ce9;stroke-width:4;filter:drop-shadow(0 0 3px rgba(175,139,233,.25))}
+.who,#occ .who,#rls .who,#pg .who{background:linear-gradient(115deg,#242b42,#1b2235);border-color:#2c3450;border-radius:15px;box-shadow:0 4px 12px rgba(0,0,0,.12);padding:10px 12px}
+#name,#name2{color:#f0eef9!important;font-size:20px}
+#meta{color:#a7a2ce;font-size:12px}
+.wi{min-width:0;flex:1}
+.mn{border-left:1px solid #343750;padding-left:12px;flex:none}
+#money{font-size:19px;letter-spacing:-.5px}
+.mn small{color:#a49ac7;font-size:10px}
+#log{background:none;margin:7px 10px;padding:0 0 4px;scrollbar-width:thin;scrollbar-color:#66598e transparent}
+#log::-webkit-scrollbar{width:4px}#log::-webkit-scrollbar-track{background:transparent}#log::-webkit-scrollbar-thumb{background:#66598e;border:0}
+.year-card{background:linear-gradient(115deg,#20283e,#191f31);border:1px solid #29314a;border-radius:15px;padding:10px 13px;margin-bottom:9px;box-shadow:0 3px 12px rgba(0,0,0,.1);position:relative}
+.year-card:has(.yr)::after{content:"•••";position:absolute;top:8px;right:12px;font-size:13px;letter-spacing:2px;color:#7c719e;pointer-events:none}
+.year-card:last-child{border-color:#3c3c60}
+.yr{font-size:12px;line-height:1.4;background:#484074;color:#e0d7ff;padding:3px 10px;margin:0 0 6px;animation:none}
+.ln{font-size:13px;line-height:1.55;margin:2px 0;color:#b7b9d3}
+.ln.gold,.ln.good{color:var(--gold)}.ln.bad{color:var(--red)}
+nav{margin:0 10px 9px;border-radius:15px;background:linear-gradient(110deg,#242b42,#1c2237);border-color:#2e3650;box-shadow:0 4px 12px rgba(0,0,0,.12);align-items:center}
+nav button{position:relative;padding:10px 2px 7px;gap:4px;color:#bcb0e6;font-size:10px}
+nav button i,#jobb i{background:none;border:0;box-shadow:none;border-radius:0;width:28px;height:25px;font-size:19px;filter:saturate(.65)}
+nav button:focus-visible{outline-color:#ad8fe8;outline-offset:-3px;border-radius:12px}
+nav button:active{color:#ece1ff;background:rgba(167,139,250,.09);border-radius:12px}
+#next{width:66px;height:66px;margin:-10px auto 0;border:1px solid #b994ee;background:linear-gradient(145deg,#b48fe9,#8054c5);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 4px 12px rgba(120,79,180,.25);font-size:14px}
+#next span{font-size:32px}
+.stats{margin:0 10px 9px;padding:12px 10px;border-radius:15px;background:linear-gradient(110deg,#22293e,#1a2135);border-color:#2e3550;box-shadow:0 4px 12px rgba(0,0,0,.12);gap:10px}
+.stats .av{width:70px;height:70px;background:radial-gradient(circle at 40% 30%,#3a3558,#242841);border:1px solid #9a75db;box-shadow:none;font-size:40px}
+.sr{gap:6px;margin:5px 0}.sr em{font-size:10px;width:56px;color:#bcb0d7}.sr u{font-size:15px;width:20px}
+.sb{height:10px;margin-right:32px;overflow:visible;background:#343b55;box-shadow:none}
+.sb b{border-radius:6px}.sb span{right:-32px;line-height:10px;width:28px;text-align:right;font-size:10px;color:#d7d8eb}
+#bars .sr:nth-child(1) .sb b{background:linear-gradient(90deg,#966fe1,#bc98fa)!important}
+#bars .sr:nth-child(2) .sb b{background:linear-gradient(90deg,#e94c78,#f77598)!important}
+#bars .sr:nth-child(3) .sb b{background:linear-gradient(90deg,#589aef,#83b9ff)!important}
+#bars .sr:nth-child(4) .sb b{background:linear-gradient(90deg,#f4bd43,#ffe16b)!important}
+#occ,#rls,#mnu,#pg{background:linear-gradient(160deg,#151d2e,#111726);box-shadow:-12px 0 30px rgba(0,0,0,.28)}
+.row,.fc,.tg{background:linear-gradient(115deg,#222a40,#1a2235);border-color:#303951;box-shadow:0 3px 10px rgba(0,0,0,.1);border-radius:15px}
+.row.cur{background:linear-gradient(115deg,#2d2c49,#23273f);border-color:#51476d}
+.row .ic{background:#35314f;border-color:#4e426b;box-shadow:none;border-radius:11px}
+.row .tx b,.row .ch{color:#d4c7f2}.row small,.rl{color:#a5abc9}.row:active{background:#30334e}
+.oh{background:#20273c;border-color:#323a54;box-shadow:none}.sec{background:#252b40;color:#bcb0da}
+.sheet{background:linear-gradient(135deg,#252b41,#191f32);border-color:#51436a;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.sheet h2{color:#ede8fa}.sheet p{color:#b8bdd7}
+.sheet button,.chip,.ddb,.fm input,.fm select{background:#2b3048;border-color:#424660;box-shadow:none}
+.sheet button.p,.chip.on,.fm .go{background:linear-gradient(135deg,#9d78da,#7654b1);border-color:#ae89e5}
+button:focus-visible{outline-color:#baa0ee}
+@media(max-width:360px){#app{padding-left:2px;padding-right:2px}#money{font-size:16px}.mn{padding-left:8px}#name{font-size:18px}.stats .av{width:54px;height:54px;font-size:33px}.sr em{width:48px}}
+</style>
+<style id="department-picker-style">
+.sheet.department-picker{max-width:440px;max-height:86dvh;padding:20px;display:flex;flex-direction:column;gap:12px;overflow:hidden;background:linear-gradient(145deg,#252b43,#171e30)}
+.department-picker h2{margin:0;font-size:22px;letter-spacing:-.4px}
+.department-picker>p{margin:0;font-size:12px;line-height:1.5;color:#adb4d0}
+.department-summary{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:12px;background:#302d4b;border:1px solid #52456c;gap:12px}
+.department-summary small{color:#bfb2da;font-size:11px}.department-summary strong{font-size:22px;color:#d5b8ff}.department-summary span{font-size:11px;color:#b6bed6;text-align:right}
+.sheet .department-search{margin:0;padding:11px 13px;font-size:14px;background:#1b2236;border:1px solid #3d4563;border-radius:11px;width:100%;color:#e5e1f2;flex:none}
+.department-search::placeholder{color:#929bbd}
+.department-list{overflow-y:auto;min-height:0;max-height:43dvh;display:flex;flex-direction:column;gap:8px;scrollbar-width:thin;scrollbar-color:#766299 transparent;padding-right:3px}
+.sheet .department-list button{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:5px 10px;margin:0;padding:12px 13px;border-radius:12px;text-align:left;background:#252c42;border:1px solid #3c4563;flex:none;box-shadow:none}
+.department-list button>span{font-size:14px;font-weight:700;color:#e3ddf1}
+.department-list button>small{grid-column:1;display:block;font-size:11px;line-height:1.45;color:#aeb6d1;margin:0;white-space:normal}
+.department-list button .department-score{grid-column:2;grid-row:1 / span 2;border-radius:9px;padding:6px 8px;background:#393251;color:#d3b6f3;font-size:11px;font-weight:700;white-space:nowrap}
+.department-list button:disabled{opacity:.5;cursor:default}.department-list button:disabled .department-score{background:#333447;color:#a6abc1}
+.department-list button:not(:disabled):active{background:#39304f;border-color:#9d79cc}
+.department-picker>button{margin:0;padding:11px;background:#30374e;border-color:#454b66;font-size:13px;flex:none}
+.department-empty{font-size:13px;text-align:center;color:#b3bad2;padding:12px}
+</style>
+<style id="hide-history-scrollbar">
+#log{scrollbar-width:none;-ms-overflow-style:none}
+#log::-webkit-scrollbar{display:none;width:0;height:0}
+</style>
+<style id="job-cards-style">
+.job-hero{position:relative;padding:22px 20px;margin:0 0 16px;border-radius:20px;border:1px solid #8565b8;background:radial-gradient(ellipse at 100% 0%,rgba(168,115,231,.2),transparent 65%),linear-gradient(135deg,#34304f,#20283e);box-shadow:0 8px 22px rgba(0,0,0,.18),inset 0 1px 0 rgba(223,197,255,.12)}
+.job-hero-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.job-hero-icon{display:grid;place-items:center;flex:none;width:58px;height:58px;font-size:31px;border-radius:17px;background:#45345f;border:1px solid #75588f}
+.job-hero-label{font-size:10px;font-weight:700;letter-spacing:1.5px;color:#b69bdc;margin-bottom:5px}
+.job-hero h3{margin:0;font-size:24px;line-height:1.25;letter-spacing:-.5px;color:#f0eaff;overflow-wrap:anywhere}
+.job-hero-facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:15px}
+.job-hero-facts>div{padding:12px;border-radius:12px;background:rgba(12,17,32,.3);border:1px solid rgba(156,131,193,.15)}
+.job-hero-facts small{display:block;font-size:11px;color:#b3acca;margin-bottom:4px}.job-hero-facts strong{font-size:17px;color:#dcd1ef}.job-hero-facts>div:last-child strong{color:#54ddc0}
+.job-performance{display:flex;justify-content:space-between;font-size:11px;color:#bdb0d9;margin-bottom:7px}
+.job-hero .pf{height:8px;background:#403956;margin:0;border-radius:8px}.job-hero .pf i{background:linear-gradient(90deg,#9670d6,#c39afa);border-radius:8px}
+#pg .ol:has(.job-hero)>.row{padding:14px;margin-bottom:9px;border-radius:14px;background:linear-gradient(110deg,#232b40,#1b2437);border-color:#343d56;box-shadow:none}
+#pg .ol:has(.job-hero)>.row .ic{width:40px;height:40px;border-radius:12px;background:#35304e;border-color:#55436e;font-size:21px}
+#pg .ol:has(.job-hero)>.row .tx b{font-size:15px;color:#e1d8f2}#pg .ol:has(.job-hero)>.row small{font-size:12px;line-height:1.4;margin-top:4px}
+@media(max-width:360px){.job-hero{padding:18px 14px}.job-hero h3{font-size:21px}.job-hero-facts strong{font-size:14px}}
+</style>
+<style id="fame-bar-style">
+#bars .sr.fame .sb b{background:linear-gradient(90deg,#e49335,#ffd475)!important}
+#bars .sr.fame em{color:#e2c38c}
+</style>
+<style>
+
+.social-profile{margin:0 0 14px;padding:12px 10px 10px;border:1px solid #51446d;border-radius:19px;background:linear-gradient(135deg,#302a46,#202235);box-shadow:0 8px 24px #0003}
+.social-profile-heading{display:flex;align-items:center;gap:15px;padding:5px 12px 7px;min-width:0}.social-profile-avatar{display:grid;place-items:center;width:84px;height:84px;flex-shrink:0;padding:3px;border-radius:50%;background:conic-gradient(from 215deg,#ffb45b,#fc6b89,#b44cff,#e450b0,#ffb45b);box-shadow:0 0 15px #bc69e521}.social-profile-avatar-inner{display:grid;place-items:center;width:100%;height:100%;border:3px solid #29273e;border-radius:50%;background:linear-gradient(135deg,#39304f,#28273c);font-size:39px}.social-profile-identity{flex:1;min-width:0}.social-profile-identity strong{display:block;font-size:18px;color:#eee8ff;overflow-wrap:anywhere;line-height:1.3}.social-profile-handle{display:block;font-size:13px;color:#bdb1d7;margin-top:2px;overflow-wrap:anywhere}.social-profile-platform{display:flex;align-items:center;gap:7px;color:#b7a1d3;font-size:12px;margin-top:5px}.social-instagram-icon{width:17px;height:17px;flex-shrink:0;vertical-align:middle}.social-profile-more{align-self:flex-start;flex-shrink:0;width:31px;height:29px;margin-top:7px;border:1px solid #6d528d44!important;border-radius:9px!important;background:#8b70b31a!important;color:#c8afe6!important;font-size:17px;padding:0!important}.social-profile-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0 10px;padding:12px 0;border-top:1px solid #ffffff0b;text-align:center}.social-profile-stats div+div{border-left:1px solid #ffffff0b}.social-profile-stats b{display:block;font-size:18px;color:#dbc0ff;overflow-wrap:anywhere;line-height:1.2}.social-profile-stats span{display:block;font-size:11px;color:#b7a9d0;margin-top:3px}.social-profile-view{display:flex!important;align-items:center;gap:11px;width:100%;padding:9px 17px!important;border:1px solid #9e65f455!important;border-radius:10px!important;background:linear-gradient(110deg,#65479a88,#4d3b7966)!important;color:#d2b5f5!important;font:inherit;font-size:13px!important;font-weight:700;box-shadow:inset 0 1px 0 #bc91ff13;cursor:pointer}.social-profile-view svg{width:19px;height:19px}.social-profile-view .social-profile-chevron{margin-left:auto;font-size:24px;line-height:16px;font-weight:400}.social-profile button:focus-visible{outline:2px solid #c9a0ff;outline-offset:3px}@media(max-width:360px){.social-profile-heading{gap:10px;padding-left:4px;padding-right:4px}.social-profile-avatar{width:68px;height:68px}.social-profile-identity strong{font-size:16px}}
+#sheet button:disabled{opacity:.45;cursor:default}#sheet .fm{margin:14px 0}#sheet .fm label{display:block;margin-bottom:7px}#sheet .fm small{display:block;margin-top:6px;color:#aaa3c0}
+</style>
+<style>.social-verified{display:inline-grid;place-items:center;width:16px;height:16px;margin-left:6px;border-radius:50%;background:#3897f0;color:white;font-size:11px;vertical-align:middle;box-shadow:0 0 8px #3897f033}.social-profile-stats{padding-bottom:5px}</style>
+<style>.verification-progress{margin:-3px 0 14px;padding:0 16px 13px}.verification-progress-label{display:flex;justify-content:space-between;gap:8px;font-size:11px;color:#b8b0d1;margin-bottom:8px}.verification-progress-label b{color:#c4aff2;font-weight:600}.verification-progress-track{height:8px;border-radius:9px;background:#34324d;overflow:hidden}.verification-progress-track i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#8462d4,#b79af7);transition:width .3s}.row:disabled{opacity:.6;cursor:default}</style>
+<style>
+#pg .row.social-platform-card{display:block;width:100%;padding:0;margin:0 0 15px;overflow:hidden;border:1px solid #51436888;border-radius:22px;text-align:left;background:radial-gradient(ellipse at top left,var(--social-glow),transparent 65%),linear-gradient(135deg,#242034,#191d2b);box-shadow:0 10px 25px #0002;color:#eeeaf7;--social-color:#d96cec;--social-glow:#9d358c22}
+#pg .social-platform-tiktok{--social-color:#41dce6;--social-glow:#199dad16;border-color:#34526488}#pg .social-platform-youtube{--social-color:#ff4c65;--social-glow:#da3d5420}
+.social-platform-top{display:flex;align-items:center;gap:15px;padding:20px 19px 16px}.social-platform-icon{display:grid;place-items:center;width:60px;height:60px;flex-shrink:0;border-radius:16px;background:linear-gradient(150deg,#ae43e8,#f749a5 60%,#ff9843);color:#fff;box-shadow:inset 0 1px 2px #ffffff55,0 5px 18px #e3488a1a}.social-platform-icon svg{width:43px;height:43px}.social-platform-tiktok .social-platform-icon{background:linear-gradient(135deg,#203b4b,#15222f);border:1px solid #476b80;box-shadow:inset 0 1px 2px #ffffff16}.social-platform-tiktok svg{filter:drop-shadow(-2px -1px 0 #22e6e9) drop-shadow(2px 1px 0 #ff4566);width:41px;height:41px}.social-platform-youtube .social-platform-icon{background:linear-gradient(140deg,#ff4569,#fa292a);box-shadow:inset 0 1px 2px #ffffff44}
+.social-platform-copy{display:block;flex:1;min-width:0}.social-platform-copy strong{display:block;font-size:22px;line-height:1.25;font-weight:800;letter-spacing:-.4px}.social-platform-copy>span{display:block;margin-top:5px;color:#a7a9cd;font-size:13px;line-height:1.45}.social-platform-arrow{font-size:32px;color:#9e9bc7;line-height:1;flex-shrink:0}.social-platform-counters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:#0e10222b;border-radius:24px 24px 0 0;padding:13px 10px 15px;text-align:center}.social-platform-counters>span+span{border-left:1px solid #6b608144}.social-platform-counters b{display:block;font-size:21px;line-height:1.15;color:#e6dffb;font-weight:800}.social-platform-counters>span:first-child b{color:var(--social-color)}.social-platform-counters small{display:block;color:#adaace;font-size:12px;margin-top:4px}#pg .social-platform-card:focus-visible{outline:2px solid var(--social-color);outline-offset:3px}#pg .social-platform-card:active{filter:brightness(1.12)}@media(max-width:360px){.social-platform-top{padding:16px 13px;gap:11px}.social-platform-icon{width:50px;height:50px;border-radius:14px}.social-platform-icon svg{width:36px;height:36px}.social-platform-copy strong{font-size:20px}.social-platform-copy>span{font-size:12px}}
+</style>
+<style>
+#pg .social-platform-lifefans{--social-color:#55bfff;--social-glow:#248dc722;border-color:#32688788}#pg .social-platform-lifehub{--social-color:#ffa644;--social-glow:#ba762522;border-color:#79562e88}.social-platform-lifefans .social-platform-icon{background:linear-gradient(135deg,#2697d7,#10416e)}.social-platform-lifehub .social-platform-icon{background:linear-gradient(135deg,#ffb24c,#ae651c)}
+.social-profile{--profile-accent:#dbc0ff}.social-profile-platform svg{width:17px;height:17px}.social-profile-stats b{color:var(--profile-accent)}.social-profile-tiktok{--profile-accent:#48e4e9;background:radial-gradient(at top right,#e531661a,transparent 70%),linear-gradient(135deg,#172e39,#1c1d30);border-color:#366777}.social-profile-tiktok .social-profile-avatar{background:conic-gradient(#25e6e9,#ff4173,#25e6e9)}.social-profile-tiktok .social-profile-avatar-inner{background:#182a34;border-color:#182a34}.social-profile-tiktok .social-profile-platform{color:#73d9df}.social-profile-youtube{--profile-accent:#ff6b7a;background:linear-gradient(145deg,#3b202b,#1d2233);border-color:#75404f}.social-profile-youtube .social-profile-heading{position:relative;padding-top:18px;padding-bottom:17px;background:linear-gradient(120deg,#e5394f33,#ee725114);border-radius:12px}.social-profile-youtube .social-profile-avatar{background:linear-gradient(135deg,#ff445c,#ff9961);border-radius:18px;width:74px;height:74px}.social-profile-youtube .social-profile-avatar-inner{border-radius:15px;background:#30212c;border-color:#30212c}.social-profile-youtube .social-profile-platform{color:#f89a9e}.social-profile-youtube .social-profile-stats{margin-top:12px}.social-profile-lifefans{--profile-accent:#65c8ff;background:linear-gradient(135deg,#193447,#1d2439);border-color:#3e7493}.social-profile-lifefans .social-profile-avatar{background:linear-gradient(135deg,#4dceff,#3487dd)}.social-profile-lifefans .social-profile-platform{color:#75c5f0}.social-profile-lifehub{--profile-accent:#ffb560;background:linear-gradient(135deg,#3c2d20,#232436);border-color:#88683f}.social-profile-lifehub .social-profile-avatar{background:linear-gradient(135deg,#ffd076,#f08a30)}.social-profile-lifehub .social-profile-platform{color:#e9bb81}
+</style>
+<style>
+#pg .row.social-platform-card{background:linear-gradient(135deg,#26283f,#1e2436);border-color:#47405f;box-shadow:0 4px 14px #00000014;--social-color:#c4a9ef;--social-glow:transparent}
+#pg .row.social-platform-card .social-platform-top{background:transparent}
+#pg .row.social-platform-card .social-platform-icon{background:linear-gradient(135deg,#4b3d69,#342d4d);border:1px solid #70608c77;color:#ccb5ee;box-shadow:inset 0 1px 0 #ffffff0b}
+#pg .row.social-platform-card .social-platform-icon svg{filter:none}
+#pg .social-platform-tiktok .social-platform-icon{color:#9fc7da;background:linear-gradient(135deg,#344353,#2a3146);border-color:#53637d}
+#pg .social-platform-youtube .social-platform-icon{color:#dba9be;background:linear-gradient(135deg,#503747,#352b42);border-color:#715366}
+#pg .social-platform-lifefans .social-platform-icon{color:#aebee9;background:linear-gradient(135deg,#394464,#2c314d);border-color:#586482}
+#pg .social-platform-lifehub .social-platform-icon{color:#d3bfaa;background:linear-gradient(135deg,#494052,#342f43);border-color:#6d6077}
+#pg .social-platform-youtube .social-platform-icon svg path{fill:#503747}
+.social-platform-copy strong{color:#eee9f8}.social-platform-copy>span{color:#aaa5c2}.social-platform-counters{background:#171b2b66;border-top:1px solid #ffffff06;border-radius:0}.social-platform-counters b{color:#ddd5ee}.social-platform-counters small{color:#aaa2bd}.social-platform-counters>span+span{border-color:#51466066}.social-platform-arrow{color:#a899c4}.social-platform-create{display:block;margin-top:7px;color:#c6afed;font-size:11px;font-weight:600}
+</style>
+<style>
+*{scrollbar-width:none!important;-ms-overflow-style:none!important}*::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
+#pg .row.social-platform-lifefans{background:linear-gradient(135deg,#173044,#1b2437);border-color:#356780;--social-color:#51c8f4}#pg .row.social-platform-lifefans .social-platform-icon{background:#e8f9ff;border-color:#9ee8ff;color:#00a6db;box-shadow:none}#pg .row.social-platform-lifehub{background:linear-gradient(135deg,#28231c,#191b24);border-color:#6b502e;--social-color:#ffa323}#pg .row.social-platform-lifehub .social-platform-icon{background:#ff9900;border-color:#ffb84d;color:#141414;box-shadow:none}.social-platform-wordmark{font-size:13px;font-weight:900;letter-spacing:-.5px}.social-platform-lifehub .social-platform-copy strong{color:#ffae33}.social-platform-lifefans .social-platform-copy strong{color:#dff7ff}.social-platform-counters.social-counters-two,.social-profile-stats.social-counters-two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.social-profile-lifehub{background:linear-gradient(135deg,#29231b,#181b25);border-color:#75522d;--profile-accent:#ffa323}.social-profile-lifehub .social-profile-avatar{background:#ff9900}.social-profile-lifehub .social-profile-platform{color:#ffac32}.social-profile-lifefans{background:linear-gradient(135deg,#193c50,#1b263b);border-color:#357b99;--profile-accent:#61d3fa}.social-profile-lifefans .social-profile-avatar{background:linear-gradient(135deg,#d8f9ff,#00b6ee)}.social-profile-lifefans .social-profile-platform{color:#81dfff}.social-profile-platform .social-platform-wordmark{padding:2px 5px;border-radius:4px;background:#00a6db;color:white}.social-profile-lifehub .social-profile-platform .social-platform-wordmark{background:#ff9900;color:#111}.social-adult-intro{padding:12px 14px;margin-bottom:12px;border:1px solid #ffffff12;border-radius:12px;background:#ffffff04;color:#bdb5cd;font-size:12px;line-height:1.5}
+</style>
+<style>
+#pg .row.social-platform-instagram{background:linear-gradient(135deg,#30283f,#222439);border-color:#605075;--social-color:#c5a0ef}#pg .row.social-platform-instagram .social-platform-icon{background:linear-gradient(145deg,#655086,#3f345b);border-color:#85709f;color:#e5d4ff}
+#pg .row.social-platform-tiktok{background:linear-gradient(135deg,#242f40,#212437);border-color:#475874;--social-color:#9bbce6}#pg .row.social-platform-tiktok .social-platform-icon{background:linear-gradient(145deg,#475f7e,#303a58);border-color:#6c82a4;color:#d2e6ff}
+#pg .row.social-platform-youtube{background:linear-gradient(135deg,#342937,#242438);border-color:#695066;--social-color:#dfadc7}#pg .row.social-platform-youtube .social-platform-icon{background:linear-gradient(145deg,#775568,#47354c);border-color:#987387;color:#f7d9e8}#pg .row.social-platform-youtube .social-platform-icon svg path{fill:unset}#pg .row.social-platform-youtube .social-platform-icon svg path:nth-child(2){fill:currentColor}
+#pg .row.social-platform-card .social-platform-icon svg{filter:none}.social-profile-instagram .social-profile-platform svg{color:#c5a0ef}.social-profile-tiktok .social-profile-platform svg{color:#9bbce6}.social-profile-youtube .social-profile-platform svg{color:#dfadc7}
+</style>
+<style>
+#pg .row.social-platform-card{margin-bottom:10px;border-radius:15px;box-shadow:none}.social-platform-top{gap:11px;padding:12px 14px}.social-platform-icon{width:42px;height:42px;border-radius:12px}.social-platform-icon svg,.social-platform-tiktok .social-platform-icon svg{width:29px;height:29px}.social-platform-copy strong{font-size:17px;letter-spacing:-.2px}.social-platform-copy>span{font-size:11px;line-height:1.35;margin-top:3px}.social-platform-create{font-size:10px;margin-top:4px}.social-platform-arrow{font-size:25px}.social-platform-counters{padding:8px 10px 9px}.social-platform-counters b{font-size:16px}.social-platform-counters small{font-size:10px;margin-top:2px}.social-platform-wordmark{font-size:10px}@media(max-width:360px){.social-platform-top{padding:11px;gap:9px}.social-platform-icon{width:38px;height:38px}.social-platform-icon svg{width:26px;height:26px}.social-platform-copy strong{font-size:16px}.social-platform-copy>span{font-size:10px}}
+</style>
+<style>.subscription-slider{padding:16px 4px;margin:8px 0 12px}.subscription-slider label{display:block;color:#b7adcb;font-size:12px;text-align:center}.subscription-slider-value{display:block;margin:8px 0 12px;font-size:27px;font-weight:800;text-align:center;color:#d5bdff}.subscription-slider input[type=range]{display:block;width:100%;height:34px;margin:0;accent-color:#b18bea;cursor:pointer;touch-action:pan-y}.subscription-slider-limits{display:flex;justify-content:space-between;color:#aaa0bd;font-size:11px;margin-top:4px}</style>
+<style>.finance-summary{margin-bottom:14px;padding:17px;border:1px solid #514566;border-radius:18px;background:linear-gradient(140deg,#2c2941,#202638)}.finance-summary-heading strong{display:block;color:#eae2f7;font-size:17px}.finance-summary-heading small{display:block;color:#aaa0c1;font-size:11px;margin-top:4px}.finance-summary-body{display:flex;align-items:center;gap:22px;margin-top:17px}.finance-donut{display:grid;place-items:center;width:150px;height:150px;border-radius:50%;flex-shrink:0}.finance-donut>div{display:flex;flex-direction:column;justify-content:center;align-items:center;width:118px;height:118px;border-radius:50%;background:#24283b;text-align:center;padding:8px}.finance-donut small{font-size:11px;color:#b6accb}.finance-donut b{font-size:15px;overflow-wrap:anywhere;max-width:100%;margin-top:5px}.finance-donut .positive{color:#a98ae8}.finance-donut .negative{color:#e282a8}.finance-legend{flex:1;min-width:0}.finance-legend>div{display:flex;gap:8px;align-items:flex-start;margin:14px 0;color:#b9afcd;font-size:12px}.finance-legend b{display:block;font-size:15px;color:#e2d8f2;margin-top:4px;overflow-wrap:anywhere}.finance-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px}.finance-dot.income{background:#a98ae8}.finance-dot.expense{background:#e282a8}@media(max-width:360px){.finance-summary-body{gap:13px}.finance-donut{width:128px;height:128px}.finance-donut>div{width:100px;height:100px}.finance-legend b{font-size:13px}}</style>
+<style>
+.finance-dot.income{background:#58d4bd}.finance-dot.expense{background:#ff8b9f}.finance-donut .positive{color:#58d4bd}.finance-donut .negative{color:#ff8b9f}.finance-mini{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-bottom:14px;padding:5px 13px;border:1px solid #49405e;border-radius:14px;background:#24283b}.finance-mini>div{padding:10px 6px}.finance-mini span{display:block;font-size:11px;color:#aaa1bd}.finance-mini b{display:block;margin-top:5px;font-size:14px;color:#e8e0f5;overflow-wrap:anywhere}.finance-mini .income{color:#58d4bd}.finance-mini .expense{color:#ff8b9f}.portfolio-donut-wrap{display:flex;justify-content:center;margin:18px 0}.portfolio-holding{display:flex;align-items:center;gap:8px;padding:9px 0;border-top:1px solid #ffffff0a;font-size:12px;color:#c4bad6}.portfolio-holding>span:nth-child(2){flex:1;min-width:0}.portfolio-holding b{text-align:right;font-size:12px;color:#e4dcf1}.portfolio-holding small{display:block;color:#a79dbb;font-weight:400;font-size:10px;margin-top:3px}.portfolio-empty{color:#aaa0bd;font-size:12px;text-align:center;line-height:1.5}.portfolio-line-svg{display:block;width:100%;height:auto;margin-top:7px}.portfolio-ranges{display:flex;gap:7px;margin-top:14px}.portfolio-ranges button{flex:1;padding:7px 2px;border:1px solid #514364;border-radius:9px;background:#292a40;color:#b5a9cd;font-size:11px;cursor:pointer}.portfolio-ranges button.active{background:#71549e;color:#f5edff;border-color:#a382ce}.portfolio-chart-note{display:block;color:#a79dbb;font-size:10px;line-height:1.4;margin-top:5px}
+</style>
+<style>.portfolio-pie{display:block;width:min(220px,100%);height:auto;overflow:visible}.portfolio-slice path,.portfolio-slice circle{stroke:#24283b;stroke-width:1.5;stroke-linejoin:round;transition:filter .15s}.portfolio-slice:hover path,.portfolio-slice:hover circle,.portfolio-slice:focus path,.portfolio-slice:focus circle{filter:brightness(1.15);stroke:#eee6ff;stroke-width:2}.portfolio-slice:focus{outline:none}.portfolio-pie-total{text-align:center;margin:-9px 0 16px}.portfolio-pie-total small{display:block;color:#b6accb;font-size:11px}.portfolio-pie-total b{display:block;color:#eee5fa;font-size:19px;margin-top:4px}</style>
+<style>.portfolio-pie{width:min(330px,100%)}.portfolio-slice-label{paint-order:stroke;stroke:#ffffff44;stroke-width:.3px}</style>
+<style>.finance-mini>div:last-child:nth-child(odd){grid-column:1 / -1;border-top:1px solid #ffffff0a}</style>
 </head>
 <body>
 <div id="app">
@@ -488,9 +682,10 @@ EV.push(
 {a:[20,70],t:"Komşu şikayet etti",d:"Üst kat gece gürültüden şikayet ediyor.",c:[{t:"Özür dile",m:"Konuyu tatlıya bağladın.",fx:{m:-1,z:1}},{t:"Aldırma",m:"Umursamadın ama gerginlik arttı.",fx:{m:-2}}]}
 );
 function nextYear(){
+  if(!S)return;
   if(S.dead)return;
   S.age++;
-  const a=S.age;yr();
+  const a=S.age;yr();advanceEconomy();
   if(S.jail>0){S.jail--;apply({m:-4,h:-3,g:-1});line("Hapishanede bir yıl geçirdin. (-4 mutluluk, -3 sağlık)"+(S.jail===0?" Tahliye oldun.":""),"bad");render();check();return}
   // yaş etkileri
   if(a<=20){S.z=cl(S.z+rnd(0,2));if(Math.random()<.3)S.h=cl(S.h+1)}
@@ -506,7 +701,7 @@ function nextYear(){
     if(S.partner.b<=8){line(S.partner.n+" ilişkiyi bitirdi. (-10 mutluluk)","bad");S.m=cl(S.m-10);S.partner=null;S.married=false}}
   if(S.job){S.perf=cl(S.perf+rnd(-6,3));
     if(S.perf<=10&&Math.random()<.5){line("Performansın çok düşük olduğu için "+S.job.n+" işinden çıkarıldın.","bad");S.job=null;S.m=cl(S.m-8)}
-    else if(S.perf>=50){const pc=+(S.perf/100*6+Math.random()*2).toFixed(2);S.job.s=Math.round(S.job.s*(1+pc/100));line("%"+pc+" zam aldın. Yeni maaşın "+TL(S.job.s)+".","gold")}}
+    else if(S.perf>=50){const pc=+(Math.min(3,.5+(S.perf-50)/25+Math.random()*.5)).toFixed(2);S.job.s=Math.round(S.job.s*(1+pc/100));line("%"+pc+" zam aldın. Yeni maaşın "+TL(S.job.s)+".","gold")}}
   S.worked=false;S.gigN=0;S.studied=false;S.tytD=false;S.aytD=false;if((S.age>=6&&S.age<18)||(S.uni&&S.dept))S.gpa=cl(S.gpa+rnd(-5,3)+(S.z>70?1:0));
   if(a>=6&&a<18){
     const av=parAvg();
@@ -516,9 +711,9 @@ function nextYear(){
   }
   if(S.street&&a>=18&&(S.job||S.p>=300000)){S.street=false;line("Kendine kalacak bir yer buldun.","gold")}
   // gelir/gider
-  if(S.job){const pay=S.job.s;S.p+=pay;line(S.job.n+" olarak "+TL(pay)+" kazandın.","gold")}
+  if(S.job){incomeSalary(S.job.s)}
   else if(a>=65){S.p+=Math.round(250000*wm());line("Emekli maaşı aldın: "+TL(250000*wm()),"gold")}
-  let cost=0,cdesc="";if(a>=18&&!(S.uni&&S.famPays)){const y=yearlyCost();cost=y.t;cdesc=y.d}
+  let cost=0,cdesc="";if(a>=18){const y=yearlyCost();cost=y.t;cdesc=y.d}
   
   if(cost){S.p-=cost;line("Yıllık giderler: -"+TL(cost)+(cdesc?" ("+cdesc+")":""))}
   if(S.p<0&&a>=18){S.m=cl(S.m-6);line("Borca girdin, stres yaptı.","bad")}
@@ -571,13 +766,19 @@ function activities(){
   b.push({t:"Kapat",p:1});
   modal("Aktiviteler","Ne yapmak istersin?",b);
 }
+function jobEmoji(name){
+ const icons={"Kasiyer":"🛒","Garson":"🍽️","Güvenlik görevlisi":"🛡️","Aşçı":"👨‍🍳","Kurye":"🛵","Şoför":"🚕","Satış danışmanı":"🛍️","Elektrikçi":"⚡","Hemşire":"🩺","Gazeteci":"📰","Öğretmen":"👩‍🏫","Muhasebeci":"🧮","Psikolog":"🧠","Bankacı":"🏦","Mimar":"🏛️","Mühendis":"⚙️","Avukat":"⚖️","Veri analisti":"📊","Eczacı":"💊","Yazılımcı":"💻","Diş hekimi":"🦷","Doktor":"👨‍⚕️","Veteriner":"🐾","Uçak mühendisi":"🛩️","Kimyager":"🧪","Akademisyen":"🎓","Biyolog":"🧬","Ziraat mühendisi":"🌾","Fizyoterapist":"🦵","Diyetisyen":"🥗","Antrenör":"🏋️","Otel müdürü":"🏨","Grafik tasarımcı":"🎨","Orkestra sanatçısı":"🎻","Film yönetmeni":"🎬","Moda tasarımcısı":"👗","Diplomat":"🌍","Ekonomist":"📈","Müze uzmanı":"🗿","Editör":"✍️","Sosyolog":"👥","Polis":"👮","Subay":"🎖️","Ebe":"👶","Tesisatçı":"🔧","Marangoz":"🪚","Berber":"💈","Terzi":"🧵","Çiftçi":"🚜","Balıkçı":"🎣","Tır şoförü":"🚛","Teknik servis uzmanı":"🧰","Pilot":"✈️"};
+ return icons[name]||"💼";
+}
 function jobs(){
   pgOpen(()=>({title:"İŞLER",intro:`<div class="row cur"><span class="ic">💼</span><span class="tx"><b>İş ilanları</b><small>${S.age<18?"Tam zamanlı çalışmak için 18 yaşında olmalısın.":S.uni?"Öğrenciyken tam zamanlı çalışamazsın.":S.grad?"Diploman var, tüm ilanlar açık.":"Diplomalı ilanlar için üniversiteden mezun olmalısın."}</small></span></div>`,
-    rows:S.age<18||S.uni?[]:JOBS.filter(ju).map(j=>({ic:"💼",t:j.n,d:"Aylık "+TL(j.s*wm()/12)+" · Yıllık "+TL(j.s*wm())+(j.z?" · Zeka "+j.z+"+":""),f:()=>{
-      if(S.dead||S.age<18||S.uni)return;
+    rows:S.age<18||S.uni?[]:JOBS.filter(ju).map(j=>({ic:jobEmoji(j.n),t:j.n,d:"Brüt aylık "+TL(j.s*wm()/12)+" · Net aylık "+TL(salaryBreakdown(j.s*wm(),S.home||"Türkiye").net/12)+(j.z?" · Zeka "+j.z+"+":""),f:()=>{
+      if(S.dead||S.age<18||S.uni||!canStartCareer())return;
       const ch=Math.min(.95,Math.max(.1,.5+(S.z-j.z)/100));
-      if(Math.random()<ch){S.job={...j,s:Math.round(j.s*wm())};S.perf=50;line(j.n+" olarak işe alındın!","gold")}else line(j.n+" başvurun reddedildi.","bad");
+      const accepted=Math.random()<ch;
+      if(accepted){S.job={...j,s:Math.round(j.s*wm())};S.perf=50;line(j.n+" olarak işe alındın!","gold")}else line(j.n+" başvurun reddedildi.","bad");
       render();drawOcc();pgDraw();
+      modal("Başvuru sonucu",accepted?j.n+" olarak işe alındın! Aylık net maaş: "+TL(salaryBreakdown(S.job.s).net/12):j.n+" başvurun reddedildi. Başka bir işe başvurabilirsin.",[{t:"Kapat",p:1}]);
     }}))}));
 }
 function relMenu(){
@@ -610,8 +811,8 @@ function jobMenu(){
   if(a>=18&&!S.uni&&a<65){
     b.push({t:S.job?"Başka iş ara":"İş başvurusu",sub:"Zekana göre sonuçlanır",f:jobs});
     if(S.job){
-      b.push({t:"Fazla mesai yap",sub:"+"+TL(S.job.s/10)+", -4 mutluluk, -2 sağlık",f:()=>{S.p+=Math.round(S.job.s/10);apply({m:-4,h:-2});line("Fazla mesai yaptın. (+"+TL(S.job.s/10)+", -4 mutluluk, -2 sağlık)","bad");render();check()}});
-      b.push({t:"Zam iste",sub:"Zekana bağlı",f:()=>{if(Math.random()<.2+S.z/250){S.job={...S.job,s:Math.round(S.job.s*1.15)};line("Zam aldın! Yeni maaş: "+TL(S.job.s),"gold")}else{apply({m:-3});line("Zam isteğin reddedildi. (-3 mutluluk)","bad")}render()}});
+      b.push({t:"Fazla mesai yap",sub:"+"+TL(overtimeNet(S.job.s))+", -4 mutluluk, -2 sağlık",f:()=>{if(!canOvertime())return;S.p+=Math.round(overtimeNet(S.job.s));apply({m:-4,h:-2});line("Fazla mesai yaptın. (+"+TL(overtimeNet(S.job.s))+", -4 mutluluk, -2 sağlık)","bad");render();check()}});
+      b.push({t:"Zam iste",sub:"Zekana bağlı",f:()=>{if(!canAskRaise())return;if(Math.random()<.2+S.z/250){S.job={...S.job,s:Math.round(S.job.s*1.03)};line("Zam aldın! Yeni maaş: "+TL(S.job.s),"gold")}else{apply({m:-3});line("Zam isteğin reddedildi. (-3 mutluluk)","bad")}render()}});
       b.push({t:"İstifa et",sub:S.job.n,f:()=>{line(S.job.n+" işinden ayrıldın.");S.job=null;render()}});
     }
   }
@@ -638,9 +839,9 @@ function jobWork(){
      if(S.worked){line("Bu yıl zaten çok çalıştın.","bad");return}
      S.worked=true;const g=rnd(6,12);S.perf=cl(S.perf+g);apply({m:-3,h:-2});
      line("Çok çalıştın, performansın arttı. (+"+g+"% performans, -3 mutluluk, -2 sağlık)","good");render();check()}},
-   {t:"Fazla mesai yap",sub:"+"+TL(j.s/10)+" · -4 mutluluk, -2 sağlık",f:()=>{S.p+=Math.round(j.s/10);apply({m:-4,h:-2});line("Fazla mesai yaptın. (+"+TL(j.s/10)+", -4 mutluluk, -2 sağlık)","bad");render();check()}},
+   {t:"Fazla mesai yap",sub:"+"+TL(overtimeNet(j.s))+" · -4 mutluluk, -2 sağlık",f:()=>{S.p+=Math.round(j.s/10);apply({m:-4,h:-2});line("Fazla mesai yaptın. (+"+TL(overtimeNet(j.s))+", -4 mutluluk, -2 sağlık)","bad");render();check()}},
    {t:"Zam iste",sub:"Performansına bağlı",f:()=>{
-     if(Math.random()<S.perf/130){const pc=rnd(8,15);S.job.s=Math.round(S.job.s*(1+pc/100));line("Zam isteğin kabul edildi: %"+pc+". Yeni maaş "+TL(S.job.s),"gold")}
+     if(!canAskRaise())return;if(Math.random()<S.perf/130){const pc=rnd(2,4);S.job.s=Math.round(S.job.s*(1+pc/100));line("Zam isteğin kabul edildi: %"+pc+". Yeni maaş "+TL(S.job.s),"gold")}
      else{apply({m:-3});line("Zam isteğin reddedildi. (-3 mutluluk)","bad")}render()}},
    {t:"İstifa et",sub:j.n,f:()=>{line(j.n+" işinden ayrıldın.");S.job=null;render()}},
    ...OK]);
@@ -664,6 +865,7 @@ function gigs(){
 function recr(){
   if(S.age<18||S.uni)return modal("İş Danışmanı","Tam zamanlı iş için 18 yaşında olmalı ve öğrenci olmamalısın.",OK);
   modal("İş Danışmanı","Danışman senin için iş bulur. Ücreti 5.000 ₺.",[{t:"Danışmanla görüş",sub:"Şansın %70",f:()=>{
+    if(!canStartCareer())return;
     if(S.p<5000){line("Yeterli paran yok.","bad");return}
     S.p-=5000;
     const el=JOBS.filter(j=>ju(j)&&S.z>=j.z-10).sort((a,b)=>b.s-a.s);
@@ -674,21 +876,22 @@ function jobsGate(){jobs()}
 function milit(){
   if(S.age<18||S.age>40||S.uni)return modal("Askerlik","18-40 yaş arası ve öğrenci olmayan kişiler katılabilir.",OK);
   modal("Askerlik","Orduya katıl, düzenli maaş al.",[{t:"Orduya katıl",sub:"Yıllık "+TL(400000*wm())+" · Sağlık ve görünüm artar",f:()=>{
+    if(!canStartCareer())return;
     S.job={n:"Asker",s:Math.round(400000*wm()),mil:1};S.perf=50;apply({h:4,g:2,m:-3});line("Orduya katıldın.","gold");render()}},...OK]);
 }
 const PART=[{n:"Bakkal çırağı",s:150000},{n:"Kafe garsonu",s:170000},{n:"Paket dağıtımı",s:200000}];
 function part(){
-  if(S.age<16)return modal("Yarı Zamanlı İşler","16 yaşından sonra çalışabilirsin.",OK);
-  modal("Yarı Zamanlı İşler","Okulla birlikte yapabileceğin işler.",PART.map(x=>({t:x.n,sub:"Yıllık "+TL(x.s*wm()),f:()=>{
-    if(Math.random()<.8){S.job={...x,part:1,s:Math.round(x.s*wm())};S.perf=50;line(x.n+" olarak işe girdin.","gold")}else line(x.n+" başvurun reddedildi.","bad");render()}})).concat(OK));
+  const icons=["🛒","☕","🛵"];
+  pgOpen(()=>({title:"YARI ZAMANLI İŞLER",intro:'<div class="row cur"><span class="ic">🕐</span><span class="tx"><b>Yarı zamanlı işler</b><small>'+esc(S.age<16?"16 yaşından sonra çalışabilirsin.":"Okulla birlikte yapabileceğin işler.")+'</small></span></div>',rows:S.age<16?[]:PART.map((x,i)=>({ic:icons[i]||"🕐",t:x.n,d:"Brüt aylık "+TL(Math.round(x.s*wm()/12))+" · Net aylık "+TL(Math.round(salaryBreakdown(x.s*wm(),S.home||"Türkiye").net/12)),f:()=>{
+    if(S.dead||S.age<16||!canStartCareer())return;
+    const accepted=Math.random()<.8;
+    if(accepted){S.job={...x,part:1,s:Math.round(x.s*wm())};S.perf=50;line(x.n+" olarak işe girdin.","gold")}else line(x.n+" başvurun reddedildi.","bad");
+    render();drawOcc();pgDraw();modal("Başvuru sonucu",accepted?x.n+" olarak işe alındın! Aylık net maaş: "+TL(Math.round(salaryBreakdown(S.job.s).net/12)):x.n+" başvurun reddedildi.",[{t:"Kapat",p:1}]);
+  }}))}));
 }
-const SPEC=[{n:"Profesyonel futbolcu",s:6000000,k:"h",th:70,lbl:"Sağlık 70+"},{n:"Müzisyen",s:800000,k:"m",th:60,lbl:"Mutluluk 60+"},{n:"İçerik üreticisi",s:700000,k:"g",th:50,lbl:"Görünüm 50+"},{n:"Model",s:1500000,k:"g",th:75,lbl:"Görünüm 75+"}];
+const SPEC=[];
 function spec(){
-  if(S.age<18||S.uni)return modal("Özel Kariyerler","18 yaşında olmalı ve öğrenci olmamalısın.",OK);
-  modal("Özel Kariyerler","Şansın yeteneğine bağlı.",SPEC.map(x=>({t:x.n,sub:"Yıllık "+TL(x.s*wm())+" · "+x.lbl,f:()=>{
-    if(x.n==="Profesyonel futbolcu")return footballTrial();
-    const ch=Math.min(.8,Math.max(.05,(S[x.k]-x.th)/100+.4));
-    if(Math.random()<ch){S.job={n:x.n,s:Math.round(x.s*wm())};S.perf=50;line(x.n+" olarak kariyerine başladın!","gold")}else{apply({m:-4});line(x.n+" için denemeden geçemedin. (-4 mutluluk)","bad")}render()}})).concat(OK));
+  pgOpen(()=>({title:"ÖZEL KARİYERLER",intro:'<div class="row cur"><span class="ic">🔒</span><span class="tx"><b>Şimdilik yok</b><small>Özel kariyerler şimdilik kapalı.</small></span></div>',rows:[]}));
 }
 // Fictional club names inspired by TFF 2026-27 club lists:
 // https://www.tff.org/default.aspx?pageID=142
@@ -744,6 +947,7 @@ FOREIGN_FOOTBALL.forEach(([country,id,first,second,top,lower])=>{
 const FOOTBALL_POSITIONS=["Kaleci","Stoper","Sağ bek","Sol bek","Ön libero","Merkez orta saha","Ofansif orta saha","Sağ kanat","Sol kanat","Forvet"];
 function footballCountry(){return LOC().ctry}
 function footballEligibility(){
+  if(!canStartCareer())return false;
   if(S.dead)return false;
   const message=S.f?"Bu seçmeler erkek futbol takımları içindir.":S.age<18||S.uni?"18 yaşında olmalı ve öğrenci olmamalısın.":S.jail>0?"Hapisteyken seçmelere katılamazsın.":null;
   if(message){modal("Futbol seçmeleri",message,[{t:"Tamam",p:1}]);return false}
@@ -768,7 +972,7 @@ function runFootballTrial(position){
   if(!leagues.length)return modal("Futbol seçmeleri","Bu ülkede futbol seçmeleri bulunamadı.",[{t:"Tamam",p:1}]);
   if(Math.random()>=Math.min(.9,.65+(S.h-70)/100)){line("Futbol seçmelerinden bu kez geçemedin.","bad");render();return modal("Seçme sonucu","Bu kez bir takımdan teklif gelmedi. Sağlığını geliştirip tekrar deneyebilirsin.",[{t:"Tamam",p:1}])}
   const tier=Math.random()<.9?2:1,league=R(leagues.filter(k=>FOOTBALL_LEAGUES[k].tier===tier));
-  const team=R(FOOTBALL_LEAGUES[league].teams),salary=Math.round((tier===1?6000000:2400000)*(CD[country]||CD["Türkiye"]).w);
+  const team=R(FOOTBALL_LEAGUES[league].teams),salary=Math.round((tier===1?rnd(1800000,4800000):rnd(480000,1200000))*(CD[country]||CD["Türkiye"]).w*countryEconomy(country).wages);
   modal("Takım teklifi",team+" seni "+position+" olarak kadrosuna istiyor! "+country+" · "+FOOTBALL_LEAGUES[league].name+" · Yıllık maaş: "+TL(salary),[{t:"Takıma katıl",p:1,f:()=>{
     if(S!==life||!footballEligibility())return;
     if(footballCountry()!==country)return modal("Takım teklifi","Seçmelere katıldığın ülkeye geri dönmelisin.",[{t:"Tamam",p:1}]);
@@ -805,16 +1009,85 @@ function footballJobPage(){
     {ic:"🚪",t:"Takımdan ayrıl",d:f.team,f:()=>modal("Takımdan ayrıl","Sözleşmeni bitirmek istediğine emin misin?",[{t:"Ayrıl",f:()=>{line(f.team+" takımından ayrıldın.");S.job=null;PG=[];$("pg").classList.remove("on");render();drawOcc()}},{t:"Vazgeç",p:1}])}
   ]}});
 }
+function canStartCareer(){
+  if(!S.job)return true;
+  modal("Önce işinden ayrıl",S.job.n+" olarak çalışıyorsun. Başka bir işe veya spor takımına geçmeden önce Meslekler > İşim bölümünden istifa etmelisin.",[{t:"Tamam",p:1}]);return false;
+}
+// Fictional game pools inspired by NBA, European clubs and SV.LEAGUE.
+// https://www.nba.com/teams https://www.cev.eu/club/ https://www.svleague.jp/en/
+// Two game tiers per country; these pools are not official league memberships.
+const TEAM_SPORT_POOLS=[
+["Türkiye","Fener Bahçe Basket|Anadolu Efesli|Galata Saray Basket|Beşiktaş Kartalları|Karşıyaka Körfez|Tofaş Bursa|Türk Telekom Başkent|Darüşşafaka Yeşil","Balıkesir Karesi|Ankara Kolejliler|Gaziantep Antep|Konya Selçuk|Mersin Akdeniz|İstanbul Sigorta|Bursa Finalspor|Sakarya Ada Basket","Halk Bank Başkent|Ziraat Başkent|Fener Bahçe Voley|Galata Saray Voley|Arkas İzmir|Bursa Büyükşehir Voley|Spor Toto Başkent|Alanya Sahil Voley","İstanbul Belediye Voley|Konya Büyükşehir Voley|İzmir Saint Joseph|Ankara Maliye Voley|Bursa İnegöl Voley|Kayseri Melikgazi|Hatay Payas Voley|Ordu Akkuş Voley"],
+["ABD","Boston Celts|Los Angeles Lakerside|Chicago Bulls Eye|Golden State Warriors Bay|Miami Flames|New York Knickers|Dallas Mavericks West|Denver Gold","Maine Celts|South Bay Lakerside|Austin Spurside|Santa Cruz Warriors Bay|Rio Grande Viperside|Iowa Wolves North|Long Island Netside|Grand Rapids Gold Rush","Atlanta Vibe City|Omaha Supernovas Sky|Orlando Valkyrie|Columbus Fury City|San Diego Mojo Coast|Vegas Thrill City|Grand Rapids Rise Up|Indy Ignite City","Austin Volley Stars|Houston Volley Stars|Madison Volley Stars|Salt Lake Volley Stars|San Francisco Volley Stars|Los Angeles Volley Stars|Dallas Volley Stars|Chicago Volley Stars"],
+["İngiltere","London Lionhearts|Leicester Riders City|Newcastle Eagle Wings|Sheffield Shark Bay|Manchester Giant Hoops|Bristol Flyers City|Cheshire Phoenix Rise|Surrey Scorchers Heat","Reading Rockets City|Derby Trailblazers Path|Hemel Storm City|Worthing Thunder Coast|Nottingham Hoods City|Bradford Dragons Fire|Essex Rebels City|Solent Kestrels Wing","London Polonias|Durham Palatine|Sheffield Hallam Voley|Newcastle Staffs Voley|Richmond Dock Voley|Leeds Gorse Voley|Essex Rebel Voley|Malory Eagle Voley","Birmingham Volley City|Bristol Volley City|Manchester Volley City|Cambridge Volley City|Oxford Volley City|Southampton Volley City|Nottingham Volley City|Liverpool Volley City"],
+["Almanya","Bayern Munich Hoops|Alba Berlin Blue|Bonn Telekom Hoops|Ulm Orange Hoops|Oldenburg Basket Bay|Ludwigsburg Giants City|Bamberg Basket City|Würzburg Basket City","Jena Science Hoops|Trier Gladiator City|Karlsruhe Lions City|Frankfurt Skyliner City|Tübingen Tiger Hoops|Hagen Phoenix City|Bremerhaven Polar Hoops|Giessen 47 Hoops","Berlin Recycling Volley|Friedrichshafen Lake Volley|Düren Power Volley|Lüneburg Salt Volley|Giesen Grizzly Volley|Herrsching Bay Volley|Bühl Bisons Volley|Karlsruhe Baden Volley","Dresden Volley City|Schüttorf Volley City|Kiel Eagle Volley|Bocholt Volley City|Essen Human Volley|Mainz Gonsenheim Volley|Grafing Volley City|Mühldorf Volley City"],
+["Fransa","Monaco Royal Basket|Lyon Villeurbanne Basket|Paris Capital Basket|Bourg Bresse Basket|Strasbourg Alsace Basket|Limoges Green Basket|Cholet City Basket|Le Mans Sarthe Basket","Blois Loire Basket|Orléans Loiret Basket|Roanne Choir Basket|Nantes Atlantic Basket|Poitiers City Basket|Rouen Métropole Basket|Vichy Thermal Basket|Antibes Shark Basket","Tours Loire Volley|Chaumont Haute Volley|Montpellier Coast Volley|Poitiers Stade Volley|Paris Capital Volley|Saint Nazaire Atlantic|Tourcoing Lille Volley|Toulouse Spacer Volley","Cannes Dragon Volley|Ajaccio Island Volley|Martigues Coast Volley|Nancy Grand Volley|Rennes Breton Volley|Fréjus Coast Volley|Saint Quentin City Volley|Cambrai City Volley"],
+["İtalya","Milano Olimpia City|Bologna Virtus City|Bologna Fortitudo City|Venezia Reyer City|Sassari Dynamo City|Trento Aquila City|Brescia Lion Basket|Reggio Emilia Basket","Cantù Lake Basket|Rimini Riviera Basket|Udine Apu Basket|Verona Scaligera Basket|Forlì Unieuro City|Pesaro Victoria Basket|Torino Royal Basket|Livorno Liberty Basket","Perugia Sir Volley|Trentino Mountain Volley|Civitanova Lube Volley|Modena Yellow Volley|Piacenza Gas Volley|Milano Allianz Volley|Monza Vero Volley|Padova Pallavolo City","Brescia Atlantis Volley|Ravenna Porto Volley|Siena Emma Volley|Cuneo Piemonte Volley|Prata Pordenone Volley|Porto Viro Delta Volley|Aversa Normanna Volley|Cantù Libertas Volley"],
+["İspanya","Madrid Real Basket|Barcelona Blau Basket|Baskonia Vitoria City|Valencia Orange Basket|Málaga Unicaja City|Tenerife Island Basket|Gran Canaria Island|Badalona Joventut City","Estudiantes Madrid City|Burgos San Pablo City|Palencia Purple Basket|Obradoiro Santiago City|Valladolid Purple City|Alicante Lucentum City|Ourense River Basket|Castellón Amics City","Almería Unicaja Volley|Teruel Orange Volley|Las Palmas Guagua Volley|Soria Río Volley|Manacor Island Volley|Melilla Coast Volley|Lugo Emevé Volley|Valencia City Volley","Barcelona Blau Volley|Tarragona Sant Pere Volley|Leganés Madrid Volley|Alcorcón Madrid Volley|Almendralejo Extremadura|Cáceres City Volley|Vigo Atlantic Volley|Gijón Coast Volley"],
+["Hollanda","Leiden Zorg Basket|Den Bosch Hero Basket|Groningen Donar City|Rotterdam City Hoops|Zwolle Landstede City|Leeuwarden Aris City|Den Helder Sailors|Weert Limburg Basket","Amsterdam Apollo Hoops|Utrecht Cangaroo Hoops|Haarlem Triple Hoops|Almere Pioneers City|Nijmegen Matrix City|Leiden Binnentown|Groningen Martini Hoops|Den Haag Royal Hoops","Apeldoorn Dynamo Volley|Doetinchem Orion Star|Groningen Lycurgus City|Barneveld SSS Volley|Sliedrecht Blue Volley|Huizen City Volley|Rotterdam VCN Volley|Zevenhuizen ZVH Volley","Wormer Compaen Volley|Meijel Peel Volley|Utrecht USV Volley|Amsterdam US Volley|Eindhoven PSV Volley|Capelle City Volley|Zwolle City Volley|Nijmegen City Volley"],
+["Japonya","Chiba Jet Wings|Alvark Tokyo City|Ryukyu Golden Crown|Utsunomiya Brex City|Kawasaki Brave Storm|Osaka Evessa City|Nagoya Diamond Dolphin|Hiroshima Dragon Fly","Altiri Chiba City|Toyama Grouse Wings|Fukushima Fire Bond|Aomori Wat Blue|Yamagata Wyvern City|Ehime Orange Viking|Kumamoto Volter City|Kobe Stork Wings","Osaka Bluteon Blue|Suntory Sun Wings|JTEKT Sting Wing|Nagoya Wolf Dog|Tokyo Great Bear|Hiroshima Thunder Volley|Toray Arrow Volley|Sakai Blaze Volley","Hokkaido Yellow Star|Nagano Trident Volley|Tsukuba United Sun|Toyota Sun Hawk|Chiba Zelva City|Saitama Azalea City|Fukuoka Winning Spirit|Nara Dream Volley"],
+["BAE","Dubai Ahli Basket|Sharjah King Basket|Abu Dhabi Wahda Basket|Al Nasr Blue Basket|Al Wasl Yellow Basket|Ajman Orange Basket|Bani Yas Sky Basket|Al Bataeh Green Basket","Al Ain Oasis Basket|Fujairah Coast Basket|Ras Al Khaimah Basket|Khor Fakkan Coast Basket|Dibba Coast Basket|Dubai Hatta Basket|Kalba Coast Basket|Masafi Mountain Basket","Dubai Ahli Volley|Al Nasr Blue Volley|Al Wasl Yellow Volley|Al Ain Oasis Volley|Bani Yas Sky Volley|Sharjah King Volley|Ajman Orange Volley|Hatta Mountain Volley","Fujairah Coast Volley|Dibba Coast Volley|Kalba Coast Volley|Khor Fakkan Coast Volley|Ras Al Khaimah Volley|Masafi Mountain Volley|Abu Dhabi City Volley|Dubai Coast Volley"]
+];
+const TEAM_SPORT_LEAGUES={};
+TEAM_SPORT_POOLS.forEach(([country,b1,b2,v1,v2],i)=>{
+  [b1,b2,v1,v2].forEach((pool,j)=>{const sport=j<2?"basketball":"volleyball",tier=j%2+1,id=sport+"_"+i+"_"+tier;TEAM_SPORT_LEAGUES[id]={country,sport,tier,name:(sport==="basketball"?"Basketbol":"Voleybol")+" · "+tier+". Lig",teams:pool.split("|")}});
+});
+const TEAM_SPORTS={basketball:{name:"Profesyonel basketbolcu",health:75,salary:4800000,positions:["Oyun kurucu","Şutör gard","Kısa forvet","Uzun forvet","Pivot"]},volleyball:{name:"Profesyonel voleybolcu",health:70,salary:3600000,positions:["Pasör","Pasör çaprazı","Smaçör","Orta oyuncu","Libero"]}};
+function teamSportTrial(sport){
+  if(!canStartCareer()||S.dead)return;
+  const cfg=TEAM_SPORTS[sport];if(!cfg)return;
+  if(S.age<18||S.uni||S.jail>0)return modal(cfg.name,"18 yaşında, öğrenci olmayan ve hapiste olmayan kişiler seçmelere katılabilir.",[{t:"Tamam",p:1}]);
+  modal("Pozisyonunu seç",LOC().ctry+" · "+cfg.name,cfg.positions.map(position=>({t:position,f:()=>modal("Takım seçmeleri",LOC().ctry+" · "+position+". Seçmeler ücretsiz; sağlık "+cfg.health+"+ olmalı.",[{t:"Seçmelere katıl",p:1,f:()=>runTeamSportTrial(sport,position)},{t:"Vazgeç"}])})).concat([{t:"Vazgeç"}]));
+}
+function runTeamSportTrial(sport,position){
+  if(!canStartCareer()||S.dead)return;
+  const cfg=TEAM_SPORTS[sport];if(!cfg||!cfg.positions.includes(position))return;
+  if(S.age<18||S.uni||S.jail>0)return teamSportTrial(sport);
+  if(S.h<cfg.health)return modal(cfg.name,"Sağlığın en az "+cfg.health+" olmalı.",[{t:"Tamam",p:1}]);
+  const country=LOC().ctry,life=S;
+  if(Math.random()>=Math.min(.9,.65+(S.h-cfg.health)/100))return modal("Seçme sonucu","Bu kez teklif gelmedi. Tekrar deneyebilirsin.",[{t:"Tamam",p:1}]);
+  const tier=Math.random()<.9?2:1,ids=Object.keys(TEAM_SPORT_LEAGUES).filter(id=>{const l=TEAM_SPORT_LEAGUES[id];return l.country===country&&l.sport===sport&&l.tier===tier});
+  if(!ids.length)return modal("Seçmeler","Bu ülkede takım bulunamadı.",[{t:"Tamam",p:1}]);
+  const league=R(ids),l=TEAM_SPORT_LEAGUES[league],team=R(l.teams),salary=Math.round(cfg.salary*(tier===1?(.3+Math.random()*.45):(.08+Math.random()*.12))*(CD[country]||CD["Türkiye"]).w*countryEconomy(country).wages);
+  modal("Takım teklifi",team+" seni "+position+" olarak istiyor! "+country+" · "+l.name+" · Yıllık "+TL(salary),[{t:"Takıma katıl",p:1,f:()=>{
+    if(S!==life||!canStartCareer()||S.dead)return;
+    if(LOC().ctry!==country||S.age<18||S.uni||S.jail>0)return modal("Takım teklifi","Teklifi kabul etmek için seçmelere katıldığın ülkede ve seçmelere uygun durumda olmalısın.",[{t:"Tamam",p:1}]);
+    S.job={n:cfg.name+" · "+team,s:salary,sport:1,teamSport:{sport,country,league,team,position,season:1,completed:false,table:l.teams.map(team=>({team,o:0,g:0,m:0,a:0,y:0,p:0}))}};S.perf=50;
+    line(team+" takımına "+position+" olarak katıldın!","gold");render();drawOcc();pgDraw();modal("Takıma katıldın","İşim bölümünden lig tablosunu görebilirsin.",[{t:"Tamam",p:1}]);
+  }},{t:"Reddet"}]);
+}
+function simulateTeamSportSeason(){
+  const f=S.job&&S.job.teamSport;if(!f)return;
+  if(f.completed){f.season++;f.table=TEAM_SPORT_LEAGUES[f.league].teams.map(team=>({team,o:0,g:0,m:0,a:0,y:0,p:0}))}
+  for(let i=0;i<f.table.length;i++)for(let j=i+1;j<f.table.length;j++)for(let leg=0;leg<2;leg++){
+    const a=f.table[i],b=f.table[j];let ga,gb;
+    if(f.sport==="basketball"){ga=rnd(65,120);gb=rnd(65,120);if(ga===gb)ga++;}
+    else{const lose=rnd(0,2);if(Math.random()<.5){ga=3;gb=lose}else{ga=lose;gb=3}}
+    a.o++;b.o++;a.a+=ga;a.y+=gb;b.a+=gb;b.y+=ga;
+    const win=ga>gb?a:b,loss=ga>gb?b:a;win.g++;loss.m++;
+    if(f.sport==="basketball"){win.p+=2;loss.p++}else{win.p+=Math.min(ga,gb)===2?2:3;loss.p+=Math.min(ga,gb)===2?1:0}
+  }
+  f.completed=true;const rank=f.table.slice().sort((a,b)=>b.p-a.p||b.g-a.g||(b.a-b.y)-(a.a-a.y));line(f.team+" sezonu "+(rank.findIndex(t=>t.team===f.team)+1)+". sırada tamamladı.","gold");
+}
+function openTeamSportTable(){
+  pgOpen(()=>{const f=S.job&&S.job.teamSport;if(!f)return{title:"LİG TABLOSU",rows:[]};const l=TEAM_SPORT_LEAGUES[f.league],rank=f.table.slice().sort((a,b)=>b.p-a.p||b.g-a.g||(b.a-b.y)-(a.a-a.y));
+    return{title:"LİG TABLOSU",intro:'<div class="row cur"><span class="tx"><b>'+esc(l.country+" · "+l.name)+'</b><small>Sezon '+f.season+' · '+(f.completed?'Sezon tamamlandı':'Sezon başlangıcı')+'</small></span></div><div style="overflow-x:auto"><table style="width:100%;text-align:center;font-size:12px"><thead><tr>'+['#','Takım','O','G','M',f.sport==='basketball'?'Sayı farkı':'Set farkı','P'].map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+rank.map((r,i)=>'<tr style="background:'+(r.team===f.team?'rgba(192,132,252,.3)':'transparent')+'"><td>'+(i+1)+'</td><td style="text-align:left;padding:10px 4px">'+esc(r.team)+(r.team===f.team?' ⭐':'')+'</td>'+[r.o,r.g,r.m,r.a-r.y,r.p].map(n=>'<td>'+n+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>',rows:[]};
+  });
+}
+function teamSportJobPage(){
+  PG=[];pgOpen(()=>{const j=S.job,f=j&&j.teamSport;if(!f)return{title:"İŞİM",rows:[]};const l=TEAM_SPORT_LEAGUES[f.league];return{title:"SPOR KARİYERİ",jobDetails:true,intro:'<div class="row cur"><span class="tx"><b>'+esc(f.team)+'</b><small>'+esc(l.country+" · "+l.name+" · "+f.position)+' · '+TL(j.s)+'/yıl · Performans: '+S.perf+'%</small></span></div>',rows:[
+    {ic:"🏆",t:"Lig tablosu",d:"Takımlar ve puan durumu",f:openTeamSportTable},
+    {ic:"💪",t:"Antrenman yap",d:"Bu yıl bir kez · Performans artar",f:()=>{if(S.worked)return modal("Antrenman","Bu yıl zaten antrenman yaptın.",[{t:"Tamam",p:1}]);S.worked=true;S.perf=cl(S.perf+rnd(6,12));apply({h:2,m:2});render();pgDraw()}},
+    {ic:"🚪",t:"Takımdan ayrıl",d:f.team,f:()=>modal("Takımdan ayrıl","Sözleşmeni bitirmek istediğine emin misin?",[{t:"Ayrıl",f:()=>{line(f.team+" takımından ayrıldın.");S.job=null;PG=[];$("pg").classList.remove("on");render();drawOcc()}},{t:"Vazgeç",p:1}])}
+  ]}});
+}
 const SPORTS=[{ic:"⚽",n:"Profesyonel futbolcu",s:6000000,h:70},{ic:"🏀",n:"Profesyonel basketbolcu",s:4800000,h:75},{ic:"🏐",n:"Profesyonel voleybolcu",s:3600000,h:70}];
 function sportsCareer(){
   pgOpen(()=>({title:"SPOR KARİYERİ",intro:`<div class="row cur"><span class="ic">🏅</span><span class="tx"><b>Spor kariyeri</b><small>${S.age<18?"Profesyonel kariyer için 18 yaşında olmalısın.":S.uni?"Profesyonel kariyer için öğrenci olmamalısın.":"Bir branş seç ve takım seçmelerine katıl."}</small></span></div>`,
-    rows:S.age<18||S.uni?[]:SPORTS.map(x=>({ic:x.ic,t:x.n,d:"Yıllık "+TL(x.s*wm())+" · Sağlık "+x.h+"+",f:()=>{
-      if(S.dead||S.age<18||S.uni)return;
+    rows:S.age<18||S.uni?[]:SPORTS.map(x=>({ic:x.ic,t:x.n,d:"Takım ve ligine göre sözleşme · Sağlık "+x.h+"+",f:()=>{
+      if(S.dead||S.age<18||S.uni||!canStartCareer())return;
       if(x.n==="Profesyonel futbolcu")return footballTrial();
-      if(S.h<x.h)return modal(x.n,"Seçmelere katılmak için sağlığın en az "+x.h+" olmalı.",[{t:"Tamam",p:1}]);
-      const accepted=Math.random()<Math.min(.8,.4+(S.h-x.h)/100);
-      if(accepted){S.job={n:x.n,s:Math.round(x.s*wm()),sport:1};S.perf=50;line(x.n+" olarak kariyerine başladın!","gold")}else{apply({m:-4});line(x.n+" için seçmelerden geçemedin. (-4 mutluluk)","bad")}
-      render();drawOcc();pgDraw();modal(x.n,accepted?"Takıma kabul edildin! Yıllık maaş: "+TL(S.job.s):"Bu kez seçmeleri geçemedin. Tekrar deneyebilirsin.",[{t:"Tamam",p:1}]);
+      return teamSportTrial(x.ic==="🏀"?"basketball":"volleyball");
     }}))}));
 }
 const ROWS=[["🎓","Eğitim","YKS'ye gir, üniversiteye yerleş",edu],["🧢","Serbest İşler","Hızlı para kazan",gigs],["📞","İş Danışmanı","İş danışmanını ziyaret et",recr],["💵","İşler","Tam zamanlı iş ilanlarına bak",jobsGate],["🛡️","Askerlik","Orduya katıl",milit],["🕐","Yarı Zamanlı İşler","Saatlik iş ilanlarına bak",part],["🏅","Spor kariyeri","Profesyonel sporcu ol",sportsCareer],["🎩","Özel Kariyerler","Özel bir kariyer bul",spec]];
@@ -823,7 +1096,7 @@ function drawOcc(){
    :`<div class="row cur"><span class="ic">💼</span><span class="tx"><b>Şu an işsizsin</b><small>Aşağıdan bir iş seç</small></span></div>`;
   $("occ").innerHTML=`<div class="who"><div class="wi"><div id="name2" style="color:var(--ac);font-weight:800;font-size:19px">${S.name}</div><div id="meta">${stage()}</div></div><div class="mn"><div style="color:${S.p<0?"var(--red)":"var(--gold)"};font-weight:800;font-size:22px">${TL(S.p)}</div><small>Banka Bakiyesi</small></div></div>
   <div class="oh"><button class="x" id="occx" aria-label="Kapat">✕</button><h2>MESLEKLER</h2></div>
-  <div class="ol">${uniRow()}${cur}${ROWS.map((r,i)=>`<button class="row" data-k="${i}"><span class="ic">${r[0]}</span><span class="tx"><b>${r[1]}</b><small>${r[1]==="Eğitim"&&ABR()?"Giriş sınavına gir, üniversiteye yerleş":r[2]}</small></span><span class="ch">›</span></button>`).join("")}</div>`;
+  <div class="ol">${uniRow()}${cur}${ROWS.map((r,i)=>(S.uni||S.job)&&i===0?"":`<button class="row" data-k="${i}"><span class="ic">${r[0]}</span><span class="tx"><b>${r[1]}</b><small>${r[1]==="Eğitim"&&ABR()?"Giriş sınavına gir, üniversiteye yerleş":r[2]}</small></span><span class="ch">›</span></button>`).join("")}</div>`;
   $("occx").onclick=()=>$("occ").classList.remove("on");
   $("occ").querySelectorAll("[data-k]").forEach(b=>{const k=b.dataset.k;b.onclick=()=>k==="u"?openUni():k==="w"?jobWork():ROWS[k][3]()});
 }
@@ -991,9 +1264,10 @@ function pgDraw(){
   const b=PG[PG.length-1],o=$("pg");
   if(!b){o.classList.remove("on");return}
   const {title,intro,rows}=b();
-  o.innerHTML=whoHtml()+`<div class="oh"><button class="x" id="pgx" aria-label="Geri">${PG.length>1?"‹":"✕"}</button><h2>${title}</h2></div><div class="ol">${intro||""}${rows.map((r,i)=>`<button class="row" data-k="${i}"><span class="ic">${r.ic}</span><span class="tx"><b>${r.t}</b><small>${r.d}</small></span><span class="ch">${r.ch===undefined?"›":r.ch}</span></button>`).join("")}</div>`;
+  if(title==="VARLIKLAR")rows.sort((a,b)=>(b.t==="Finans"?1:0)-(a.t==="Finans"?1:0));
+  o.innerHTML=whoHtml()+`<div class="oh"><button class="x" id="pgx" aria-label="Geri">${PG.length>1?"‹":"✕"}</button><h2>${title}</h2></div><div class="ol">${intro||""}${rows.map((r,i)=>`<button class="row ${r.cardClass||""}" data-k="${i}" ${r.disabled?'disabled aria-disabled="true"':''}>${r.html||`<span class="ic">${r.ic}</span><span class="tx"><b>${r.t}</b><small>${r.d}</small></span><span class="ch">${r.ch===undefined?"›":r.ch}</span>`}</button>${r.after||""}`).join("")}</div>`;
   $("pgx").onclick=()=>{PG.pop();pgDraw()};
-  o.querySelectorAll("[data-k]").forEach(e=>e.onclick=()=>rows[+e.dataset.k].f());
+  o.querySelectorAll("[data-k]").forEach(e=>e.onclick=()=>{const r=rows[+e.dataset.k];if(!r.disabled)r.f()});
   o.querySelectorAll("[data-school-club]").forEach(e=>e.onclick=()=>schoolClubRows()[+e.dataset.schoolClub].f());
   o.classList.add("on");
 }
@@ -1010,8 +1284,8 @@ function openAssets(){
     const tot=S.assets.reduce((a,n)=>a+((ALLA.find(x=>x.n===n)||{c:0}).c),0);
     return {title:"VARLIKLAR",
       intro:`<div class="row cur"><span class="ic">🏦</span><span class="tx"><b>Toplam değer: ${TL(tot)}</b><small>${S.assets.length?esc(S.assets.join(", ")):"Henüz hiçbir şeyin yok"}</small></span></div>`,
-      rows:ASSETS.map(c=>({ic:c.ic,t:c.t,d:c.d,f:()=>c.fin?openFinance():pgOpen(()=>({title:c.t.toUpperCase(),rows:c.items.map(x=>S.assets.includes(x.n)
-        ?{ic:"✅",t:x.n,d:"Sahipsin · satış değeri "+TL(sellVal(x))+" · "+LX("durum %","condition %")+cond(x.n),ch:"",f:()=>modal(x.n,"Satış değeri "+TL(x.c*.85),[{t:"Sat",p:1,f:()=>{S.p+=Math.round(x.c*.85);S.assets=S.assets.filter(n=>n!==x.n);line(x.n+" satıldı. (+"+TL(x.c*.85)+")","gold");render()}},{t:"Vazgeç"}])}
+      rows:ASSETS.filter(c=>c.t!=="Tekneler"&&c.t!=="Lüks Eşyalar").map(c=>({ic:c.ic,t:c.t,d:c.d,f:()=>c.social?openSocialMedia():c.fin?openFinance():pgOpen(()=>({title:c.t.toUpperCase(),rows:c.items.map(x=>S.assets.includes(x.n)
+        ?{ic:"✅",t:x.n,d:"Sahipsin · satış değeri "+TL(sellVal(x))+" · "+LX("durum %","condition %")+cond(x.n),ch:"",f:()=>modal(x.n,"Satış değeri "+TL(x.c*.85),[{t:"Sat",p:1,f:()=>{S.p+=Math.round(x.c*.85);removeOneAsset(x.n);line(x.n+" satıldı. (+"+TL(x.c*.85)+")","gold");render()}},{t:"Vazgeç"}])}
         :{ic:c.ic,t:x.n,d:TL(x.c)+" · "+fxTxt(x.fx),f:()=>modal(x.n,"Fiyat: "+TL(x.c),[{t:"Satın al",p:1,f:()=>{
           if(S.p<x.c){line("Yeterli paran yok: "+x.n,"bad");return}
           S.p-=x.c;S.assets.push(x.n);apply(x.fx);line(x.n+" satın aldın. (-"+TL(x.c)+", "+fxTxt(x.fx)+")","good");render()}},{t:"Vazgeç"}])})}))}))};
@@ -1077,7 +1351,7 @@ function openActs(){
   PG=[];pgOpen(()=>({title:"AKTİVİTELER",rows:ACTS.map(c=>({ic:c.ic,t:c.t,d:c.d,f:()=>pgOpen(()=>({title:c.t.toUpperCase(),rows:c.items.map(it=>({
     ic:c.ic,t:it.t,d:it.special==="orient"?"Şu an: "+OR[S.orient]:it.special==="travel"?"Şu an: "+LOC().city:it.crime?"Yakalanırsan hapse girersin":it.special==="kill"?"Çok ağır sonuçları var":it.special==="hit"?"Bedel: "+TL(500000)+" ve üzeri":it.cas?"Bahsi sen belirle":it.gamble?"Şansını dene · %"+Math.round(it.gamble[1]*100)+" kazanma":((it.c&&S.age>=18?TL(it.c)+" · ":"")+fxTxt(it.fx)+(S.age<it.a?" · "+it.a+"+ yaş":"")),f:()=>doAct(it)}))}))}))}));
 }
-const ju=j=>!j.u||(S.grad&&(!j.d||!S.dept||j.d.includes(S.dept)));
+const ju=j=>!j.u||(S.grad&&(!j.d||!S.dept||j.d.includes(S.dept)))||(S.previousDegrees||[]).some(d=>!j.d||j.d.includes(d.id));
 const OR={straight:"Heteroseksüel",gay:"Eşcinsel",bi:"Biseksüel"};
 const okG=f=>S.orient==="bi"||(S.orient==="gay"?f===(S.f?1:0):f!==(S.f?1:0));
 const pickG=()=>S.orient==="bi"?(Math.random()<.5?1:0):S.orient==="gay"?(S.f?1:0):(S.f?0:1);
@@ -1130,7 +1404,7 @@ function pickDept(){
 }
 function askFamily(){
   modal("Üniversite masrafları","Yurt, yemek ve kitap masraflarını ailene sorabilirsin. Ailenin durumu ve aranızdaki ilişki kararı etkiler.",[
-   {t:"Ailemden iste",f:()=>{
+   {t:"Ailemden iste",p:1,f:()=>{
      const ok=Math.random()<[.05,.6,.95][S.fam]*(.5+parAvg()/200);
      if(ok){S.famPays=true;line("Ailen üniversite masraflarını karşılayacak.","gold")}
      else line("Ailen masrafları karşılayamayacağını söyledi.","bad");render()}},
@@ -1356,6 +1630,7 @@ const RENT={"İstanbul":45510,"Ankara":34440,"İzmir":33369,"Antalya":29306,"Bur
 const HOMES=["Köy evi","Kırsal müstakil ev","Stüdyo daire","Daire","Bahçeli müstakil ev","Dubleks","Rezidans dairesi","Deniz manzaralı yazlık","Çiftlik evi","Villa","Taş konak","Penthouse","Boğaz köşkü","Yalı"];
 const UPKEEP={"Stüdyo daire":12000,"Daire":18000,"Villa":120000,"Yalı":500000,"Araba":60000,"Sedan":80000,"Spor araba":150000,"Lüks araba":250000,"Sürat teknesi":80000,"Yelkenli":150000,"Yat":600000};
 function yearlyCost(nn){
+  if(!S)return{p:[],t:0,d:""};
   const a=S.age,L={ctry:(S.home||"Türkiye"),city:S.city},cf=CF(),ps=[],add=(n,v,nc)=>{if(v>0)ps.push([n,nc?v:v*cf])};
   if(S.street)add("yemek",36000);
   else{
@@ -1427,6 +1702,7 @@ $("tm").onclick=timeMachine;
 let LANG=META.lang||"tr";
 let LG=0;
 function timeMachine(){
+  if(!S)return;
   const b=[1,5,10].map(n=>{
     const t=S.age-n,sn=t<0?null:SNAP.find(x=>x.a===t);
     return{t:n+" yıl geri",sub:sn?t+" yaşına dön":"Yeterli geçmiş yok",f:()=>{
@@ -1442,23 +1718,50 @@ function timeMachine(){
 Object.assign(UPKEEP,{"Köy evi":6000,"Kırsal müstakil ev":9000,"Bahçeli müstakil ev":30000,"Dubleks":40000,"Rezidans dairesi":60000,"Deniz manzaralı yazlık":50000,"Çiftlik evi":90000,"Taş konak":150000,"Penthouse":200000,"Boğaz köşkü":350000});
 const fmtU=u=>u.toLocaleString(LANG==="en"?"en-US":"tr-TR",{maximumFractionDigits:u<1?6:u<100?3:0});
 const STOCKS=[
- {id:"mrb",ic:"🏦",n:"Marmara Bankası",s:"MRB",b:85,d:.10,v:.30},
- {id:"ane",ic:"⚡",n:"Anadolu Enerji",s:"ANE",b:120,d:.10,v:.28},
- {id:"egt",ic:"💻",n:"Ege Teknoloji",s:"EGT",b:60,d:.12,v:.45},
- {id:"bhy",ic:"✈️",n:"Bosfor Havayolları",s:"BHY",b:210,d:.10,v:.38},
- {id:"trg",ic:"🌾",n:"Toros Gıda",s:"TRG",b:45,d:.09,v:.22}];
+ {id:"mrb",ic:"🏦",n:"Lifera Bank",s:"LFB",b:85,d:.10,v:.30},
+ {id:"ane",ic:"⚡",n:"Voltora Enerji",s:"VLT",b:120,d:.10,v:.28},
+ {id:"egt",ic:"💻",n:"Pixora Teknoloji",s:"PXR",b:60,d:.12,v:.45},
+ {id:"bhy",ic:"✈️",n:"Aerovia Havacılık",s:"ARV",b:210,d:.10,v:.38},
+ {id:"trg",ic:"🌾",n:"Grainova Gıda",s:"GRN",b:45,d:.09,v:.22},
+ {id:"lum",ic:"📡",n:"Lumora İletişim",s:"LMR",b:95,d:.09,v:.27},
+ {id:"vel",ic:"🚗",n:"Veltrix Otomotiv",s:"VLX",b:180,d:.11,v:.40},
+ {id:"med",ic:"🧬",n:"Medivora Sağlık",s:"MDV",b:135,d:.10,v:.32},
+ {id:"har",ic:"🏗️",n:"Harvion Yapı",s:"HRV",b:75,d:.08,v:.34},
+ {id:"orb",ic:"🚀",n:"Orbitera Uzay",s:"ORB",b:320,d:.13,v:.55},
+ {id:"tek",ic:"🛒",n:"Tekvora Ticaret",s:"TKV",b:110,d:.09,v:.25},
+ {id:"aqr",ic:"💧",n:"Aquarion Altyapı",s:"AQR",b:65,d:.07,v:.20}];
 const FUNDS=[
  {id:"gold",ic:"🥇",n:"Altın (gram)",s:"XAU",b:6200,d:.08,v:.20},
- {id:"pp",ic:"💵",n:"Para Piyasası Fonu",s:"PPF",b:100,d:.12,v:.03},
+ {id:"pp",ic:"💵",n:"Lifera Para Piyasası Fonu",s:"LPF",b:100,d:.12,v:.03},
  {id:"usd",ic:"💲",n:"Dolar",s:"USD",b:42,d:.05,v:.12},
- {id:"idx",ic:"📈",n:"Borsa Endeks Fonu",s:"BEF",b:1000,d:.10,v:.20}];
+ {id:"idx",ic:"📈",n:"Lifera Borsa Endeks Fonu",s:"LEF",b:1000,d:.10,v:.20},
+ {id:"eur",ic:"💶",n:"Euro",s:"EUR",b:48,d:.04,v:.10},
+ {id:"gbp",ic:"💷",n:"Sterlin",s:"GBP",b:56,d:.04,v:.12},
+ {id:"silver",ic:"🥈",n:"Gümüş (gram)",s:"XAG",b:75,d:.07,v:.28},
+ {id:"bond",ic:"📄",n:"Velora Tahvil Fonu",s:"VTF",b:100,d:.08,v:.07},
+ {id:"techfund",ic:"💻",n:"Pixora Teknoloji Fonu",s:"PTF",b:250,d:.12,v:.35},
+ {id:"mixfund",ic:"⚖️",n:"Novira Dengeli Fon",s:"NDF",b:150,d:.09,v:.14}];
 const COINS=[
- {id:"btc",ic:"₿",n:"Bitcoin",s:"BTC",b:4200000,d:.10,v:.75},
- {id:"eth",ic:"⟠",n:"Ethereum",s:"ETH",b:150000,d:.10,v:.85},
- {id:"sol",ic:"◎",n:"Solana",s:"SOL",b:7000,d:.10,v:1.0},
- {id:"doge",ic:"🐕",n:"Dogecoin",s:"DOGE",b:8,d:.05,v:1.3}];
+ {id:"btc",ic:"🪙",n:"LifeCoin",s:"LFC",b:4200000,d:.10,v:.75},
+ {id:"eth",ic:"🔷",n:"EtherLife",s:"ETL",b:150000,d:.10,v:.85},
+ {id:"sol",ic:"☀️",n:"Solarix",s:"SLX",b:7000,d:.10,v:1.0},
+ {id:"doge",ic:"🐾",n:"PawCoin",s:"PAW",b:8,d:.05,v:1.3},
+ {id:"nova",ic:"🌟",n:"NovaLife",s:"NVL",b:850,d:.09,v:.90},
+ {id:"luna",ic:"🌙",n:"Lunora",s:"LNR",b:120,d:.08,v:1.05},
+ {id:"pulse",ic:"💜",n:"PulseCoin",s:"PLS",b:35,d:.10,v:.95},
+ {id:"orbit",ic:"🪐",n:"OrbitCoin",s:"OBC",b:2400,d:.10,v:.85},
+ {id:"pixel",ic:"👾",n:"PixelLife",s:"PXL",b:4,d:.06,v:1.25},
+ {id:"tide",ic:"🌊",n:"TideToken",s:"TDT",b:65,d:.08,v:1.10}];
 const MK_ALL=[...STOCKS,...FUNDS,...COINS];
-function initMkt(){if(S.px)return;S.px={};S.pxPrev={};S.inv={};S.cost={};MK_ALL.forEach(m=>{const p=m.b*(.9+Math.random()*.2);S.px[m.id]=p;S.pxPrev[m.id]=p})}
+function initMkt(){
+  if(!S)return;S.px=S.px||{};S.pxPrev=S.pxPrev||{};S.inv=S.inv||{};S.cost=S.cost||{};
+  MK_ALL.forEach(m=>{
+    if(!Number.isFinite(S.px[m.id])||S.px[m.id]<=0)S.px[m.id]=m.b*(.9+Math.random()*.2);
+    if(!Number.isFinite(S.pxPrev[m.id])||S.pxPrev[m.id]<=0)S.pxPrev[m.id]=S.px[m.id];
+    if(!Number.isFinite(S.inv[m.id]))S.inv[m.id]=0;
+    if(!Number.isFinite(S.cost[m.id]))S.cost[m.id]=0;
+  });
+}
 const gauss=()=>(Math.random()+Math.random()+Math.random()-1.5)*2;
 function updMarkets(){
   const ms=[];
@@ -1475,25 +1778,93 @@ function updMarkets(){
 const _ny2=nextYear;nextYear=function(){const r=_ny2();if(S&&!S.dead&&S.px)updMarkets();return r};
 const portVal=()=>{initMkt();return MK_ALL.reduce((t,m)=>t+(S.inv[m.id]||0)*S.px[m.id],0)};
 const portCost=()=>MK_ALL.reduce((t,m)=>t+(S.cost[m.id]||0),0);
+function financeCashflow(){
+  const salary=S.job?salaryBreakdown(S.job.s).net:0,pension=!S.job&&S.age>=65?Math.round(250000*wm()):0;
+  const fans=S.socialMedia&&S.socialMedia.lifefans,social=S.age>=18&&fans?fans.followers*lifeFansMonthlyFee(fans)*12*.8:0;
+  const rental=typeof propertyRent==="function"?(S.propertyUnits||[]).filter(u=>u.rented).reduce((sum,u)=>sum+propertyRent(u),0):0;
+  const income=Math.round((salary+pension+social+rental)/12),expenses=Math.round((S.age>=18?yearlyCost(true).t:0)/12);return{income,expenses,net:income-expenses,annualIncome:Math.round(salary+pension+social+rental)};
+}
+function financeDonut(flow){
+  const total=flow.income+flow.expenses,share=total?flow.income/total*100:0;
+  return '<section class="finance-summary"><div class="finance-summary-heading"><strong>Aylık nakit akışı</strong><small>Tahmini gelir ve gider</small></div><div class="finance-summary-body"><div class="finance-donut" role="img" aria-label="Gelir '+TL(flow.income)+', gider '+TL(flow.expenses)+'" style="background:'+(total?'conic-gradient(#58d4bd 0 '+share+'%,#ff8b9f '+share+'% 100%)':'#38334e')+'"><div><small>Aylık net</small><b class="'+(flow.net<0?'negative':'positive')+'">'+(flow.net>0?'+':'')+TL(flow.net)+'</b></div></div><div class="finance-legend"><div><span class="finance-dot income"></span><span>Gelir<b>'+TL(flow.income)+'</b></span></div><div><span class="finance-dot expense"></span><span>Gider<b>'+TL(flow.expenses)+'</b></span></div></div></div></section>';
+}
+function sellInvestmentPortfolio(){
+  if(typeof sellAll==="function")return sellAll();
+  initMkt();if(portVal()<=0)return modal("Portföy","Satacak yatırımın yok.",[{t:"Kapat",p:1}]);
+  const life=S;modal("Tüm portföyü sat","Satış tutarı: "+TL(portVal()),[{t:"Hepsini sat",p:1,f:()=>{
+    if(S!==life||S.dead)return;let total=0;MK_ALL.forEach(m=>{const units=S.inv[m.id]||0;if(units>0){total+=Math.round(units*S.px[m.id]);S.inv[m.id]=0;S.cost[m.id]=0}});S.p+=total;line("Tüm portföyünü sattın. (+"+TL(total)+")","gold");render();pgDraw();modal("Satış sonucu",TL(total)+" hesabına yatırıldı.",[{t:"Kapat",p:1}]);
+  }},{t:"Vazgeç"}]);
+}
+function openInvestments(){
+  initMkt();pgOpen(()=>({title:"YATIRIM YAP",rows:[
+    {ic:"📊",t:"Portföyüm",d:"Toplam değer: "+TL(portVal())+" · Dağılım ve kâr / zarar",f:openPortfolio},
+    {ic:"🏛️",t:"Hisse Senetleri",d:"Şirket hisseleri ve temettüler",f:()=>openMkt("HİSSE SENETLERİ",STOCKS)},
+    {ic:"🥇",t:"Fon, Altın ve Döviz",d:"Altın, döviz ve yatırım fonları",f:()=>openMkt("FON VE ALTIN",FUNDS)},
+    {ic:"₿",t:"Kripto Paralar",d:"Yüksek risk ve dalgalanma",f:()=>openMkt("KRİPTO PARALAR",COINS)},
+    {ic:"💥",t:"Tüm portföyü sat",d:TL(portVal()),f:sellInvestmentPortfolio}
+  ]}));
+}
+function recordPortfolioPoint(){
+  if(!S||!S.px)return;S.pfh=S.pfh||[];const point={y:S.age,v:Math.round(portVal()),c:Math.round(portCost())};
+  const index=S.pfh.findIndex(p=>p.y===S.age);if(index>=0)S.pfh[index]=point;else S.pfh.push(point);S.pfh.sort((a,b)=>a.y-b.y);if(S.pfh.length>120)S.pfh=S.pfh.slice(-120);
+}
+function portfolioHoldings(){
+  initMkt();const colors=["#b499ee","#58d4bd","#f4c46b","#78b0ef","#ee91b8","#c4db8f","#a1a7ef","#f0a37a","#6ed3df","#cf9bdd","#adbcce","#d1a980","#8dc6a1"];
+  return MK_ALL.map((m,i)=>({id:m.id,name:m.n,value:Math.max(0,(S.inv[m.id]||0)*S.px[m.id]),color:i<colors.length?colors[i]:"hsl("+Math.round((i*137.508)%360)+" 65% 70%)"})).filter(h=>h.value>0);
+}
+function portfolioSliceLabel(name,share,x,y){
+  const words=name.split(/\s+/),lines=[];let current="";
+  words.forEach(word=>{if(current&&(current+" "+word).length>16){lines.push(current);current=word}else current+=(current?" ":"")+word});if(current)lines.push(current);
+  const nameLines=lines.slice(0,3);if(lines.length>3)nameLines[2]+="…";
+  const percent="%"+(share*100).toFixed(1).replace(/\.0$/,"");
+  const top=y-(nameLines.length*10)/2;
+  return '<text class="portfolio-slice-label" x="'+x+'" y="'+top+'" text-anchor="middle" fill="#161b29" font-size="9" font-weight="700" pointer-events="none"><tspan x="'+x+'" font-size="11" font-weight="900">'+percent+'</tspan>'+nameLines.map(line=>'<tspan x="'+x+'" dy="10">'+esc(line)+'</tspan>').join('')+'</text>';
+}
+function portfolioAllocation(){
+  const holdings=portfolioHoldings(),total=holdings.reduce((sum,h)=>sum+h.value,0);let angle=-Math.PI/2;
+  const slices=holdings.map(h=>{
+    const share=h.value/total,end=angle+share*Math.PI*2,middle=(angle+end)/2;
+    const point=a=>[100+86*Math.cos(a),100+86*Math.sin(a)];const start=point(angle),finish=point(end);
+    const shape=share>.999999?'<circle cx="100" cy="100" r="86" fill="'+h.color+'">':'<path d="M100 100 L'+start.join(' ')+' A86 86 0 '+(share>.5?1:0)+' 1 '+finish.join(' ')+' Z" fill="'+h.color+'">';
+    const tooltip=esc(h.name)+': '+TL(h.value)+' (%'+(share*100).toFixed(1)+')';
+    const label=share>=.08?portfolioSliceLabel(h.name,share,share>.999999?100:100+55*Math.cos(middle),share>.999999?95:100+55*Math.sin(middle)):'';
+    angle=end;return '<g class="portfolio-slice" tabindex="0" role="img" aria-label="'+tooltip+'">'+shape+'<title>'+tooltip+'</title>'+(share>.999999?'</circle>':'</path>')+label+'</g>';
+  }).join('');
+  const chart='<svg class="portfolio-pie" viewBox="0 0 200 200" role="img" aria-label="Yatırımların değerlerine göre portföy dağılımı">'+(holdings.length?slices:'<circle cx="100" cy="100" r="86" fill="#38334e"/>')+'</svg>';
+  const legend=holdings.length?holdings.map(h=>'<div class="portfolio-holding"><span class="finance-dot" style="background:'+h.color+'"></span><span>'+esc(h.name)+'</span><b>'+TL(h.value)+'<small>%'+(h.value/total*100).toFixed(1)+'</small></b></div>').join(''):'<p class="portfolio-empty">Henüz yatırımın yok. Yatırım yaptığında dağılımın burada görünecek.</p>';
+  return '<section class="finance-summary"><div class="finance-summary-heading"><strong>Portföy dağılımı</strong><small>Her dilim, yatırımının portföydeki payını gösterir.</small></div><div class="portfolio-donut-wrap">'+chart+'</div><div class="portfolio-pie-total"><small>Toplam değer</small><b>'+TL(total)+'</b></div><div class="portfolio-holdings">'+legend+'</div></section>';
+}
+function portfolioHistoryPoints(range){
+  const map=new Map();(S.pfh||[]).forEach(p=>{if(Number.isFinite(p.y)&&Number.isFinite(p.v)&&Number.isFinite(p.c)&&p.y>=S.age-range&&p.y<=S.age)map.set(p.y,{age:p.y,profit:p.v-p.c})});
+  map.set(S.age,{age:S.age,profit:Math.round(portVal()-portCost())});return [...map.values()].sort((a,b)=>a.age-b.age);
+}
+function portfolioProfitChart(range){
+  const points=portfolioHistoryPoints(range),values=points.map(p=>p.profit),low=Math.min(0,...values),high=Math.max(0,...values),pad=Math.max(1,(high-low)*.12),min=low-pad,max=high+pad;
+  const x=age=>40+(age-(S.age-range))/range*266,y=value=>20+(max-value)/(max-min)*140;
+  const path=points.map((p,i)=>(i?'L':'M')+x(p.age).toFixed(2)+' '+y(p.profit).toFixed(2)).join(' ');
+  const current=points[points.length-1].profit,color=current<0?'#ff8b9f':'#58d4bd';
+  const grid=[max,(max+min)/2,min].map(v=>'<line x1="40" x2="306" y1="'+y(v)+'" y2="'+y(v)+'" stroke="#ffffff0c"/><text x="3" y="'+(y(v)+4)+'" fill="#aaa0bd" font-size="9">'+esc(socialCompactNumber(Math.abs(v)))+(v<0?'-':'')+'</text>').join('');
+  const svg='<svg class="portfolio-line-svg" viewBox="0 0 326 190" role="img" aria-label="Son '+range+' yılda portföy kâr zarar grafiği">'+grid+'<line x1="40" x2="306" y1="'+y(0)+'" y2="'+y(0)+'" stroke="#bca9d044" stroke-dasharray="4 4"/><path d="'+path+'" fill="none" stroke="'+color+'" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>'+points.map(p=>'<circle cx="'+x(p.age)+'" cy="'+y(p.profit)+'" r="3" fill="'+color+'"><title>'+p.age+' yaş: '+TL(p.profit)+'</title></circle>').join('')+'<text x="40" y="183" fill="#aaa0bd" font-size="10">'+range+' yıl önce</text><text x="306" y="183" fill="#aaa0bd" font-size="10" text-anchor="end">Şimdi</text></svg>';
+  return '<section class="finance-summary portfolio-chart"><div class="finance-summary-heading"><strong>Portföy kâr / zarar</strong><small>Güncel: '+(current>0?'+':'')+TL(current)+'</small></div><div class="portfolio-ranges">'+[1,2,5,10].map(n=>'<button data-portfolio-range="'+n+'" class="'+(n===range?'active':'')+'" aria-pressed="'+(n===range)+'">'+n+' yıl</button>').join('')+'</div>'+svg+'<small class="portfolio-chart-note">'+(points.length<2?'Yıl geçtikçe geçmiş verilerin oluşacak.':'Kayıtlı yılların yatırım değeri − alış maliyeti. Temettüler dahil değildir.')+'</small></section>';
+}
+let portfolioChartRange=1;
+function openPortfolio(){initMkt();portfolioChartRange=1;recordPortfolioPoint();pgOpen(()=>({title:"PORTFÖYÜM",intro:portfolioAllocation()+portfolioProfitChart(portfolioChartRange),rows:[]}))}
+function updatePortfolioChart(range){
+  if(![1,2,5,10].includes(range))return;
+  const page=$("pg"),chart=page.querySelector(".portfolio-chart");if(!chart)return;
+  const scroller=page.querySelector(".ol"),position=scroller?scroller.scrollTop:0;
+  portfolioChartRange=range;chart.outerHTML=portfolioProfitChart(range);
+  const selected=page.querySelector('[data-portfolio-range="'+range+'"]');if(selected)selected.focus({preventScroll:true});
+  if(scroller)scroller.scrollTop=position;
+}
+document.addEventListener("click",e=>{const button=e.target.closest("[data-portfolio-range]");if(button)updatePortfolioChart(Number(button.dataset.portfolioRange))});
 function openFinance(){
-  initMkt();
-  pgOpen(()=>{
-    const a=S.age,pay=S.job?S.job.s:0,pen=(!S.job&&a>=65)?Math.round(250000*wm()):0;
-    const inc=Math.round((pay+pen)/12);
-    const yc=(a>=18&&!(S.uni&&S.famPays))?yearlyCost(true):{t:0,p:[]};
-    const exp=Math.round(yc.t/12),net=inc-exp,pv=portVal(),pl=pv-portCost();
-    const R=(ic,t,d)=>`<div class="row cur"><span class="ic">${ic}</span><span class="tx"><b>${t}</b><small>${d}</small></span></div>`;
-    return{title:"FİNANS",
-     intro:R("📈","Aylık gelir: "+TL(inc),S.job?esc(S.job.n)+" maaşı "+TL(Math.round(pay/12)):pen?"Emekli maaşı "+TL(Math.round(pen/12)):"Gelir kaynağın yok")
-      +R("📉","Aylık gider: "+TL(exp),yc.p.length?yc.p.map(p=>esc(p[0])+" "+TL(Math.round(p[1]/12))).join(" · "):"Gider yok")
-      +R(net>=0?"🟢":"🔴","Aylık net: "+(net>=0?"+":"")+TL(net),"Yıllık tahmini: "+(net>=0?"+":"")+TL(net*12))
-      +R("💼","Portföy değeri: "+TL(pv),pv>0?"Kâr/zarar: "+(pl>=0?"+":"")+TL(pl):"Henüz yatırımın yok"),
-     rows:[
-      {ic:"🏛️",t:"Hisse Senetleri",d:"5 şirket · yıllık %2 temettü",f:()=>openMkt("HİSSE SENETLERİ",STOCKS)},
-      {ic:"🥇",t:"Fon, Altın ve Döviz",d:"Altın, dolar, para piyasası ve endeks fonu",f:()=>openMkt("FON VE ALTIN",FUNDS)},
-      {ic:"₿",t:"Kripto Paralar",d:"Çok yüksek risk, çok yüksek dalgalanma",f:()=>openMkt("KRİPTO PARALAR",COINS)}]};
+  initMkt();pgOpen(()=>{const flow=financeCashflow(),economy=countryEconomy(S.home||"Türkiye");
+    const stats=[["Yıllık enflasyon","%"+(economy.inflation*100).toFixed(1),""],["Yıllık net gelir",TL(flow.annualIncome),"income"],["Aylık net gelir",TL(flow.income),"income"],["Aylık gider",TL(flow.expenses),"expense"],["Aylık net",(flow.net>0?"+":"")+TL(flow.net),flow.net<0?"expense":"income"]];
+    return{title:"FİNANS",intro:financeDonut(flow)+'<section class="finance-mini">'+stats.map(([label,value,color])=>'<div><span>'+label+'</span><b class="'+color+'">'+value+'</b></div>').join("")+'</section>',rows:[{ic:"📈",t:"Yatırım yap",d:"Hisse, fon, altın, döviz ve kripto · Portföy yönetimi",f:openInvestments}]};
   });
 }
+
 function openMkt(title,list){
   pgOpen(()=>({title,intro:`<div class="row cur"><span class="ic">💰</span><span class="tx"><b>Nakit: ${TL(S.p)}</b><small>Fiyatlar her yıl değişir</small></span></div>`,
    rows:list.map(m=>{const px=S.px[m.id],u=S.inv[m.id]||0,pp=S.pxPrev[m.id],ch=pp?Math.round((px/pp-1)*100):0;
@@ -1521,7 +1892,7 @@ ${hold>0?"Elinde: "+fmtU(hold)+" adet ("+TL(hold*px)+")":"Elinde yok"}${(S.cost[
       const a=amtAt(v);
       if(S.p<a||a<=0)return trade(id,mode,"Yeterli paran yok.",false);
       const u=a/px;S.p-=a;S.inv[id]=hold+u;S.cost[id]=(S.cost[id]||0)+a;
-      const t=m.n+": "+fmtU(u)+" adet alındı. (-"+TL(a)+")";line(t,"good");render();trade(id,"buy",t,true);
+      const t=m.n+": "+fmtU(u)+" adet alındı. (-"+TL(a)+")";line(t,"good");render();if(STOCKS.some(stock=>stock.id===id)){pgDraw();modal(m.n,t,[{t:"Kapat",p:1}])}else trade(id,"buy",t,true);
     }else{
       const u=v>=100?hold:hold*v/100,a=Math.round(u*px),left=hold-u,basis=(S.cost[id]||0)*(hold>0?u/hold:0);
       S.p+=a;
@@ -1563,7 +1934,7 @@ const CD={
 Object.assign(CTR,{"Fransa":{c:"€",r:48},"İtalya":{c:"€",r:48},"İspanya":{c:"€",r:48},"Hollanda":{c:"€",r:48}});
 Object.keys(CD).forEach(k=>{FLAG[k]=CD[k].flag});
 const cdOf=()=>CD[(S&&S.home)||"Türkiye"]||CD["Türkiye"];
-const wm=()=>cdOf().w,CF=()=>cdOf().cf;
+const wm=()=>cdOf().w*countryEconomy((S&&S.home)||"Türkiye").wages,CF=()=>cdOf().cf*priceIndex();
 const ABR=()=>!!(S&&S.home&&S.home!=="Türkiye");
 const EXAMN={"ABD":"SAT","İngiltere":"A-Level","Almanya":"Abitur","Fransa":"Baccalauréat","İtalya":"Maturità","İspanya":"EBAU","Hollanda":"Eindexamen","Japonya":"Giriş Sınavı","BAE":"EmSAT"};
 const NMS={
@@ -1857,9 +2228,6 @@ EV.push(
  {t:"Hemen sil",m:"Silmeden önce yirmi kişi görmüştü. Ertesi gün herkes sana gülümsüyor.",fx:{m:-6,g:1}},
  {t:"Şaka olduğunu söyle",m:"Kimse inanmadı ama cesaretine hayran kaldılar.",w:[.4,"Ofiste efsane oldun, herkes seni sevdi.",{m:7}],fx:{m:-4}},
  {t:"Telefonu denize at",m:"Yeni telefon aldın ama utancın geçmedi.",fx:{p:-45000,m:-2}}]},
-{a:[18,40],t:"Flört uygulaması",d:"Uygulamada profilin çok beğenildi, biri sana yazdı.",f:()=>!S.partner,c:[
- {t:"Buluşmayı kabul et",m:"Fotoğraflar biraz eskiymiş ama sohbet güzeldi.",w:[()=>.3+S.g/200,"Gerçekten çok iyi anlaştınız, çıkmaya başladınız!",{m:9}],fx:{m:-3,p:-2500},run:()=>{if(S.partner===null&&Math.random()<.35)newP()}},
- {t:"Profili sil",m:"Telefonda kalan tek şey köpek fotoğrafları.",fx:{m:1}}]},
 {a:[18,60],t:"Eczanede utanç",d:"Eczanede korunma malzemesi alırken sıra sana geldi, arkandaki kişi annenin komşusu.",c:[
  {t:"Sakin davran",m:"Kendinden emin şekilde aldın, komşu bile selam verdi.",fx:{m:3,p:-400}},
  {t:"Çikolata da al, kaç",m:"Garip bir kombinasyon oldu, eczacı gülmemek için kendini zor tuttu.",fx:{m:-2,p:-600}},
@@ -1979,7 +2347,7 @@ const BIZ=[[LX("Kafe","Cafe"),800000,.35],[LX("Market","Grocery store"),1500000,
 function bizMenu(){
   const T=LX("Kendi İşin","Your Business"),b=S.biz;
   if(S.age<18||S.uni)return modal(T,LX("İş kurmak için 18 yaşında olmalı ve öğrenci olmamalısın.","You must be 18 and not a student to start a business."),OK);
-  if(!b)return modal(T,LX("Ne tür bir iş kuracaksın? Sermaye yükseldikçe getiri büyür ama risk de artar.","What kind of business will you start? More capital means bigger returns, but also more risk."),BIZ.map(([n,c,r])=>({t:n,sub:LX("Sermaye: ","Capital: ")+TL(c*wm()),f:()=>{const cc=Math.round(c*wm());if(S.p<cc){line(LX("Yeterli sermayen yok.","You don't have enough capital."),"bad");return}S.p-=cc;S.biz={n,inv:cc,r,yrs:0,neg:0};H().biz.push(n);apply({m:6});line(n+LX(" işletmesi kurdun! (-"," business founded! (-")+TL(cc)+")","gold");render()}})).concat(OK));
+  if(!b)return modal(T,LX("Ne tür bir iş kuracaksın? Sermaye yükseldikçe getiri büyür ama risk de artar.","What kind of business will you start? More capital means bigger returns, but also more risk."),BIZ.map(([n,c,r])=>({t:n,sub:LX("Sermaye: ","Capital: ")+TL(c*wm()),f:()=>{if(!canStartCareer())return;const cc=Math.round(c*wm());if(S.p<cc){line(LX("Yeterli sermayen yok.","You don't have enough capital."),"bad");return}S.p-=cc;S.biz={n,inv:cc,r,yrs:0,neg:0};H().biz.push(n);apply({m:6});line(n+LX(" işletmesi kurdun! (-"," business founded! (-")+TL(cc)+")","gold");render()}})).concat(OK));
   const v=Math.round(b.inv*(.6+Math.min(b.yrs,10)*.05)),ci=Math.round(b.inv*.3);
   modal(b.n,LX("Sermaye: ","Capital: ")+TL(b.inv)+"\n"+LX("Faaliyet yılı: ","Years running: ")+b.yrs,[
     {t:LX("Yatırım yap","Invest more"),sub:TL(ci),f:()=>{if(S.p<ci){line(LX("Yeterli paran yok.","Not enough money."),"bad");return}S.p-=ci;b.inv+=ci;line(b.n+LX(" işletmene yatırım yaptın. (-"," – you invested in your business. (-")+TL(ci)+")","good");render()}},
@@ -2045,7 +2413,7 @@ const _dmn=drawMenu;drawMenu=function(){_dmn();if(mv==="main"){const ol=$("mnu")
 function yearly(){
   if(!S||S.dead)return;const h=H();h.peak=Math.max(h.peak,S.p);S.dis=S.dis||[];
   if(S.job){const j=rk(S.job);j.ry++;if(h.jobs.indexOf(j.b0)<0)h.jobs.push(j.b0);
-    if(!j.part&&!j.mil&&j.rk<5&&S.perf>=85&&j.ry>=3&&Math.random()<.3)promote(true)}
+    /* Automatic promotions are handled by advanceCareerProgress. */}
   S.dis=S.dis.filter(x=>{const d=dget(x.id);
     if(d.ac){if(x.t||Math.random()<.6){line(d.n+LX(" geçti, iyileştin."," passed; you recovered."),"good");return false}apply({h:-d.sev});line(d.n+LX(" yüzünden zor bir yıl geçirdin."," made for a hard year."),"bad");return true}
     const k=d.id==="dep"?"m":"h",dm=x.t?d.sev:d.sev*3;apply({[k]:-dm});
@@ -2063,7 +2431,6 @@ const _ny4=nextYear;nextYear=function(){const r=_ny4();yearly();return r};
 /* --- komik eventlerin İngilizcesi --- */
 const FE=[
 ["Message to the wrong person","You accidentally sent that very personal text meant for your partner to the work group chat.",["Delete it right away","Twenty people had already seen it before you deleted it. The next day everyone smiles at you."],["Say it was a joke","Nobody believed you, but they admired your nerve.","You became an office legend, everybody loves you."],["Throw the phone into the sea","You bought a new phone but the embarrassment didn't go away."]],
-["Dating app","Your profile got a lot of likes and someone messaged you.",["Accept the date","The photos were a bit old but the conversation was nice.","You really hit it off and started dating!"],["Delete the profile","All that's left on your phone is dog photos."]],
 ["Pharmacy embarrassment","You're buying protection at the pharmacy and the person behind you is your mom's neighbor.",["Stay calm","You bought it with confidence and even the neighbor said hello."],["Grab a chocolate too and run","It was a weird combo and the pharmacist barely held back a laugh."],["Go to another pharmacy","You walked half an hour but you felt relieved."]],
 ["Pants on the first date","When you stood up at the restaurant, your pants ripped all the way down the back.",["Tie your jacket around your waist","You left in your jacket and your date's laughter made the whole restaurant laugh.","Your date loved this side of you, a second date is guaranteed!"],["Laugh it off","Your confidence impressed everyone."]],
 ["Sounds through the wall","You can clearly hear your downstairs neighbor's midnight noises through the wall.",["Bang on the ceiling","They went quiet, then whispered until morning."],["Put in earbuds","Your playlist has never been this useful."],["Buy them a coffee in the morning","When you made eye contact with the neighbor you both blushed."]],
@@ -2174,7 +2541,7 @@ function cwModal(q){
     if(Math.random()<.4+q.b/200){q.friend=true;q.b=cl(q.b+15);if(!S.people.includes(q))S.people.push(q);line(q.n+" ile arkadaş oldun.","gold")}
     else{q.b=cl(q.b-3);line(q.n+" arkadaşlık teklifini kabul etmedi.","bad")}render()});
   if(q.role==="Patron")d("Zam iste","Performansına bağlı",()=>{
-    if(Math.random()<S.perf/130+q.b/500){const pc=rnd(8,15);S.job.s=Math.round(S.job.s*(1+pc/100));line(L6("Patron zam isteğini kabul etti: ","The boss approved your raise: ")+"%"+pc+" · "+TL(S.job.s),"gold")}
+    if(!canAskRaise())return;if(Math.random()<S.perf/130+q.b/500){const pc=rnd(2,4);S.job.s=Math.round(S.job.s*(1+pc/100));line(L6("Patron zam isteğini kabul etti: ","The boss approved your raise: ")+"%"+pc+" · "+TL(S.job.s),"gold")}
     else{apply({m:-3});line(L6("Patron zam isteğini reddetti.","The boss rejected your raise.")+" ("+fxTxt({m:-3})+")","bad")}render()});
   d("Kavga et",L6("Bağ düşer, performans düşer","Bond and performance drop"),()=>{q.b=cl(q.b-25);S.perf=cl(S.perf-5);ln(q.n+L6(" ile kavga ettin."," – you got into a fight."),{m:-3,h:-1},"bad")});
   relWrap(b);b.push(...OK);
@@ -2202,7 +2569,7 @@ function bizOpen(){
   PG=[];if(S.biz)return bizPage();
   pgOpen(()=>({title:L6("KENDİ İŞİN","YOUR BUSINESS"),
    intro:'<div class="row cur"><span class="ic">💡</span><span class="tx"><b>'+L6("Girişimci ol","Become an entrepreneur")+'</b><small>'+L6("Sermaye yükseldikçe getiri ve risk artar.","More capital means bigger returns and more risk.")+'</small></span></div>',
-   rows:BIZ.map(([n,c,r])=>({ic:"🏢",t:n,d:L6("Sermaye: ","Capital: ")+TL(c*wm()),f:rp(()=>{const cc=Math.round(c*wm());if(S.p<cc){line(L6("Yeterli sermayen yok.","You don't have enough capital."),"bad");return}S.p-=cc;S.biz={n,inv:cc,r,yrs:0,neg:0};H().biz.push(n);apply({m:6});line(n+L6(" işletmesi kurdun! (-"," business founded! (-")+TL(cc)+")","gold");PG=[];bizPage();render()})}))}));
+   rows:BIZ.map(([n,c,r])=>({ic:"🏢",t:n,d:L6("Sermaye: ","Capital: ")+TL(c*wm()),f:rp(()=>{if(!canStartCareer())return;const cc=Math.round(c*wm());if(S.p<cc){line(L6("Yeterli sermayen yok.","You don't have enough capital."),"bad");return}S.p-=cc;S.biz={n,inv:cc,r,yrs:0,neg:0};H().biz.push(n);apply({m:6});line(n+L6(" işletmesi kurdun! (-"," business founded! (-")+TL(cc)+")","gold");PG=[];bizPage();render()})}))}));
 }
 ROWS.find(r=>r[1]==="Kendi İşini Kur")[3]=bizOpen;
 /* İş sekmesinde işletme ve iş arkadaşları satırları */
@@ -2225,7 +2592,7 @@ const chartCard=(t,vals,note)=>(vals.length&&(typeof vals[0]!=="object"||vals[0]
 function bizYear(b){
   b.yrs++;b.emp=b.emp||0;b.rep=b.rep==null?50:b.rep;b.hist=b.hist||[];b.total=b.total||0;
   let rev=Math.round(b.inv*b.r*(.55+Math.random())*(1+.25*b.emp)*(.6+b.rep/125)*(1+S.z/400)*(b.ad?1.25:1));
-  let exp=Math.round(rev*.4+b.inv*.12+b.emp*(b.inv*.03+16000*wm())+(b.ad?b.inv*.03:0));
+  let exp=Math.round(rev*.4+b.inv*.12+b.emp*(354000*wm())+(b.ad?b.inv*.03:0));
   const r=Math.random();
   if(r<.07){const c=Math.round(b.inv*.05);exp+=c;line(L7("Vergi denetiminde ceza yedin. (-","You were fined in a tax audit. (-")+TL(c)+")","bad")}
   else if(r<.12){const c=Math.round(b.inv*.06);exp+=c;line(L7("İşyerinde hasar oldu, tamirat gerekti. (-","There was damage and repairs were needed. (-")+TL(c)+")","bad")}
@@ -2241,7 +2608,7 @@ function bizFin(){pgOpen(()=>{const h=(S.biz&&S.biz.hist)||[];
   return{title:L7("FİNANSAL TABLO","FINANCIAL STATEMENT"),intro:chartCard(L7("Yıllık net kâr / zarar","Yearly net profit / loss"),h.map(x=>x.net)),
    rows:h.slice().reverse().map(x=>({ic:x.net>=0?"🟢":"🔴",t:L7("Yaş: ","Age: ")+x.y,d:L7("Gelir: ","Revenue: ")+TL(x.rev)+" · "+L7("Gider: ","Expenses: ")+TL(x.exp)+" · "+L7("Kâr/zarar: ","Profit/loss: ")+(x.net>=0?"+":"")+TL(x.net),ch:"",f:()=>{}}))}})}
 function bizPage(){pgOpen(()=>{
-  const b=S.biz,ci=Math.round(b.inv*.3),ce=Math.round(b.inv*.03+16000*wm()),v=Math.round(b.inv*(.6+Math.min(b.yrs,10)*.05)),nd=L7("Vazgeç","Cancel"),emp=b.emp||0,rep=b.rep==null?50:b.rep,hist=b.hist||[];
+  const b=S.biz,ci=Math.round(b.inv*.3),ce=Math.round(30000*wm()),v=Math.round(b.inv*(.6+Math.min(b.yrs,10)*.05)),nd=L7("Vazgeç","Cancel"),emp=b.emp||0,rep=b.rep==null?50:b.rep,hist=b.hist||[];
   const bye=(t,txt,fn)=>()=>modal(t,txt,[{t:t,f:rp(fn)},{t:nd}]);
   const rows=[
    {ic:"💵",t:L7("Yatırım yap","Invest more"),d:TL(ci)+L7(" · Sermayeyi büyütür"," · Grows capital"),f:rp(()=>{if(S.p<ci){line(L7("Yeterli paran yok.","Not enough money."),"bad");return}S.p-=ci;b.inv+=ci;line(b.n+L7(" işletmene yatırım yaptın. (-"," – you invested in your business. (-")+TL(ci)+")","good");render()})},
@@ -2266,18 +2633,15 @@ function openOwned(name){
   pgOpen(()=>{S.rent=S.rent||{};const rented=!!S.rent[name],inc=Math.round(x.c*.05),sv=Math.round(x.c*.85),rows=[];
     if(home)rows.push({ic:"🔑",t:rented?L7("Kiracıyı çıkar","Evict tenant"):L7("Kiraya ver","Rent it out"),d:rented?L7("Şu an kirada · yıllık ","Currently rented · yearly ")+TL(inc):L7("Yıllık kira geliri: ","Yearly rent income: ")+TL(inc),
       f:rp(()=>{if(rented){delete S.rent[name];line(name+L7(" için kiracı çıkarıldı."," – tenant removed."),"bad")}else{S.rent[name]=1;line(name+L7(" kiraya verildi. Yıllık gelir: "," rented out. Yearly income: ")+TL(inc),"gold")}render()})});
-    rows.push({ic:"🏷️",t:L7("Sat","Sell"),d:L7("Satış değeri ","Sell value ")+TL(sv),f:()=>modal(name,L7("Satış değeri ","Sell value ")+TL(sv),[{t:L7("Sat","Sell"),p:1,f:rp(()=>{S.p+=sv;S.assets=S.assets.filter(n=>n!==name);delete S.rent[name];PG.pop();line(name+L7(" satıldı. (+"," sold. (+")+TL(sv)+")","gold");render()})},{t:L7("Vazgeç","Cancel")}])});
+    rows.push({ic:"🏷️",t:L7("Sat","Sell"),d:L7("Satış değeri ","Sell value ")+TL(sv),f:()=>modal(name,L7("Satış değeri ","Sell value ")+TL(sv),[{t:L7("Sat","Sell"),p:1,f:rp(()=>{S.p+=sv;removeOneAsset(name);if(!assetCount(name))delete S.rent[name];PG.pop();line(name+L7(" satıldı. (+"," sold. (+")+TL(sv)+")","gold");render()})},{t:L7("Vazgeç","Cancel")}])});
     return{title:name,intro:'<div class="row cur"><span class="ic">'+(home?"🏠":"💎")+'</span><span class="tx"><b>'+esc(name)+'</b><small>'+L7("Değer: ","Value: ")+TL(x.c)+(home?' · '+L7("Kira: ","Rent: ")+(rented?L7("Kirada","Rented"):L7("Boş","Empty")):"")+'</small></span></div>',rows}})}
 const _po=pgOpen;pgOpen=function(b){return _po(()=>{const r=b();
-  if(r.title==="FİNANS"){initMkt();const h=S.pfh||[],pv=portVal(),pl=pv-portCost(),vals=h.map(x=>x.v-x.c);
-    if((portCost()>0||pv>0)&&!(h.length&&h[h.length-1].y===S.age))vals.push(Math.round(pl));
-    r.intro+=chartCard(L7("Portföy kâr / zarar","Portfolio profit / loss"),vals,L7("Şu an: ","Now: ")+(pl>=0?"+":"")+TL(pl));
-    r.rows.push({ic:"💥",t:L7("Tüm portföyü sat","Sell entire portfolio"),d:TL(pv),f:sellAll})}
+
   if(r.rows&&r.rows.some(x=>x.ic==="✅"))r.rows.forEach(x=>{if(x.ic==="✅")x.f=()=>openOwned(x.t)});
   return r})};
 const _ny7=nextYear;nextYear=function(){const r=_ny7();
   if(S&&!S.dead){
-    if(S.rent){let t=0;Object.keys(S.rent).forEach(n=>{const x=ALLA.find(z=>z.n===n);if(S.assets.includes(n)&&x)t+=rentIncomeYear(n,x);else delete S.rent[n]});if(t>0){S.p+=t;line(L7("Kira geliri: ","Rental income: ")+"+"+TL(t),"gold")}}
+    if(S.rent){let t=0;t=collectPropertyRent();if(t>0){S.p+=t;line(L7("Kira geliri: ","Rental income: ")+"+"+TL(t),"gold")}}
     if(S.px){S.pfh=S.pfh||[];const pv=Math.round(portVal()),c=Math.round(portCost());if(pv>0||c>0||S.pfh.length){S.pfh.push({y:S.age,v:pv,c});if(S.pfh.length>30)S.pfh.shift()}}
     render()}
   return r};
@@ -2289,8 +2653,8 @@ jobWork=function(){
     if(lad)rows.push({ic:"📈",t:L7("Terfi iste","Ask for a promotion"),d:j.rk<5?L7("Sonraki: ","Next: ")+RK[j.rk+1]+j.b0:L7("Zirvedesin","You're at the top"),f:rp(()=>promote(false))});
     rows.push(
      {ic:"💪",t:"Çok çalış",d:"Performans artar · -3 mutluluk, -2 sağlık",f:rp(()=>{if(S.worked){line("Bu yıl zaten çok çalıştın.","bad");return}S.worked=true;const g=rnd(6,12);S.perf=cl(S.perf+g);apply({m:-3,h:-2});line("Çok çalıştın, performansın arttı. (+"+g+"% performans, -3 mutluluk, -2 sağlık)","good");render();check()})},
-     {ic:"⏱️",t:"Fazla mesai yap",d:"+"+TL(j.s/10)+" · -4 mutluluk, -2 sağlık",f:rp(()=>{S.p+=Math.round(j.s/10);apply({m:-4,h:-2});line("Fazla mesai yaptın. (+"+TL(j.s/10)+", -4 mutluluk, -2 sağlık)","bad");render();check()})},
-     {ic:"💰",t:"Zam iste",d:"Performansına bağlı",f:rp(()=>{if(Math.random()<S.perf/130){const pc=rnd(8,15);S.job.s=Math.round(S.job.s*(1+pc/100));line("Zam isteğin kabul edildi: %"+pc+". Yeni maaş "+TL(S.job.s),"gold")}else{apply({m:-3});line("Zam isteğin reddedildi. (-3 mutluluk)","bad")}render()})},
+     {ic:"⏱️",t:"Fazla mesai yap",d:"+"+TL(overtimeNet(j.s))+" · -4 mutluluk, -2 sağlık",f:rp(()=>{S.p+=Math.round(j.s/10);apply({m:-4,h:-2});line("Fazla mesai yaptın. (+"+TL(overtimeNet(j.s))+", -4 mutluluk, -2 sağlık)","bad");render();check()})},
+     {ic:"💰",t:"Zam iste",d:"Performansına bağlı",f:rp(()=>{if(!canAskRaise())return;if(Math.random()<S.perf/130){const pc=rnd(2,4);S.job.s=Math.round(S.job.s*(1+pc/100));line("Zam isteğin kabul edildi: %"+pc+". Yeni maaş "+TL(S.job.s),"gold")}else{apply({m:-3});line("Zam isteğin reddedildi. (-3 mutluluk)","bad")}render()})},
      {ic:"🚪",t:"İstifa et",d:j.n,f:()=>modal("İstifa et",L7("İşinden ayrılmak istediğine emin misin?","Are you sure you want to quit your job?"),[{t:"İstifa et",f:rp(()=>{line(j.n+" işinden ayrıldın.");S.job=null;PG=[];$("pg").classList.remove("on");render()})},{t:nd,p:1}])});
     return{title:L7("İŞİM","MY JOB"),
      intro:'<div class="row cur"><span class="ic">💼</span><span class="tx"><b>'+esc(j.n)+'</b><small>Performans: '+S.perf+'% · '+TL(j.s)+'/yıl'+(lad?' · '+L7("Basamak ","Level ")+(j.rk+1)+'/6':'')+'</small><div class="pf"><i style="width:'+S.perf+'%"></i></div></span></div>',rows}})};
@@ -2345,7 +2709,7 @@ const getA=n=>ALLA.find(z=>z.n===n);
 const kindOf=n=>HOMES.includes(n)?"home":CARS.includes(n)?"car":BOATS.includes(n)?"boat":"lux";
 const cond=n=>{S.cond=S.cond||{};return S.cond[n]==null?100:S.cond[n]};
 const sellVal=x=>Math.round(x.c*(.55+.45*cond(x.n)/100)*.85);
-const restCost=x=>Math.max(500,Math.round(x.c*.12*(100-cond(x.n))/100));
+const restCost=x=>Math.max(500,Math.round(x.c*.12*(100-cond(x.n))/100*assetCount(x.n)));
 const rentInc=x=>Math.round(x.c*.05*(.5+cond(x.n)/200));
 function rentIncomeYear(n,x){
   S.cond=S.cond||{};
@@ -2359,7 +2723,7 @@ function openMyAssets(){
     const own=S.assets.filter(n=>getA(n)),tot=own.reduce((t,n)=>t+sellVal(getA(n)),0),ri=own.filter(n=>S.rent[n]).reduce((t,n)=>t+rentInc(getA(n)),0);
     return{title:L8("MÜLKLERİM","MY PROPERTIES"),
      intro:'<div class="row cur"><span class="ic">🗝️</span><span class="tx"><b>'+L8("Toplam satış değeri: ","Total sale value: ")+TL(tot)+'</b><small>'+(own.length?L8("Yıllık kira geliri: ","Yearly rent income: ")+TL(ri):L8("Henüz mülkün yok","You own no properties yet"))+'</small></span></div>',
-     rows:own.map(n=>{const x=getA(n);return ro8(ICO[kindOf(n)],n,L8("Durum %","Condition %")+cond(n)+" · "+L8("Değer: ","Value: ")+TL(sellVal(x))+(S.rent[n]?" · "+L8("Kirada","Rented"):""),()=>openOwned(n))})}});
+     rows:[...new Set(own)].map(n=>{const x=getA(n);return ro8(ICO[kindOf(n)],n,assetCount(n)+" adet · "+L8("Durum %","Condition %")+cond(n)+" · "+L8("Değer: ","Value: ")+TL(sellVal(x))+(S.rent[n]?" · "+L8("Kirada","Rented"):""),()=>openOwned(n))})}});
 }
 openOwned=function(name){
   const x=getA(name);if(!x)return;
@@ -2384,7 +2748,7 @@ openOwned=function(name){
         {t:nd}]),
       c>=100?"":undefined));
     rows.push(ro8("🏷️",L8("Sat","Sell"),L8("Satış değeri ","Sell value ")+TL(sv),()=>modal(name,L8("Satış değeri ","Sell value ")+TL(sv)+(c<100?"\n"+L8("Durum %","Condition %")+c+L8(" · önce restore edersen daha çok kazanırsın"," · restoring first would raise the price"):""),[
-      {t:L8("Sat","Sell"),p:1,f:rp(()=>{S.p+=sv;S.assets=S.assets.filter(n=>n!==name);delete S.rent[name];delete S.cond[name];PG.pop();line(name+L8(" satıldı. (+"," sold. (+")+TL(sv)+")","gold");render()})},
+      {t:L8("Sat","Sell"),p:1,f:rp(()=>{S.p+=sv;removeOneAsset(name);if(!assetCount(name)){delete S.rent[name];delete S.cond[name];}PG.pop();line(name+L8(" satıldı. (+"," sold. (+")+TL(sv)+")","gold");render()})},
       {t:nd}])));
     return{title:name,
      intro:'<div class="row cur"><span class="ic">'+ICO[k]+'</span><span class="tx"><b>'+esc(name)+'</b><small>'+L8("Yeni fiyat: ","List price: ")+TL(x.c)+' · '+L8("Değer: ","Value: ")+TL(sv)+'</small><small>'+L8("Durum %","Condition %")+c+(home?' · '+L8("Kira: ","Rent: ")+(rented?L8("Kirada","Rented"):L8("Boş","Empty")):'')+'</small><div class="pf"><i style="width:'+c+'%;background:'+(c>=60?"#27a844":c>=30?"#e8943a":"#d1495b")+'"></i></div></span></div>'
@@ -2403,7 +2767,7 @@ function jobExtra(r){
    ro8("🤝",L8("Mülakata katıl","Interview elsewhere"),L8("Daha yüksek maaşlı teklif alabilirsin","You may land a better-paid offer"),rp(()=>{
      if(S.intvY===S.age){line(L8("Bu yıl zaten mülakatlara girdin.","You already interviewed this year."),"bad");return}
      S.intvY=S.age;const ch=Math.min(.75,.15+S.perf/250+S.z/400+(S.grad?.08:0)+Math.min(.15,(S.certs||0)*.03));
-     if(Math.random()<ch){const up=rnd(10,35);S.job.s=Math.round(S.job.s*(1+up/100));S.perf=50;S.cw=[];S.cwJob=null;apply({m:6});
+     if(Math.random()<ch){const up=rnd(5,10);S.job.s=Math.round(S.job.s*(1+up/100));S.perf=50;S.cw=[];S.cwJob=null;apply({m:6});
        line(L8("Başka bir şirketten daha iyi bir teklif aldın! Maaşın arttı: %","You got a better offer from another company! Your salary rose: %")+up+" · "+TL(S.job.s)+" ("+fxTxt({m:6})+")","gold")}
      else{apply({m:-2});line(L8("Mülakattan olumlu dönüş alamadın.","The interview didn't lead to an offer.")+" ("+fxTxt({m:-2})+")","bad")}
      render()})));
@@ -2440,8 +2804,8 @@ bizYear=function(b){
   const bt=btOf(b),md=b.mod||{rev:0,exp:0};b.mod=null;
   const eco=Math.pow(S.eco||1,bt[4]),revF=[1.1,1,b.rep>=60?1.08:.8][b.price],cg=[.5,.4,.3][b.price],wg=[.8,1,1.3][b.wage];
   let rev=Math.round(b.inv*b.r*(1-bt[3]/2+Math.random()*bt[3])*(1+.25*b.emp)*(1+.8*(b.br-1))*(.6+b.rep/125)*(.8+b.mor/250)*eco*revF*(1+S.z/400)*(b.ad?1.25:1)*(1+(md.rev||0)));
-  const cogs=Math.round(rev*cg*(1+(md.exp||0))),fixed=Math.round(b.inv*(.1+.05*(b.br-1))),pay=Math.round(b.emp*(b.inv*.03+16000*wm())*wg),
-    adc=b.ad?Math.round(b.inv*.03):0,ins=b.ins?Math.round(b.inv*.015):0,intr=Math.round(b.loan*.18);
+  const cogs=Math.round(rev*cg*(1+(md.exp||0))),fixed=Math.round(b.inv*(.1+.05*(b.br-1))),pay=Math.round(b.emp*(354000*wm())*wg),
+    adc=b.ad?Math.round(b.inv*.03):0,ins=b.ins?Math.round(b.inv*.015):0,intr=Math.round(b.loan*countryEconomy(S.home||"Türkiye").loanRate);
   let extra=0;const r=Math.random();
   if(r<.07){extra=Math.round(b.inv*.05);line(L8("Vergi denetiminde ceza yedin. (-","You were fined in a tax audit. (-")+TL(extra)+")","bad")}
   else if(r<.12){extra=Math.round(b.inv*.06*(b.ins?.2:1));line((b.ins?L8("İşyerinde hasar oldu, sigorta büyük kısmını karşıladı. (-","There was damage; insurance covered most of it. (-"):L8("İşyerinde hasar oldu, tamirat gerekti. (-","There was damage and repairs were needed. (-"))+TL(extra)+")",b.ins?"":"bad")}
@@ -2494,7 +2858,7 @@ bizFin=function(){pgOpen(()=>{const h=(S.biz&&S.biz.hist)||[];
 bizPage=function(){pgOpen(()=>{
   const b=S.biz;if(!b)return{title:"",rows:[]};
   const emp=b.emp||0,br=b.br||1,rep=b.rep==null?50:b.rep,mor=b.mor==null?60:b.mor,loan=b.loan||0,price=b.price==null?1:b.price,wage=b.wage==null?1:b.wage,hist=b.hist||[];
-  const ci=Math.round(b.inv*.3),ce=Math.round(b.inv*.03+16000*wm()),bc=Math.round(b.inv*.6),maxL=Math.max(0,Math.round(b.inv*.8-loan)),v=bizVal(b),sale=Math.round(v*(1-(b.share||0)))-loan;
+  const ci=Math.round(b.inv*.3),ce=Math.round(30000*wm()),bc=Math.round(b.inv*.6),maxL=Math.max(0,Math.round(b.inv*.8-loan)),v=bizVal(b),sale=Math.round(v*(1-(b.share||0)))-loan;
   const nd=L8("Vazgeç","Cancel"),bad=m=>line(m,"bad"),poor=()=>bad(L8("Yeterli paran yok.","Not enough money.")),conf=(t,txt,fn)=>()=>modal(t,txt,[{t,p:1,f:rp(fn)},{t:nd}]);
   const pick=(title,txt,names,subs,cur,set)=>()=>modal(title,txt,names.map((n,i)=>({t:n,sub:i===cur?L8("Şu an seçili","Currently selected"):subs[i],f:rp(()=>{set(i);line(title+": "+n,"good");render()})})).concat(OK));
   const rows=[
@@ -2533,7 +2897,7 @@ bizOpen=function(){
   pgOpen(()=>({title:L8("KENDİ İŞİN","YOUR BUSINESS"),
    intro:'<div class="row cur"><span class="ic">💡</span><span class="tx"><b>'+L8("Girişimci ol","Become an entrepreneur")+'</b><small>'+L8("Sermaye, personel, fiyat ve ekonomi getiriyi belirler.","Capital, staff, pricing and the economy decide your returns.")+'</small></span></div>',
    rows:BT.map(([n,c,r,v],i)=>ro8("🏢",n,L8("Sermaye: ","Capital: ")+TL(c*wm())+" · "+L8("Risk: ","Risk: ")+riskTxt(v),rp(()=>{
-     const cc=Math.round(c*wm());if(S.p<cc){line(L8("Yeterli sermayen yok.","You don't have enough capital."),"bad");return}
+     if(!canStartCareer())return;const cc=Math.round(c*wm());if(S.p<cc){line(L8("Yeterli sermayen yok.","You don't have enough capital."),"bad");return}
      S.p-=cc;S.biz={n,k:i,inv:cc,r,yrs:0,neg:0,emp:0,rep:50,mor:60,br:1,price:1,wage:1,loan:0,share:0,hist:[],total:0};H().biz.push(n);apply({m:6});
      line(n+L8(" işletmesi kurdun! (-"," business founded! (-")+TL(cc)+")","gold");PG=[];bizPage();render()})))}));
 };
@@ -2563,9 +2927,600 @@ document.querySelector("#app>.who").onclick=openTree;
 $("next").onclick=nextYear;$("act").onclick=openActs;$("ast").onclick=openAssets;$("rel").onclick=openRel;
 // Football career integrates with the final job and yearly handlers.
 const jobWorkBeforeFootball=jobWork;
-jobWork=function(){if(S.job&&S.job.football)return footballJobPage();return jobWorkBeforeFootball()};
+jobWork=function(){if(S.job&&S.job.teamSport)return teamSportJobPage();if(S.job&&S.job.football)return footballJobPage();return jobWorkBeforeFootball()};
 const nextYearBeforeFootball=nextYear;
-nextYear=function(){const age=S&&S.age,result=nextYearBeforeFootball();if(S&&!S.dead&&S.age>age&&S.job&&S.job.football){simulateFootballSeason();render()}return result};
+nextYear=function(){const age=S&&S.age,result=nextYearBeforeFootball();if(S&&!S.dead&&S.age>age&&S.job&&S.job.football){simulateFootballSeason();render()}if(S&&!S.dead&&S.age>age&&S.job&&S.job.teamSport){simulateTeamSportSeason();render()}return result};
+$("next").onclick=nextYear;
+// Keep each year's history in a card, including restored older saves.
+function organizeHistoryCards(){
+  const log=document.getElementById("log");let card=null;
+  Array.from(log.children).forEach(node=>{
+    if(node.classList.contains("year-card")){card=node;return}
+    if(node.classList.contains("yr")||!card){card=document.createElement("section");card.className="year-card";log.insertBefore(card,node)}
+    card.appendChild(node);
+  });
+}
+organizeHistoryCards();
+const historyCardObserver=new MutationObserver(()=>organizeHistoryCards());
+historyCardObserver.observe(document.getElementById("log"),{childList:true});
+const pickDeptBeforeRegistration=pickDept;
+pickDept=function(){
+  modal("Üniversiteye kayıt","Üniversiteye kayıt olmak için okuyacağın bölümü seç. Eğitim dört yıl sürer; kayıt ücreti "+TL(5000)+".",[{t:"Bölüm seç",p:1,f:pickDeptBeforeRegistration},{t:"Kapat"}]);
+};
+// Show action results and important milestones without replacing active choices.
+let resultNotices=[],resultNoticeScheduled=false,resultAction=null,resultModalVersion=0;
+function showNextResultNotice(){
+  if(resultNoticeScheduled)return;
+  resultNoticeScheduled=true;
+  queueMicrotask(()=>{
+    resultNoticeScheduled=false;
+    if(!S||S.dead){resultNotices=[];return}
+    if($("modal").classList.contains("on"))return;
+    while(resultNotices.length){const notice=resultNotices.shift();if(notice.life!==S)continue;modal(notice.title,notice.text,notice.buttons||[{t:"Kapat",p:1}]);break}
+  });
+}
+function queueResultNotice(title,text,buttons){resultNotices.push({life:S,title,text,buttons});showNextResultNotice()}
+const modalBeforeResults=modal;
+modal=function(title,text,buttons){
+  resultModalVersion++;
+  return modalBeforeResults(title,text,buttons.map(button=>({...button,f:()=>{try{if(button.f)button.f()}finally{showNextResultNotice()}}})));
+};
+const lineBeforeResults=line;
+line=function(text,color){const result=lineBeforeResults(text,color);if(resultAction)resultAction.messages.push(String(text));return result};
+document.addEventListener("click",event=>{
+  const button=event.target.closest("button");
+  if(!button||button.id==="next")return;
+  const action={life:S,messages:[],version:resultModalVersion};resultAction=action;
+  queueMicrotask(()=>{
+    if(resultAction===action)resultAction=null;
+    if(action.life!==S||!S||S.dead||!action.messages.length)return;
+    // A newly opened popup already presents the result or the next required choice.
+    if(resultModalVersion!==action.version)return;
+    queueResultNotice("İşlem sonucu",action.messages.join("\n"));
+  });
+},true);
+const resultModalObserver=new MutationObserver(()=>showNextResultNotice());
+resultModalObserver.observe($("modal"),{attributes:true,attributeFilter:["class"]});
+const nextYearBeforeResults=nextYear;
+nextYear=function(){
+  if(!S)return;
+  const life=S,age=S&&S.age,wasUniversity=S&&S.uni,department=S&&S.deptN;
+  const alive= S?(S.people||[]).filter(p=>!p.dead).map(p=>({id:p.id,name:p.n,role:p.role})):[];
+  const result=nextYearBeforeResults();
+  if(S===life&&!S.dead&&S.age>age){
+    const familyRoles=/Anne|Baba|kardeş|Çocuk|Oğul|Kız|Yeğen|Torun|Eş/i;
+    const lost=alive.filter(p=>familyRoles.test(p.role)&&(S.people||[]).some(q=>q.id===p.id&&q.dead));
+    if(lost.length)queueResultNotice("Ailenden birini kaybettin",lost.map(p=>p.name+" ("+p.role+") vefat etti.").join("\n"));
+    if(age<14&&S.age>=14)queueResultNotice("Liseye başladın","Lise hayatın başladı! Eğitim bölümünden okulunu, sınıf arkadaşlarını ve okul aktivitelerini görebilirsin.");
+    if(wasUniversity&&!S.uni&&S.grad)queueResultNotice("Üniversiteden mezun oldun",(department?department+" bölümünden mezun oldun! ":"Üniversiteden mezun oldun! ")+"Artık diplomanla yeni işlere başvurabilirsin.",[{t:"Kapat",p:1}]);
+  }
+  return result;
+};
+$("next").onclick=nextYear;
+const modalBeforeDepartmentCards=modal;
+modal=function(title,text,buttons){
+  $("sheet").classList.remove("department-picker");
+  const result=modalBeforeDepartmentCards(title,text,buttons);
+  if(title!=="Bölüm seç")return result;
+  const sheet=$("sheet"),score=yks();sheet.classList.add("department-picker");
+  sheet.querySelector("p").textContent="Puanına uygun bir bölüm seç. Bölümün, mezuniyet sonrası başvurabileceğin işleri belirler.";
+  const summary=document.createElement("div");summary.className="department-summary";
+  const scoreInfo=document.createElement("div"),label=document.createElement("small"),value=document.createElement("strong");
+  label.textContent=ABR()?"SINAV PUANIN":"YKS PUANIN";value.textContent=score;scoreInfo.append(label,document.createElement("br"),value);
+  const fee=document.createElement("span");fee.textContent="4 yıl eğitim · Kayıt: "+TL(5000);summary.append(scoreInfo,fee);
+  const search=document.createElement("input");search.type="search";search.className="department-search";search.placeholder="Bölüm ara…";search.setAttribute("aria-label","Bölüm ara");
+  const list=document.createElement("div");list.className="department-list";
+  const choices=Array.from(sheet.querySelectorAll("button"));
+  choices.slice(0,-1).forEach(button=>{
+    const dept=DEPTS.find(d=>d.n===button.querySelector("span").textContent);if(!dept)return;
+    button.querySelector("small").textContent=dept.d;
+    const badge=document.createElement("div");badge.className="department-score";badge.textContent=dept.y+"+ puan";button.appendChild(badge);
+    button.disabled=dept.y>score;if(button.disabled)button.setAttribute("aria-label",dept.n+" · Puanın yetersiz");list.appendChild(button);
+  });
+  const empty=document.createElement("div");empty.className="department-empty";empty.textContent="Aramana uygun bölüm bulunamadı.";empty.hidden=true;
+  search.oninput=()=>{const term=search.value.trim().toLocaleLowerCase("tr" );let shown=0;Array.from(list.children).forEach(button=>{const match=button.textContent.toLocaleLowerCase("tr").includes(term);button.style.display=match?"":"none";if(match)shown++});empty.hidden=shown>0};
+  const cancel=choices[choices.length-1];sheet.insertBefore(summary,cancel);sheet.insertBefore(search,cancel);sheet.insertBefore(list,cancel);sheet.insertBefore(empty,cancel);
+  return result;
+};
+function overtimeNet(salary){return Math.max(0,salaryBreakdown(salary*1.1).net-salaryBreakdown(salary).net)}
+function canOvertime(){
+ if(S.overtimeYear===S.age){line("Bu yıl fazla mesai hakkını kullandın.","bad");return false}
+ S.overtimeYear=S.age;return true;
+}
+function canAskRaise(){
+ if(S.raiseYear===S.age){line("Bu yıl zaten zam istedin.","bad");return false}
+ S.raiseYear=S.age;return true;
+}
+// A fictional, persistent economic simulation; not live financial data or tax law.
+const ECON_PROFILES={
+ "Türkiye":{inflation:.16,tax:[.12,.20,.28,.35],social:.10},
+ "ABD":{inflation:.03,tax:[.08,.16,.25,.34],social:.07},
+ "İngiltere":{inflation:.03,tax:[.08,.18,.30,.40],social:.06},
+ "Almanya":{inflation:.025,tax:[.08,.18,.28,.38],social:.13},
+ "Fransa":{inflation:.025,tax:[.06,.16,.27,.38],social:.13},
+ "İtalya":{inflation:.025,tax:[.08,.18,.28,.38],social:.10},
+ "İspanya":{inflation:.025,tax:[.08,.18,.28,.38],social:.08},
+ "Hollanda":{inflation:.03,tax:[.08,.18,.28,.38],social:.10},
+ "Japonya":{inflation:.02,tax:[.05,.13,.23,.33],social:.12},
+ "BAE":{inflation:.025,tax:[0,0,0,0],social:0}
+};
+function economyState(){
+  if(!S)return{version:1,countries:{}};
+  if(!S.economy||S.economy.version!==1)S.economy={version:1,countries:{},history:[]};
+  if(!S.economy.countries||typeof S.economy.countries!=="object")S.economy.countries={};
+  if(!Array.isArray(S.economy.history))S.economy.history=[];
+  return S.economy;
+}
+function countryEconomy(country){
+  const state=economyState(),profile=ECON_PROFILES[country]||ECON_PROFILES["Türkiye"];
+  if(!state.countries[country])state.countries[country]={prices:1,wages:1,inflation:profile.inflation,loanRate:profile.inflation+.08};
+  return state.countries[country];
+}
+function housingPriceIndex(country){
+  if(!S)return 1;
+  const e=countryEconomy(country||(S.home||"Türkiye"));
+  if(!Number.isFinite(e.housingPrices)||e.housingPrices<=0)e.housingPrices=Math.max(1,Math.min(1.25,e.prices));
+  return e.housingPrices;
+}
+function priceIndex(){return countryEconomy((S&&S.home)||"Türkiye").prices}
+function careerCountry(){if(!S)return "Türkiye";return S&&S.job&&(S.job.football||S.job.teamSport)?(S.job.football||S.job.teamSport).country||S.home:S.home||"Türkiye"}
+function salaryBreakdown(gross,country){
+  gross=Math.max(0,Number(gross)||0);country=country||careerCountry();
+  const profile=ECON_PROFILES[country]||ECON_PROFILES["Türkiye"],e=countryEconomy(country),scale=(CD[country]||CD["Türkiye"]).w*e.wages;
+  const social=Math.round(gross*profile.social),taxable=gross-social,limits=[240000,600000,1500000,Infinity];let previous=0,tax=0;
+  limits.forEach((limit,i)=>{const cap=limit===Infinity?Infinity:limit*scale;tax+=Math.max(0,Math.min(taxable,cap)-previous)*profile.tax[i];previous=cap});
+  tax=Math.round(tax);return{gross:Math.round(gross),tax,social,net:Math.round(gross)-tax-social};
+}
+function advanceEconomy(){
+  if(S.age<18)return;
+  const cycle=S.eco||1,state=economyState();
+  Object.keys(CD).forEach(country=>{
+    const e=countryEconomy(country),profile=ECON_PROFILES[country];
+    const shock=(Math.random()-.5)*(country==="Türkiye"?.10:.025);
+    e.inflation=Math.max(-.01,Math.min(.35,e.inflation*.55+profile.inflation*.45+shock+(cycle-1)*.025));
+    housingPriceIndex(country);e.housingPrices*=1+Math.max(0,Math.min(.015,.005+(cycle-1)*.02));
+    e.prices*=1+e.inflation;e.wages*=1+Math.max(0,Math.min(.03,e.inflation*.12+(cycle-1)*.01));
+    e.loanRate=Math.max(.04,e.inflation+.08+(cycle<.85?.04:0));
+  });
+  const e=countryEconomy(S.home||"Türkiye");state.history.push({age:S.age,inflation:e.inflation,prices:e.prices});if(state.history.length>40)state.history.shift();
+  line("Ekonomi: yıllık enflasyon %"+(e.inflation*100).toFixed(1)+" · "+(cycle>=1.12?"Canlı":cycle>=.92?"Dengeli":cycle>=.75?"Durgun":"Kriz")+".");
+}
+function incomeSalary(gross){
+  const pay=salaryBreakdown(gross);S.p+=pay.net;
+  line(S.job.n+" olarak net "+TL(pay.net)+" kazandın. (Brüt "+TL(pay.gross)+", vergi "+TL(pay.tax)+", sigorta "+TL(pay.social)+")","gold");
+}
+function yearlyCost(nn){
+  if(!S)return{p:[],t:0,d:""};
+  if(S.age<18)return{p:[],t:0,d:""};
+  const country=S.home||"Türkiye",e=countryEconomy(country),parts=[];
+  const add=(name,amount)=>{if(amount>0)parts.push([name,Math.round(amount)])};
+  const net=S.job?salaryBreakdown(S.job.s).net:S.age>=65?Math.round(250000*wm()):0;
+  const scale=(CD[country]||CD["Türkiye"]).cf*Math.min(e.prices,e.wages*1.15);
+  // Everyday spending follows affordable living standards, not full market rent.
+  const budget=net>0?net:96000*scale;
+  const owned=S.assets.some(n=>HOMES.includes(n)&&!(S.rent&&S.rent[n]));
+  const parents=(S.people||[]).some(q=>!q.dead&&(q.role==="Anne"||q.role==="Baba"));
+  if(S.street)add("temel yaşam",Math.min(budget*.16,36000*scale));
+  else if(S.uni&&S.famPays)add("kişisel harcamalar",Math.min(budget*.10,12000*scale));
+  else if(S.age<25&&!S.married&&parents&&parAvg()>=40&&!owned){add("aile bütçesine katkı",budget*.12);add("kişisel harcamalar",budget*.08)}
+  else if(S.uni){add("öğrenci yurdu",budget*.14);add("yemek ve ulaşım",budget*.14)}
+  else{
+    if(!owned)add("barınma",budget*(S.married?.20:.16));
+    add("yemek",budget*(S.married?.15:.11));add("faturalar ve ulaşım",budget*(S.married?.10:.08));
+  }
+  const children=(S.people||[]).filter(q=>!q.dead&&(q.role==="Oğul"||q.role==="Kız")&&q.pa<18).length;
+  add("çocuk giderleri",children*Math.min(budget*.05,36000*scale));
+  if(S.age>=50)add("sağlık",Math.min(budget*.04,(S.age-45)*600*scale));
+  add("mülk ve araç bakımı",S.assets.reduce((sum,n)=>sum+(UPKEEP[n]||0),0)*Math.min(e.prices,e.wages*1.15));
+  if(S.p<0)add("borç faizi",Math.min(-S.p*.04,net>0?net*.08:5000*scale));
+  return{p:parts,t:parts.reduce((sum,p)=>sum+p[1],0),d:parts.map(p=>p[0]+" "+TL(p[1])).join(", ")};
+}
+// Prices stay specific to each saved life, rather than changing shared catalog values.
+ALLA.forEach(asset=>{if(typeof asset.c!=="number")return;const base=asset.c;Object.defineProperty(asset,"c",{configurable:true,enumerable:true,get:()=>Math.round(base*(HOMES.includes(asset.n)?housingPriceIndex():priceIndex())),set:value=>{throw new Error("Catalog prices are calculated")}})});
+updMarkets=function(){
+  if(!S||S.dead)return;initMkt();
+  const e=countryEconomy(S.home||"Türkiye"),cycle=(S.eco||1)-1,messages=[];
+  const bearChance=Math.max(.2,Math.min(.65,.33-cycle*.4)),bearMarket=Math.random()<bearChance;
+  MK_ALL.forEach(m=>{
+    const old=S.px[m.id],coin=COINS.some(x=>x.id===m.id),stock=STOCKS.some(x=>x.id===m.id);
+    const cash=m.id==="pp",bond=m.id==="bond",currency=["usd","eur","gbp"].includes(m.id),metal=["gold","silver"].includes(m.id);
+    const risk=cash?.025:bond?.07:currency?.14:metal?.24:coin?Math.min(.85,m.v*.6):stock?Math.min(.45,m.v):Math.min(.35,m.v);
+    const lossChance=cash?.04:bond?(bearMarket?.30:.12):Math.min(.8,(bearMarket?.65:.25)+(coin?.06:0));
+    const loss=Math.random()<lossChance,size=.25+Math.random()*.75;
+    let change=loss?-risk*size:Math.min(cash?.12:coin?1.2:.65,risk*size+Math.max(0,Math.min(.15,e.inflation))*(cash?.45:.15));
+    change=Math.max(-.85,Math.min(1.2,change));S.pxPrev[m.id]=old;S.px[m.id]=Math.max(.0001,old*(1+change));
+    if((S.inv[m.id]||0)>0)messages.push(m.n+" "+(change>=0?"+":"")+(change*100).toFixed(1)+"%");
+  });
+  const dividend=Math.round(STOCKS.reduce((sum,m)=>sum+(S.inv[m.id]||0)*S.px[m.id]*.02,0));
+  if(dividend>0){S.p+=dividend;messages.push("temettü +"+TL(dividend))}
+  if(messages.length)line("Piyasalar: "+messages.join(" · "),bearMarket?"bad":"good");render();
+};
+const pgOpenBeforeJobCards=pgOpen;
+pgOpen=function(builder){return pgOpenBeforeJobCards(()=>{
+  const page=builder();
+  if(!S||!S.job||(!["İŞİM","MY JOB","FUTBOL KARİYERİ"].includes(page.title)&&!page.jobDetails))return page;
+  const j=S.job,sport=j.football||j.teamSport,icon=j.football?"⚽":j.teamSport?(j.teamSport.sport==="basketball"?"🏀":"🏐"):jobEmoji(j.b0||j.n);
+  const name=sport?sport.team:j.n,net=salaryBreakdown(j.s).net;
+  page.intro='<div class="job-hero"><div class="job-hero-head"><div class="job-hero-icon">'+icon+'</div><div><div class="job-hero-label">'+(sport?esc(sport.position||"SPOR KARİYERİ"):"MEVCUT MESLEĞİN")+'</div><h3>'+esc(name)+'</h3></div></div><div class="job-hero-facts"><div><small>Yıllık brüt maaş</small><strong>'+TL(j.s)+'</strong></div><div><small>Aylık net maaş</small><strong>'+TL(Math.round(net/12))+'</strong></div></div><div class="job-performance"><span>Performans</span><b>'+S.perf+'%</b></div><div class="pf"><i style="width:'+cl(S.perf)+'%"></i></div></div>';
+  return page;
+})};
+// Persistent career seniority and separate military promotion paths.
+function careerLadder(job){
+  const base=job.career?job.career.base:job.b0||job.n;
+  if(job.mil||base==="Subay")return base==="Subay"?["Teğmen","Üsteğmen","Yüzbaşı","Binbaşı","Yarbay","Albay","Tuğgeneral","Tümgeneral","Korgeneral","Orgeneral"]:["Er","Onbaşı","Çavuş","Uzman Çavuş","Astsubay Çavuş","Astsubay Kıdemli Çavuş","Astsubay Başçavuş"];
+  if(base==="Bankacı")return["Bankacı","Kıdemli Bankacı","Bankacılık Uzmanı","Şube Müdür Yardımcısı","Şube Müdürü","Bölge Müdürü"];
+  return[base,"Kıdemli "+base,"Uzman "+base,"Takım Lideri · "+base,"Birim Yöneticisi · "+base,"Bölüm Yöneticisi · "+base];
+}
+function ensureCareerProgress(){
+  const job=S&&S.job;if(!job||job.sport||job.football||job.teamSport)return null;
+  if(!job.career){
+    job.career={base:job.b0||job.n,years:Math.max(0,job.ry||0),rankYears:Math.max(0,job.ry||0),level:Math.max(0,job.rk||0),lastAge:S.age};
+    if(job.career.base==="Subay")job.mil=1;
+  }
+  const ladder=careerLadder(job),c=job.career;c.level=Math.min(c.level,ladder.length-1);
+  job.b0=c.base;job.rk=c.level;job.ry=c.rankYears;job.n=ladder[c.level];return c;
+}
+function careerPromotionRequirements(){
+  const c=ensureCareerProgress();if(!c)return null;
+  return{years:S.job.mil?(c.base==="Subay"?Math.min(5,2+Math.floor(c.level/2)):2+Math.floor(c.level/3)):2+Math.floor(c.level/3),performance:S.job.mil?Math.min(85,55+c.level*4):Math.min(80,55+c.level*5)};
+}
+function promoteCareer(auto){
+  const c=ensureCareerProgress();if(!c)return;
+  const job=S.job,ladder=careerLadder(job),need=careerPromotionRequirements();
+  if(c.level>=ladder.length-1){if(!auto)modal("Terfi", "Kariyerindeki en üst seviyedesin.",[{t:"Kapat",p:1}]);return false}
+  if(c.rankYears<need.years||S.perf<need.performance){if(!auto)modal("Terfi şartları","Bu seviyede "+need.years+" yıl çalışmalı ve en az %"+need.performance+" performansa sahip olmalısın. Kıdemin: "+c.rankYears+" yıl.",[{t:"Kapat",p:1}]);return false}
+  if(!auto){if(job.promotionAskedAge===S.age)return modal("Terfi","Bu yıl zaten terfi istedin.",[{t:"Kapat",p:1}]);job.promotionAskedAge=S.age}
+  c.level++;c.rankYears=0;job.rk=c.level;job.ry=0;job.n=ladder[c.level];job.s=Math.round(job.s*(job.mil?1.06:1.05));
+  if(typeof H==="function")H().promo++;apply({m:5});
+  const message="Yeni "+(job.mil?"rütben":"unvanın")+": "+job.n+". Yıllık brüt maaş: "+TL(job.s)+".";
+  line(message,"gold");render();
+  queueResultNotice(job.mil?"Rütben yükseldi":"Terfi aldın",message);return true;
+}
+if(typeof promote==="function")promote=promoteCareer;
+function advanceCareerProgress(){
+  const c=ensureCareerProgress();if(!c||c.lastAge>=S.age||S.jail>0)return;
+  const elapsed=S.age-c.lastAge;c.lastAge=S.age;c.years+=elapsed;c.rankYears+=elapsed;S.job.ry=c.rankYears;
+  const need=careerPromotionRequirements();
+  // Qualified workers progress automatically; low performance delays promotion.
+  if(c.rankYears>=need.years&&S.perf>=need.performance)promoteCareer(true);
+}
+const renderBeforeCareerProgress=render;
+render=function(){ensureCareerProgress();return renderBeforeCareerProgress()};
+const nextYearBeforeCareerProgress=nextYear;
+nextYear=function(){const life=S,job=S&&S.job,age=S&&S.age,result=nextYearBeforeCareerProgress();if(S===life&&S&&!S.dead&&S.age>age&&S.job===job){advanceCareerProgress();render()}return result};
+$("next").onclick=nextYear;
+const pgOpenBeforeCareerProgress=pgOpen;
+pgOpen=function(builder){return pgOpenBeforeCareerProgress(()=>{
+  const page=builder();if(!S||!S.job||!["İŞİM","MY JOB"].includes(page.title))return page;
+  const c=ensureCareerProgress();if(!c)return page;
+  const ladder=careerLadder(S.job),need=careerPromotionRequirements(),top=c.level>=ladder.length-1;
+  const next=top?"En üst seviyedesin.":"Sonraki: "+ladder[c.level+1]+" · "+need.years+" yıl kıdem · Performans %"+need.performance+"+";
+  page.intro+='<div class="row cur"><span class="ic">'+(S.job.mil?'🎖️':'📈')+'</span><span class="tx"><b>'+c.years+' yıl '+(S.job.mil?'hizmet':'deneyim')+'</b><small>Bu seviyede '+c.rankYears+' yıl · '+esc(next)+'</small></span></div>';
+  page.rows=page.rows.filter(row=>!['Terfi iste','Ask for a promotion'].includes(row.t));
+  if(!top)page.rows.unshift({ic:S.job.mil?"🎖️":"📈",t:S.job.mil?"Rütbe yükseltme talebi":"Terfi iste",d:next,f:()=>promoteCareer(false)});
+  return page;
+})};
+const SOCIAL_PLATFORMS=[{id:"instagram",name:"Instalife",icon:"📸",followersLabel:"Takipçi",postsLabel:"Gönderi",verifyFollowers:10000,verifyPosts:5,description:"Fotoğraflarını paylaş, takipçi kazan."},{id:"tiktok",name:"TickLife",icon:"🎵",followersLabel:"Takipçi",postsLabel:"Video",verifyFollowers:25000,verifyPosts:8,description:"Kısa videolar paylaş, viral ol."},{id:"youtube",name:"TubeLife",icon:"▶️",followersLabel:"Abone",postsLabel:"Video",verifyFollowers:100000,verifyPosts:10,description:"Videolar oluştur, abonelerini artır."},{id:"lifefans",adult:true,noFollowing:true,name:"LifeFans",icon:"💎",followersLabel:"Abone",postsLabel:"Gönderi",verifyFollowers:1000,verifyPosts:5,description:"Abonelerine özel içerikler paylaş. · 18+"},{id:"lifehub",adult:true,noFollowing:true,name:"LifeHub",icon:"🌐",followersLabel:"Takipçi",postsLabel:"Video",verifyFollowers:5000,verifyPosts:8,description:"Yetişkinlere yönelik video platformu. · 18+"}];
+function socialPlatformIcon(id){
+  if(id==="lifefans")return '<svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="14" cy="22" r="8" fill="none" stroke="currentColor" stroke-width="3"/><path d="M19 15l8-9h6l-4 5 3 3-5 5-3-3-4 4" fill="currentColor"/></svg>';
+  if(id==="lifehub")return '<span class="social-platform-wordmark">LifeHub</span>';
+  const camera='<path d="M10 9l4-3h9l3 3h3a3 3 0 0 1 3 3v16a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V12a3 3 0 0 1 3-3z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M18 13l2 4 4 1-4 2-2 4-2-4-4-2 4-1z" fill="currentColor"/><path d="M26 14h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>';
+  const video='<path d="M10 5h16a5 5 0 0 1 5 5v16a5 5 0 0 1-5 5H10a5 5 0 0 1-5-5V10a5 5 0 0 1 5-5z" fill="none" stroke="currentColor" stroke-width="2" transform="rotate(-8 18 18)"/><path d="M14 12l12 6-12 6z" fill="currentColor"/><path d="M9 27h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>';
+  const music='<path d="M7 10v16M12 6v24M18 12v12M25 6l-7 12h8l-7 12 12-15h-8l6-9z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>';
+  return '<svg viewBox="0 0 36 36" aria-hidden="true">'+(id==="instagram"?camera:id==="youtube"?video:music)+'</svg>';
+}
+function socialCompactNumber(value){const n=Math.max(0,Number(value)||0);return n>=1000000?(n/1000000).toFixed(1).replace(/\.0$/,"")+"M":n>=10000?(n/1000).toFixed(1).replace(/\.0$/,"")+"K":n.toLocaleString("tr-TR")}
+function socialPlatformCard(platform,account){
+  const text=platform.description;
+  if(account)socialFollowing(account);
+  const stats=account?[[account.followers,platform.followersLabel],[account.following,"Takip edilen"],[account.posts,platform.postsLabel]]:[];
+  const visibleStats=platform.noFollowing?stats.filter((_,i)=>i!==1):stats;
+  const counters=account?'<span class="social-platform-counters '+(platform.noFollowing?'social-counters-two':'')+'">'+visibleStats.map(([value,label])=>'<span><b>'+socialCompactNumber(value)+'</b><small>'+label+'</small></span>').join("")+'</span>':'';
+  return '<span class="social-platform-top"><span class="social-platform-icon">'+socialPlatformIcon(platform.id)+'</span><span class="social-platform-copy"><strong>'+platform.name+'</strong><span>'+text+'</span>'+(!account?'<small class="social-platform-create">Ücretsiz hesap aç</small>':'')+'</span><span class="social-platform-arrow" aria-hidden="true">›</span></span>'+counters;
+}
+function openSocialMedia(){
+  pgOpen(()=>({title:"SOSYAL MEDYA",rows:SOCIAL_PLATFORMS.map(platform=>{
+    const account=S.socialMedia&&S.socialMedia[platform.id];
+    return{cardClass:"social-platform-card social-platform-"+platform.id,html:socialPlatformCard(platform,account),f:()=>openSocialAccount(platform.id)};
+  })}));
+}
+function createSocialAccount(id,value=""){
+  if(!socialAdultAccess(id))return modal("18+ platform", "Bu platformda hesap açmak için 18 yaşında olmalısın.",[{t:"Kapat",p:1}]);
+  const platform=SOCIAL_PLATFORMS.find(p=>p.id===id),life=S;if(!platform||!S||S.dead)return;
+  modal(platform.name+" hesabı aç","Hesabının adı ne olsun?",[{t:"Hesap aç",p:1,f:()=>{
+    if(S!==life||S.dead)return;
+    const name=$("social-account-name").value.trim();
+    if(!name)return createSocialAccount(id);
+    S.socialMedia=S.socialMedia||{};if(S.socialMedia[id])return openSocialAccount(id);
+    S.socialMedia[id]={name,followers:0,following:0,posts:0,year:S.age,yearPosts:0};
+    line(platform.name+" hesabını açtın: "+name,"good");render();pgDraw();openSocialAccount(id);
+  }},{t:"Vazgeç"}]);
+  const form=document.createElement("div");form.className="fm";
+  const label=document.createElement("label");label.textContent="Hesap adı";
+  const input=document.createElement("input");input.id="social-account-name";input.type="text";input.maxLength=30;input.placeholder="Hesabına bir isim ver";input.value=value;input.autocomplete="off";
+  const error=document.createElement("small");error.textContent="1–30 karakter";
+  form.append(label,input,error);$("sheet").querySelector("p").after(form);
+  const button=$("sheet").querySelector("button");button.disabled=!input.value.trim();
+  input.oninput=()=>{button.disabled=!input.value.trim()};input.onkeydown=e=>{if(e.key==="Enter"&&input.value.trim()){e.preventDefault();button.click()}};input.focus();
+}
+function socialProfileCard(account,platform){
+  socialFollowing(account);
+  const name=account.name||S.name;
+  const handle=name.toLocaleLowerCase("tr-TR").replace(/\u0131/g,"i").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9_.]/g,"")||"hesabim";
+  const stats=[[account.posts,platform.postsLabel],[account.followers,platform.followersLabel],[account.following||0,"Takip Edilen"]];
+  const visibleStats=platform.noFollowing?stats.filter((_,i)=>i!==2):stats;
+  return '<section class="social-profile social-profile-'+platform.id+'"><div class="social-profile-heading"><span class="social-profile-avatar"><span class="social-profile-avatar-inner">'+esc($("av").textContent||(S.f?"\uD83D\uDC69":"\uD83D\uDC68"))+'</span></span><div class="social-profile-identity"><strong>'+esc(name)+(account.verified?'<span class="social-verified" aria-label="Do\u011frulanm\u0131\u015f hesap">&#10003;</span>':'')+'</strong><span class="social-profile-handle">@'+esc(handle)+'</span><span class="social-profile-platform">'+(socialPlatformIcon(platform.id))+' '+platform.name+' hesabın</span></div><button class="social-profile-more" data-social-profile="'+platform.id+'" aria-label="Hesap bilgileri">⋯</button></div><div class="social-profile-stats '+(platform.noFollowing?'social-counters-two':'')+'">'+visibleStats.map(([value,label])=>'<div><b>'+Number(value||0).toLocaleString("tr-TR")+'</b><span>'+label+'</span></div>').join("")+'</div></section>';
+}
+function viewSocialProfile(id){
+  const account=S&&S.socialMedia&&S.socialMedia[id],platform=SOCIAL_PLATFORMS.find(p=>p.id===id);if(!account||!platform)return;
+  const stats=[Number(account.posts||0).toLocaleString("tr-TR")+" "+platform.postsLabel.toLocaleLowerCase("tr-TR"),Number(account.followers||0).toLocaleString("tr-TR")+" "+platform.followersLabel.toLocaleLowerCase("tr-TR")];
+  if(!platform.noFollowing)stats.push(Number(account.following||0).toLocaleString("tr-TR")+" takip edilen");
+  modal(account.name||S.name,platform.name+" profilin\n\n"+stats.join("\n")+"\n\nBu yıl "+(account.yearPosts||0)+"/3 paylaşım",[{t:"Kapat",p:1}]);
+}
+document.addEventListener("click",e=>{const button=e.target.closest("[data-social-profile]");if(button)viewSocialProfile(button.dataset.socialProfile)});
+function socialKnownPeople(){
+  const list=[...(S.people||[]),...(S.cls||[]),...(S.cw||[])];if(S.partner)list.push(S.partner);
+  const seen=new Set();return list.filter(q=>q&&!q.dead&&q.n).map(q=>({person:q,key:q.from!==undefined?"person:"+q.from:q.id!==undefined?"person:"+q.id:"name:"+q.n})).filter(q=>{if(seen.has(q.key))return false;seen.add(q.key);return true});
+}
+function socialFollowing(account){
+  if(!Array.isArray(account.followingIds)){account.followingBase=Number(account.following)||0;account.followingIds=[]}
+  account.following=(account.followingBase||0)+account.followingIds.length;return account.followingIds;
+}
+function openSocialFollowing(id){
+  const life=S;if(!S.socialMedia||!S.socialMedia[id]||S.dead)return;
+  pgOpen(()=>{const account=S.socialMedia&&S.socialMedia[id];if(!account||S!==life)return{title:"TAKİP ET",rows:[]};
+    const following=socialFollowing(account),people=socialKnownPeople();
+    return{title:"TAKİP ET",intro:'<div class="row cur"><span class="ic">\uD83D\uDC65</span><span class="tx"><b>Tanıdıkların</b><small>'+(people.length?'Takip etmek istediğin kişiyi seç.':'Henüz takip edebileceğin bir tanıdığın yok.')+'</small></span></div>',rows:people.map(({person:q,key})=>{
+      const follows=following.includes(key);return{ic:pface({dead:false,pa:q.pa===undefined?(q.age===undefined?S.age:q.age):q.pa,f:q.f}),t:q.n,d:(q.role||(q===S.partner?(S.married?"Eşin":"Sevgilin"):"Tanıdığın"))+" · "+(follows?"Takip ediyorsun":"Takip et"),ch:follows?"✓":"+",f:()=>{
+        if(S!==life||S.dead)return;const current=S.socialMedia&&S.socialMedia[id];if(!current)return;
+        const ids=socialFollowing(current),index=ids.indexOf(key);if(index<0)ids.push(key);else ids.splice(index,1);socialFollowing(current);
+        const text=q.n+(index<0?" adlı kişiyi takip etmeye başladın.":" adlı kişiyi takipten çıktın.");line(text,"good");render();pgDraw();modal("Takip",text,[{t:"Kapat",p:1}]);
+      }};
+    })};
+  });
+}
+function applySocialVerification(id){
+  const life=S,account=S.socialMedia&&S.socialMedia[id],platform=SOCIAL_PLATFORMS.find(p=>p.id===id);if(!account||!platform||S.dead)return;
+  if(account.verified)return modal("Mavi tik","Hesabın zaten doğrulanmış.",[{t:"Kapat",p:1}]);
+  if(account.followers<platform.verifyFollowers||account.posts<platform.verifyPosts)return;
+  if(account.verificationYear===S.age)return modal("Mavi tik","Bu yıl başvuru yaptın. Gelecek yıl yeniden deneyebilirsin.",[{t:"Kapat",p:1}]);
+  modal("Mavi tik başvurusu",platform.name+" için "+platform.verifyFollowers.toLocaleString("tr-TR")+" "+platform.followersLabel.toLocaleLowerCase("tr-TR")+" ve "+platform.verifyPosts+" "+platform.postsLabel.toLocaleLowerCase("tr-TR")+" gerekiyor. Başvuru ücretsiz.",[{t:"Başvur",p:1,f:()=>{
+    if(S!==life||S.dead||S.socialMedia[id]!==account||account.verified||account.verificationYear===S.age||account.followers<platform.verifyFollowers||account.posts<platform.verifyPosts)return;
+    account.verificationYear=S.age;account.verified=true;
+    const text="Başvurun onaylandı! "+platform.name+" hesabına mavi tik eklendi.";line(text,"good");render();pgDraw();modal("Mavi tik sonucu",text,[{t:"Kapat",p:1}]);
+  }},{t:"Vazgeç"}]);
+}
+function socialVerificationRow(id,account){
+  const platform=SOCIAL_PLATFORMS.find(p=>p.id===id),target=platform.verifyFollowers,requiredPosts=platform.verifyPosts;
+  const followers=Math.max(0,Number(account.followers)||0),posts=Math.max(0,Number(account.posts)||0),ready=followers>=target&&posts>=requiredPosts,percent=Math.min(100,followers/target*100),label=platform.followersLabel.toLocaleLowerCase("tr-TR"),postLabel=platform.postsLabel.toLocaleLowerCase("tr-TR");
+  const description=account.verified?"Hesabın doğrulandı":account.verificationYear===S.age?"Gelecek yıl yeniden başvurabilirsin":ready?"Şartlar tamamlandı · Ücretsiz başvur":target.toLocaleString("tr-TR")+" "+label+" ve "+requiredPosts+" "+postLabel+" gerekli · "+Math.min(posts,requiredPosts)+"/"+requiredPosts+" "+postLabel;
+  return{ic:"✔️",t:"Mavi tik başvurusu",d:description,disabled:!!account.verified||!ready||account.verificationYear===S.age,after:'<div class="verification-progress"><div class="verification-progress-label"><span>'+target.toLocaleString("tr-TR")+' '+label+' hedefine ulaş</span><b>'+followers.toLocaleString("tr-TR")+' / '+target.toLocaleString("tr-TR")+'</b></div><div class="verification-progress-track" role="progressbar" aria-label="'+platform.followersLabel+' hedefi" aria-valuemin="0" aria-valuemax="'+target+'" aria-valuenow="'+Math.min(target,followers)+'"><i style="width:'+percent+'%"></i></div></div>',f:()=>applySocialVerification(id)};
+}
+function lifeFansMonthlyFee(account){return Math.max(0,Number(account.subscriptionFee)||0)}
+function setLifeFansSubscription(){
+  const life=S,account=S.socialMedia&&S.socialMedia.lifefans;if(!account||S.dead||S.age<18)return;
+  let selected=Math.min(500,Math.max(0,Math.round(lifeFansMonthlyFee(account))));
+  modal("LifeFans abonelik ücreti","Aylık ücretini sürükleyerek belirle. Platform %20 komisyon alır; kalan gelir yıl geçince hesabına yatırılır. Yüksek ücret abone kazanmayı yavaşlatır.",[{t:"Kaydet",p:1,f:()=>{
+    if(S!==life||S.dead||S.socialMedia.lifefans!==account)return;
+    account.subscriptionFee=selected;render();pgDraw();modal("Abonelik ücreti",selected?"Aylık ücretin "+TL(selected)+" olarak belirlendi.":"Aboneliğin ücretsiz olarak belirlendi.",[{t:"Kapat",p:1}]);
+  }},{t:"Vazgeç"}]);
+  const box=document.createElement("div");box.className="subscription-slider";
+  const label=document.createElement("label");label.htmlFor="lifefans-fee-slider";label.textContent="Aylık abonelik ücreti";
+  const output=document.createElement("output");output.htmlFor="lifefans-fee-slider";output.className="subscription-slider-value";output.setAttribute("aria-live","polite");
+  const slider=document.createElement("input");slider.type="range";slider.id="lifefans-fee-slider";slider.min="0";slider.max="500";slider.step="1";slider.value=String(selected);
+  const limits=document.createElement("div");limits.className="subscription-slider-limits";limits.innerHTML="<span>Ücretsiz</span><span>"+TL(500)+" / ay</span>";
+  const update=()=>{selected=Math.min(500,Math.max(0,Math.round(Number(slider.value)||0)));output.textContent=selected?TL(selected)+" / ay":"Ücretsiz";slider.setAttribute("aria-valuetext",output.textContent);slider.style.setProperty("--fee-progress",(selected/5)+"%")};
+  slider.oninput=update;update();box.append(label,output,slider,limits);$("sheet").querySelector("p").after(box);
+}
+function openSocialAccount(id){
+  if(!socialAdultAccess(id))return modal("18+ platform","Bu platformu kullanmak için 18 yaşında olmalısın.",[{t:"Kapat",p:1}]);
+  const platform=SOCIAL_PLATFORMS.find(p=>p.id===id);if(!platform)return;
+  S.socialMedia=S.socialMedia||{};
+  if(!S.socialMedia[id])return createSocialAccount(id);
+  pgOpen(()=>{const account=S.socialMedia[id];if(!account)return{title:platform.name.toUpperCase(),rows:[]};
+    if(account.year!==S.age){account.year=S.age;account.yearPosts=0}
+    return{title:platform.name.toUpperCase(),intro:socialProfileCard(account,platform)+(platform.adult?'<div class="social-adult-intro">'+(id==="lifefans"?'Abonelere özel paylaşım alanın.':'Video kanalın · 18+')+'</div>':''),rows:[
+      {ic:"\uD83D\uDC65",t:"Takip et",d:"Tanıdıklarını bul ve takip et",f:()=>openSocialFollowing(id)},
+      socialVerificationRow(id,account),
+      ...(id==="lifefans"?[{ic:"💳",t:"Abonelik ücreti",d:lifeFansMonthlyFee(account)?TL(lifeFansMonthlyFee(account))+" / ay · %20 platform komisyonu":"Ücretsiz abonelik · Aylık ücretini belirle",f:setLifeFansSubscription}]:[]),
+      {ic:"\u2728",t:"İçerik paylaş",d:"Yılda üç kez · Gönderi türünü seç",f:()=>chooseSocialPost(id)}
+    ].filter(r=>!(platform.noFollowing&&r.t==="Takip et")).concat(platform.adult?[{ic:"⚙️",t:"Gönderi ayarları",d:(account.audience||(id==="lifefans"?"subscribers":"public"))==="subscribers"?"Yalnızca aboneler":account.audience==="unlisted"?"Listelenmemiş video":"Herkese açık",f:()=>openSocialPostSettings(id)}]:[])};
+  });
+}
+ASSETS.push({ic:"📱",t:"Sosyal Medya",d:"Hesaplarını ve takipçilerini yönet",social:1,items:[]});
+function assetCount(name){return S.assets.filter(n=>n===name).length}
+function removeOneAsset(name){const index=S.assets.indexOf(name);if(index>=0)S.assets.splice(index,1)}
+function openHomeCopies(name){
+  const house=ALLA.find(a=>a.n===name);if(!house)return;
+  pgOpen(()=>({title:name,intro:'<div class="row cur"><span class="ic">🏠</span><span class="tx"><b>'+esc(name)+' · '+assetCount(name)+' adet</b><small>Bir evin fiyatı: '+TL(house.c)+'</small></span></div>',rows:[
+    {ic:"🛒",t:"Bir tane daha satın al",d:TL(house.c),f:()=>modal("Ev satın al",name+" satın almak ister misin? Fiyat: "+TL(house.c),[{t:"Satın al",p:1,f:()=>{
+      if(S.p<house.c)return modal("Ev satın al","Yeterli paran yok.",[{t:"Kapat",p:1}]);
+      S.p-=house.c;S.assets.push(name);apply(house.fx);line(name+" satın aldın. Toplam "+assetCount(name)+" adet.","good");render();pgDraw();modal("Ev satın alındı",name+" artık "+assetCount(name)+" adet. (-"+TL(house.c)+")",[{t:"Kapat",p:1}]);
+    }},{t:"Kapat"}])},
+    {ic:"🔑",t:"Mülkleri yönet",d:"Satış ve mülk seçenekleri",f:()=>{
+      if(typeof openOwned==="function")return openOwned(name);
+      modal(name,"Bir evin satış değeri: "+TL(Math.round(house.c*.85)),[{t:"Bir evi sat",p:1,f:()=>{if(!assetCount(name))return;removeOneAsset(name);S.p+=Math.round(house.c*.85);line(name+" satıldı.","gold");render();pgDraw()}},{t:"Kapat"}]);
+    }}
+  ]}));
+}
+function buyHomeCopy(name){
+  const house=ALLA.find(a=>a.n===name);if(!house)return;
+  modal(name,"Fiyat: "+TL(house.c),[{t:"Satın al",p:1,f:()=>{
+    if(S.p<house.c)return modal("Ev satın al","Yeterli paran yok.",[{t:"Kapat",p:1}]);
+    S.p-=house.c;S.assets.push(name);apply(house.fx);
+    line(name+" satın aldın. (-"+TL(house.c)+")","good");render();pgDraw();
+    modal("Ev satın alındı",name+" satın aldın. Toplam "+assetCount(name)+" adet evin var.",[{t:"Kapat",p:1}]);
+  }},{t:"Kapat"}]);
+}
+const pgOpenBeforeHomeCopies=pgOpen;
+pgOpen=function(builder){return pgOpenBeforeHomeCopies(()=>{
+  const page=builder();
+  const houseCategory=ASSETS.find(category=>category.items.some(item=>HOMES.includes(item.n)));
+  if(houseCategory&&page.title===houseCategory.t.toUpperCase())page.rows.forEach(row=>{
+    if(HOMES.includes(row.t)){const house=ALLA.find(a=>a.n===row.t);row.ic="🏠";row.ch="›";row.d=TL(house.c)+" · "+fxTxt(house.fx);row.f=()=>buyHomeCopy(row.t)}
+  });
+  return page;
+})};
+function homeIcon(name){
+  const icons={"Köy evi":"🏡","Kırsal müstakil ev":"🌳","Stüdyo daire":"🏢","Daire":"🏙️","Bahçeli müstakil ev":"🌷","Dubleks":"🏘️","Rezidans dairesi":"🌆","Deniz manzaralı yazlık":"🏖️","Çiftlik evi":"🚜","Villa":"🏛️","Taş konak":"🏰","Penthouse":"🌃","Boğaz köşkü":"🌉","Yalı":"🌊"};return icons[name]||"🏠";
+}
+function syncPropertyUnits(){
+  if(!S)return[];
+  S.propertyUnits=Array.isArray(S.propertyUnits)?S.propertyUnits:[];S.propertySequence=S.propertySequence||0;
+  const counts={};S.assets.filter(n=>HOMES.includes(n)).forEach(n=>counts[n]=(counts[n]||0)+1);
+  const kept={};S.propertyUnits=S.propertyUnits.filter(unit=>{kept[unit.name]=(kept[unit.name]||0)+1;return kept[unit.name]<=(counts[unit.name]||0)});
+  Object.keys(counts).forEach(name=>{let count=S.propertyUnits.filter(u=>u.name===name).length;while(count++<counts[name])S.propertyUnits.push({id:++S.propertySequence,name,condition:S.cond&&S.cond[name]!=null?S.cond[name]:100,rented:!!(S.rent&&S.rent[name])})});
+  return S.propertyUnits;
+}
+function propertyValue(unit){const x=ALLA.find(a=>a.n===unit.name);return Math.round(x.c*(.55+.45*unit.condition/100)*.85)}
+function propertyRent(unit){const x=ALLA.find(a=>a.n===unit.name);return Math.round(x.c*.05*(.5+unit.condition/200))}
+function updatePropertyRentFlags(){
+  S.rent=S.rent||{};const units=syncPropertyUnits();
+  [...new Set(units.map(u=>u.name))].forEach(name=>{if(units.filter(u=>u.name===name).every(u=>u.rented))S.rent[name]=1;else delete S.rent[name]});
+}
+function collectPropertyRent(){
+  if(!S||S.propertyRentAge===S.age)return 0;S.propertyRentAge=S.age;
+  let total=0;syncPropertyUnits().filter(u=>u.rented).forEach(unit=>{
+    if(Math.random()<.06){line(unit.name+" kiracısı bu yıl ödeme yapmadı.","bad");return}
+    if(Math.random()<.1)unit.condition=Math.max(5,unit.condition-rnd(8,18));total+=propertyRent(unit);
+  });return total;
+}
+openMyAssets=function(){
+  pgOpen(()=>{
+    const units=syncPropertyUnits(),others=S.assets.filter(n=>!HOMES.includes(n)),counts={};
+    const total=units.reduce((sum,u)=>sum+propertyValue(u),0),rent=units.filter(u=>u.rented).reduce((sum,u)=>sum+propertyRent(u),0);
+    const rows=units.map(unit=>{const number=counts[unit.name]=(counts[unit.name]||0)+1;return{ic:homeIcon(unit.name),t:unit.name+" · "+number,d:"Durum %"+unit.condition+" · Değer "+TL(propertyValue(unit))+" · "+(unit.rented?"Kirada":"Boş"),f:()=>openPropertyUnit(unit.id)}});
+    others.forEach(name=>{const x=ALLA.find(a=>a.n===name);if(x)rows.push({ic:"🚗",t:name,d:"Değer "+TL(x.c),f:()=>typeof openOwned==="function"?openOwned(name):null})});
+    return{title:"MÜLKLERİM",intro:'<div class="row cur"><span class="ic">🗝️</span><span class="tx"><b>'+units.length+' ev</b><small>Evlerin satış değeri: '+TL(total)+' · Yıllık kira geliri: '+TL(rent)+'</small></span></div>',rows};
+  });
+};
+function openPropertyUnit(id){
+  pgOpen(()=>{const units=syncPropertyUnits(),unit=units.find(u=>u.id===id);if(!unit)return{title:"MÜLK",rows:[]};
+    const number=units.filter(u=>u.name===unit.name).findIndex(u=>u.id===id)+1,x=ALLA.find(a=>a.n===unit.name),value=propertyValue(unit),repair=Math.max(500,Math.round(x.c*.12*(100-unit.condition)/100));
+    return{title:unit.name+" · "+number,intro:'<div class="row cur"><span class="ic">'+homeIcon(unit.name)+'</span><span class="tx"><b>'+esc(unit.name)+' · '+number+'</b><small>Durum %'+unit.condition+' · '+(unit.rented?'Kirada':'Boş')+'</small></span></div>',rows:[
+      {ic:"🔑",t:unit.rented?"Kiracıyı çıkar":"Kiraya ver",d:"Yıllık "+TL(propertyRent(unit)),f:()=>{
+        if(!syncPropertyUnits().some(u=>u.id===id))return;
+        if(!unit.rented&&unit.condition<30)return modal("Kiralama","Önce evi restore etmelisin.",[{t:"Kapat",p:1}]);
+        unit.rented=!unit.rented;updatePropertyRentFlags();line(unit.name+" · "+number+(unit.rented?" kiraya verildi.":" kiracısı çıkarıldı."),"good");render();pgDraw();
+      }},
+      {ic:"🛠️",t:"Restore et",d:unit.condition===100?"Mükemmel durumda":TL(repair),f:()=>{
+        if(unit.condition===100)return;
+        modal("Restore et","Bu evin bakım bedeli: "+TL(repair),[{t:"Restore et",p:1,f:()=>{
+          if(!syncPropertyUnits().some(u=>u.id===id))return;
+          if(S.p<repair)return modal("Restore et","Yeterli paran yok.",[{t:"Kapat",p:1}]);S.p-=repair;unit.condition=100;line(unit.name+" · "+number+" restore edildi.","good");render();pgDraw();
+        }},{t:"Kapat"}]);
+      }},
+      {ic:"🏷️",t:"Bu evi sat",d:TL(value),f:()=>modal("Evi sat","Yalnızca "+unit.name+" · "+number+" satılacak. Satış değeri: "+TL(value),[{t:"Sat",p:1,f:()=>{
+        if(!syncPropertyUnits().some(u=>u.id===id))return;
+        removeOneAsset(unit.name);S.propertyUnits=S.propertyUnits.filter(u=>u.id!==id);S.p+=value;
+        if(!assetCount(unit.name)){if(S.rent)delete S.rent[unit.name];if(S.cond)delete S.cond[unit.name]}
+        updatePropertyRentFlags();line(unit.name+" · "+number+" satıldı. (+"+TL(value)+")","gold");PG.pop();render();pgDraw();
+      }},{t:"Kapat"}])}
+    ]};
+  });
+}
+const pgOpenBeforePropertyUnits=pgOpen;
+pgOpen=function(builder){return pgOpenBeforePropertyUnits(()=>{const page=builder();
+  if(page.rows)page.rows.forEach(row=>{if(HOMES.includes(row.t))row.ic=homeIcon(row.t)});
+  if(page.title==="VARLIKLAR"&&!page.rows.some(row=>row.ic==="🗝️"))page.rows.unshift({ic:"🗝️",t:"Mülklerim",d:"Evlerini ayrı ayrı yönet",f:openMyAssets});
+  return page;
+})};
+function socialFame(){
+  const accounts=S&&S.socialMedia?Object.values(S.socialMedia):[];
+  const followers=accounts.reduce((sum,a)=>sum+Math.max(0,Number(a.followers)||0),0);
+  return Math.min(100,Math.round(Math.sqrt(followers/1000000)*100));
+}
+const renderBeforeFameBar=render;
+render=function(){
+  const result=renderBeforeFameBar();
+  if(!S||!S.socialMedia||!Object.keys(S.socialMedia).length)return result;
+  const fame=socialFame();S.fame=fame;
+  const row=document.createElement("div");row.className="sr fame";
+  row.innerHTML='<em>Şöhret</em><u>⭐</u><div class="sb"><b style="width:'+fame+'%"></b><span>'+fame+'%</span></div>';
+  $("bars").appendChild(row);return result;
+};
+const SOCIAL_POST_TYPES=[
+ {id:"daily",name:"📸 Günlük hayat",risk:.15,boost:1},
+ {id:"comedy",name:"😂 Eğlenceli paylaşım",risk:.22,boost:1.4},
+ {id:"tutorial",name:"💡 Bilgilendirici içerik",risk:.12,boost:1.1},
+ {id:"trend",name:"🔥 Trend / akım",risk:.28,boost:1.7},
+ {id:"opinion",name:"💬 Tartışmalı yorum",risk:.45,boost:2}
+];
+function socialPostTypes(id){
+  if(id==="lifefans")return[{id:"fanphoto",name:"📷 Fotoğraf paylaşımı",risk:.15,boost:1.2},{id:"fanvideo",name:"🎬 Özel video",risk:.2,boost:1.5},{id:"backstage",name:"✨ Kamera arkası",risk:.12,boost:1},{id:"fanlive",name:"🔴 Abonelere canlı yayın",risk:.25,boost:1.7}];
+  if(id==="lifehub")return[{id:"hubvideo",name:"🎬 Video yükle",risk:.23,boost:1.5},{id:"hubclip",name:"▶️ Kısa klip",risk:.18,boost:1.2},{id:"hubseries",name:"📺 Video serisi",risk:.27,boost:1.8},{id:"hubpreview",name:"🎞️ Tanıtım videosu",risk:.12,boost:1}];
+  return SOCIAL_POST_TYPES;
+}
+function socialAdultAccess(id){const platform=SOCIAL_PLATFORMS.find(p=>p.id===id);return !platform||!platform.adult||S.age>=18}
+function openSocialPostSettings(id){
+  const life=S,account=S.socialMedia&&S.socialMedia[id];if(!account||!socialAdultAccess(id)||S.dead)return;
+  const fans=id==="lifefans";
+  const options=fans?[{id:"subscribers",name:"Yalnızca aboneler"},{id:"public",name:"Herkese açık tanıtım"}]:[{id:"public",name:"Herkese açık"},{id:"unlisted",name:"Listelenmemiş video"}];
+  modal("Gönderi ayarları",fans?"Yeni paylaşımlarını kimler görebilsin?":"Yüklediğin videoların görünürlüğünü seç.",options.map(o=>({t:o.name,p:account.audience===o.id?1:0,f:()=>{
+    if(S!==life||S.dead||S.socialMedia[id]!==account)return;account.audience=o.id;render();pgDraw();modal("Gönderi ayarları",o.name+" seçildi.",[{t:"Kapat",p:1}]);
+  }})).concat([{t:"Vazgeç"}]));
+}
+function chooseSocialPost(id){
+  if(!socialAdultAccess(id))return;
+  const account=S.socialMedia&&S.socialMedia[id];if(!account||S.dead)return;
+  if(account.year!==S.age){account.year=S.age;account.yearPosts=0}
+  if(account.yearPosts>=3)return modal("İçerik paylaş","Bu yıl üç paylaşım yaptın. Gelecek yıl tekrar paylaşabilirsin.",[{t:"Kapat",p:1}]);
+  modal("İçerik paylaş","Nasıl bir gönderi paylaşmak istiyorsun? Paylaşımına gelen tepkiye göre takipçi kazanabilir veya kaybedebilirsin.",socialPostTypes(id).map(type=>({t:type.name,f:()=>publishSocialPost(id,type.id)})).concat([{t:"Vazgeç"}]));
+}
+function publishSocialPost(id,typeId){
+  const account=S.socialMedia&&S.socialMedia[id],type=socialPostTypes(id).find(t=>t.id===typeId),platform=SOCIAL_PLATFORMS.find(p=>p.id===id);
+  if(!account||!type||!platform||S.dead||!socialAdultAccess(id))return;
+  if(account.year!==S.age){account.year=S.age;account.yearPosts=0}
+  if(account.yearPosts>=3)return chooseSocialPost(id);
+  const privatePost=platform.adult&&((account.audience||(id==="lifefans"?"subscribers":"public"))!=="public");
+  account.posts++;account.yearPosts++;
+  const before=account.followers,negative=Math.random()<type.risk,viral=!negative&&Math.random()<.08;
+  let delta=negative?-Math.max(1,Math.round(before*(.02+Math.random()*.06))):Math.round((rnd(30,180)*(1+(S.g+S.z)/200)+before*(.02+Math.random()*.06))*type.boost*(viral?4:1));
+  if(privatePost&&delta>0)delta=Math.round(delta*.35);
+  if(id==="lifefans"&&delta>0)delta=Math.round(delta/(1+lifeFansMonthlyFee(account)/250));
+  account.followers=Math.max(0,before+delta);delta=account.followers-before;
+  apply({m:delta<0?-2:1});
+  const text=platform.name+" · "+type.name+"\n"+(viral?"Gönderin viral oldu! ":negative?"Paylaşımın beklediğin tepkiyi almadı. ":"Paylaşımın beğenildi. ")+(delta>0?delta.toLocaleString("tr-TR")+" "+platform.followersLabel.toLocaleLowerCase("tr-TR")+" kazandın.":delta<0?(-delta).toLocaleString("tr-TR")+" "+platform.followersLabel.toLocaleLowerCase("tr-TR")+" kaybettin.":platform.followersLabel+" sayın değişmedi.")+"\nToplam: "+account.followers.toLocaleString("tr-TR")+" "+platform.followersLabel.toLocaleLowerCase("tr-TR")+".";
+  line(text.replace(/\n/g," "),delta<0?"bad":"good");render();pgDraw();modal("Paylaşım sonucu",text,[{t:"Kapat",p:1}]);maybeSocialSponsorship(id);
+}
+function maybeSocialSponsorship(id){
+  const life=S,account=S.socialMedia&&S.socialMedia[id],platform=SOCIAL_PLATFORMS.find(p=>p.id===id);
+  if(!account||!platform||S.dead||S.age<18||account.followers<1000||S.brandOfferYear===S.age)return;
+  const chance=Math.min(.8,.2+Math.log10(account.followers/1000+1)*.18);if(Math.random()>=chance)return;
+  S.brandOfferYear=S.age;
+  const brand=R(["MaviRota Giyim","NovaTek","FreshUp","FitNova","Luna Bakım","PixelBox"]);
+  const fee=Math.round(Math.min(100000,500+account.followers*(.025+Math.random()*.025))*(CD[S.home]||CD["Türkiye"]).w);
+  const offer={brand,fee,year:S.age,status:"pending"};account.brandOffer=offer;
+  queueResultNotice("Marka iş birliği",brand+", "+platform.name+" hesabında reklam paylaşman için "+TL(fee)+" teklif ediyor. Kabul ediyor musun?",[
+    {t:"İş birliğini kabul et",p:1,f:()=>{
+      if(S!==life||S.dead||!S.socialMedia||S.socialMedia[id]!==account||offer.status!=="pending")return;
+      if(S.age!==offer.year){offer.status="expired";return modal("İş birliği","Bu teklifin süresi doldu.",[{t:"Kapat",p:1}])}
+      offer.status="accepted";S.p+=fee;account.posts++;
+      const text=brand+" iş birliğinden "+TL(fee)+" kazandın.";line(text,"gold");render();pgDraw();modal("İş birliği sonucu",text,[{t:"Kapat",p:1}]);
+    }},
+    {t:"Reddet",f:()=>{if(S!==life||offer.status!=="pending")return;offer.status="rejected";line(brand+" teklifini reddettin.");render()}}
+  ]);
+}
+function advanceSocialMedia(){
+  if(!S.socialMedia||S.dead||S.socialGrowthAge===S.age)return;
+  S.socialGrowthAge=S.age;const messages=[];
+  Object.entries(S.socialMedia).forEach(([id,account])=>{
+    const active=account.year===S.age-1?(account.yearPosts||0):0;
+    const before=account.followers;
+    let gain=Math.round(rnd(5,25)+active*rnd(15,60)+account.followers*(active?.04+Math.random()*.08:.01+Math.random()*.03));
+    if(id==="lifefans")gain=Math.round(gain/(1+lifeFansMonthlyFee(account)/250));
+    account.followers+=gain;account.year=S.age;account.yearPosts=0;
+    const platform=SOCIAL_PLATFORMS.find(p=>p.id===id);messages.push((platform?platform.name:id)+": +"+gain.toLocaleString("tr-TR")+" "+(platform?platform.followersLabel.toLocaleLowerCase("tr-TR"):"takipçi")+" · Toplam "+account.followers.toLocaleString("tr-TR"));
+    if(id==="lifefans"&&lifeFansMonthlyFee(account)>0&&S.age>=18){const income=Math.round((before+account.followers)/2*lifeFansMonthlyFee(account)*12*.8);S.p+=income;account.subscriptionIncome=income;messages.push("LifeFans abonelik geliri: +"+TL(income)+" (%20 komisyon sonrası)")}
+  });
+  if(messages.length){line("Sosyal medya: "+messages.join(" · "),"good");render()}
+  Object.keys(S.socialMedia).forEach(maybeSocialSponsorship);
+}
+const nextYearBeforeSocialGrowth=nextYear;
+nextYear=function(){const life=S,age=S&&S.age,result=nextYearBeforeSocialGrowth();if(S&&S===life&&!S.dead&&S.age>age){advanceSocialMedia();render()}return result};
+$("next").onclick=nextYear;
+const nextYearBeforePortfolioHistory=nextYear;
+nextYear=function(){recordPortfolioPoint();const life=S,age=S&&S.age,result=nextYearBeforePortfolioHistory();if(S&&S===life&&S.age>age)recordPortfolioPoint();return result};
 $("next").onclick=nextYear;
 // Automatically resume the latest life independently of manual save slots.
 const AUTO_KEY="hs_autosave";
