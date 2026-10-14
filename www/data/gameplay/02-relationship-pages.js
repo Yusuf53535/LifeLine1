@@ -61,7 +61,7 @@ function openRelationshipPerson(original) {
         if (limit && !useAnnualAction(key, limit)) return;
         const scroller = $("pg").querySelector(".ol"),
           position = scroller ? scroller.scrollTop : 0;
-        callback(person);
+        runResultBarAction(()=>callback(person), "İlişki sonucu");
         render();
         pgDraw();
         const fresh = $("pg").querySelector(".ol");
@@ -163,21 +163,22 @@ function openRelationshipPerson(original) {
           ),
         );
       }
-      if (!S.married && adult && S.age >= 20)
+      if (!S.married)
         rows.push(
-          action("💍", "Evlen", TL(400000) + " · En az %60 ilişki", "marry", (p) => {
-            if (p.b < 60 || S.p < 400000)
-              return modal(
-                "Evlen",
-                "İlişkiniz en az %60 olmalı ve düğün için yeterli paran bulunmalı.",
-                [{ t: "Kapat", p: 1 }],
-              );
+          action("💍", "Evlen", !adult || S.age < 20 ? "Evlenmek için 20 yaşında, partnerin de yetişkin olmalı" : TL(400000) + " · Kabul ihtimali ilişkinize bağlı", "marry", (p) => {
+            if (!adult || S.age < 20) return;
+            if (S.p < 400000)
+              return modal("Evlen", "Düğün için yeterli paran yok.", [{ t: "Kapat", p: 1 }]);
+            if (p.b < 60 && Math.random() >= Math.max(.05, cl(p.b) / 100)) {
+              line(p.n + " evlenme teklifini reddetti. İlişkinizi güçlendirip tekrar deneyebilirsin.", "bad");
+              return modal("Evlenme teklifi", p.n + " şu an evlenmeye hazır olmadığını söyledi.", [{ t: "Kapat", p: 1 }]);
+            }
             S.p -= 400000;
             S.married = true;
             p.b = cl(p.b + 10);
             apply({ m: 10 });
             line(p.n + " ile evlendiniz!", "good");
-          }),
+          }, !adult || S.age < 20),
         );
       rows.push(
         action("💔", "İlişkiyi bitir", "Ayrılmak istediğini söyle", "breakup", (p) =>

@@ -116,9 +116,9 @@ EV.push(
     c: [
       {
         t: "Sınava gir",
-        m: "Kaldın, bir daha deneyeceksin.",
-        w: [() => 0.4 + S.z / 200, "Ehliyeti ilk seferde aldın!", { m: 10, p: -15000 }],
-        fx: { m: -5, p: -15000 },
+        m: "Ehliyet sınavına başvuruyorsun.",
+        fx: {},
+        run: () => openDrivingExam(),
       },
       { t: "Sonra bakarım", m: "Sınavı erteledin.", fx: {} },
     ],

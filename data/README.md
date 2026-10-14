@@ -148,3 +148,16 @@ Türkiye futboluna Süper Lig eklendi (`05-futbol-ligleri.js`, `super`). Eski ka
 - `18-athlete-lifecycle.js`: Sakatlık ve yedeklik maç sayısını azaltır; sözleşme, yenileme, emeklilik ve antrenörlük.
 - `19-league-movement.js`: Tüm futbol/basketbol/voleybol liglerinde yükselme/düşme, yavaş kulüp gelişimi. Yeni kadrolar gelecek sezon uygulanır; takım sayıları korunur. Ülkeler arasında takım geçişi yoktur.
 - `20-connected-year.js`: Yeni sistemlerin yıllık akışı. Sözleşmesi yenilenmeyen oyuncu sonraki yıl ücret almadan takımından ayrılır.
+
+- `gameplay/21-parent-inheritance.js`: Anne/baba vefatında aile maddi durumuna ve doğduğu ülkeye göre nakit miras. Hayattaki ebeveyne %25, kalan çocuklara eşit pay; tek ödeme ve kayıt uyumluluğu. Tutarlar `INHERITANCE_BALANCE.ranges` ile düzenlenir.
+
+- `gameplay/22-military-career.js`: Askerlik sayfasında rütbe, hizmet süresi ve terfi ilerlemesi; rütbe basamakları ve yılda bir askerî eğitim. Rütbeler `careers/09-kariyer-rutbeleri.js` içinde, süre/performans şartları `careerPromotionRequirements()` ile belirlenir.
+
+
+- `gameplay/23-result-bars.js`: Sonuç pop-up’ında değişen özelliklerin barları, artış/azalış miktarı ve son yüzdesi.
+
+- `gameplay/24-driving-exam.js`: Altı kolay tabela/ışık sorusu, üç cevap, yerel SVG görseller. Ehliyet sınavı yılda bir, ücret 15.000; aktivite sayfasından tekrar denenebilir. Soru havuzu `DRIVING_EXAM_QUESTIONS`.
+
+- `gameplay/25-housing.js`: Üniversite sonrasında konut seçimi, kiralık odalar/daireler, depozito ve yıllık kira; konut yoksa sokakta kalma. `RENTAL_HOMES` fiyat/seçenekleri içerir.
+
+- `gameplay/26-school-and-peer-balance.js`: Okul/iş arkadaşlarının %70’i orta, %15’i iyi, %15’i düşük bağla başlar. İş arkadaşlığı yıllık değişimi -1/+1. Aile davetleri en az dört yıl arayla ve düşük olasılıkla gelir.

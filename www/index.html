@@ -257,6 +257,11 @@ nav button i{background:linear-gradient(145deg,rgba(255,255,255,.45),rgba(167,13
 .hr{height:1px;margin:0 0 0 48px;background:rgba(255,255,255,.18);position:relative}
 .hr{display:flex;align-items:center;justify-content:center;font-size:11px;color:#f0abfc;height:14px;background:none}
 .hr::before,.hr::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.18);margin:0 6px}
+
+
+.result-bars{padding:12px;margin:14px 0;border-radius:12px;background:rgba(166,128,220,.1);border:1px solid rgba(166,128,220,.25)}.result-bar{margin:0 0 12px}.result-bar:last-child{margin:0}.result-bar-head{display:flex;justify-content:space-between;align-items:center;font-size:13px;margin-bottom:7px}.result-bar-head strong{color:#54dfbe}.result-bar.loss strong{color:#ff7795}.result-bar-track{height:12px;position:relative;overflow:hidden;background:#35334c;border-radius:9px}.result-bar-fill{display:block;height:100%;border-radius:9px;transition:width .5s ease}.result-bar-change{position:absolute;top:0;height:100%;background:rgba(255,255,255,.45)}
+
+.driving-sign{display:flex;justify-content:center;margin:16px 0 20px;padding:18px;background:rgba(149,116,199,.08);border:1px solid rgba(149,116,199,.2);border-radius:14px}.driving-sign svg{width:130px;height:130px;filter:drop-shadow(0 5px 10px rgba(0,0,0,.2))}
 </style>
 
 <style>
@@ -646,7 +651,7 @@ function nextYear(){
   if(a>35)S.h=cl(S.h-rnd(0,Math.floor((a-30)/9)+1));
   if(a>40&&Math.random()<.5)S.g=cl(S.g-1);
   S.m=cl(S.m+rnd(-3,3));
-  S.people.forEach(q=>{if(q.dead)return;q.pa++;q.b=cl(q.b-rnd(0,4));
+  S.people.forEach(q=>{if(q.dead)return;q.pa++;q.b=cl(q.b+((S.cls||[]).includes(q)||(S.cw||[]).includes(q)?rnd(-1,1):-rnd(0,4)));
     if(q.pa>=68&&Math.random()<(q.pa-66)*.014){q.dead=true;q.died=a;const par=q.role==="Anne"||q.role==="Baba";S.m=cl(S.m-(par?15:8));line(q.n+" ("+q.role+") vefat etti. ("+(par?"-15":"-8")+" mutluluk)","bad")}});
   if(a===5)addPerson("En yakın arkadaş");
   if(a===7||(a>8&&Math.random()<.08))addPerson("Arkadaş");
@@ -663,7 +668,7 @@ function nextYear(){
     else if(av>=40&&Math.random()<.5){S.street=false;line("Ailen seni geri aldı.","gold")}
     else{apply({h:-6,m:-8,g:-3});line("Sokakta zor bir yıl geçirdin. (-6 sağlık, -8 mutluluk, -3 görünüm)","bad")}
   }
-  if(S.street&&a>=18&&(S.job||S.p>=300000)){S.street=false;line("Kendine kalacak bir yer buldun.","gold")}
+  if(S.street&&!S.housingRequired&&a>=18&&(S.job||S.p>=300000)){S.street=false;line("Kendine kalacak bir yer buldun.","gold")}
   // gelir/gider
   if(S.job){incomeSalary(S.job.s)}
   else if(a>=65){S.p+=Math.round(250000*wm());line("Emekli maaşı aldın: "+TL(250000*wm()),"gold")}
@@ -1323,7 +1328,7 @@ const DEPTS=[
 {id:"sanat",n:"Güzel Sanatlar",y:0,d:"Rahat bir bölüm, mutluluk artar"}];
 function mkClass(big){
   S.cls=[];
-  for(let i=big?rnd(18,24):rnd(12,18);i>0;i--){const f=Math.random()<.5;S.cls.push(Pn("Sınıf arkadaşı",FN(f)+" "+SN(),f?1:0,Math.max(5,S.age+rnd(-1,1)),rnd(15,35)))}
+  for(let i=big?rnd(18,24):rnd(12,18);i>0;i--){const f=Math.random()<.5;S.cls.push(Pn("Sınıf arkadaşı",FN(f)+" "+SN(),f?1:0,Math.max(5,S.age+rnd(-1,1)),peerStartingBond()))}
 }
 function pickDept(){
   S.uni=true;S.uniEnd=S.age+4;
@@ -2337,7 +2342,7 @@ const _pm2=partnerMenu;partnerMenu=function(){_pm2();if(S.partner)addJob(S.partn
 const _cm=classmate;classmate=function(q){_cm(q);if(q)addJob(q)};
 const _dr=drawRel;drawRel=function(){_dr();$("rls").querySelectorAll("[data-k]").forEach(e=>{const k=e.dataset.k,q=k==="partner"?S.partner:k[0]==="p"?S.people.find(x=>"p"+x.id===k):null;if(!q||q.dead)return;const s=e.querySelector("small");if(s)s.insertAdjacentText("afterbegin",pjob(q)+" · ")})};
 /* iş arkadaşları */
-const newCw=(role,job)=>{const f=Math.random()<.5,q=Pn(role,FN(f)+" "+SN(),f?1:0,role==="Patron"?rnd(35,62):rnd(22,58),rnd(10,40));q.jb=job;return q};
+const newCw=(role,job)=>{const f=Math.random()<.5,q=Pn(role,FN(f)+" "+SN(),f?1:0,role==="Patron"?rnd(35,62):rnd(22,58),peerStartingBond());q.jb=job;return q};
 function ensureCw(){
   if(!S.job){S.cw=[];S.cwJob=null;return}
   const j=rk(S.job);if(S.cwJob===j.b0&&S.cw&&S.cw.length)return;
@@ -2346,7 +2351,7 @@ function ensureCw(){
 }
 const _ny6=nextYear;nextYear=function(){const r=_ny6();
   if(S&&!S.dead){S.cw=S.cw||[];
-    S.cw.forEach(q=>{if(!(S.people||[]).includes(q)){q.pa++;q.b=cl(q.b-rnd(0,3))}});
+    S.cw.forEach(q=>{if(!(S.people||[]).includes(q)){q.pa++;q.b=cl(q.b+rnd(-1,1))}});
     S.cw=S.cw.filter(q=>q.role==="Patron"||(S.people||[]).includes(q)||Math.random()>.07);
     ensureCw();if(S.job&&S.cw.length<5)S.cw.push(newCw("İş arkadaşı",S.job.b0))}
   return r};
@@ -2747,10 +2752,10 @@ function showNextResultNotice(){
     resultNoticeScheduled=false;
     if(!S||S.dead){resultNotices=[];return}
     if($("modal").classList.contains("on"))return;
-    while(resultNotices.length){const notice=resultNotices.shift();if(notice.life!==S)continue;modal(notice.title,notice.text,notice.buttons||[{t:"Kapat",p:1}]);if(notice.contentHtml){const body=$("sheet").querySelector("p");if(body)body.outerHTML=notice.contentHtml}break}
+    while(resultNotices.length){const notice=resultNotices.shift();if(notice.life!==S)continue;modal(notice.title,notice.text,notice.buttons||[{t:"Kapat",p:1}]);if(notice.contentHtml){const body=$("sheet").querySelector("p");if(body)body.outerHTML=notice.contentHtml}drawResultBars(notice.statChanges);break}
   });
 }
-function queueResultNotice(title,text,buttons,contentHtml){resultNotices.push({life:S,title,text,buttons,contentHtml});showNextResultNotice()}
+function queueResultNotice(title,text,buttons,contentHtml,statChanges){resultNotices.push({life:S,title,text,buttons,contentHtml,statChanges:statChanges||currentResultChanges()});showNextResultNotice()}
 const modalBeforeResults=modal;
 modal=function(title,text,buttons){
   resultModalVersion++;
@@ -2761,13 +2766,17 @@ line=function(text,color){const result=lineBeforeResults(text,color);if(resultAc
 document.addEventListener("click",event=>{
   const button=event.target.closest("button");
   if(!button||button.id==="next")return;
-  const action={life:S,messages:[],version:resultModalVersion};resultAction=action;
+  const action={life:S,messages:[],version:resultModalVersion,before:resultStatSnapshot(S),noticeCount:resultNotices.length};resultAction=action;
   queueMicrotask(()=>{
     if(resultAction===action)resultAction=null;
-    if(action.life!==S||!S||S.dead||!action.messages.length)return;
+    if(action.life!==S||!S||S.dead)return;
+    const changes=resultStatChanges(action.before,S);
+    if(!action.messages.length&&!changes.length)return;
+    const pending=resultNotices.slice(action.noticeCount).find(n=>n.life===S);
+    if(pending){pending.statChanges=changes;return}
     // A newly opened popup already presents the result or the next required choice.
-    if(resultModalVersion!==action.version)return;
-    queueResultNotice("İşlem sonucu",action.messages.join("\n"));
+    if(resultModalVersion!==action.version){if(changes.length&&resultPopupHasOnlyCloseButton())drawResultBars(changes);return;}
+    queueResultNotice("İşlem sonucu",action.messages.join("\n")||"Özelliklerin değişti.",undefined,undefined,changes);
   });
 },true);
 const resultModalObserver=new MutationObserver(()=>showNextResultNotice());
@@ -2783,7 +2792,7 @@ nextYear=function(){
     const lost=alive.filter(p=>familyRoles.test(p.role)&&(S.people||[]).some(q=>q.id===p.id&&q.dead));
     if(lost.length)queueResultNotice("Ailenden birini kaybettin",lost.map(p=>p.name+" ("+p.role+") vefat etti.").join("\n"));
     [[6,"İlkokula başladın"],[10,"Ortaokula başladın"],[14,"Liseye başladın"]].forEach(([schoolAge,title])=>{if(age<schoolAge&&S.age>=schoolAge)queueResultNotice(title,"Yeni okul hayatın başladı! Eğitim bölümünden okulunu, sınıf arkadaşlarını ve aktivitelerini görebilirsin.")});
-    if(wasUniversity&&!S.uni&&S.grad)queueResultNotice("Üniversiteden mezun oldun",(department?department+" bölümünden mezun oldun! ":"Üniversiteden mezun oldun! ")+"Artık diplomanla yeni işlere başvurabilirsin.",[{t:"Kapat",p:1}]);
+    if(wasUniversity&&!S.uni&&S.grad)queueResultNotice("Üniversiteden mezun oldun",(department?department+" bölümünden mezun oldun! ":"Üniversiteden mezun oldun! ")+"Artık diplomanla yeni işlere başvurabilirsin.",[{t:"Meslek seç",p:1,f:()=>{if(S===life&&!S.dead)openOcc()}},{t:"Kapat"}]);
   }
   return result;
 };
@@ -2893,7 +2902,7 @@ function yearlyCost(nn){
   const parents=(S.people||[]).some(q=>!q.dead&&(q.role==="Anne"||q.role==="Baba"));
   if(S.street)add("temel yaşam",Math.min(budget*.16,36000*scale));
   else if(S.uni&&S.famPays)add("kişisel harcamalar",Math.min(budget*.10,12000*scale));
-  else if(S.age<25&&!S.married&&parents&&parAvg()>=40&&!owned){add("aile bütçesine katkı",budget*GAME_BALANCE.living.family);add("kişisel harcamalar",budget*GAME_BALANCE.living.personal)}
+  else if(!S.housingRequired&&S.age<25&&!S.married&&parents&&parAvg()>=40&&!owned){add("aile bütçesine katkı",budget*GAME_BALANCE.living.family);add("kişisel harcamalar",budget*GAME_BALANCE.living.personal)}
   else if(S.uni){add("öğrenci yurdu",budget*.18);add("yemek ve ulaşım",budget*.17)}
   else{
     if(!owned)add("barınma",budget*(S.married?GAME_BALANCE.living.marriedRent:GAME_BALANCE.living.rent));
@@ -3178,7 +3187,8 @@ openMyAssets=function(){
   pgOpen(()=>{
     const units=syncPropertyUnits(),others=S.assets.filter(n=>!HOMES.includes(n)),counts={};
     const total=units.reduce((sum,u)=>sum+propertyValue(u),0),rent=units.filter(u=>u.rented).reduce((sum,u)=>sum+propertyRent(u),0);
-    const rows=units.map(unit=>{const number=counts[unit.name]=(counts[unit.name]||0)+1;return{ic:homeIcon(unit.name),t:unit.name+" · "+number,d:"Durum %"+unit.condition+" · Değer "+TL(propertyValue(unit))+" · "+(unit.rented?"Kirada":"Boş"),f:()=>openPropertyUnit(unit.id)}});
+    const orderedUnits=units.map(unit=>({unit,number:counts[unit.name]=(counts[unit.name]||0)+1})).sort((a,b)=>propertyValue(b.unit)-propertyValue(a.unit));
+    const rows=orderedUnits.map(({unit,number})=>{return{ic:homeIcon(unit.name),t:unit.name+" · "+number,d:"Durum %"+unit.condition+" · Değer "+TL(propertyValue(unit))+" · "+(unit.rented?"Kirada":"Boş"),f:()=>openPropertyUnit(unit.id)}});
     others.forEach(name=>{const x=ALLA.find(a=>a.n===name);if(x)rows.push({ic:"🚗",t:name,d:"Değer "+TL(x.c),f:()=>typeof openOwned==="function"?openOwned(name):null})});
     return{title:"MÜLKLERİM",intro:'<div class="row cur"><span class="ic">🗝️</span><span class="tx"><b>'+units.length+' ev</b><small>Evlerin satış değeri: '+TL(total)+' · Yıllık kira geliri: '+TL(rent)+'</small></span></div>',rows};
   });
@@ -3335,6 +3345,12 @@ $("next").onclick=nextYear;
 <script src="data/gameplay/18-athlete-lifecycle.js"></script>
 <script src="data/gameplay/19-league-movement.js"></script>
 <script src="data/gameplay/20-connected-year.js"></script>
+<script src="data/gameplay/21-parent-inheritance.js"></script>
+<script src="data/gameplay/22-military-career.js"></script>
+<script src="data/gameplay/23-result-bars.js"></script>
+<script src="data/gameplay/24-driving-exam.js"></script>
+<script src="data/gameplay/25-housing.js"></script>
+<script src="data/gameplay/26-school-and-peer-balance.js"></script>
 <script>
 // Automatically resume the latest life independently of manual save slots.
 const AUTO_KEY="hs_autosave";

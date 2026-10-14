@@ -9,10 +9,11 @@ function milit() {
       sub: "Yıllık " + TL(400000 * wm()) + " · Sağlık ve görünüm artar",
       f: () => {
         if (!canStartCareer()) return;
-        S.job = { n: "Asker", s: Math.round(400000 * wm()), mil: 1 };
+        S.job = { n: "Er", b0: "Asker", career: { base: "Asker", years: 0, rankYears: 0, level: 0, lastAge: S.age }, s: Math.round(400000 * wm()), mil: 1 };
         S.perf = 50;
         apply({ h: 4, g: 2, m: -3 });
-        line("Orduya katıldın.", "gold");
+        line("Orduya Er rütbesiyle katıldın.", "gold");
+        queueResultNotice("Orduya katıldın", "İlk rütben: Er. Askerî eğitimle performansını artır; hizmet süresi ve performans şartlarını tamamlayınca terfi alacaksın.", [{t:"Kapat",p:1}]);
         render();
       },
     },
