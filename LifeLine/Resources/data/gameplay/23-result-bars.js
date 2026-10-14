@@ -1,5 +1,5 @@
 // Sonuç pop-up'ındaki gerçek değişimler; seçim ekranlarına bar eklenmez.
-const RESULT_BAR_FIELDS=[['m','Mutluluk','😊','#b38aee'],['h','Sağlık','❤️','#f56f99'],['z','Zekâ','🧠','#74b4ff'],['g','Görünüm','✨','#ffd464']];
+const RESULT_BAR_FIELDS=[['m','Mutluluk','😊','#e4a650'],['h','Sağlık','❤️','#f56f99'],['z','Zekâ','🧠','#60c78a'],['g','Görünüm','✨','#ffd464']];
 function resultStatSnapshot(life){
  if(!life)return null;
  const snapshot=Object.fromEntries(RESULT_BAR_FIELDS.map(([key])=>[key,Number(life[key])||0]));
@@ -10,7 +10,7 @@ function resultStatSnapshot(life){
 function resultStatChanges(before,life){
  if(!before||!life)return[];
  const rows=RESULT_BAR_FIELDS.map(([key,label,icon,color])=>({key,label,icon,color,before:before[key],after:Number(life[key])||0,delta:(Number(life[key])||0)-before[key]})).filter(row=>row.delta);
- for(const bond of before.bonds||[]){const person=bond.partner?life.partner:(life.people||[]).find(p=>p===bond.person||(bond.id!==undefined&&p.id===bond.id));if(!person||person.dead||bond.partner&&person!==bond.person)continue;const after=Number(person.b)||0,delta=after-bond.before;if(delta)rows.push({key:'bond',label:'İlişki · '+person.n,icon:'💜',color:'#b38aee',before:bond.before,after,delta})}
+ for(const bond of before.bonds||[]){const person=bond.partner?life.partner:(life.people||[]).find(p=>p===bond.person||(bond.id!==undefined&&p.id===bond.id));if(!person||person.dead||bond.partner&&person!==bond.person)continue;const after=Number(person.b)||0,delta=after-bond.before;if(delta)rows.push({key:'bond',label:'İlişki · '+person.n,icon:'❤️',color:'#e4a650',before:bond.before,after,delta})}
  return rows;
 }
 let resultApplyBefore=null,resultApplyLife=null;
