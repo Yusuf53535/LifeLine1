@@ -287,7 +287,7 @@ EV.push(
     d: "Boğazın yanıyor, ateşin çıkmış.",
     c: [
       { t: "Yat dinlen", m: "İki gün dinlendin, iyileştin.", fx: { h: 4, m: -1 } },
-      { t: "Aldırma", m: "İşe gittin, hastalığın uzadı.", fx: { h: -6, m: -1 } },
+      { t: "Aldırma", m: "Dinlenmeden günlük işlerine devam ettin, hastalığın uzadı.", fx: { h: -6, m: -1 } },
     ],
   },
   {

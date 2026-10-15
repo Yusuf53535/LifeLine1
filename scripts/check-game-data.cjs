@@ -86,6 +86,31 @@ function loadGame(directory) {
     vm.runInContext(source, context, { filename });
     count++;
   }
+  // Yaş sınırları ve arkadaş olaylarının tekrar koruması gerçek oyun koduyla sınanır.
+  vm.runInContext(`(()=>{
+    const previous=S;
+    const verify=(ok,message)=>{if(!ok)throw new Error(message)};
+    try{
+      for(let age=0;age<=100;age++){
+        S={age,people:[],recentFriendEvents:[]};
+        for(const ev of EV)if(eventAllowedForAge(ev,age))verify(age>=ev.a[0]&&age<=ev.a[1],'Olay yaş sınırı: '+ev.t);
+        const p={n:'Deniz',pa:age,b:50,role:'Arkadaş'};S.people=[p];
+        const options=friendshipEventOptions(p);
+        if(age<5){verify(!options.length,'Bebeklikte arkadaş olayı');continue}
+        verify(options.length>=4,'Arkadaş olay çeşitliliği yetersiz: '+age);
+        for(const event of options)verify(age>=event.a[0]&&age<=event.a[1],'Arkadaş yaş aralığı');
+        const ids=[];
+        for(let n=0;n<4;n++)ids.push(pickFriendshipEvent(p).id);
+        verify(new Set(ids).size===4,'Arkadaş olayı erken tekrarladı');
+      }
+      S={age:8};verify(!friendshipEventOptions({pa:30}).length,'Çocuk yetişkin arkadaş olayı');
+      S={age:30};verify(!friendshipEventOptions({pa:8}).length,'Yetişkin çocuk arkadaş olayı');
+      const adult={a:[18,60],c:[{fx:{m:1}}]};
+      verify(!eventAllowedForAge(adult,8),'Doğrudan yetişkin olayı');
+      verify(!eventAllowedForAge({c:[]},8),'Yaş tanımı olmayan yetişkin olayı');
+      verify(eventAllowedForAge(adult,18),'Yetişkin olayı engellendi');
+    }finally{S=previous}
+  })()`,context);
   const state = vm.runInContext(
     "JSON.stringify({events:EV.map(e=>({title:e.t,ages:e.a,choices:e.c.map(c=>c.t)})),jobs:JOBS,part:PART,sports:SPORTS,football:FOOTBALL_LEAGUES,teams:TEAM_SPORT_LEAGUES})",
     context,

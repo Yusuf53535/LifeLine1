@@ -416,20 +416,22 @@ button:focus-visible{outline-color:#baa0ee}
 #log::-webkit-scrollbar{display:none;width:0;height:0}
 </style>
 <style id="job-cards-style">
-.job-hero{position:relative;padding:22px 20px;margin:0 0 16px;border-radius:20px;border:1px solid #8565b8;background:radial-gradient(ellipse at 100% 0%,rgba(168,115,231,.2),transparent 65%),linear-gradient(135deg,#34304f,#20283e);box-shadow:0 8px 22px rgba(0,0,0,.18),inset 0 1px 0 rgba(223,197,255,.12)}
+.job-hero{position:relative;padding:22px 20px;margin:0 0 16px;border-radius:20px;border:1px solid var(--line);background:var(--card);box-shadow:none}
 .job-hero-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-.job-hero-icon{display:grid;place-items:center;flex:none;width:58px;height:58px;font-size:31px;border-radius:17px;background:#45345f;border:1px solid #75588f}
-.job-hero-label{font-size:10px;font-weight:700;letter-spacing:1.5px;color:#b69bdc;margin-bottom:5px}
-.job-hero h3{margin:0;font-size:24px;line-height:1.25;letter-spacing:-.5px;color:#f0eaff;overflow-wrap:anywhere}
+.job-hero-icon{display:grid;place-items:center;flex:none;width:58px;height:58px;font-size:31px;border-radius:17px;background:var(--bg);border:1px solid var(--ac)}
+.job-hero-label{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--ac);margin-bottom:5px}
+.job-hero h3{margin:0;font-size:24px;line-height:1.25;letter-spacing:-.5px;color:var(--ink);overflow-wrap:anywhere}
 .job-hero-facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:15px}
-.job-hero-facts>div{padding:12px;border-radius:12px;background:rgba(12,17,32,.3);border:1px solid rgba(156,131,193,.15)}
-.job-hero-facts small{display:block;font-size:11px;color:#b3acca;margin-bottom:4px}.job-hero-facts strong{font-size:17px;color:#dcd1ef}.job-hero-facts>div:last-child strong{color:#54ddc0}
-.job-performance{display:flex;justify-content:space-between;font-size:11px;color:#bdb0d9;margin-bottom:7px}
-.job-hero .pf{height:8px;background:#403956;margin:0;border-radius:8px}.job-hero .pf i{background:linear-gradient(90deg,#9670d6,#c39afa);border-radius:8px}
-#pg .ol:has(.job-hero)>.row{padding:14px;margin-bottom:9px;border-radius:14px;background:linear-gradient(110deg,#232b40,#1b2437);border-color:#343d56;box-shadow:none}
-#pg .ol:has(.job-hero)>.row .ic{width:40px;height:40px;border-radius:12px;background:#35304e;border-color:#55436e;font-size:21px}
-#pg .ol:has(.job-hero)>.row .tx b{font-size:15px;color:#e1d8f2}#pg .ol:has(.job-hero)>.row small{font-size:12px;line-height:1.4;margin-top:4px}
+.job-hero-facts>div{padding:12px;border-radius:12px;background:var(--bg);border:1px solid var(--line)}
+.job-hero-facts small{display:block;font-size:11px;color:var(--mut);margin-bottom:4px}.job-hero-facts strong{font-size:17px;color:var(--ink)}.job-hero-facts>div:last-child strong{color:var(--gold)}
+.job-performance{display:flex;justify-content:space-between;font-size:11px;color:var(--mut);margin-bottom:7px}
+#pg .job-hero .pf{height:8px;background:var(--line);margin:0;border-radius:8px}#pg .job-hero .pf i{background:var(--gold);border-radius:8px}
+#pg .ol:has(.job-hero)>.row{padding:14px;margin-bottom:9px;border-radius:14px;background:var(--card);border:1px solid var(--line);box-shadow:none}
+#pg .ol:has(.job-hero)>.row .ic{width:40px;height:40px;border-radius:12px;background:var(--bg);border-color:var(--line);font-size:21px}
+#pg .ol:has(.job-hero)>.row .tx b{font-size:15px;color:var(--ink)}#pg .ol:has(.job-hero)>.row small{font-size:12px;line-height:1.4;margin-top:4px}
 @media(max-width:360px){.job-hero{padding:18px 14px}.job-hero h3{font-size:21px}.job-hero-facts strong{font-size:14px}}
+#pg .ol:has(.job-hero)>.row small{color:var(--mut)}
+#pg .ol:has(.job-hero)>.row:active{background:var(--bg);border-color:var(--ac)}
 </style>
 <style id="fame-bar-style">
 #bars .sr.fame .sb b{background:linear-gradient(90deg,#e49335,#ffd475)!important}
@@ -741,6 +743,8 @@ function modal(title,text,btns){
   $("modal").classList.add("on");
 }
 function eventAllowedForAge(ev,age){
+  const range=ev.a||[18,120];
+  if(age<range[0]||age>range[1]||ev.adultOnly&&age<18)return false;
   if(age>=18)return true;
   return !ev.worldEvent&&!ev.costsMoney&&!ev.c.some(c=>(c.fx&&c.fx.p<0)||(c.w&&c.w[2]&&c.w[2].p<0));
 }
@@ -1746,14 +1750,16 @@ const kidsU=()=>(S.people||[]).filter(x=>!x.dead&&(x.role==="Oğul"||x.role==="K
 function askOut(q){
   if(S.partner)return modal(q.n,"Zaten bir ilişkin var. Önce ilişkiyi bitirmelisin.",OK);
   if(!okG(q.f))return modal(q.n,"Bu kişi cinsel yönelimine uygun değil. Yönelimini Aktiviteler > Kimlik bölümünden değiştirebilirsin.",OK);
-  if(q.b<40){q.b=cl(q.b-3);apply({m:-2});line(q.n+" ile aranız iyi olmadığı için teklifini kabul etmedi. Önce ilişkinizi geliştir. (-2 mutluluk)","bad")}else if(Math.random()<.25+S.g/250+q.b/200){
+  let message;
+  if(q.b<40){q.b=cl(q.b-3);apply({m:-2});line(message=q.n+" ile aranız iyi olmadığı için teklifini kabul etmedi. Önce ilişkinizi geliştir. (-2 mutluluk)","bad")}else if(Math.random()<.25+S.g/250+q.b/200){
     S.partner={n:q.n,b:cl(Math.max(55,q.b)),f:q.f,pa:q.pa,from:q.id};
     S.people=S.people.filter(x=>x!==q);
-    apply({m:8});line(q.n+" teklifini kabul etti, çıkmaya başladınız! (+8 mutluluk)","gold");
+    apply({m:8});line(message=q.n+" teklifini kabul etti, çıkmaya başladınız! (+8 mutluluk)","gold");
   }else{
-    q.b=cl(q.b-8);apply({m:-2});line(q.n+" teklifini kabul etmedi. (-2 mutluluk, bağ azaldı)","bad");
+    q.b=cl(q.b-8);apply({m:-2});line(message=q.n+" teklifini kabul etmedi. (-2 mutluluk, bağ azaldı)","bad");
   }
   render();
+  modal(S.partner&&S.partner.from===q.id?"Çıkmaya başladınız!":"Teklifini kabul etmedi",message,[{t:"Tamam",p:1}]);
 }
 let SNAP=[];
 const _start=start;start=function(o){SNAP=[];LG=0;return _start(o)};
@@ -2902,7 +2908,7 @@ document.addEventListener("click",event=>{
     if(pending){pending.statChanges=changes;return}
     // A newly opened popup already presents the result or the next required choice.
     if(resultModalVersion!==action.version){if(changes.length&&resultPopupHasOnlyCloseButton())drawResultBars(changes);return;}
-    queueResultNotice("İşlem sonucu",action.messages.join("\n")||"Özelliklerin değişti.",undefined,undefined,changes);
+    queueResultNotice("Hayatından bir an",action.messages.join("\n")||"Günün nasıl geçtiğine bir göz at.",undefined,undefined,changes);
   });
 },true);
 const resultModalObserver=new MutationObserver(()=>showNextResultNotice());
